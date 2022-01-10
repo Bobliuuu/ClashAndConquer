@@ -18,12 +18,12 @@ public class MyWorld extends World
     public MyWorld()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(610, 420, 1); 
+        super(900, 600, 1); 
         
         myCastle = new TextButton("Castle", 15, false, new Font ("Verdana", false , false , 30));
         enemyCastle = new TextButton("Enemy", 15, false, new Font ("Verdana", false , false , 30));
         
-        addObject(myCastle, 305, 386);
-        addObject(enemyCastle, 305, 34);
+        //addObject(myCastle, 305, 386);
+        //addObject(enemyCastle, 305, 34);
     }
 }
