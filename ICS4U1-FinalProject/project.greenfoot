@@ -1,15 +1,15 @@
 #Greenfoot project file
-class.MyWorld.image=Background.jpg
+class.MyWorld.image=Level1.jpg
 dependency1.from=MyWorld
 dependency1.to=TextButton
 dependency1.type=UsesDependency
 dependency2.from=TextButton
 dependency2.to=SuperTextBox
 dependency2.type=UsesDependency
-editor.fx.0.height=1093
-editor.fx.0.width=1933
-editor.fx.0.x=-6
-editor.fx.0.y=-6
+editor.fx.0.height=735
+editor.fx.0.width=813
+editor.fx.0.x=553
+editor.fx.0.y=115
 height=1093
 package.numDependencies=2
 package.numTargets=5
