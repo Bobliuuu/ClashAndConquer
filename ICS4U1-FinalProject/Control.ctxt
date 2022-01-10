@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Control
+comment0.text=\r\n\ A\ superclass\ for\ control\ objects\ -\ UI\ items.\r\n\ \r\n\ This\ allows\ (a)\ all\ control\ objects\ to\ be\ processed\ together\ regardless\ of\ type\ and\ (b)\ button\r\n\ can\ be\ set\ to\ display\ another\ image\ when\ moused-over.\ (mouseOver\ is\ used\ as\ a\ variable\ within\r\n\ the\ subclass\ controls\ in\ order\ to\ control\ this).\r\n\ \r\n\ Credit\:\ Thanks\ to\ the\ legendary\ Danpost\ for\ the\ simple\ yet\ effective\ mouseover\ highlight\ code.\r\n\ \r\n\ @author\ Jordan\ Cohen\r\n\ @version\ v0.6.5\r\n
+comment1.params=
+comment1.target=void\ update()
+comment2.params=
+comment2.target=Control()
+comment3.params=
+comment3.target=void\ act()
+comment3.text=\r\n\ Act\ -\ do\ whatever\ the\ Control\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment4.params=w
+comment4.target=void\ addedToWorld(greenfoot.World)
+comment5.params=
+comment5.target=void\ highlight()
+comment6.params=font\ text
+comment6.target=int\ getStringWidth(greenfoot.Font,\ java.lang.String)
+comment6.text=\r\n\ <h3>Mr.\ Cohen's\ Text\ Centering\ Algorithm</h3>\r\n\ \r\n\ <p>Get\ the\ Width\ of\ a\ String,\ if\ it\ was\ printed\ out\ using\ the\ drawString\ command\ in\ a\ particular\r\n\ Font.</p>\r\n\ <p>There\ is\ a\ performance\ cost\ to\ this,\ although\ it\ is\ more\ significant\ on\ the\ Gallery,\ and\ \r\n\ especially\ on\ the\ Gallery\ when\ browsed\ on\ a\ mobile\ device.\ It\ is\ appropriate\ to\ call\ this\ in\ the\ \r\n\ constructor,\ and\ in\ most\ cases\ it\ is\ ideal\ NOT\ to\ call\ it\ from\ an\ act\ method,\ especially\r\n\ every\ act.</p>\r\n\ \r\n\ <p>In\ cases\ where\ values\ are\ pre-determined,\ it\ may\ be\ ideal\ to\ cache\ the\ values\ (save\ them)\ so\ \r\n\ you\ don't\ have\ to\ run\ this\ repeatedly\ on\ the\ same\ text.\ If\ you\ do\ this\ in\ the\ World\ constructor,\r\n\ there\ is\ no\ performance\ cost\ while\ running.</p>\r\n\ \r\n\ <h3>Performance\ &\ Compatibility\:</h3>\r\n\ <ul>\r\n\ \ <li>\ Locally,\ performance\ should\ be\ sufficient\ on\ any\ moderate\ computer\ (average\ call\ 0.1-0.2ms\ on\ my\ laptop)</li>\r\n\ \ <li>\ To\ be\ compatible\ with\ Greenfoot\ Gallery,\ removed\ use\ of\ getAwtImage()\ and\ replaced\ with\ getColorAt()\ on\ a\ GreenfootImage</li>\r\n\ \ <li>\ On\ Gallery,\ performance\ is\ about\ 10x\ slower\ than\ locally\ (4ms\ on\ Gallery\ via\ Computer).\ For\ reference,\ an\ act()\ should\ be\r\n\ \ \ \ \ \ \ less\ than\ 16.6ms\ to\ maintain\ 60\ frames/acts\ per\ second.\ </li>\r\n\ \ <li>\ HUGE\ performance\ drop\ on\ Gallery\ via\ Mobile\ devices\ -\ not\ sure\ why,\ going\ to\ ignore\ for\ now.\ (Average\ update\ duration\ 34ms,\ more\r\n\ \ \ \ \ \ \ than\ 2\ optimal\ acts)</li>\r\n\ </ul>\r\n\ \r\n\ @param\ font\ the\ GreenFoot.Font\ which\ is\ being\ used\ to\ draw\ text\r\n\ @param\ text\ the\ actual\ text\ to\ be\ drawn\r\n\ @return\ int\ \ the\ width\ of\ the\ String\ text\ as\ draw\ in\ Font\ font,\ in\ pixels.\r\n\ \r\n\ @since\ June\ 2021\r\n\ @version\ December\ 2021\ -\ Even\ more\ Efficiency\ Improvement\ -\ sub\ 0.06ms\ per\ update\ on\ setSpeed(100)\!\r\n
+numComments=7
