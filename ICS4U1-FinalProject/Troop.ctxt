@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Troop
+comment0.text=\n\ Write\ a\ description\ of\ class\ Troop\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=health\ attack\ defense\ movementSpeed\ attackSpeed
+comment1.target=Troop(int,\ int,\ int,\ double,\ double)
+comment10.params=
+comment10.target=void\ findNextTarget()
+comment11.params=a1\ a2
+comment11.target=double\ findDistanceBetween(greenfoot.Actor,\ greenfoot.Actor)
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ attack()
+comment4.params=
+comment4.target=void\ defend()
+comment5.params=speed
+comment5.target=void\ setMovementSpeed(double)
+comment6.params=speed
+comment6.target=void\ setAttackSpeed(double)
+comment7.params=attack
+comment7.target=void\ setAttack(int)
+comment8.params=defense
+comment8.target=void\ setDefense(int)
+comment9.params=health
+comment9.target=void\ setHealth(int)
+numComments=12
