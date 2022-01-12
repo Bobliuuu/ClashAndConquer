@@ -12,6 +12,7 @@ public class Castle extends Building
 {
     // Instance variables
     private boolean isEnemy;
+    private GreenfootImage image;
     
     /**
      * Default constructor for the castle class
@@ -22,9 +23,11 @@ public class Castle extends Building
         this.isEnemy = isEnemy;
         if (isEnemy){
             setImage("enemytower.png");
+            image = new GreenfootImage("enemytower.png");
         }
         else {
             setImage("mytower.png");
+            image = new GreenfootImage("mytower.png");
         }
         getImage().scale(150, 150);
     }
@@ -40,9 +43,11 @@ public class Castle extends Building
         this.isEnemy = isEnemy;
         if (isEnemy){
             setImage("enemytower.png");
+            image = new GreenfootImage("enemytower.png");
         }
         else {
             setImage("mytower.png");
+            image = new GreenfootImage("mytower.png");
         }
         getImage().scale(width, height);
     }

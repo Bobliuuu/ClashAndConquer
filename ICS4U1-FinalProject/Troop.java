@@ -23,6 +23,11 @@ public abstract class Troop extends SuperSmoothMover
         this.defense = defense;
         this.movementSpeed = movementSpeed;
         this.attackSpeed = attackSpeed;
+        getPath();
+    }
+    
+    public void getPath(){
+        
     }
     
     public void act()
