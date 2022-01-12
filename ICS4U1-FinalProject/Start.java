@@ -39,6 +39,7 @@ public class Start extends World
         //addObject(myCastle, 305, 386);
         //addObject(enemyCastle, 305, 34);
     }
+    
     public void act(){
         checkHover();
         checkClick();
