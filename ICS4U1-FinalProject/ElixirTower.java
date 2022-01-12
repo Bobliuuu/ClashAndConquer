@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GoldMine extends Building
+public class ElixirTower extends Building
 {
     /**
      * Act - do whatever the GoldMine wants to do. This method is called whenever
