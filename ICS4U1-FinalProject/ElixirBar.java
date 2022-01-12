@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ElixirBar extends Actor
 {
-    private final double MAX_ELIXIR = 20.005;
+    private final double MAX_ELIXIR = 20.01;
     private double elixir;
     private double elixirSpeed;
     private int size;
@@ -46,7 +46,6 @@ public class ElixirBar extends Actor
         if (elixir + elixirSpeed <= MAX_ELIXIR){
             elixir += elixirSpeed;
         }
-        System.out.println(elixir);
     }
     
     public void useElixir(int amount)
