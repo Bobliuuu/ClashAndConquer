@@ -39,7 +39,7 @@ public class Level extends World
         myCastle = new Castle(false);
         addObject(myCastle, 400, 680);
         
-        enemyCastle = new Castle(true, 130, 130);
+        enemyCastle = new Castle(true, 130, 130, 200);
         addObject(enemyCastle, 400, 100);
         
         elixir = new Image(new GreenfootImage("elixirbar.png"));
