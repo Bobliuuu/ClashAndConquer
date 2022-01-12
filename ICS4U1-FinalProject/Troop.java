@@ -4,14 +4,18 @@ import java.util.ArrayList;
 /**
  * Write a description of class Troop here.
  * 
- * @author (your name) 
+ * @author Matthew Gong, Jerry Zhu
  * @version (a version number or a date)
  */
 public abstract class Troop extends SuperSmoothMover
 {
-    protected int health, attack, defense;
-    protected double movementSpeed, attackSpeed;
+    protected int health;
+    protected int attack;
+    protected int defense;
+    protected double movementSpeed;
+    protected double attackSpeed;
     protected Actor target;
+    protected ArrayList<Coordinate> path;
     
     public Troop(int health, int attack, int defense, double movementSpeed, double attackSpeed){
         this.health = health;

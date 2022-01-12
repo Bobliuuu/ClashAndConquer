@@ -1,22 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Projectile here.
+ * Write a description of class Knight here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Projectile extends SuperSmoothMover
+public class Knight extends Troop
 {
-    //Instance variables
-    protected int damage;
-    protected double speed;
+    public Knight(){
+        super(100, 10, 0, 5, 3);
+    }
     /**
-     * Act - do whatever the Projectile wants to do. This method is called whenever
+     * Act - do whatever the Knight wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
         // Add your action code here.
+    }
+    
+    public void attack(){
+        
+    }
+    public void defend(){
+        
     }
 }
