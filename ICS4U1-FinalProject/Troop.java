@@ -12,6 +12,7 @@ public abstract class Troop extends SuperSmoothMover
     protected int health;
     protected int attack;
     protected int defense;
+    protected int statusLength;
     protected double movementSpeed;
     protected double attackSpeed;
     protected boolean isEnemy;
@@ -25,6 +26,7 @@ public abstract class Troop extends SuperSmoothMover
         this.movementSpeed = movementSpeed;
         this.attackSpeed = attackSpeed;
         this.isEnemy = isEnemy;
+        statusLength = 0;
         getPath();
     }
     
@@ -36,6 +38,10 @@ public abstract class Troop extends SuperSmoothMover
     {
         turnTowards(target.getX(), target.getY());
         move(movementSpeed);
+        if(statusLength != 0) statusLength--;
+        else{
+            // reset limits
+        }
     }
     
     public abstract void attack();
@@ -74,6 +80,27 @@ public abstract class Troop extends SuperSmoothMover
                 closest = findDistanceBetween(this, a);
                 target = a;
             }
+        }
+    }
+    
+    public void getHit(int dmg, String status){
+        health -= dmg;
+        
+        // apply different effects depending on status
+        switch(status){
+            default:
+                // nothing
+            case "Slow":
+                movementSpeed /= 2;
+                attackSpeed /= 2;
+                statusLength = 100;
+            case "Frozen":
+                // stopped temporarily
+        }
+        
+        // check if health has dropped to zero
+        if(health <= 0){
+            getWorld().removeObject(this);
         }
     }
     
