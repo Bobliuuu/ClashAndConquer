@@ -1,14 +1,16 @@
 #BlueJ class context
 comment0.target=Troop
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Troop\ here.\r\n\ \r\n\ @author\ Matthew\ Gong,\ Jerry\ Zhu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Troop\ here.\n\ \n\ @author\ Matthew\ Gong,\ Jerry\ Zhu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=health\ attack\ defense\ movementSpeed\ attackSpeed\ isEnemy
 comment1.target=Troop(int,\ int,\ int,\ double,\ double,\ boolean)
 comment10.params=health
 comment10.target=void\ setHealth(int)
 comment11.params=
-comment11.target=void\ findNextTarget()
-comment12.params=a1\ a2
-comment12.target=double\ findDistanceBetween(greenfoot.Actor,\ greenfoot.Actor)
+comment11.target=boolean\ enemy()
+comment12.params=
+comment12.target=void\ findNextTarget()
+comment13.params=a1\ a2
+comment13.target=double\ findDistanceBetween(greenfoot.Actor,\ greenfoot.Actor)
 comment2.params=
 comment2.target=void\ getPath()
 comment3.params=
@@ -25,4 +27,4 @@ comment8.params=attack
 comment8.target=void\ setAttack(int)
 comment9.params=defense
 comment9.target=void\ setDefense(int)
-numComments=13
+numComments=14
