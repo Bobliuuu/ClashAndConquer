@@ -10,6 +10,7 @@ public class Knight extends Troop
 {
     public Knight(){
         super(100, 10, 0, 5, 3, true);
+        setImage("Troops/Knight/knightmove0.png");
     }
     /**
      * Act - do whatever the Knight wants to do. This method is called whenever
