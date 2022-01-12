@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Image
+comment0.text=\r\n\ Image\ Class\r\n\ <p>\r\n\ An\ class\ that\ holds\ a\ static\ image\ that\ can\ be\ added\ and\ removed.\ \r\n\ It\ is\ also\ used\ to\ set\ the\ paint\ order\ and\ transparency.\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
+comment1.params=image
+comment1.target=Image(greenfoot.GreenfootImage)
+comment1.text=\r\n\ Default\ constructor\ of\ class\ Image\r\n\ \r\n\ @param\ image\ \ \ \ \ \ \ \ \ The\ desired\ image\ to\ add.\ \r\n
+comment2.params=transparency
+comment2.target=void\ setTransparency(int)
+comment2.text=\r\n\ Set\ the\ transparency\ of\ the\ image.\r\n\ \r\n\ @param\ transparency\ \ \ The\ transparency\ of\ the\ image.\ \r\n
+comment3.params=
+comment3.target=int\ getTransparency()
+comment3.text=\r\n\ Get\ the\ transparency\ of\ the\ image.\r\n\ \r\n\ return\ int\ \ \ \ \ \ \ \ \ \ \ \ The\ transparency\ of\ the\ image.\ \r\n
+numComments=4

@@ -9,12 +9,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, and Greenfoot)
  * @author Michael Kolling
  * @author Neil Brown
  * 
- * @version 3.0
+ * @version 3.0jc -- Modified by Jordan Cohen (added rotation and turnTowards functionality)
+ * 
  */
-public abstract class SmoothMover extends Actor
+public abstract class SuperSmoothMover extends Actor
 {
     private double exactX;
     private double exactY;
+    private double rotation;
 
     /**
      * Move forward by the specified distance.
@@ -35,6 +37,23 @@ public abstract class SmoothMover extends Actor
         double dx = Math.cos(radians) * distance;
         double dy = Math.sin(radians) * distance;
         setLocation(exactX + dx, exactY + dy);
+    }
+    
+    public void setRotation (double rotation){
+        this.rotation = rotation;
+        super.setRotation ((int)(rotation + 0.5));
+    }
+    
+    @Override
+    public void setRotation (int rotation){
+        this.rotation = rotation;
+        super.setRotation(rotation);
+    }
+    
+    @Override
+    public void turnTowards (int x, int y){
+        setRotation( Math.toDegrees(Math.atan2(y - getY() , x - getX())));
+
     }
     
     /**
