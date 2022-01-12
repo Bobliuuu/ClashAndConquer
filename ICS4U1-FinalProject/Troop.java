@@ -14,15 +14,17 @@ public abstract class Troop extends SuperSmoothMover
     protected int defense;
     protected double movementSpeed;
     protected double attackSpeed;
+    protected boolean isEnemy;
     protected Actor target;
     protected ArrayList<Coordinate> path;
     
-    public Troop(int health, int attack, int defense, double movementSpeed, double attackSpeed){
+    public Troop(int health, int attack, int defense, double movementSpeed, double attackSpeed, boolean isEnemy){
         this.health = health;
         this.attack = attack;
         this.defense = defense;
         this.movementSpeed = movementSpeed;
         this.attackSpeed = attackSpeed;
+        this.isEnemy = isEnemy;
         getPath();
     }
     

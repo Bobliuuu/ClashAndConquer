@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Knight extends Troop
 {
     public Knight(){
-        super(100, 10, 0, 5, 3);
+        super(100, 10, 0, 5, 3, true);
     }
     /**
      * Act - do whatever the Knight wants to do. This method is called whenever

@@ -13,12 +13,18 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level extends World
 {
-    // Instance varaibles
+    // Hardcoded variables
+    private final int[][] cardCoordinates = {{50, 760}, {150, 760}, {650, 760}, {753, 760}};
+    
+    // Instance variables
     private Image levelMap;
     private Image elixir;
     private Castle myCastle;
     private Castle enemyCastle;
     private ElixirBar elixirBar;
+    private RedZone redZone;
+    private CardDeck cardDeck;
+    private boolean keyPressed;
     
     /**
      * Level world constructor
@@ -41,9 +47,41 @@ public class Level extends World
 
         elixirBar = new ElixirBar();
         addObject(elixirBar, 400, 770);
+        
+        redZone = new RedZone();
+        addObject(redZone, 400, 190);
+        
+        cardDeck = new CardDeck();
+        for (int i = 0; i < 4; i++){
+            addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
+        }
     }
     
     public void act(){
+        //checkMousePosition();
+        checkMouseClick();
         elixirBar.addElixir();
+    }
+    
+    public void checkMousePosition(){
+        if (Greenfoot.mouseClicked(levelMap)){
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            System.out.println(mouse.getX() + " " + mouse.getY());
+        }
+    }
+    
+    public void checkMouseClick(){
+        if (Greenfoot.mouseClicked(levelMap)){
+            redZone.setToNone();
+        }
+    }
+    
+    public void changeRedZone(boolean mouseClicked){
+        if (mouseClicked){
+            redZone.setToRedZone();
+        }
+        else {
+            redZone.setToNone();
+        }
     }
 }
