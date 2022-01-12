@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Start
+comment0.text=\r\n\ Start\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
+comment1.params=
+comment1.target=Start()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyWorld.\r\n\ \r\n
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ checkHover()
+comment4.params=
+comment4.target=void\ checkClick()
+numComments=5

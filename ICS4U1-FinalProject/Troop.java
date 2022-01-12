@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class Troop extends SmoothMover
+public abstract class Troop extends SuperSmoothMover
 {
     protected int health, attack, defense;
     protected double movementSpeed, attackSpeed;
