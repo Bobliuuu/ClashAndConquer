@@ -18,6 +18,7 @@ public class Rectangle extends Control
     private int borderThickness;
     private Color color;
     private Color borderColor;
+    private int rotation;
     
     /**
      * Basic constructor to create a color button
@@ -53,7 +54,7 @@ public class Rectangle extends Control
      * 
      * @author Jerry Zhu
      */
-    public Rectangle(Color color, int width, int height){
+    public Rectangle(Color color, int width, int height, int rotation){
         this.color = color;
         this.width = width;
         this.height = height;
@@ -69,6 +70,8 @@ public class Rectangle extends Control
         mouseOver = false;
         clickable = true;
         setImage(image);
+        this.rotation = rotation;
+        setRotation(rotation);
     } 
     
     /**
@@ -81,7 +84,7 @@ public class Rectangle extends Control
      * 
      * @author Jerry Zhu
      */
-    public Rectangle(Color color, int width, int height, boolean isClickable){
+    public Rectangle(Color color, int width, int height, boolean isClickable, int rotation){
         this.color = color;
         this.width = width;
         this.height = height;
@@ -97,6 +100,8 @@ public class Rectangle extends Control
         mouseOver = false;
         clickable = isClickable;
         setImage(image);
+        this.rotation = rotation;
+        setRotation(rotation);
     } 
     
     /**
@@ -110,7 +115,7 @@ public class Rectangle extends Control
      * 
      * @author Jerry Zhu
      */
-    public Rectangle(Color color, int width, int height, int borderThickness, boolean isClickable){
+    public Rectangle(Color color, int width, int height, int borderThickness, boolean isClickable, int rotation){
         this.color = color;
         this.width = width;
         this.height = height;
@@ -125,6 +130,8 @@ public class Rectangle extends Control
         mouseOver = false;
         clickable = isClickable;
         setImage(image);
+        this.rotation = rotation;
+        setRotation(rotation);
     } 
     
     /**
@@ -139,7 +146,7 @@ public class Rectangle extends Control
      * 
      * @author Jerry Zhu, Matthew Gong
      */
-    public Rectangle(Color color, int width, int height, int borderThickness, boolean isClickable, boolean transparent){
+    public Rectangle(Color color, int width, int height, int borderThickness, boolean isClickable, boolean transparent, int rotation){
         this.color = color;
         this.width = width;
         this.height = height;
@@ -156,6 +163,8 @@ public class Rectangle extends Control
         mouseOver = false;
         clickable = isClickable;
         setImage(image);
+        this.rotation = rotation;
+        setRotation(rotation);
     } 
     
     /**
@@ -172,7 +181,7 @@ public class Rectangle extends Control
      * 
      * @author Jerry Zhu
      */
-    public Rectangle(Color color, int width, int height, int borderThickness, Color borderColor, boolean isClickable, boolean transparent){
+    public Rectangle(Color color, int width, int height, int borderThickness, Color borderColor, boolean isClickable, boolean transparent, int rotation){
         this.color = color;
         this.width = width;
         this.height = height;
@@ -186,6 +195,8 @@ public class Rectangle extends Control
         mouseOver = false;
         clickable = isClickable;
         setImage(image);
+        this.rotation = rotation;
+        setRotation(rotation);
     } 
     
     /**
