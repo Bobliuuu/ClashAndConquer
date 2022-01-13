@@ -85,7 +85,7 @@ public class Level extends World
                 Greenfoot.getMouseInfo().getY() >= 400 && Greenfoot.getMouseInfo().getY() <= 620){
                 removeObject(unplacedTroop);
                 unplacedTroop = new Image();
-                Image placedTroop = new Image(new GreenfootImage("Troops/Knight/knightmove0.png"));
+                Knight placedTroop = new Knight();
                 addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                 redZone.setToNone();
                 setTroopSelected("none");
