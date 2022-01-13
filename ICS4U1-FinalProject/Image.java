@@ -12,13 +12,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Image extends Actor
 {
     private int transparency;
+    private GreenfootImage image;
+    private boolean isEmpty;
+    
+    public Image(){
+        isEmpty = true;
+    }
+    
     /**
      * Default constructor of class Image
      * 
      * @param image         The desired image to add. 
      */
     public Image(GreenfootImage image) {
-        //Set the image
+        isEmpty = false;
+        this.image = image;
         setImage(image);
     }
     
@@ -39,5 +47,21 @@ public class Image extends Actor
      */
     public int getTransparency(){
         return transparency;
+    }
+    
+    public GreenfootImage getImage(){
+        return image;
+    }
+    
+    public boolean getEmpty(){
+        return isEmpty;
+    }
+    
+    public boolean intersectsCard(){
+        return getOneObjectAtOffset(0, 0, Card.class) != null;
+    }
+    
+    public String getCardName(){
+        return ((Card)getOneObjectAtOffset(0, 0, Card.class)).getCardName();
     }
 }

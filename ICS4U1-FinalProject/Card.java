@@ -11,9 +11,10 @@ public class Card extends Actor
     private GreenfootImage image;
     private String cardName;
     
-    public Card(String imageName){
-        image = new GreenfootImage("Cards/" + imageName + "card.png");
+    public Card(String cardName){
+        image = new GreenfootImage("Cards/" + cardName + "card.png");
         setImage(image);
+        this.cardName = cardName;
     }
     
     /**
@@ -25,15 +26,16 @@ public class Card extends Actor
         checkClick();
     }
     
-    public void changeImage(String imageName){
-        setImage("Cards/" + imageName + "card.png");
-    }
-    
     public void checkClick(){
         Level level = (Level)getWorld();
-        if (Greenfoot.mouseClicked(this)){
+        if (Greenfoot.mouseClicked(this) && cardName != "blank"){
             level.changeRedZone(true);
+            level.setTroopSelected(cardName);
         }
+    }
+    
+    public void changeImage(String imageName){
+        setImage("Cards/" + imageName + "card.png");
     }
     
     public String getCardName(){

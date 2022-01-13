@@ -1,15 +1,15 @@
 #BlueJ class context
 comment0.target=Card
-comment0.text=\n\ Write\ a\ description\ of\ class\ Card\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=imageName
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Card\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=cardName
 comment1.target=Card(java.lang.String)
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ Act\ -\ do\ whatever\ the\ Card\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-comment3.params=imageName
-comment3.target=void\ changeImage(java.lang.String)
-comment4.params=
-comment4.target=void\ checkClick()
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Card\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment3.params=
+comment3.target=void\ checkClick()
+comment4.params=imageName
+comment4.target=void\ changeImage(java.lang.String)
 comment5.params=
 comment5.target=java.lang.String\ getCardName()
 numComments=6
