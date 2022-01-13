@@ -31,13 +31,7 @@ public class CardDeck extends Actor
      */
     public void act()
     {
-        checkClick();    
-    }
-    
-    public void checkClick(){
-        if (Greenfoot.mouseClicked(this)){
-            ((Level)getWorld()).changeRedZone(true);
-        }
+        
     }
     
     public Card getCardAtIndex(int idx){

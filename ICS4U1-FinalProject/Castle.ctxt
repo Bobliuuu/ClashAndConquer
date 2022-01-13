@@ -1,21 +1,20 @@
 #BlueJ class context
 comment0.target=Castle
-comment0.text=\n\ Castle\ Class\n\ <p>\n\ A\ subclass\ of\ the\ building\ superclass.\ A\ castle\ is\ the\ primary\ target\ of\ every\ level.\ \n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Castle\ Class\r\n\ <p>\r\n\ A\ subclass\ of\ the\ building\ superclass.\ A\ castle\ is\ the\ primary\ target\ of\ every\ level.\ \r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=isEnemy
 comment1.target=Castle(boolean)
-comment1.text=\n\ Default\ constructor\ for\ the\ castle\ class\n\ \n\ @param\ isEnemy\ \ \ \ Whether\ the\ castle\ belongs\ to\ the\ enemy\ or\ not\n
+comment1.text=\r\n\ Default\ constructor\ for\ the\ castle\ class\r\n\ \r\n\ @param\ isEnemy\ \ \ \ Whether\ the\ castle\ belongs\ to\ the\ enemy\ or\ not\r\n
 comment2.params=isEnemy\ width\ height\ radius
 comment2.target=Castle(boolean,\ int,\ int,\ double)
-comment2.text=\n\ Similar\ to\ above,\ but\ with\ the\ ability\ to\ customize\ width\ and\ height\ of\ castle\ and\ radius\ of\ attack\n\ \n\ @param\ isEnemy\ \ \ \ Whether\ the\ castle\ belongs\ to\ the\ enemy\ or\ not\n\ @param\ length\ \ \ \ \ The\ desired\ width\ of\ the\ castle\n\ @param\ width\ \ \ \ \ \ The\ desired\ height\ of\ the\ castle\n\ @param\ radius\ \ \ \ \ Attack\ radius\ of\ the\ castle\n
+comment2.text=\r\n\ Similar\ to\ above,\ but\ with\ the\ ability\ to\ customize\ width\ and\ height\ of\ castle\ and\ radius\ of\ attack\r\n\ \r\n\ @param\ isEnemy\ \ \ \ Whether\ the\ castle\ belongs\ to\ the\ enemy\ or\ not\r\n\ @param\ width\ \ \ \ \ \ The\ desired\ width\ of\ the\ castle\r\n\ @param\ height\ \ \ \ \ The\ desired\ height\ of\ the\ castle\r\n\ @param\ radius\ \ \ \ \ Attack\ radius\ of\ the\ castle\r\n
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\n\ Act\ -\ do\ whatever\ the\ Castle\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment4.params=
 comment4.target=void\ checkForEnemy()
-comment4.text=\n\ Finds\ the\ closest\ Troop\ that\ belong\ to\ the\ enemy\ within\ its\ radius\n
+comment4.text=\r\n\ Finds\ the\ closest\ Troop\ that\ belong\ to\ the\ enemy\ within\ its\ radius\r\n
 comment5.params=
 comment5.target=void\ attack()
-comment5.text=\n\ Summons\ a\ projectile\ to\ attack\ the\ nearest\ enemy,\ if\ one\ is\ available\n
+comment5.text=\r\n\ Summons\ a\ projectile\ to\ attack\ the\ nearest\ enemy,\ if\ one\ is\ available\r\n
 comment6.params=a1\ a2
 comment6.target=double\ findDistanceBetween(greenfoot.Actor,\ greenfoot.Actor)
 numComments=7
