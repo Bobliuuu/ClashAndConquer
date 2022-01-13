@@ -31,7 +31,7 @@ public abstract class Troop extends SuperSmoothMover
         this.radius = radius;
         this.isEnemy = isEnemy;
         this.isAttacking = false;
-        statusLength = 0;
+        this.statusLength = 0;
     }
     
     protected void addedToWorld(World world){
@@ -112,8 +112,28 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
-    public abstract void attack();
+    public void attack(){
+        attackAnimate();
+        if (getAttackCounter() == 40){
+            if (target instanceof Troop){
+                ((Troop)target).subtractHealth(10);
+            }
+            else if (target instanceof Building){
+                ((Building)target).subtractHealth(10);
+            }
+        }
+    }
+    
+    public void subtractHealth(int value){
+        health -= value;
+        if (health <= 0){
+            ((Level)getWorld()).removeObject(this);
+        }
+    }
+    
     public abstract void animate();
+    public abstract void attackAnimate();
+    public abstract int getAttackCounter();
     
     public void setMovementSpeed(double speed){
         this.movementSpeed = speed;

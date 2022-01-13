@@ -83,12 +83,14 @@ public class Level extends World
             }
             if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
                 Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 620){
-                removeObject(unplacedTroop);
-                unplacedTroop = new Image();
-                Knight placedTroop = new Knight();
-                addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                redZone.setToNone();
-                setTroopSelected("none");
+                if (elixirBar.useElixir(5)){
+                    removeObject(unplacedTroop);
+                    unplacedTroop = new Image();
+                    Knight placedTroop = new Knight();
+                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    redZone.setToNone();
+                    setTroopSelected("none");
+                }
             }
         }
     }

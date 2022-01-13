@@ -23,6 +23,7 @@ public class Castle extends Building
      */
     public Castle(boolean isEnemy){
         this.isEnemy = isEnemy;
+        this.health = 1000;
         if (isEnemy){
             setImage("enemytower.png");
             image = new GreenfootImage("enemytower.png");
@@ -47,6 +48,7 @@ public class Castle extends Building
     public Castle(boolean isEnemy, int width, int height, double radius){
         this.isEnemy = isEnemy;
         this.attackRadius = radius;
+        this.health = 1000;
         if (isEnemy){
             setImage("enemytower.png");
             image = new GreenfootImage("enemytower.png");
