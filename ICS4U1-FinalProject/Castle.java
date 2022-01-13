@@ -76,13 +76,16 @@ public class Castle extends Building
      * Finds the closest Troop that belong to the enemy within its radius
      */
     private void checkForEnemy(){
+        currentTarget = null;
         ArrayList<Troop> possible = (ArrayList<Troop>)getWorld().getObjects(Troop.class);
         double closestDistance = 900;
-        
         for(Troop curr : possible){
+            if (curr.enemy() == isEnemy){
+                continue;
+            }
             double dis = findDistanceBetween(curr, this);
             if(dis <= attackRadius){
-                if(dis < closestDistance && curr.enemy() != isEnemy){
+                if(dis < closestDistance){
                     closestDistance = dis;
                     currentTarget = curr;
                 }
