@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Coordinates: 
  * Bridges: (127, 385), (673, 385), (398, 385)
  * End of road: (397, 170):
- * Road turns: (128,590), (674, 590) [my side], (128, 170), (672, 170)
+ * Road turns: (128, 590), (674, 590) [my side], (128, 170), (672, 170)
  * 
  * @author Jerry Zhu
  * @version January 2022
