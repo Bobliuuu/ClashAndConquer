@@ -10,14 +10,12 @@ import java.util.ArrayList;
  * @version (a version number or a date)
  */
 public class Castle extends Building
-{
-    // Instance variables
-    private boolean isEnemy;
-    private GreenfootImage image;
+{   
+    private int attack;
     private Troop currentTarget;
     private double attackRadius;
+    private GreenfootImage image;
     private int cooldown;
-    
     /**
      * Default constructor for the castle class
      * 
