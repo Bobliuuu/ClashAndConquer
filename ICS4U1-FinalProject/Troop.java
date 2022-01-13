@@ -159,6 +159,10 @@ public abstract class Troop extends SuperSmoothMover
         return isAttacking;
     }
     
+    public void setEnemy(boolean isEnemy){
+        this.isEnemy = isEnemy;
+    }
+    
     private void findNextTarget(){
         ArrayList<Actor> possible = (ArrayList<Actor>)getWorld().getObjects(Actor.class);
         double closest = 900;

@@ -8,12 +8,25 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EnemyAI extends Actor
 {
+    private int countdown = 100;
     /**
      * Act - do whatever the EnemyAI wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()
     {
-        // Add your action code here.
+        tryToSpawn(400, 200);
+    }
+    
+    private void tryToSpawn(int x, int y){
+        if(countdown == 0){
+            Knight current = new Knight();
+            current.setEnemy(true);
+            getWorld().addObject(current, x, y);
+            countdown = 100;
+        }
+        else{
+            countdown--;
+        }
     }
 }
