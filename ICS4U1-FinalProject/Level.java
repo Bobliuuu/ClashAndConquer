@@ -82,7 +82,7 @@ public class Level extends World
                 setTroopSelected(unplacedTroop.getCardName());
             }
             if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                Greenfoot.getMouseInfo().getY() >= 400 && Greenfoot.getMouseInfo().getY() <= 620){
+                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 620){
                 removeObject(unplacedTroop);
                 unplacedTroop = new Image();
                 Knight placedTroop = new Knight();
@@ -109,7 +109,7 @@ public class Level extends World
         }
         troopIsSelected = true;
         troopSelected = cardName;
-        unplacedTroop = new Image(new GreenfootImage("Troops/Knight/" + cardName + "move0.png"));
+        unplacedTroop = new Image(new GreenfootImage("Troops/Knight/" + cardName + "Move0.png"));
         unplacedTroop.setTransparency(100);
         addObject(unplacedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
     }

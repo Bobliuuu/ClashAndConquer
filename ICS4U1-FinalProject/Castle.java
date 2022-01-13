@@ -98,7 +98,7 @@ public class Castle extends Building
      */
     private void attack(){
         if(currentTarget != null){
-            getWorld().addObject(new Projectile(10, 10, currentTarget), getX(), getY());
+            getWorld().addObject(new Projectile(10, 8, currentTarget), getX(), getY());
             cooldown = 40;
         }
     }
