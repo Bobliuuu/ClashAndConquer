@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Troop
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Troop\ here.\r\n\ \r\n\ @author\ Matthew\ Gong,\ Jerry\ Zhu\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ Troop\ here.\n\ \n\ @author\ Matthew\ Gong,\ Jerry\ Zhu\n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=health\ attack\ defense\ movementSpeed\ attackSpeed\ isEnemy
 comment1.target=Troop(int,\ int,\ int,\ double,\ double,\ boolean)
 comment10.params=health

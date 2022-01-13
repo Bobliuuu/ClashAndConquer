@@ -19,14 +19,12 @@ public class Level extends World
     // Instance variables
     private Image levelMap;
     private Image elixir;
-    private Image unplacedTroop;
     private Castle myCastle;
     private Castle enemyCastle;
     private ElixirBar elixirBar;
     private RedZone redZone;
     private CardDeck cardDeck;
-    private boolean troopIsSelected;
-    private String troopSelected;
+    private boolean keyPressed;
     
     /**
      * Level world constructor
@@ -38,7 +36,7 @@ public class Level extends World
         levelMap = new Image(new GreenfootImage("background.png"));
         addObject(levelMap, getWidth()/2, getHeight()/2);
         
-        myCastle = new Castle(false, 150, 150, 200);
+        myCastle = new Castle(false);
         addObject(myCastle, 400, 680);
         
         enemyCastle = new Castle(true, 130, 130, 200);
@@ -57,61 +55,25 @@ public class Level extends World
         for (int i = 0; i < 4; i++){
             addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
         }
-        
-        troopIsSelected = false;
-        troopSelected = "none";
-        unplacedTroop = new Image();
     }
     
     public void act(){
         //checkMousePosition();
         checkMouseClick();
-        moveUnplacedTroop();
         elixirBar.addElixir();
     }
     
     public void checkMousePosition(){
         if (Greenfoot.mouseClicked(levelMap)){
-            System.out.println(Greenfoot.getMouseInfo().getX() + " " + Greenfoot.getMouseInfo().getY());
+            MouseInfo mouse = Greenfoot.getMouseInfo();
+            System.out.println(mouse.getX() + " " + mouse.getY());
         }
     }
     
     public void checkMouseClick(){
-        if (Greenfoot.mouseClicked(unplacedTroop) && Greenfoot.getMouseInfo() != null){
-            if (unplacedTroop.intersectsCard()){
-                setTroopSelected(unplacedTroop.getCardName());
-            }
-            if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                Greenfoot.getMouseInfo().getY() >= 400 && Greenfoot.getMouseInfo().getY() <= 620){
-                removeObject(unplacedTroop);
-                unplacedTroop = new Image();
-                Knight placedTroop = new Knight();
-                addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                redZone.setToNone();
-                setTroopSelected("none");
-            }
+        if (Greenfoot.mouseClicked(levelMap)){
+            redZone.setToNone();
         }
-    }
-    
-    public void moveUnplacedTroop(){
-        if (!unplacedTroop.getEmpty()){
-            if (Greenfoot.getMouseInfo() != null){
-                unplacedTroop.setLocation(Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-            }
-        }
-    }
-    
-    public void setTroopSelected(String cardName){
-        if (cardName == "none"){
-            troopIsSelected = false;
-            troopSelected = "none";
-            return;
-        }
-        troopIsSelected = true;
-        troopSelected = cardName;
-        unplacedTroop = new Image(new GreenfootImage("Troops/Knight/" + cardName + "move0.png"));
-        unplacedTroop.setTransparency(100);
-        addObject(unplacedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
     }
     
     public void changeRedZone(boolean mouseClicked){

@@ -1,22 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Card Class 
- * <p>
- * Class that controls each card in the deck on the bottom
+ * Write a description of class Card here.
  * 
- * @author Jerry Zhu
- * @version January 2022
+ * @author (your name) 
+ * @version (a version number or a date)
  */
 public class Card extends Actor
 {
     private GreenfootImage image;
     private String cardName;
     
-    public Card(String cardName){
-        image = new GreenfootImage("Cards/" + cardName + "card.png");
+    public Card(String imageName){
+        image = new GreenfootImage("Cards/" + imageName + "card.png");
         setImage(image);
-        this.cardName = cardName;
     }
     
     /**
@@ -28,16 +25,15 @@ public class Card extends Actor
         checkClick();
     }
     
-    public void checkClick(){
-        Level level = (Level)getWorld();
-        if (Greenfoot.mouseClicked(this) && cardName != "blank"){
-            level.changeRedZone(true);
-            level.setTroopSelected(cardName);
-        }
-    }
-    
     public void changeImage(String imageName){
         setImage("Cards/" + imageName + "card.png");
+    }
+    
+    public void checkClick(){
+        Level level = (Level)getWorld();
+        if (Greenfoot.mouseClicked(this)){
+            level.changeRedZone(true);
+        }
     }
     
     public String getCardName(){

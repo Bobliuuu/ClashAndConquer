@@ -34,15 +34,16 @@ public class Castle extends Building
             image = new GreenfootImage("mytower.png");
         }
         getImage().scale(150, 150);
-        
+        attackRadius = 200;
+        cooldown = 0;
     }
     
     /**
      * Similar to above, but with the ability to customize width and height of castle and radius of attack
      * 
      * @param isEnemy    Whether the castle belongs to the enemy or not
-     * @param width      The desired width of the castle
-     * @param height     The desired height of the castle
+     * @param length     The desired width of the castle
+     * @param width      The desired height of the castle
      * @param radius     Attack radius of the castle
      */
     public Castle(boolean isEnemy, int width, int height, double radius){
@@ -60,19 +61,24 @@ public class Castle extends Building
         cooldown = 0;
     }
     
+    /**
+     * Act - do whatever the Castle wants to do. This method is called whenever
+     * the 'Act' or 'Run' button gets pressed in the environment.
+     */
     public void act()
     {
         checkForEnemy();
         if(cooldown != 0) cooldown--;
         else attack();
     }
-
+    
     /**
      * Finds the closest Troop that belong to the enemy within its radius
      */
     private void checkForEnemy(){
-        ArrayList<Troop> possible = (ArrayList<Troop>) ((Level)getWorld()).getObjects(Troop.class);
+        ArrayList<Troop> possible = (ArrayList<Troop>)getWorld().getObjects(Troop.class);
         double closestDistance = 900;
+        
         for(Troop curr : possible){
             double dis = findDistanceBetween(curr, this);
             if(dis <= attackRadius){
@@ -83,12 +89,12 @@ public class Castle extends Building
             }
         }
     }
-
+    
     /**
      * Summons a projectile to attack the nearest enemy, if one is available
      */
     private void attack(){
-        if(currentTarget != null){  
+        if(currentTarget != null){
             getWorld().addObject(new Projectile(10, 10, currentTarget), getX(), getY());
             cooldown = 40;
         }
