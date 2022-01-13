@@ -34,7 +34,8 @@ public class Projectile extends SuperSmoothMover
     private void checkForHit(){
         if(this.intersects(target)){
             // deal damage to target here
-            getWorld().removeObject(this);
+            ((Level)getWorld()).removeObject(this);
+            ((Troop)target).subtractHealth(10);
         }
     }
 }

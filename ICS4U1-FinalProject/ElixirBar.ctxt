@@ -10,5 +10,5 @@ comment3.target=void\ changeSize()
 comment4.params=
 comment4.target=void\ addElixir()
 comment5.params=amount
-comment5.target=void\ useElixir(int)
+comment5.target=boolean\ useElixir(int)
 numComments=6

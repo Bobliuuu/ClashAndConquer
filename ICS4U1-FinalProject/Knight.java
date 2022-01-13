@@ -35,11 +35,15 @@ public class Knight extends Troop
         setImage(animations[animationCount / 4]);
     }
     
-    public void attack(){
+    public void attackAnimate(){
         attackCount++;
         if (attackCount == 48){
             attackCount = 0;
         }
         setImage(attack[attackCount / 4]);
+    }
+    
+    public int getAttackCounter(){
+        return attackCount;
     }
 }

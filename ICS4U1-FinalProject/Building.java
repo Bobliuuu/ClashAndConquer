@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Building extends SuperSmoothMover
 {
     // Instance variables
+    protected int health;
     protected boolean isEnemy;
     /**
      * Act - do whatever the Building wants to do. This method is called whenever
@@ -17,5 +18,12 @@ public class Building extends SuperSmoothMover
     public void act()
     {
         // Add your action code here.
+    }
+    
+    public void subtractHealth(int value){
+        health -= value;
+        if (health <= 0){
+            ((Level)getWorld()).removeObject(this);
+        }
     }
 }

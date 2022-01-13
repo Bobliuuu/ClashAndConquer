@@ -48,11 +48,13 @@ public class ElixirBar extends Actor
         }
     }
     
-    public void useElixir(int amount)
+    public boolean useElixir(int amount)
     {
         if(elixir >= amount){
             elixir -= amount;
+            return true;
         }
+        return false;
     }
 }
 
