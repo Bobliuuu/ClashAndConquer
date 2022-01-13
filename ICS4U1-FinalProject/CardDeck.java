@@ -15,13 +15,13 @@ public class CardDeck extends Actor
     
     public CardDeck(){
         cards = new ArrayList <Card> ();
-        tempCard = new Card("knight");
+        tempCard = new Card("Knight");
         cards.add(tempCard);
         for (int i = 0; i < 2; i++){
-            tempCard = new Card("blank");
+            tempCard = new Card("Blank");
             cards.add(tempCard);
         }
-        tempCard = new Card("knight");
+        tempCard = new Card("Knight");
         cards.add(tempCard);
     }
     

@@ -50,19 +50,21 @@ public abstract class Troop extends SuperSmoothMover
         path.add(new Coordinate(bridges[closestBridge][0], bridges[closestBridge][1]));
         if (closestBridge == 0){
             path.add(new Coordinate(130, 170));
-            path.add(new Coordinate(370, 170));
         }
-        else if (closestBridge == 1){
-            path.add(new Coordinate(397, 165));
-        }
-        else {
+        else if (closestBridge == 2){
             path.add(new Coordinate(670, 170));
-            path.add(new Coordinate(420, 170));
         }
+        path.add(new Coordinate(400, 100));
     }
     
     public void act()
     {
+        animate();
+        moveTowardTroop();
+        checkStatus();
+    }
+    
+    public void moveTowardTroop(){
         // Check if target exists 
         ArrayList <Troop> troops = (ArrayList <Troop>) getWorld().getObjects(Troop.class);
         target = null;
@@ -74,20 +76,19 @@ public abstract class Troop extends SuperSmoothMover
                 }
             }
         }
-        if (path.isEmpty()){
+        if (findDistanceBetween(400, 100) <= 100){
             attack();
         }
         else {
             if (target != null){ //target exists
-                turnTowards(target.getX(), target.getY());
+                //turnTowards(target.getX(), target.getY());
             }
             else {
                 if (Math.abs(this.getX() - path.peek().getX()) <= 2 * movementSpeed && 
                     Math.abs(this.getY() - path.peek().getY()) <= 2 * movementSpeed){
                     path.poll();
                 }
-                if (path.isEmpty()){
-                    setRotation(0);
+                if (findDistanceBetween(400, 100) <= 100){
                     attack();
                     return;
                 }
@@ -95,14 +96,19 @@ public abstract class Troop extends SuperSmoothMover
             }
             move(movementSpeed);
         }
-        if(statusLength != 0) statusLength--;
+    }
+    
+    public void checkStatus(){
+        if(statusLength != 0) {
+            statusLength--;
+        }
         else{
             // reset limits
         }
     }
     
     public abstract void attack();
-    public abstract void defend();
+    public abstract void animate();
     
     public void setMovementSpeed(double speed){
         this.movementSpeed = speed;

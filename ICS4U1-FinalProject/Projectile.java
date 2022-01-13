@@ -17,6 +17,7 @@ public class Projectile extends SuperSmoothMover
         this.damage = dmg;
         this.speed = spd;
         this.target = tgt;
+        setImage("arrow.png");
     }
     
     /**
