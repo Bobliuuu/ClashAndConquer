@@ -1,5 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
 
 /**
  * Write a description of class Troop here.
@@ -11,27 +13,31 @@ public abstract class Troop extends SuperSmoothMover
 {
     protected int health;
     protected int attack;
-    protected int defense;
     protected int statusLength;
+    protected double radius;
     protected double movementSpeed;
     protected double attackSpeed;
     protected boolean isEnemy;
     protected Actor target;
-    protected ArrayList<Coordinate> path;
-    protected double[][] bridges = {{127, 385}, {673, 385}, {398, 385}};
+    protected Queue <Coordinate> path;
+    protected double[][] bridges = {{127, 385}, {398, 385}, {673, 385}};
     
-    public Troop(int health, int attack, int defense, double movementSpeed, double attackSpeed, boolean isEnemy){
+    public Troop(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
         this.health = health;
         this.attack = attack;
-        this.defense = defense;
         this.movementSpeed = movementSpeed;
         this.attackSpeed = attackSpeed;
+        this.radius = radius;
         this.isEnemy = isEnemy;
         statusLength = 0;
+    }
+    
+    protected void addedToWorld(World world){
         getPath();
     }
     
     public void getPath(){
+        path = new LinkedList <Coordinate> ();
         // Find closest bridge
         double minDis = 1000;
         int closestBridge = 0;
@@ -43,24 +49,52 @@ public abstract class Troop extends SuperSmoothMover
         }
         path.add(new Coordinate(bridges[closestBridge][0], bridges[closestBridge][1]));
         if (closestBridge == 0){
+            path.add(new Coordinate(130, 170));
+            path.add(new Coordinate(370, 170));
+        }
+        else if (closestBridge == 1){
+            path.add(new Coordinate(397, 165));
+        }
+        else {
             path.add(new Coordinate(670, 170));
+            path.add(new Coordinate(420, 170));
         }
-        else if (closestBridge == 2){
-            path.add(new Coordinate(670, 590));
-        }
-        path.add(new Coordinate(397, 170));
     }
     
     public void act()
     {
         // Check if target exists 
-        if (true){ //target exists
-            turnTowards(target.getX(), target.getY());
+        ArrayList <Troop> troops = (ArrayList <Troop>) getWorld().getObjects(Troop.class);
+        target = null;
+        for (Troop troop : troops){
+            if (troop.enemy() != isEnemy){
+                if (findDistanceBetween(troop, this) <= radius){
+                    target = troop;
+                    break;
+                }
+            }
+        }
+        if (path.isEmpty()){
+            attack();
         }
         else {
-            turnTowards(path.get(0).getX(), path.get(0).getY());
+            if (target != null){ //target exists
+                turnTowards(target.getX(), target.getY());
+            }
+            else {
+                if (Math.abs(this.getX() - path.peek().getX()) <= 2 * movementSpeed && 
+                    Math.abs(this.getY() - path.peek().getY()) <= 2 * movementSpeed){
+                    path.poll();
+                }
+                if (path.isEmpty()){
+                    setRotation(0);
+                    attack();
+                    return;
+                }
+                turnTowards(path.peek().getX(), path.peek().getY());
+            }
+            move(movementSpeed);
         }
-        move(movementSpeed);
         if(statusLength != 0) statusLength--;
         else{
             // reset limits
@@ -80,10 +114,6 @@ public abstract class Troop extends SuperSmoothMover
     
     public void setAttack(int attack){
         this.attack = attack;
-    }
-    
-    public void setDefense(int defense){
-        this.defense = defense;
     }
     
     public void setHealth(int health){
