@@ -18,6 +18,7 @@ public abstract class Troop extends SuperSmoothMover
     protected boolean isEnemy;
     protected Actor target;
     protected ArrayList<Coordinate> path;
+    protected double[][] bridges = {{127, 385}, {673, 385}, {398, 385}};
     
     public Troop(int health, int attack, int defense, double movementSpeed, double attackSpeed, boolean isEnemy){
         this.health = health;
@@ -31,12 +32,34 @@ public abstract class Troop extends SuperSmoothMover
     }
     
     public void getPath(){
-        
+        // Find closest bridge
+        double minDis = 1000;
+        int closestBridge = 0;
+        for (int i = 0; i < 3; i++){
+            if (findDistanceBetween(bridges[i][0], bridges[i][1]) < minDis){
+                minDis = findDistanceBetween(bridges[i][0], bridges[i][1]);
+                closestBridge = i;
+            }
+        }
+        path.add(new Coordinate(bridges[closestBridge][0], bridges[closestBridge][1]));
+        if (closestBridge == 0){
+            path.add(new Coordinate(670, 170));
+        }
+        else if (closestBridge == 2){
+            path.add(new Coordinate(670, 590));
+        }
+        path.add(new Coordinate(397, 170));
     }
     
     public void act()
     {
-        turnTowards(target.getX(), target.getY());
+        // Check if target exists 
+        if (true){ //target exists
+            turnTowards(target.getX(), target.getY());
+        }
+        else {
+            turnTowards(path.get(0).getX(), path.get(0).getY());
+        }
         move(movementSpeed);
         if(statusLength != 0) statusLength--;
         else{
@@ -107,4 +130,9 @@ public abstract class Troop extends SuperSmoothMover
     private double findDistanceBetween(Actor a1, Actor a2){
         return Math.sqrt(Math.pow(a1.getX() - a2.getX(), 2) + Math.pow(a1.getY() - a2.getY(), 2));
     }
+    
+    private double findDistanceBetween(double x, double y){
+        return Math.sqrt(Math.pow(this.getX() - x, 2) + Math.pow(this.getY() - y, 2));
+    }
+    
 }
