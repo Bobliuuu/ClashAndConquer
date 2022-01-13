@@ -18,6 +18,7 @@ public abstract class Troop extends SuperSmoothMover
     protected double movementSpeed;
     protected double attackSpeed;
     protected boolean isEnemy;
+    protected boolean isAttacking;
     protected Actor target;
     protected Queue <Coordinate> path;
     protected double[][] bridges = {{127, 385}, {398, 385}, {673, 385}};
@@ -29,6 +30,7 @@ public abstract class Troop extends SuperSmoothMover
         this.attackSpeed = attackSpeed;
         this.radius = radius;
         this.isEnemy = isEnemy;
+        this.isAttacking = false;
         statusLength = 0;
     }
     
@@ -60,14 +62,14 @@ public abstract class Troop extends SuperSmoothMover
     public void act()
     {
         animate();
-        moveTowardTroop();
+        findTarget();
+        moveTowardsTarget();
         checkStatus();
     }
     
-    public void moveTowardTroop(){
-        // Check if target exists 
-        ArrayList <Troop> troops = (ArrayList <Troop>) getWorld().getObjects(Troop.class);
+    public void findTarget(){
         target = null;
+        ArrayList <Troop> troops = (ArrayList <Troop>) getWorld().getObjects(Troop.class);
         for (Troop troop : troops){
             if (troop.enemy() != isEnemy){
                 if (findDistanceBetween(troop, this) <= radius){
@@ -76,21 +78,24 @@ public abstract class Troop extends SuperSmoothMover
                 }
             }
         }
-        if (findDistanceBetween(400, 100) <= 100){
+        if (isEnemy && findDistanceBetween(this, ((Level)getWorld()).getMyCastle()) <= 100){
+            target = ((Level)getWorld()).getMyCastle();
+        }
+        else if (!isEnemy && findDistanceBetween(this, ((Level)getWorld()).getEnemyCastle()) <= 100){
+            target = ((Level)getWorld()).getEnemyCastle();
+        }
+    }
+    
+    public void moveTowardsTarget(){
+        if (target != null){ //target exists
+            turnTowards(target.getX(), target.getY());
             attack();
         }
         else {
-            if (target != null){ //target exists
-                //turnTowards(target.getX(), target.getY());
-            }
-            else {
+            if (!path.isEmpty()){
                 if (Math.abs(this.getX() - path.peek().getX()) <= 2 * movementSpeed && 
                     Math.abs(this.getY() - path.peek().getY()) <= 2 * movementSpeed){
                     path.poll();
-                }
-                if (findDistanceBetween(400, 100) <= 100){
-                    attack();
-                    return;
                 }
                 turnTowards(path.peek().getX(), path.peek().getY());
             }
@@ -128,6 +133,10 @@ public abstract class Troop extends SuperSmoothMover
     
     public boolean enemy(){
         return isEnemy;
+    }
+    
+    public boolean setAttacking(boolean isAttacking){
+        return isAttacking;
     }
     
     private void findNextTarget(){

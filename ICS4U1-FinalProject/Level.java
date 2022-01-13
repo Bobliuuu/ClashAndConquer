@@ -122,4 +122,12 @@ public class Level extends World
             redZone.setToNone();
         }
     }
+    
+    public Castle getMyCastle(){
+        return myCastle;
+    }
+    
+    public Castle getEnemyCastle(){
+        return enemyCastle;
+    }
 }
