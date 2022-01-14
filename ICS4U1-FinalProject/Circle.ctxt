@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Circle
-comment0.text=\n\ Write\ a\ description\ of\ class\ Circle\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
-comment1.params=color\ radius\ clickable
-comment1.target=Circle(greenfoot.Color,\ int,\ boolean)
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Circle\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=color\ radius\ clickable\ level
+comment1.target=Circle(greenfoot.Color,\ int,\ boolean,\ int)
 comment2.params=
 comment2.target=void\ update()
 numComments=3

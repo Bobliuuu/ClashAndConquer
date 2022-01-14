@@ -11,6 +11,13 @@ public class Start extends World
     // Instance variables
     private Image title;
     private Image startButton;
+    private Image settingsButton;
+    private Image shopButton;
+    private Image statsButton;
+    private Image instructionsButton;
+    private Image background;
+    private Image myKing;
+    private Image enemyKing;
     
     private TextButton myCastle;
     private TextButton enemyCastle;
@@ -24,14 +31,41 @@ public class Start extends World
         // Create a new world with 900 x 600 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
         
-        // Initialize the image of the title and add it to the world
-        title = new Image(new GreenfootImage("testtitle.png"));
-        addObject(title, getWidth() / 2, 200);
+        background = new Image(new GreenfootImage("startbackground.png"));
+        addObject(background, getWidth() / 2, getHeight() / 2);
+        
+        myKing = new Image(new GreenfootImage("myking.png"));
+        myKing.getImage().scale(150, 200);
+        addObject(myKing, 100, 150);
+        
+        enemyKing = new Image(new GreenfootImage("enemyking.png"));
+        addObject(enemyKing, 800, 150);
+        
+        // Initialize static images to the World
+        title = new Image(new GreenfootImage("starttext.png"));
+        addObject(title, getWidth() / 2, 150);
+        
+        settingsButton = new Image(new GreenfootImage("Buttons/settings.png"));
+        settingsButton.getImage().scale(250, 100);
+        addObject(settingsButton, 150, 350);
+        
+        shopButton = new Image(new GreenfootImage("Buttons/shop.png"));
+        shopButton.getImage().scale(250, 100);
+        addObject(shopButton, 450, 350);
+        
+        statsButton = new Image(new GreenfootImage("Buttons/stats.png"));
+        statsButton.getImage().scale(250, 100);
+        addObject(statsButton, 750, 350);
         
         // Initialize the image of the start button and add it to the world
-        startButton = new Image(new GreenfootImage("teststart.png"));
+        instructionsButton = new Image(new GreenfootImage("Buttons/instructions.png"));
+        instructionsButton.getImage().scale(320, 100);
+        addObject(instructionsButton, 280, 500);
+        
+        // Initialize the image of the start button and add it to the world
+        startButton = new Image(new GreenfootImage("Buttons/play.png"));
         startButton.getImage().scale(200, 100);
-        addObject(startButton, getWidth() / 2, 500);
+        addObject(startButton, 600, 500);
         
         //myCastle = new TextButton("Castle", 15, false, new Font ("Verdana", false , false , 30));
         //enemyCastle = new TextButton("Enemy", 15, false, new Font ("Verdana", false , false , 30));
@@ -54,6 +88,10 @@ public class Start extends World
         if (Greenfoot.mouseClicked(startButton)) {
             LevelMenu levelMenu = new LevelMenu();
             Greenfoot.setWorld(levelMenu);
+        }
+        if (Greenfoot.mouseClicked(settingsButton)){
+            Settings settings = new Settings();
+            Greenfoot.setWorld(settings);
         }
     }
 }
