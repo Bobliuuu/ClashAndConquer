@@ -34,6 +34,13 @@ public class Start extends World
         background = new Image(new GreenfootImage("startbackground.png"));
         addObject(background, getWidth() / 2, getHeight() / 2);
         
+        myKing = new Image(new GreenfootImage("myking.png"));
+        myKing.getImage().scale(150, 200);
+        addObject(myKing, 100, 150);
+        
+        enemyKing = new Image(new GreenfootImage("enemyking.png"));
+        addObject(enemyKing, 800, 150);
+        
         // Initialize static images to the World
         title = new Image(new GreenfootImage("starttext.png"));
         addObject(title, getWidth() / 2, 150);
