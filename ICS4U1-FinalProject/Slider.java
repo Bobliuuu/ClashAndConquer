@@ -30,11 +30,14 @@ public class Slider extends Actor
     //The number of major and minor sections
     private int majorSections, minorSections;
     //Flags meaning: display the value label, show the value as a percentage, re-draw the images
-    private boolean showValue = false, showPercentage = true, imagesInvalid = true;
+    private boolean showValue, showPercentage, imagesInvalid = true;
     //How wide each number is in the selectable value
     private float pixelsPerValue;
     //The current value is
     private int value;
+    
+    private boolean hasTextLabel;
+    private TextLabel textLabel;
     
     /**
      * Create a new slider with the default size. It will be 200 pixels wide by
@@ -63,6 +66,28 @@ public class Slider extends Actor
             fgWidth--;
         }
         
+        showValue = true;
+        showPercentage = false;
+        hasTextLabel = true;
+        setImage( new GreenfootImage(actualWidth, height) );
+    }
+    
+    public Slider(int width, int height, boolean hasTextLabel){
+        majorSections = 2;
+        minorSections = 2;
+        
+        maxValue = 100;
+        actualWidth = width;
+        this.height = height;
+        fgHeight = height/2;
+        fgWidth = fgHeight;
+        if(fgWidth % 2 == 0){
+            fgWidth--;
+        }
+        
+        showValue = true;
+        showPercentage = false;
+        this.hasTextLabel = hasTextLabel;
         setImage( new GreenfootImage(actualWidth, height) );
     }
     
@@ -328,10 +353,18 @@ public class Slider extends Actor
     private void updateImage(){
         GreenfootImage image = new GreenfootImage(background);
         image.drawImage(foreground, valueToPos(value), 0);
-        if(showPercentage){
-            image.drawString((value*100)/maxValue+"%", valueWidth+padding*2, image.getHeight());
-        }else if(showValue){
-            image.drawString(String.valueOf(value), valueWidth+padding*2, image.getHeight());
+        if (hasTextLabel){
+            if(showPercentage){
+                image.drawString((value*100)/maxValue+"%", valueWidth+padding*2, image.getHeight());
+            }
+            else if(showValue){
+                image.drawString(String.valueOf(value), valueWidth+padding*2, image.getHeight());
+            }
+        }
+        else {
+            if (getWorld() != null){
+                ((Settings)getWorld()).updateVolumeText(Integer.toString(value));
+            }
         }
         setImage(image);
     }

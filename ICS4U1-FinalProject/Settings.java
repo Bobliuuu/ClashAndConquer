@@ -18,6 +18,8 @@ public class Settings extends World
     private Image easy;
     private Image medium;
     private Image hard;
+    private Slider slider;
+    private TextLabel textLabel;
     
     /**
      * Constructor for objects of class Settings.
@@ -34,6 +36,13 @@ public class Settings extends World
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
         addObject(backButton, 80, 50);
+        
+        slider = new Slider(300, 30, false);
+        addObject(slider, 600, 100);
+        
+        Font font = new Font("Courier New", true, false, 20);
+        textLabel = new TextLabel("0", font);
+        addObject(textLabel, 780, 140);
     }
     
     public void act(){
@@ -44,7 +53,12 @@ public class Settings extends World
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();
             Greenfoot.setWorld(start);
-
+        }
+    }
+    
+    public void updateVolumeText(String value){
+        if (textLabel != null){
+            textLabel.update(value);
         }
     }
 }
