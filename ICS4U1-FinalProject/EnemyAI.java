@@ -8,7 +8,21 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EnemyAI extends Actor
 {
-    private int countdown = 100;
+    private int countdown;
+    private int level;
+    
+    public EnemyAI(int level){
+        this.level = level;
+        if (level == 1){
+            countdown = 100;
+        }
+        else if (level == 2){
+            
+        }
+        else if (level == 3){
+            
+        }
+    }
     /**
      * Act - do whatever the EnemyAI wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.

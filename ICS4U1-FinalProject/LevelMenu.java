@@ -40,7 +40,7 @@ public class LevelMenu extends World
     
     public void checkClick(){
         if (Greenfoot.mouseClicked(oneRectangle)) {
-            Level level = new Level();
+            Level level = new Level(1);
             Greenfoot.setWorld(level);
         }
     }
