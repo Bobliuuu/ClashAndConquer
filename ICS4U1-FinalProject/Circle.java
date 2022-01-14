@@ -11,13 +11,14 @@ public class Circle extends Control
     private GreenfootImage image;
     private Color color;
     private int radius;
+    private int level;
     
-    public Circle(Color color, int radius, boolean clickable){
+    public Circle(Color color, int radius, boolean clickable, int level){
         this.color = color;
         this.radius = radius;
         this.clickable = clickable;
         image = new GreenfootImage(radius, radius);
-        image.setColor(Color.BLUE);
+        image.setColor(color);
         image.fillOval(1, 1, radius, radius);
         setImage(image);
     }

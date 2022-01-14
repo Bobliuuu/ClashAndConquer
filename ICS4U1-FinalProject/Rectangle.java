@@ -120,8 +120,9 @@ public class Rectangle extends Control
         this.width = width;
         this.height = height;
         image = new GreenfootImage(width, height);
+        this.borderThickness = borderThickness;
         borderColor = Color.WHITE;
-        image.setColor (borderColor);
+        image.setColor(borderColor);
         for (int i = 0; i < borderThickness; i++){
             image.drawRect (0 + i, 0 + i, width - 1 - (i * 2), height - 1 - (i*2));
         }
@@ -151,7 +152,7 @@ public class Rectangle extends Control
         this.width = width;
         this.height = height;
         image = new GreenfootImage(width, height);
-        borderColor = Color.BLACK;
+        borderColor = Color.WHITE;
         image.setColor (borderColor);
         for (int i = 0; i < borderThickness; i++){
             image.drawRect (0 + i, 0 + i, width - 1 - (i * 2), height - 1 - (i*2));
@@ -203,22 +204,22 @@ public class Rectangle extends Control
      * Update the image when the mouse is hovering over it by redrawing it and giving it a highlighted and enlarged effect
      */
     public void update(){
-        highlightedImage = reDraw (color, color, Color.WHITE, 2);
+        highlightedImage = reDraw(color, borderColor, 2);
         myImage = image;
     }
     
     /**
      * Redraw the highlighted and enlarged color button
      * 
-     * @param color 
-     * @param back
+     * @param color     Color of base image.
+     * @param border    Color of border.
      */
-    public GreenfootImage reDraw (Color color, Color back, Color border, int pixelsLarger){
+    public GreenfootImage reDraw (Color color, Color border, int pixelsLarger){
         // Get new width and height
         int newWidth = width + pixelsLarger * 2;
         int newHeight = height + pixelsLarger * 2;
         GreenfootImage resultImage = new GreenfootImage(newWidth, newHeight);
-        resultImage.setColor (borderColor);
+        resultImage.setColor(border);
         for (int i = 0; i < borderThickness; i++){
             resultImage.drawRect (0 + i, 0 + i, newWidth - 1 - (i * 2), newHeight - 1 - (i * 2));
         }
