@@ -15,8 +15,10 @@ public class Settings extends World
     private Image easy;
     private Image medium;
     private Image hard;
+    private Image gems; 
     private Slider slider;
-    private TextLabel textLabel;
+    private TextLabel sliderLabel;
+    private TextLabel gemsLabel;
     
     /**
      * Constructor for objects of class Settings.
@@ -48,14 +50,22 @@ public class Settings extends World
         
         changeMusic = new Image(new GreenfootImage("Buttons/changemusic.png"));
         changeMusic.getImage().scale(220, 100);
-        addObject(changeMusic, 650, 450);
+        addObject(changeMusic, 650, 480);
         
         slider = new Slider(300, 30, false);
-        addObject(slider, 650, 280);
+        addObject(slider, 650, 330);
         
         Font font = new Font("Courier New", true, false, 20);
-        textLabel = new TextLabel("0", font);
-        addObject(textLabel, 830, 320);
+        sliderLabel = new TextLabel("0", font);
+        addObject(sliderLabel, 830, 370);
+        
+        gems = new Image(new GreenfootImage("gem.png"));
+        gems.getImage().scale(100, 50);
+        addObject(gems, 800, 50);
+        
+        Font font2 = new Font("Verdana", true, false, 20);
+        gemsLabel = new TextLabel("0", font2);
+        addObject(gemsLabel, 830, 90);
     }
     
     public void act(){
@@ -70,8 +80,8 @@ public class Settings extends World
     }
     
     public void updateVolumeText(String value){
-        if (textLabel != null){
-            textLabel.update(value);
+        if (sliderLabel != null){
+            sliderLabel.update(value);
         }
     }
 }
