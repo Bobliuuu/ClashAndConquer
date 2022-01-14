@@ -11,12 +11,11 @@ import java.util.ArrayList;
  */
 public class Castle extends Building
 {   
-    private int attack, actNumber = 0;
+    private int attack;
     private Troop currentTarget;
     private double attackRadius;
     private GreenfootImage image;
     private int cooldown;
-    private SuperStatBar healthBar;
     /**
      * Default constructor for the castle class
      * 
@@ -36,7 +35,6 @@ public class Castle extends Building
         getImage().scale(150, 150);
         attackRadius = 200;
         cooldown = 0;
-        healthBar = new SuperStatBar(this.health, 50, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
     
     /**
@@ -61,7 +59,6 @@ public class Castle extends Building
         }
         getImage().scale(width, height);
         cooldown = 0;
-        healthBar = new SuperStatBar(this.health, 50, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
     
     /**
@@ -73,9 +70,6 @@ public class Castle extends Building
         checkForEnemy();
         if(cooldown != 0) cooldown--;
         else attack();
-        if(actNumber == 0) getWorld().addObject(healthBar, getX(), getY()+200);
-        healthBar.update(this.health);
-        actNumber++;
     }
     
     /**
