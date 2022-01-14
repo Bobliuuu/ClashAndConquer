@@ -14,6 +14,7 @@ public abstract class Troop extends SuperSmoothMover
     protected int health;
     protected int attack;
     protected int statusLength;
+    protected int actNumber;
     protected double radius;
     protected double movementSpeed;
     protected double attackSpeed;
@@ -22,6 +23,7 @@ public abstract class Troop extends SuperSmoothMover
     protected Actor target;
     protected Queue <Coordinate> path;
     protected double[][] bridges = {{127, 385}, {398, 385}, {673, 385}};
+    protected SuperStatBar healthBar;
     
     public Troop(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
         this.health = health;
@@ -32,10 +34,13 @@ public abstract class Troop extends SuperSmoothMover
         this.isEnemy = isEnemy;
         this.isAttacking = false;
         this.statusLength = 0;
+        healthBar = new SuperStatBar(this.health, this.health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
+        actNumber = 0;
     }
     
     protected void addedToWorld(World world){
         getPath();
+        getWorld().addObject(healthBar, getX(), getY()+50);
     }
     
     public void getPath(){
@@ -65,6 +70,7 @@ public abstract class Troop extends SuperSmoothMover
         findTarget();
         moveTowardsTarget();
         checkStatus();
+        healthBar.update(this.health);
     }
     
     public void findTarget(){
