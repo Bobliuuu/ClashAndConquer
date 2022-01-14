@@ -11,9 +11,6 @@ public class Settings extends World
     private Image background;
     private Image backButton;
     private Image settingsText;
-    private Image lowVolumeButton;
-    private Image medVolumeButton;
-    private Image highVolumeButton;
     private Image changeMusic;
     private Image easy;
     private Image medium;
@@ -37,12 +34,28 @@ public class Settings extends World
         backButton.getImage().scale(80, 50);
         addObject(backButton, 80, 50);
         
+        easy = new Image(new GreenfootImage("Buttons/easy.png"));
+        easy.getImage().scale(200, 100);
+        addObject(easy, 250, 250);
+        
+        medium = new Image(new GreenfootImage("Buttons/medium.png"));
+        medium.getImage().scale(250, 100);
+        addObject(medium, 250, 385);
+        
+        hard = new Image(new GreenfootImage("Buttons/hard.png"));
+        hard.getImage().scale(200, 100);
+        addObject(hard, 250, 520);
+        
+        changeMusic = new Image(new GreenfootImage("Buttons/changemusic.png"));
+        changeMusic.getImage().scale(220, 100);
+        addObject(changeMusic, 650, 450);
+        
         slider = new Slider(300, 30, false);
-        addObject(slider, 600, 100);
+        addObject(slider, 650, 280);
         
         Font font = new Font("Courier New", true, false, 20);
         textLabel = new TextLabel("0", font);
-        addObject(textLabel, 780, 140);
+        addObject(textLabel, 830, 320);
     }
     
     public void act(){

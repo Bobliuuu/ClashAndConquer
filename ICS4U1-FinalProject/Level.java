@@ -25,16 +25,21 @@ public class Level extends World
     private ElixirBar elixirBar;
     private RedZone redZone;
     private CardDeck cardDeck;
+    private EnemyAI enemyAI;
     private boolean troopIsSelected;
     private String troopSelected;
+    private int levelValue;
     
     /**
      * Level world constructor
      */
-    public Level()
-    {    
+    public Level(int levelValue)
+    {   
         // Create a new world with 800 x 836 cells with a cell size of 1x1 pixels.
         super(800, 836, 1); 
+        
+        this.levelValue = levelValue;
+        
         levelMap = new Image(new GreenfootImage("background.png"));
         addObject(levelMap, getWidth()/2, getHeight()/2);
         
@@ -57,6 +62,8 @@ public class Level extends World
         for (int i = 0; i < 4; i++){
             addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
         }
+        
+        enemyAI = new EnemyAI(levelValue);
         
         troopIsSelected = false;
         troopSelected = "none";

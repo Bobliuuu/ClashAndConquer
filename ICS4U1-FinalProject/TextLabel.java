@@ -44,7 +44,6 @@ public class TextLabel extends Actor
     public void update(String newString){
         string = newString;
         image.clear();
-        System.out.println(newString);
         image.drawString(newString, 1, 20);
         setImage(image);
     }
