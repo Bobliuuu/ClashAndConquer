@@ -22,6 +22,7 @@ public class EnemyAI extends Actor
         else if (level == 3){
             
         }
+        setImage((GreenfootImage)null);
     }
     /**
      * Act - do whatever the EnemyAI wants to do. This method is called whenever

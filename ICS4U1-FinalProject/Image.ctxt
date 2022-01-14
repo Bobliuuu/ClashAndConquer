@@ -1,17 +1,17 @@
 #BlueJ class context
 comment0.target=Image
-comment0.text=\n\ Image\ Class\n\ <p>\n\ An\ class\ that\ holds\ a\ static\ image\ that\ can\ be\ added\ and\ removed.\ \n\ It\ is\ also\ used\ to\ set\ the\ paint\ order\ and\ transparency.\ \n\ \n\ @author\ Jerry\ Zhu\n\ @version\ January\ 2022\n
+comment0.text=\r\n\ Image\ Class\r\n\ <p>\r\n\ An\ class\ that\ holds\ a\ static\ image\ that\ can\ be\ added\ and\ removed.\ \r\n\ It\ is\ also\ used\ to\ set\ the\ paint\ order\ and\ transparency.\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
 comment1.params=
 comment1.target=Image()
 comment2.params=image
 comment2.target=Image(greenfoot.GreenfootImage)
-comment2.text=\n\ Default\ constructor\ of\ class\ Image\n\ \n\ @param\ image\ \ \ \ \ \ \ \ \ The\ desired\ image\ to\ add.\ \n
+comment2.text=\r\n\ Default\ constructor\ of\ class\ Image\r\n\ \r\n\ @param\ image\ \ \ \ \ \ \ \ \ The\ desired\ image\ to\ add.\ \r\n
 comment3.params=transparency
 comment3.target=void\ setTransparency(int)
-comment3.text=\n\ Set\ the\ transparency\ of\ the\ image.\n\ \n\ @param\ transparency\ \ \ The\ transparency\ of\ the\ image.\ \n
+comment3.text=\r\n\ Set\ the\ transparency\ of\ the\ image.\r\n\ \r\n\ @param\ transparency\ \ \ The\ transparency\ of\ the\ image.\ \r\n
 comment4.params=
 comment4.target=int\ getTransparency()
-comment4.text=\n\ Get\ the\ transparency\ of\ the\ image.\n\ \n\ return\ int\ \ \ \ \ \ \ \ \ \ \ \ The\ transparency\ of\ the\ image.\ \n
+comment4.text=\r\n\ Get\ the\ transparency\ of\ the\ image.\r\n\ \r\n\ return\ int\ \ \ \ \ \ \ \ \ \ \ \ The\ transparency\ of\ the\ image.\ \r\n
 comment5.params=
 comment5.target=greenfoot.GreenfootImage\ getImage()
 comment6.params=
