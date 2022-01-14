@@ -12,13 +12,24 @@ public class TextLabel extends Actor
     private String string;
     
     public TextLabel(){
-        string = "";
-        image.drawString(string, 0, 0);
+        image = new GreenfootImage(100, 100);
+        image.drawString("Value", 1, 10);
+        setImage(image);
     }
     
     public TextLabel(String string){
         this.string = string;
-        image.drawString(string, 0, 0);
+        image = new GreenfootImage(100, 100);
+        image.drawString(string, 1, 10);
+        setImage(image);
+    }
+    
+    public TextLabel(String string, Font font){
+        this.string = string;
+        image = new GreenfootImage(100, 100);
+        image.setFont(font);
+        image.drawString(string, 1, 20);
+        setImage(image);
     }
     
     /**
@@ -28,5 +39,13 @@ public class TextLabel extends Actor
     public void act()
     {
         // Add your action code here.
+    }
+    
+    public void update(String newString){
+        string = newString;
+        image.clear();
+        System.out.println(newString);
+        image.drawString(newString, 1, 20);
+        setImage(image);
     }
 }

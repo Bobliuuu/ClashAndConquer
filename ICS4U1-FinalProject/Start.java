@@ -22,6 +22,8 @@ public class Start extends World
     private TextButton myCastle;
     private TextButton enemyCastle;
     
+    private TextLabel textLabel;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
