@@ -64,6 +64,7 @@ public class Level extends World
         }
         
         enemyAI = new EnemyAI(levelValue);
+        addObject(enemyAI, 100, 200);
         
         troopIsSelected = false;
         troopSelected = "none";
@@ -93,7 +94,7 @@ public class Level extends World
                 if (elixirBar.useElixir(5)){
                     removeObject(unplacedTroop);
                     unplacedTroop = new Image();
-                    Knight placedTroop = new Knight();
+                    Knight placedTroop = new Knight(false);
                     addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     redZone.setToNone();
                     setTroopSelected("none");

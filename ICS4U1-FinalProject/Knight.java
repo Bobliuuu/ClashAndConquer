@@ -13,8 +13,8 @@ public class Knight extends Troop
     private int animationCount;
     private int attackCount;
     
-    public Knight(){
-        super(100, 10, 1, 3, 100, false);
+    public Knight(boolean isEnemy){
+        super(100, 10, 1, 3, 100, isEnemy);
         animationCount = 0;
         attackCount = -1;
         animations = new GreenfootImage[12];
