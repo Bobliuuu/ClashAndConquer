@@ -64,7 +64,7 @@ public class Level extends World
         }
         
         enemyAI = new EnemyAI(levelValue);
-        addObject(enemyAI, 100, 200);
+        addObject(enemyAI, 0, 0);
         
         troopIsSelected = false;
         troopSelected = "none";
@@ -72,7 +72,7 @@ public class Level extends World
     }
     
     public void act(){
-        //checkMousePosition();
+        checkMousePosition();
         checkMouseClick();
         moveUnplacedTroop();
         elixirBar.addElixir();

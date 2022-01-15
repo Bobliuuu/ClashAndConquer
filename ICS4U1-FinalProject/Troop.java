@@ -22,10 +22,10 @@ public abstract class Troop extends SuperSmoothMover
     protected boolean isAttacking;
     protected Actor target;
     protected Queue <Coordinate> path;
-    protected double[][] bridges = {{127, 385}, {398, 385}, {673, 385}};
-    protected int[][] enemyPath = {{130, 385}, {670, 385}, {400, 680}};
-    protected int[][] myPath = {{130, 170}, {670, 170}, {400, 100}};
     protected SuperStatBar healthBar;
+    protected final double[][] bridges = {{127, 385}, {398, 385}, {673, 385}};
+    protected final int[][] enemyPath = {{130, 585}, {670, 585}, {400, 680}};
+    protected final int[][] myPath = {{130, 170}, {670, 170}, {400, 100}};
     
     public Troop(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
         this.health = health;
