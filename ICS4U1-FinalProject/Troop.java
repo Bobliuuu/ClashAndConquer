@@ -23,6 +23,8 @@ public abstract class Troop extends SuperSmoothMover
     protected Actor target;
     protected Queue <Coordinate> path;
     protected double[][] bridges = {{127, 385}, {398, 385}, {673, 385}};
+    protected int[][] enemyPath = {{130, 385}, {670, 385}, {400, 680}};
+    protected int[][] myPath = {{130, 170}, {670, 170}, {400, 100}};
     protected SuperStatBar healthBar;
     
     public Troop(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
@@ -48,20 +50,38 @@ public abstract class Troop extends SuperSmoothMover
         // Find closest bridge
         double minDis = 1000;
         int closestBridge = 0;
-        for (int i = 0; i < 3; i++){
-            if (findDistanceBetween(bridges[i][0], bridges[i][1]) < minDis){
-                minDis = findDistanceBetween(bridges[i][0], bridges[i][1]);
-                closestBridge = i;
+        if (isEnemy){
+            for (int i = 0; i < 3; i++){
+                if (findDistanceBetween(bridges[i][0], bridges[i][1]) < minDis){
+                    minDis = findDistanceBetween(bridges[i][0], bridges[i][1]);
+                    closestBridge = i;
+                }
             }
+            path.add(new Coordinate(bridges[closestBridge][0], bridges[closestBridge][1]));
+            if (closestBridge == 0){
+                path.add(new Coordinate(enemyPath[0][0], enemyPath[0][1]));
+            }
+            else if (closestBridge == 2){
+                path.add(new Coordinate(enemyPath[1][0], enemyPath[1][1]));
+            }
+            path.add(new Coordinate(enemyPath[2][0], enemyPath[2][1]));
         }
-        path.add(new Coordinate(bridges[closestBridge][0], bridges[closestBridge][1]));
-        if (closestBridge == 0){
-            path.add(new Coordinate(130, 170));
+        else {
+            for (int i = 0; i < 3; i++){
+                if (findDistanceBetween(bridges[i][0], bridges[i][1]) < minDis){
+                    minDis = findDistanceBetween(bridges[i][0], bridges[i][1]);
+                    closestBridge = i;
+                }
+            }
+            path.add(new Coordinate(bridges[closestBridge][0], bridges[closestBridge][1]));
+            if (closestBridge == 0){
+                path.add(new Coordinate(myPath[0][0], myPath[0][1]));
+            }
+            else if (closestBridge == 2){
+                path.add(new Coordinate(myPath[1][0], myPath[1][1]));
+            }
+            path.add(new Coordinate(myPath[2][0], myPath[2][1]));
         }
-        else if (closestBridge == 2){
-            path.add(new Coordinate(670, 170));
-        }
-        path.add(new Coordinate(400, 100));
     }
     
     public void act()

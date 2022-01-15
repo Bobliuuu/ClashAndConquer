@@ -35,9 +35,8 @@ public class EnemyAI extends Actor
     
     private void tryToSpawn(int x, int y){
         if(countdown == 0){
-            Knight current = new Knight();
-            current.setEnemy(true);
-            getWorld().addObject(current, x, y);
+            Knight knight = new Knight(true);
+            getWorld().addObject(knight, x, y);
             countdown = 100;
         }
         else{
