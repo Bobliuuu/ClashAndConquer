@@ -104,11 +104,15 @@ public abstract class Troop extends SuperSmoothMover
                 }
             }
         }
-        if (isEnemy && findDistanceBetween(this, ((Level)getWorld()).getMyCastle()) <= 100){
-            target = ((Level)getWorld()).getMyCastle();
+        if (((Level)getWorld()).getMyCastle().getWorld() != null && getWorld() != null){
+            if (isEnemy && findDistanceBetween(this, ((Level)getWorld()).getMyCastle()) <= 100){
+                target = ((Level)getWorld()).getMyCastle();
+            }
         }
-        else if (!isEnemy && findDistanceBetween(this, ((Level)getWorld()).getEnemyCastle()) <= 100){
-            target = ((Level)getWorld()).getEnemyCastle();
+        if (((Level)getWorld()).getEnemyCastle().getWorld() != null && getWorld() != null){
+            if (!isEnemy && findDistanceBetween(this, ((Level)getWorld()).getEnemyCastle()) <= 100){
+                target = ((Level)getWorld()).getEnemyCastle();
+            }
         }
     }
     
@@ -123,7 +127,9 @@ public abstract class Troop extends SuperSmoothMover
                     Math.abs(this.getY() - path.peek().getY()) <= 2 * movementSpeed){
                     path.poll();
                 }
-                turnTowards(path.peek().getX(), path.peek().getY());
+                if (!path.isEmpty()){
+                    turnTowards(path.peek().getX(), path.peek().getY());
+                }
             }
             move(movementSpeed);
         }
@@ -144,8 +150,10 @@ public abstract class Troop extends SuperSmoothMover
             if (target instanceof Troop){
                 ((Troop)target).subtractHealth(10);
             }
-            else if (target instanceof Building){
-                ((Building)target).subtractHealth(10);
+            else if (target instanceof Castle){
+                if (!Level.removed){
+                    ((Castle)target).subtractHealth(10);
+                }
             }
         }
     }

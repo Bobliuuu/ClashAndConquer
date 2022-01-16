@@ -17,6 +17,8 @@ public class Castle extends Building
     private GreenfootImage image;
     private int cooldown;
     private SuperStatBar healthBar;
+    private boolean isDead;
+    
     /**
      * Default constructor for the castle class
      * 
@@ -24,7 +26,7 @@ public class Castle extends Building
      */
     public Castle(boolean isEnemy){
         this.isEnemy = isEnemy;
-        this.health = 1000;
+        this.health = 50;
         if (isEnemy){
             setImage("enemytower.png");
             image = new GreenfootImage("enemytower.png");
@@ -36,6 +38,7 @@ public class Castle extends Building
         getImage().scale(150, 150);
         attackRadius = 200;
         cooldown = 0;
+        this.isDead = false;
         healthBar = new SuperStatBar(this.health, this.health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
     
@@ -50,7 +53,7 @@ public class Castle extends Building
     public Castle(boolean isEnemy, int width, int height, double radius){
         this.isEnemy = isEnemy;
         this.attackRadius = radius;
-        this.health = 1000;
+        this.health = 50;
         if (isEnemy){
             setImage("enemytower.png");
             image = new GreenfootImage("enemytower.png");
@@ -61,6 +64,7 @@ public class Castle extends Building
         }
         getImage().scale(width, height);
         cooldown = 0;
+        this.isDead = false;
         healthBar = new SuperStatBar(this.health, 50, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
     
@@ -70,12 +74,20 @@ public class Castle extends Building
      */
     public void act()
     {
-        checkForEnemy();
-        if(cooldown != 0) cooldown--;
-        else attack();
-        if(actNumber == 0) getWorld().addObject(healthBar, getX(), getY()+200);
-        healthBar.update(this.health);
-        actNumber++;
+        if (!Level.removed){
+            checkForEnemy();
+            if(cooldown != 0) {
+                cooldown--;
+            }
+            else {
+                attack();
+            }
+            if(actNumber == 0){
+                getWorld().addObject(healthBar, getX(), getY()+200);
+            }
+            healthBar.update(this.health);
+            actNumber++;
+        }
     }
     
     /**
@@ -111,5 +123,27 @@ public class Castle extends Building
     
     private double findDistanceBetween(Actor a1, Actor a2){
         return Math.sqrt(Math.pow(a1.getX() - a2.getX(), 2) + Math.pow(a1.getY() - a2.getY(), 2));
+    }
+    
+    public void subtractHealth(int value){
+        if (!isDead){
+            health -= value;
+            if (health <= 0){
+                isDead = true;
+                Image destroyedCastle = new Image(new GreenfootImage("castledestroyed.png"));
+                ((Level)getWorld()).addObject(destroyedCastle, getX(), getY());
+                if (isEnemy){
+                    ((Level)getWorld()).setVictoryCountdown(100);
+                }
+                else {
+                    ((Level)getWorld()).setDefeatCountdown(100);
+                }
+                getWorld().removeObject(this); 
+            }
+        }
+    }
+    
+    public boolean getIsDead(){
+        return isDead;
     }
 }

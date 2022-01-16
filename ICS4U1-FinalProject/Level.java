@@ -20,6 +20,8 @@ public class Level extends World
     private Image levelMap;
     private Image elixir;
     private Image unplacedTroop;
+    private Image defeatScreen;
+    private Image victoryScreen;
     private Castle myCastle;
     private Castle enemyCastle;
     private ElixirBar elixirBar;
@@ -29,6 +31,9 @@ public class Level extends World
     private boolean troopIsSelected;
     private String troopSelected;
     private int levelValue;
+    private int victoryCountdown;
+    private int defeatCountdown;
+    public static boolean removed = false;
     
     /**
      * Level world constructor
@@ -72,10 +77,14 @@ public class Level extends World
     }
     
     public void act(){
-        checkMousePosition();
+        if (winOrLose()){
+            return;
+        }
+        //checkMousePosition();
         checkMouseClick();
         moveUnplacedTroop();
         elixirBar.addElixir();
+        //myCastle.removeCastle();
     }
     
     public void checkMousePosition(){
@@ -131,6 +140,40 @@ public class Level extends World
         else {
             redZone.setToNone();
         }
+    }
+    
+    public boolean winOrLose(){
+        if (defeatCountdown != 0){
+            if (defeatCountdown == 1){
+                LevelMenu levelMenu = new LevelMenu();
+                Greenfoot.setWorld(levelMenu);
+            }
+            defeatScreen = new Image(new GreenfootImage("defeat.png"));
+            defeatScreen.getImage().scale(800, 200);
+            addObject(defeatScreen, 400, 300);
+            defeatCountdown--;
+            return true;
+        }
+        else if (victoryCountdown != 0){
+            if (victoryCountdown == 1){
+                LevelMenu levelMenu = new LevelMenu();
+                Greenfoot.setWorld(levelMenu); 
+            }
+            victoryScreen = new Image(new GreenfootImage("victory.jpg"));
+            victoryScreen.getImage().scale(800, 200);
+            addObject(victoryScreen, 400, 300);
+            victoryCountdown--;
+            return true;
+        }
+        return false;
+    }
+    
+    public void setVictoryCountdown(int value){
+        victoryCountdown = value;
+    }
+    
+    public void setDefeatCountdown(int value){
+        defeatCountdown = value;
     }
     
     public Castle getMyCastle(){

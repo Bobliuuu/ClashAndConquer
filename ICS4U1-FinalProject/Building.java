@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Building extends SuperSmoothMover
+public abstract class Building extends SuperSmoothMover
 {
     // Instance variables
     protected int health;
@@ -20,10 +20,5 @@ public class Building extends SuperSmoothMover
         // Add your action code here.
     }
     
-    public void subtractHealth(int value){
-        health -= value;
-        if (health <= 0){
-            ((Level)getWorld()).removeObject(this);
-        }
-    }
+    public abstract void subtractHealth(int health);
 }
