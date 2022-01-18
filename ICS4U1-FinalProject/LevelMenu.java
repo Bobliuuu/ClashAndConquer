@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * Write a description of class LevelMenu here.
@@ -11,7 +12,7 @@ public class LevelMenu extends World
     // Instance variables
     private Image map;
     private Circle oneCircle;
-    private Rectangle oneRectangle;
+    private Rectangle oneRectangle, twoRectangle, threeRectangle;
     private SuperTextBox textBox;
     
     /**
@@ -30,8 +31,16 @@ public class LevelMenu extends World
         
         oneRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
         addObject(oneRectangle, 200, 425);
+
+        twoRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+        addObject(twoRectangle, 300, 425);
+        
+        threeRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+        addObject(threeRectangle, 400, 425);
         
         showText("1", 200, 425);
+        showText("2", 300, 425);
+        showText("3", 400, 425);
     }
     
     public void act(){
@@ -41,6 +50,15 @@ public class LevelMenu extends World
     public void checkClick(){
         if (Greenfoot.mouseClicked(oneRectangle)) {
             Level level = new Level(1);
+            Greenfoot.setWorld(level);
+        }
+        else if (Greenfoot.mouseClicked(twoRectangle)) {
+            Level level = new Level(2);
+            level.setIfWeak(true);
+            Greenfoot.setWorld(level);
+        }
+        else if (Greenfoot.mouseClicked(threeRectangle)) {
+            Level level = new Level(2);
             Greenfoot.setWorld(level);
         }
     }

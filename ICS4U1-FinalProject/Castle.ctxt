@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Castle
-comment0.text=\n\ Castle\ Class\n\ <p>\n\ A\ subclass\ of\ the\ building\ superclass.\ A\ castle\ is\ the\ primary\ target\ of\ every\ level.\ \n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ Castle\ Class\n\ <p>\n\ A\ subclass\ of\ the\ building\ superclass.\ A\ castle\ is\ the\ primary\ target\ of\ every\ level.\ \n\ \n\ @author\ Jerry\ Zhu,\ Matthew\ Gong\n\ @version\ January\ 2022\n
 comment1.params=isEnemy
 comment1.target=Castle(boolean)
 comment1.text=\n\ Default\ constructor\ for\ the\ castle\ class\n\ \n\ @param\ isEnemy\ \ \ \ Whether\ the\ castle\ belongs\ to\ the\ enemy\ or\ not\n
@@ -18,8 +18,13 @@ comment5.target=void\ attack()
 comment5.text=\n\ Summons\ a\ projectile\ to\ attack\ the\ nearest\ enemy,\ if\ one\ is\ available\n
 comment6.params=a1\ a2
 comment6.target=double\ findDistanceBetween(greenfoot.Actor,\ greenfoot.Actor)
+comment6.text=\n\ Finds\ the\ distance\ between\ two\ actors.\ \n\ \n\ @param\ a1\ \ \ \ \ \ \ \ \ \ \ The\ first\ actor.\n\ @param\ a2\ \ \ \ \ \ \ \ \ \ \ The\ second\ actor.\ \n\ @return\ double\ \ \ \ \ \ The\ distance\ between\ the\ two\ actors.\ \n
 comment7.params=value
 comment7.target=void\ subtractHealth(int)
+comment7.text=\n\ Subtracts\ the\ health\ from\ the\ castle.\ \n\ \n\ @param\ value\ \ \ \ \ The\ health\ to\ be\ subtracted.\ \n
 comment8.params=
 comment8.target=boolean\ getIsDead()
-numComments=9
+comment8.text=\n\ Check\ if\ the\ castle\ has\ been\ destroyed.\n\ @return\ boolean\ \ \ \ \ \ \ \ \ Whether\ or\ not\ the\ castle\ is\ destroyed.\ \n
+comment9.params=health
+comment9.target=void\ setHealth(int)
+numComments=10

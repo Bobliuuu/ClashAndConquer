@@ -28,7 +28,7 @@ public class Level extends World
     private RedZone redZone;
     private CardDeck cardDeck;
     private EnemyAI enemyAI;
-    private boolean troopIsSelected;
+    private boolean troopIsSelected, isWeak = false;
     private String troopSelected;
     private int levelValue;
     private int victoryCountdown;
@@ -54,6 +54,7 @@ public class Level extends World
         addObject(myCastle, 400, 680);
         
         enemyCastle = new Castle(true, 130, 130, 150);
+        enemyCastle.setHealth(50 + (50*(levelValue-1) + Greenfoot.getRandomNumber(50)));
         addObject(enemyCastle, 400, 100);
         
         elixir = new Image(new GreenfootImage("elixirbar.png"));
@@ -71,7 +72,7 @@ public class Level extends World
             addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
         }
         
-        enemyAI = new EnemyAI(levelValue);
+        enemyAI = new EnemyAI(levelValue, isWeak);
         addObject(enemyAI, 0, 0);
         
         troopIsSelected = false;
@@ -179,6 +180,10 @@ public class Level extends World
     
     public void setDefeatCountdown(int value){
         defeatCountdown = value;
+    }
+    
+    public void setIfWeak(boolean weak){
+        this.isWeak = weak;
     }
     
     public Castle getMyCastle(){
