@@ -49,7 +49,7 @@ public class EnemyAI extends Actor
      */
     private void tryToSpawn(int x, int y){
         if(countdown == 0){
-            Knight knight = new Knight(true);
+            Knight knight = new Knight(100, 10, 1, 3, 80, true);
             getWorld().addObject(knight, x + Greenfoot.getRandomNumber(540), y);
             countdown = 100;
             countSpawn++;

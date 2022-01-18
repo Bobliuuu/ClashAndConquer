@@ -14,7 +14,7 @@ public class CardDeck extends Actor
     private ArrayList <Card> cards; 
     
     /**
-     * Basic constructor for CardDeck
+     * Basic constructor for CardDeck for testing.
      */
     public CardDeck(){
         cards = new ArrayList <Card> ();
@@ -26,6 +26,19 @@ public class CardDeck extends Actor
         }
         tempCard = new Card("Knight");
         cards.add(tempCard);
+    }
+    
+    /**
+     * Similar to above, but with the ability to customize hard names. 
+     * 
+     * @param cardNames     The names of the CardDeck cards. 
+     */
+    public CardDeck(String[] cardNames){
+        cards = new ArrayList <Card> ();
+        for (String card : cardNames){
+            tempCard = new Card(card);
+            cards.add(tempCard);
+        }
     }
     
     /**

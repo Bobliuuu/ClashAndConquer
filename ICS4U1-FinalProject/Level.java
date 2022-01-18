@@ -37,6 +37,8 @@ public class Level extends World
     
     /**
      * Level world constructor
+     * 
+     * @param levelValue     The desired level to be initialized. 
      */
     public Level(int levelValue)
     {   
@@ -63,7 +65,8 @@ public class Level extends World
         redZone = new RedZone();
         addObject(redZone, 400, 190);
         
-        cardDeck = new CardDeck();
+        String[] cardNames = {"Blank", "Knight", "Knight", "Blank"};
+        cardDeck = new CardDeck(cardNames);
         for (int i = 0; i < 4; i++){
             addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
         }
@@ -101,12 +104,14 @@ public class Level extends World
             if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
                 Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 620){
                 if (elixirBar.useElixir(5)){
-                    removeObject(unplacedTroop);
-                    unplacedTroop = new Image();
-                    Knight placedTroop = new Knight(false);
-                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    redZone.setToNone();
-                    setTroopSelected("none");
+                    if (troopSelected == "Knight"){
+                        removeObject(unplacedTroop);
+                        unplacedTroop = new Image();
+                        Knight placedTroop = new Knight(100, 10, 1, 3, 80, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        redZone.setToNone();
+                        setTroopSelected("Blank");
+                    }
                 }
             }
         }
@@ -121,9 +126,9 @@ public class Level extends World
     }
     
     public void setTroopSelected(String cardName){
-        if (cardName == "none"){
+        if (cardName == "Blank"){
             troopIsSelected = false;
-            troopSelected = "none";
+            troopSelected = "Blank";
             return;
         }
         troopIsSelected = true;
