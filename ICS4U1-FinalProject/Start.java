@@ -91,9 +91,13 @@ public class Start extends World
             LevelMenu levelMenu = new LevelMenu();
             Greenfoot.setWorld(levelMenu);
         }
-        if (Greenfoot.mouseClicked(settingsButton)){
+        else if (Greenfoot.mouseClicked(settingsButton)){
             Settings settings = new Settings();
             Greenfoot.setWorld(settings);
+        }
+        else if (Greenfoot.mouseClicked(shopButton)){
+            Shop shop = new Shop();
+            Greenfoot.setWorld(shop);
         }
     }
 }
