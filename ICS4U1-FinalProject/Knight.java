@@ -27,6 +27,20 @@ public class Knight extends Troop
         }
     }
     
+    public Knight(int health, int attk, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
+        super(health, attk, movementSpeed, attackSpeed, radius, isEnemy);
+        animationCount = 0;
+        attackCount = -1;
+        animations = new GreenfootImage[12];
+        attack = new GreenfootImage[12];
+        for (int i = 0; i < 12; i++){
+            animations[i] = new GreenfootImage("Troops/Knight/KnightMove" + i + ".png");
+        }
+        for (int i = 0; i < 12; i++){
+            attack[i] = new GreenfootImage("Troops/Knight/KnightAttack" + i + ".png");
+        }
+    }
+    
     public void animate(){
         animationCount++;
         if (animationCount == 48){
