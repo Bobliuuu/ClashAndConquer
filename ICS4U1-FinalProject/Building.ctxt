@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Building
-comment0.text=\r\n\ Building\ Class\r\n\ <p>\r\n\ Abstract\ superclass\ for\ buildings\ to\ be\ placed\ in\ the\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
+comment0.text=\n\ Building\ Class\n\ <p>\n\ Abstract\ superclass\ for\ buildings\ to\ be\ placed\ in\ the\ \n\ \n\ @author\ Jerry\ Zhu\n\ @version\ January\ 2022\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Building\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ Building\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment2.params=health
 comment2.target=void\ subtractHealth(int)
 numComments=3

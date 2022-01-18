@@ -164,4 +164,8 @@ public class Castle extends Building
     public boolean getIsDead(){
         return isDead;
     }
+    
+    public void setHealth(int health){
+        this.health = health;
+    }
 }

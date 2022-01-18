@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=EnemyAI
 comment0.text=\n\ EnemyAI\ Class\n\ <p>\n\ Class\ that\ spawns\ the\ enemies\ for\ each\ level\n\ \n\ @author\ Matthew\ Gong\n\ @version\ January\ 2022\n
-comment1.params=level
-comment1.target=EnemyAI(int)
+comment1.params=level\ half
+comment1.target=EnemyAI(int,\ boolean)
 comment1.text=\n\ Basic\ constructor\ for\ an\ enemy\ AI,\ given\ a\ certain\ level\n\ @param\ level\ \ \ \ \ The\ level\ that\ the\ enemy\ AI\ is\ being\ creeated\ on.\ \n
 comment2.params=
 comment2.target=void\ act()
