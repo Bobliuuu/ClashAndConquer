@@ -34,6 +34,10 @@ public class EnemyAI extends Actor
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
         }
+        else if (level == 4){
+            countdown = 100 - Greenfoot.getRandomNumber(40);
+            originalTime = countdown;
+        }
         attackIncrease = (int)(Math.pow(2, level-1));
         healthIncrease = (int)Math.pow(3, level-1);
         

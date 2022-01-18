@@ -12,7 +12,7 @@ public class LevelMenu extends World
     // Instance variables
     private Image map;
     private Circle oneCircle;
-    private Rectangle oneRectangle, twoRectangle, threeRectangle;
+    private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle;
     private SuperTextBox textBox;
     
     /**
@@ -38,9 +38,13 @@ public class LevelMenu extends World
         threeRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
         addObject(threeRectangle, 400, 425);
         
+        fourRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+        addObject(fourRectangle, 500, 425);
+        
         showText("1", 200, 425);
         showText("2", 300, 425);
         showText("3", 400, 425);
+        showText("4", 500, 425);
     }
     
     public void act(){
@@ -59,6 +63,11 @@ public class LevelMenu extends World
         }
         else if (Greenfoot.mouseClicked(threeRectangle)) {
             Level level = new Level(2);
+            Greenfoot.setWorld(level);
+        }
+        else if (Greenfoot.mouseClicked(fourRectangle)) {
+            Level level = new Level(3);
+            level.setIfWeak(true);
             Greenfoot.setWorld(level);
         }
     }
