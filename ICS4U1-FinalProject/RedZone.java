@@ -1,16 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class RedZone here.
+ * RedZone class
+ * <p>
+ * Spawns a red rectangle to indicate where troops can be placed. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu
+ * @version December 2022
  */
 public class RedZone extends Actor
 {
-    private GreenfootImage redZone = new GreenfootImage("redzone.png");
+    // Instance variables
+    private GreenfootImage redZone;
     
+    /**
+     * Default constructor for RedZone class.
+     */
     public RedZone(){
+        redZone = new GreenfootImage("redzone.png");
         setToNone();
     }
     
@@ -23,11 +30,17 @@ public class RedZone extends Actor
         
     }
     
+    /**
+     * Add the redzone on prompt.
+     */
     public void setToRedZone(){
         setImage(redZone);
         redZone.scale(800, 400);
     }
     
+    /**
+     * Remove the redzone when prompted.
+     */
     public void setToNone(){
         setImage((GreenfootImage)(null));
     }

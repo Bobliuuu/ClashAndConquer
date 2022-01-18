@@ -3,18 +3,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * A slider to allow a user to select a number in a given range.
  * 
- * Create a Slider by calling <code>new {@link Slider()}</code> (for the default size)
+ * Create a <i>Slider</i> by calling <code>new {@link Slider()}</code> (for the default size)
  * or <code>new {@link Slider(int, int)}</code> (for a custom size).
  * Set teh maximum value that the user can select by calling
  * {@link setMaximumValue(int)}, set the initial value by calling
  * {@link setValue(int)} and add it to the world by calling the
  * addObject(Actor, int, int) method on the World.
  * 
- * You can also set how the slider should display by calling the other methods.
- * This <i>should</i> be done before adding the slider to the world, but does not need to be
+ * UI element adapted by Mbread
  * 
- * @author mBread
- * @version 29-01-2008
+ * @author mBread, Jerry Zhu
+ * @version January 2022
  */
 public class Slider extends Actor
 {

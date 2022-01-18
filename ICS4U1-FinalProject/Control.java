@@ -12,6 +12,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author Jordan Cohen
  * @version v0.6.5
  */
+
 public abstract class Control extends Actor
 {
     protected boolean mouseOver;

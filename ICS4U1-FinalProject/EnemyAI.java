@@ -1,17 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EnemyAI here.
+ * EnemyAI Class
+ * <p>
+ * Class that spawns the enemies for each level
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Matthew Gong
+ * @version January 2022
  */
 public class EnemyAI extends Actor
 {
+    // Instance variables
     private int countdown;
     private int level;
     private int countSpawn;
     
+    /**
+     * Basic constructor for an enemy AI, given a certain level
+     * @param level     The level that the enemy AI is being creeated on. 
+     */
     public EnemyAI(int level){
         this.level = level;
         if (level == 1){
@@ -25,6 +32,7 @@ public class EnemyAI extends Actor
         }
         setImage((GreenfootImage)null);
     }
+    
     /**
      * Act - do whatever the EnemyAI wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -36,6 +44,9 @@ public class EnemyAI extends Actor
         }
     }
     
+    /**
+     * Trying to spawn an object at a location. 
+     */
     private void tryToSpawn(int x, int y){
         if(countdown == 0){
             Knight knight = new Knight(true);
@@ -51,6 +62,9 @@ public class EnemyAI extends Actor
         }
     }
     
+    /**
+     * Get a random number from low to high inclusive. 
+     */
     public int getRandomNumberRange(int low, int high){
        int rand = Greenfoot.getRandomNumber(high - low + 1);
        return rand + low;

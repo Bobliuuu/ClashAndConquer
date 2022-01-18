@@ -1,13 +1,16 @@
 #BlueJ class context
 comment0.target=RedZone
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ RedZone\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ RedZone\ class\r\n\ <p>\r\n\ Spawns\ a\ red\ rectangle\ to\ indicate\ where\ troops\ can\ be\ placed.\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ December\ 2022\r\n
 comment1.params=
 comment1.target=RedZone()
+comment1.text=\r\n\ Default\ constructor\ for\ RedZone\ class.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ RedZone\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=
 comment3.target=void\ setToRedZone()
+comment3.text=\r\n\ Add\ the\ redzone\ on\ prompt.\r\n
 comment4.params=
 comment4.target=void\ setToNone()
+comment4.text=\r\n\ Remove\ the\ redzone\ when\ prompted.\r\n
 numComments=5
