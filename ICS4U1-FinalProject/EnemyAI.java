@@ -11,9 +11,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class EnemyAI extends Actor
 {
     // Instance variables
-    private int countdown;
+    private int countdown, originalTime;
+    private int attackIncrease, healthIncrease;
     private int level;
-    private int countSpawn;
     
     /**
      * Basic constructor for an enemy AI, given a certain level
@@ -22,14 +22,19 @@ public class EnemyAI extends Actor
     public EnemyAI(int level){
         this.level = level;
         if (level == 1){
-            countdown = 200;
+            countdown = 200 - Greenfoot.getRandomNumber(30);
+            originalTime = 200;
         }
         else if (level == 2){
-            
+            countdown = 175 - Greenfoot.getRandomNumber(40);
+            originalTime = 175;
         }
         else if (level == 3){
-            
+            countdown = 125 - Greenfoot.getRandomNumber(50);
+            originalTime = 125;
         }
+        attackIncrease = (int)Math.pow(3, level-1);
+        healthIncrease = (int)Math.pow(5, level-1);
         setImage((GreenfootImage)null);
     }
     
@@ -39,9 +44,7 @@ public class EnemyAI extends Actor
      */
     public void act()
     {
-        if (level == 1){
-            tryToSpawn(130, 200);
-        }
+        tryToSpawn(130, 200);
     }
     
     /**
@@ -49,13 +52,9 @@ public class EnemyAI extends Actor
      */
     private void tryToSpawn(int x, int y){
         if(countdown == 0){
-            Knight knight = new Knight(100, 10, 1, 3, 80, true);
+            Knight knight = new Knight(100 + healthIncrease, 10 + attackIncrease, 1, 3, 80, true);
             getWorld().addObject(knight, x + Greenfoot.getRandomNumber(540), y);
-            countdown = 100;
-            countSpawn++;
-            if (countSpawn == 3){
-                countSpawn = 0;
-            }
+            countdown = originalTime;
         }
         else{
             countdown--;
