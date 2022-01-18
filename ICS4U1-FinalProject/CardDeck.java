@@ -13,6 +13,9 @@ public class CardDeck extends Actor
     private Card tempCard;
     private ArrayList <Card> cards; 
     
+    /**
+     * Basic constructor for CardDeck
+     */
     public CardDeck(){
         cards = new ArrayList <Card> ();
         tempCard = new Card("Knight");
@@ -26,14 +29,9 @@ public class CardDeck extends Actor
     }
     
     /**
-     * Act - do whatever the CardDeck wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Get the card at a certain index of the card deck.
+     * @param idx      The desired index of card deck.
      */
-    public void act()
-    {
-        
-    }
-    
     public Card getCardAtIndex(int idx){
         return cards.get(idx);
     }

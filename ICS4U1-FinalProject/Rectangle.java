@@ -1,13 +1,14 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Class that creates a button with a fill color and border around it. 
- * Used for all colorify buttons
+ * Rectangle Class
  * <p>
+ * Class that creates a button with a fill color and border around it. 
+ * Repurposed from the 
  * Subclass of control, and implements highlighting
  * 
- * @author Jerry Zhu
- * @version December 2021
+ * @author Jerry Zhu, Daniel Qian
+ * @version January 2021
  */
 public class Rectangle extends Control    
 {
@@ -202,6 +203,8 @@ public class Rectangle extends Control
     
     /**
      * Update the image when the mouse is hovering over it by redrawing it and giving it a highlighted and enlarged effect
+     * 
+     * @author Jerry Zhu
      */
     public void update(){
         highlightedImage = reDraw(color, borderColor, 2);
@@ -213,6 +216,8 @@ public class Rectangle extends Control
      * 
      * @param color     Color of base image.
      * @param border    Color of border.
+     * 
+     * @author Daniel Qian
      */
     public GreenfootImage reDraw (Color color, Color border, int pixelsLarger){
         // Get new width and height

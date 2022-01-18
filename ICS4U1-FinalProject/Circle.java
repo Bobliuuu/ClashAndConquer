@@ -1,18 +1,24 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Circle here.
+ * Circle Class
+ * <p>
+ * Used to add a marker for each new level. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Daniel Qian
+ * @version January 2022
  */
 public class Circle extends Control
 {
+    // Instance variables
     private GreenfootImage image;
     private Color color;
     private int radius;
     private int level;
     
+    /**
+     * Default constructor of class circle
+     */
     public Circle(Color color, int radius, boolean clickable, int level){
         this.color = color;
         this.radius = radius;
@@ -23,6 +29,9 @@ public class Circle extends Control
         setImage(image);
     }
     
+    /**
+     * Circle does not need highlighting
+     */
     public void update() {
         
     }

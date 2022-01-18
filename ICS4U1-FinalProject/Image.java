@@ -11,12 +11,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Image extends Actor
 {
+    // Instance variables
     private int transparency;
     private GreenfootImage image;
     private boolean isEmpty;
     
+    /**
+     * Empty constructor of class image
+     */
     public Image(){
         isEmpty = true;
+        setImage((GreenfootImage)null);
     }
     
     /**
@@ -49,19 +54,38 @@ public class Image extends Actor
         return transparency;
     }
     
+    /**
+     * Get the associated GreenfootImage associated with the Image object. 
+     * @return GreenfootImage    The image to be returned. 
+     */
     public GreenfootImage getImage(){
         return image;
     }
     
+    /**
+     * Return if the Image object is empty. 
+     * @return boolean     Whether the Image is empty or not. 
+     */
     public boolean getEmpty(){
         return isEmpty;
     }
     
+    /**
+     * Return if an Image object intersects a card. 
+     * @return boolean     Whether the object intersects a card. 
+     */
     public boolean intersectsCard(){
         return getOneObjectAtOffset(0, 0, Card.class) != null;
     }
     
+    /**
+     * Returns the name of the card intersecting with the image
+     * @return String     The name of the image. 
+     */
     public String getCardName(){
-        return ((Card)getOneObjectAtOffset(0, 0, Card.class)).getCardName();
+        if (intersectsCard()){
+            return ((Card)getOneObjectAtOffset(0, 0, Card.class)).getCardName();
+        }
+        return "";
     }
 }
