@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Projectile here.
+ * Projectile class to 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Matthew Gong, Jerry Zhu
+ * @version January 2022
  */
 public class Projectile extends SuperSmoothMover
 {
@@ -13,10 +13,17 @@ public class Projectile extends SuperSmoothMover
     protected double speed;
     protected Actor target;
     
-    public Projectile(int dmg, double spd, Actor tgt){
-        this.damage = dmg;
-        this.speed = spd;
-        this.target = tgt;
+    /**
+     * Constructor of the Projectile class
+     * 
+     * @param damage    The damage that the projectile will deal. 
+     * @param speed     The speed of the projectile. 
+     * @param target    The target of the projectile. 
+     */
+    public Projectile(int damage, double speed, Actor target){
+        this.damage = damage;
+        this.speed = speed;
+        this.target = target;
         setImage("arrow.png");
     }
     
@@ -31,9 +38,12 @@ public class Projectile extends SuperSmoothMover
         checkForHit();
     }
     
+    /**
+     * Check if the target has been hit. 
+     */
     private void checkForHit(){
         if(this.intersects(target)){
-            // deal damage to target here
+            // Deals damage to target
             ((Level)getWorld()).removeObject(this);
             ((Troop)target).subtractHealth(10);
         }

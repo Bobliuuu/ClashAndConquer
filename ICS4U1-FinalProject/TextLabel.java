@@ -1,22 +1,32 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TextLabel here.
+ * TextLabel Class
+ * <p>
+ * Displays a text label to the World
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu
+ * @version January 2022
  */
 public class TextLabel extends Actor
 {
+    // Instance variables
     private GreenfootImage image;
     private String string;
     
+    /**
+     * Basic constructor for testing
+     */
     public TextLabel(){
         image = new GreenfootImage(100, 100);
         image.drawString("Value", 1, 10);
         setImage(image);
     }
     
+    /**
+     * Constructor of TextLabel with the ability to customize the string output. 
+     * @param string     The string that is to be outputted. 
+     */
     public TextLabel(String string){
         this.string = string;
         image = new GreenfootImage(100, 100);
@@ -24,11 +34,16 @@ public class TextLabel extends Actor
         setImage(image);
     }
     
+    /**
+     * Similar to above, but with the ability to customize the Font (type and size). 
+     * @param string     The string that is to be outputted. 
+     * @param font       The desired font of the text label. 
+     */
     public TextLabel(String string, Font font){
         this.string = string;
         image = new GreenfootImage(100, 100);
         image.setFont(font);
-        image.drawString(string, 1, 20);
+        image.drawString(string, 1, font.getSize());
         setImage(image);
     }
     
@@ -41,6 +56,10 @@ public class TextLabel extends Actor
         // Add your action code here.
     }
     
+    /**
+     * Update the text label with a new string. 
+     * @param newString     The new string output to be changed on the text label. 
+     */
     public void update(String newString){
         string = newString;
         image.clear();

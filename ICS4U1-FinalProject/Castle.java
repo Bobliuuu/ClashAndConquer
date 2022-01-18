@@ -6,12 +6,14 @@ import java.util.ArrayList;
  * <p>
  * A subclass of the building superclass. A castle is the primary target of every level. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu, Matthew Gong
+ * @version January 2022
  */
 public class Castle extends Building
 {   
-    private int attack, actNumber = 0;
+    // Instance variables
+    private int attack;
+    private int actNumber = 0;
     private Troop currentTarget;
     private double attackRadius;
     private GreenfootImage image;
@@ -121,10 +123,22 @@ public class Castle extends Building
         }
     }
     
+    /**
+     * Finds the distance between two actors. 
+     * 
+     * @param a1           The first actor.
+     * @param a2           The second actor. 
+     * @return double      The distance between the two actors. 
+     */
     private double findDistanceBetween(Actor a1, Actor a2){
         return Math.sqrt(Math.pow(a1.getX() - a2.getX(), 2) + Math.pow(a1.getY() - a2.getY(), 2));
     }
     
+    /**
+     * Subtracts the health from the castle. 
+     * 
+     * @param value     The health to be subtracted. 
+     */
     public void subtractHealth(int value){
         if (!isDead){
             health -= value;
@@ -143,6 +157,10 @@ public class Castle extends Building
         }
     }
     
+    /**
+     * Check if the castle has been destroyed.
+     * @return boolean         Whether or not the castle is destroyed. 
+     */
     public boolean getIsDead(){
         return isDead;
     }
