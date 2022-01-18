@@ -1,7 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Start 
+ * Start class 
+ * <p>
+ * Starting World that is displayed on run. Displays buttons to play the game, and edit settings. 
  * 
  * @author Jerry Zhu
  * @version January 2022
@@ -18,11 +20,7 @@ public class Start extends World
     private Image background;
     private Image myKing;
     private Image enemyKing;
-    
-    private TextButton myCastle;
-    private TextButton enemyCastle;
-    
-    private TextLabel textLabel;
+    private UserInfo user;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -69,11 +67,15 @@ public class Start extends World
         startButton.getImage().scale(200, 100);
         addObject(startButton, 600, 500);
         
-        //myCastle = new TextButton("Castle", 15, false, new Font ("Verdana", false , false , 30));
-        //enemyCastle = new TextButton("Enemy", 15, false, new Font ("Verdana", false , false , 30));
-        
-        //addObject(myCastle, 305, 386);
-        //addObject(enemyCastle, 305, 34);
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            user.setScore(1); // Level
+            user.setInt(0, 0); // Gems
+            user.setInt(1, 1); // Difficulty
+            user.setInt(2, 0); // Volume
+            user.setInt(3, 1); // Music type
+            user.store();
+        }
     }
     
     public void act(){

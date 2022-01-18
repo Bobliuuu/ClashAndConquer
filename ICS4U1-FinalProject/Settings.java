@@ -21,6 +21,7 @@ public class Settings extends World
     private Slider slider;
     private TextLabel sliderLabel;
     private TextLabel gemsLabel;
+    private UserInfo user;
     
     /**
      * Constructor for objects of class Settings.
@@ -89,6 +90,39 @@ public class Settings extends World
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();
             Greenfoot.setWorld(start);
+        }
+        if (Greenfoot.mouseClicked(changeMusic)){
+            if (UserInfo.isStorageAvailable()){
+                user = UserInfo.getMyInfo();
+                int musicType = user.getInt(3);
+                musicType++;
+                if (musicType == 3){
+                    musicType = 1;
+                }
+                user.setInt(3, musicType);
+                user.store();
+            }
+        }
+        if (Greenfoot.mouseClicked(easy)){
+            if (UserInfo.isStorageAvailable()){
+                user = UserInfo.getMyInfo();
+                user.setInt(1, 1);
+                user.store();
+            }
+        }
+        if (Greenfoot.mouseClicked(medium)){
+            if (UserInfo.isStorageAvailable()){
+                user = UserInfo.getMyInfo();
+                user.setInt(1, 2);
+                user.store();
+            }
+        }
+        if (Greenfoot.mouseClicked(hard)){
+            if (UserInfo.isStorageAvailable()){
+                user = UserInfo.getMyInfo();
+                user.setInt(1, 3);
+                user.store();
+            }
         }
     }
     
