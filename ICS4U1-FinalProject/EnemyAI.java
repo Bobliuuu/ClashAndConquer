@@ -38,14 +38,16 @@ public class EnemyAI extends Actor
             countdown = 100 - Greenfoot.getRandomNumber(40);
             originalTime = countdown;
         }
+        countdown *= 2;
+        originalTime *= 2;
         attackIncrease = (int)(Math.pow(2, level-1));
         healthIncrease = (int)Math.pow(3, level-1);
         
         if(half){
             attackIncrease /= 2;
             healthIncrease /= 2;
-            countdown += 30;
-            originalTime += 30;
+            countdown += 150;
+            originalTime += 150;
         }
         
         setImage((GreenfootImage)null);
