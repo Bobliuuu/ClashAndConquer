@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.ArrayList;
 /**
  * Write a description of class Shop here.
  * 
@@ -15,7 +15,43 @@ public class Shop extends World
     private Image invisibilityPotion;
     private Image healthPotion;
     private Image purchaseButton;
-    //private Image settingsButton;
+    private Image backItemButton;
+    private Image forwardItemButton;
+    private ArrayList<ShopItem> powerups;
+    private ArrayList<TextButton> buybuttons;
+    private int shopItemIndex;
+    private int tempGemsCount;
+    
+    private void DisplayPowerUp (int position)
+    {
+        
+        for (int counter = 0; counter < 3; counter++) {     
+                ShopItem powerup = powerups.get((position + counter) % powerups.size());        
+                powerup.getImage().scale(292, 430);
+                addObject(powerup, 150+(300*counter), 300);
+                              
+                TextButton btn = buybuttons.get((position + counter) % powerups.size());
+                addObject (btn, 150+(300*counter), 450);
+        }
+    }
+    
+    private void ClearPowerUp (int prevposition)
+    {       
+        for (int counter = 0; counter < 3; counter++) {     
+                ShopItem powerup = powerups.get((prevposition + counter) % powerups.size());  
+                TextButton btn = buybuttons.get((prevposition + counter) % powerups.size()); 
+                removeObject(powerup);
+                removeObject(btn);
+        }
+    }
+    
+    private void UpdateGemsCount() {
+        removeObject(gemsLabel);
+        Font font2 = new Font("Verdana", true, false, 20);
+        gemsLabel = new TextLabel(String.valueOf(this.tempGemsCount), font2);
+        addObject(gemsLabel, 840, 90);
+        // gemsLabel.setText(String.valueOf(this.tempGemsCount));
+    }
     
     /**
      * Constructor for objects of class Shop.
@@ -25,6 +61,8 @@ public class Shop extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
+        
+        this.tempGemsCount = 1000;
         
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
@@ -38,41 +76,37 @@ public class Shop extends World
         gemsLabel = new TextLabel("0", font2);
         addObject(gemsLabel, 840, 90);
         
-        speedPotion = new Image(new GreenfootImage("ShopItems/SpeedPotion.PNG"));
-        //Image Size is 417x614
-        speedPotion.getImage().scale(292, 430);
-        addObject(speedPotion, 150, 300);
+        UpdateGemsCount();
         
-        invisibilityPotion = new Image(new GreenfootImage("ShopItems/InvisibilityPotion.PNG"));
-        invisibilityPotion.getImage().scale(292, 430);
-        addObject(invisibilityPotion, 450, 300);
+        // back and forth buttons for going through powerups.
+        backItemButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
+        backItemButton.getImage().scale(80, 50);
+        addObject(backItemButton, 400, 560);
         
-        healthPotion = new Image(new GreenfootImage("ShopItems/HealthPotion.PNG"));
-        healthPotion.getImage().scale(292, 430);
-        addObject(healthPotion, 750, 300);
+        forwardItemButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
+        forwardItemButton.getImage().scale(80, 50);
+        forwardItemButton.getImage().rotate(180);
+        addObject(forwardItemButton, 500, 560);
         
-        purchaseButton = new Image(new GreenfootImage("ShopItems/PurchaseButton.PNG"));
-        //337x74
-        purchaseButton.getImage().scale(236, 52);
-        addObject(purchaseButton, 450, 475);
+        this.powerups = new ArrayList<ShopItem>();
+        this.buybuttons = new ArrayList<TextButton>();
         
-        //settingsButton = new Image(new GreenfootImage("Buttons/settings.png"));
-        //settingsButton.getImage().scale(100, 250);
-        //addObject(settingsButton, 300, 150);
+        this.powerups.add(new SpeedPotion(100));
+        this.powerups.add(new InvisibilityPotion(200));
+        this.powerups.add(new HealthPotion(300));
+        this.powerups.add(new SpeedPotionOld(400));
         
-        //int fontSize = 35;
-        //Color fontColor = new Color(233, 255, 221);
-        //Color fontBgColor = new Color(0, 0, 0, 0);
-        //Color bgColor = new Color(136, 206, 95);
-     
-        //GreenfootImage txtImg = new GreenfootImage("hello", fontSize, fontColor, fontBgColor);
-        //GreenfootImage img = new GreenfootImage(txtImg.getWidth()+80, txtImg.getHeight()+40);
-     
-        //img.setColor(bgColor);
-        //img.fillOval(-6, 10, 45, img.getHeight()-10);
-        //img.fillOval(img.getWidth()-39, 10, 45, img.getHeight()-10);
-        //img.fillRect(10, 10, img.getWidth()-20, img.getHeight());
-        //img.drawImage(txtImg, (img.getWidth() - txtImg.getWidth())/2, (img.getHeight() - txtImg.getHeight())/2);
+        for (ShopItem powerup : powerups) {
+            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 150, true, Color.BLACK, Color.BLUE, Color.WHITE, Color.WHITE, Color.BLACK, new Font ("Verdana",true ,false ,14));
+            buybuttons.add(btn);
+        }
+        
+        
+        this.shopItemIndex = 0;
+        this.DisplayPowerUp(shopItemIndex);
+        
+        
+        
     }
     
     
@@ -85,6 +119,29 @@ public class Shop extends World
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();
             Greenfoot.setWorld(start);
+        }
+        if (Greenfoot.mouseClicked(backItemButton)){
+            if (shopItemIndex > 0) {
+                this.ClearPowerUp (shopItemIndex);
+                this.shopItemIndex = this.shopItemIndex - 1;
+                this.DisplayPowerUp(shopItemIndex);
+            }
+        }
+        if (Greenfoot.mouseClicked(forwardItemButton)){
+          
+            this.ClearPowerUp (shopItemIndex);
+            this.shopItemIndex = this.shopItemIndex + 1;
+            this.DisplayPowerUp(shopItemIndex);             
+        } 
+        
+        for (int i = 0; i < buybuttons.size(); i++) {
+            if (Greenfoot.mouseClicked(buybuttons.get(i))) {
+                // if someone clicked ith button, then ith powerup will be purchased.
+                ShopItem itm = powerups.get(i);
+                this.tempGemsCount = this.tempGemsCount - itm.getCost();
+                UpdateGemsCount();
+                // System.out.println(itm.getCost());
+            }
         }
     }
 }
