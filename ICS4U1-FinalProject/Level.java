@@ -108,7 +108,7 @@ public class Level extends World
                     if (troopSelected == "Knight"){
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Knight placedTroop = new Knight(100, 10, 1, 3, 80, false);
+                        Knight placedTroop = new Knight(120, 12, 1, 3, 80, false);
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
