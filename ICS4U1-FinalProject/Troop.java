@@ -91,6 +91,17 @@ public abstract class Troop extends SuperSmoothMover
         moveTowardsTarget();
         checkStatus();
         healthBar.update(this.health);
+        Troop overlap = (Troop)getOneIntersectingObject(Troop.class);
+        if(overlap != null){
+            if(findDistanceBetween(this, overlap) < 15 && overlap.enemy() == isEnemy){
+                if(overlap.getX() < getX()){
+                    setLocation(getX()+1, getY());
+                }
+                else{
+                    setLocation(getX()-1, getY());
+                }
+            }
+        }
     }
     
     public void findTarget(){
@@ -238,4 +249,7 @@ public abstract class Troop extends SuperSmoothMover
         return Math.sqrt(Math.pow(this.getX() - x, 2) + Math.pow(this.getY() - y, 2));
     }
     
+    public int getWidth(){
+        return getImage().getWidth();
+    }
 }
