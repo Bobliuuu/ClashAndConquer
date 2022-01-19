@@ -11,8 +11,9 @@ public class LevelMenu extends World
 {
     // Instance variables
     private Image map;
-    private Circle oneCircle;
-    private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle;
+    private Circle oneCircle, twoCircle, threeCircle, fourCircle, fiveCircle, sixCircle;
+    private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle, fiveRectangle;
+
     private SuperTextBox textBox;
     
     /**
@@ -29,25 +30,45 @@ public class LevelMenu extends World
         oneCircle = new Circle(Color.BLUE, 30, true, 1);
         addObject(oneCircle, 200, 450);
         
+        twoCircle = new Circle(Color.BLUE, 30, true, 1);
+        addObject(twoCircle, 356, 386);
+        
+        //threeCircle = new Circle(Color.BLUE, 30, true, 1);
+        //addObject(threeCircle, 502, 319);
+        
+        fourCircle = new Circle(Color.BLUE, 30, true, 1);
+        addObject(fourCircle, 276, 296);
+        
+        sixCircle = new Circle(Color.BLUE, 30, true, 1);
+        addObject(sixCircle, 26, 269);
+        
+        fiveCircle = new Circle(Color.BLUE, 30, true, 1);
+        addObject(fiveCircle, 149, 280);
+        
         oneRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
         addObject(oneRectangle, 200, 425);
 
         twoRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        addObject(twoRectangle, 300, 425);
+        addObject(twoRectangle, 356, 356);
         
         threeRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        addObject(threeRectangle, 400, 425);
+        addObject(threeRectangle, 276, 268);
         
         fourRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        addObject(fourRectangle, 500, 425);
+        addObject(fourRectangle, 149, 255);
+        
+        fiveRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+        addObject(fiveRectangle, 26, 245);
         
         showText("1", 200, 425);
-        showText("2", 300, 425);
-        showText("3", 400, 425);
-        showText("4", 500, 425);
+        showText("2", 356, 356);
+        showText("3", 276, 268);
+        showText("4", 149, 255);
+        showText("5", 26, 245);
     }
     
     public void act(){
+        //checkMousePosition();
         checkClick();
     }
     
@@ -69,6 +90,16 @@ public class LevelMenu extends World
             Level level = new Level(3);
             level.setIfWeak(true);
             Greenfoot.setWorld(level);
+        }
+        else if (Greenfoot.mouseClicked(fiveRectangle)) {
+            End end = new End();
+            Greenfoot.setWorld(end);
+        }
+    }
+    
+    public void checkMousePosition(){
+        if (Greenfoot.mouseClicked(map)){
+            System.out.println(Greenfoot.getMouseInfo().getX() + " " + Greenfoot.getMouseInfo().getY());
         }
     }
 }
