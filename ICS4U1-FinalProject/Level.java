@@ -54,7 +54,7 @@ public class Level extends World
         addObject(myCastle, 400, 680);
         
         enemyCastle = new Castle(true, 130, 130, 150);
-        enemyCastle.setHealth(50 + (50*(levelValue-1) + Greenfoot.getRandomNumber(50)));
+        enemyCastle.setHealth(250 + (100*(levelValue-1) + Greenfoot.getRandomNumber(50)));
         addObject(enemyCastle, 400, 100);
         
         elixir = new Image(new GreenfootImage("elixirbar.png"));
@@ -104,11 +104,11 @@ public class Level extends World
             }
             if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
                 Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 620){
-                if (elixirBar.useElixir(5)){
+                if (elixirBar.useElixir(3)){
                     if (troopSelected == "Knight"){
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Knight placedTroop = new Knight(100, 10, 1, 3, 80, false);
+                        Knight placedTroop = new Knight(120, 12, 1, 3, 80, false);
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
