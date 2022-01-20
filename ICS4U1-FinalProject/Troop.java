@@ -159,11 +159,11 @@ public abstract class Troop extends SuperSmoothMover
         attackAnimate();
         if (getAttackCounter() == 40){
             if (target instanceof Troop){
-                ((Troop)target).subtractHealth(10);
+                ((Troop)target).subtractHealth(attack);
             }
             else if (target instanceof Castle){
                 if (!Level.removed){
-                    ((Castle)target).subtractHealth(10);
+                    ((Castle)target).subtractHealth(attack);
                 }
             }
         }
