@@ -12,6 +12,7 @@ public class Projectile extends SuperSmoothMover
     protected int damage;
     protected double speed;
     protected Actor target;
+    protected int lastX, lastY;
     
     /**
      * Constructor of the Projectile class
@@ -33,7 +34,7 @@ public class Projectile extends SuperSmoothMover
      */
     public void act()
     {
-        turnTowards(target.getX(), target.getY());
+        turnTowardsTarget();
         move(speed);
         checkForHit();
     }
@@ -42,10 +43,24 @@ public class Projectile extends SuperSmoothMover
      * Check if the target has been hit. 
      */
     private void checkForHit(){
-        if(this.intersects(target)){
-            // Deals damage to target
-            ((Level)getWorld()).removeObject(this);
-            ((Troop)target).subtractHealth(10);
+        if(target.getWorld() != null){
+            if(this.intersects(target)){
+                // Deals damage to target
+                ((Level)getWorld()).removeObject(this);
+                ((Troop)target).subtractHealth(10);
+            }
         }
+        else{
+            if(getX() == lastX && getY() == lastY) ((Level)getWorld()).removeObject(this);
+        }
+    }
+    
+    private void turnTowardsTarget(){
+        if(target.getWorld() != null){
+            turnTowards(target.getX(), target.getY());
+            lastX = target.getX();
+            lastY = target.getY();
+        }
+        else turnTowards(lastX, lastY);
     }
 }
