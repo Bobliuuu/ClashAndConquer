@@ -35,8 +35,6 @@ public class Projectile extends SuperSmoothMover
     public void act()
     {
         turnTowardsTarget();
-        lastX = target.getX();
-        lastY = target.getY();
         move(speed);
         checkForHit();
     }
@@ -58,7 +56,11 @@ public class Projectile extends SuperSmoothMover
     }
     
     private void turnTowardsTarget(){
-        if(target.getWorld() != null) turnTowards(target.getX(), target.getY());
+        if(target.getWorld() != null){
+            turnTowards(target.getX(), target.getY());
+            lastX = target.getX();
+            lastY = target.getY();
+        }
         else turnTowards(lastX, lastY);
     }
 }
