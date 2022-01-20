@@ -24,7 +24,6 @@ public class Shop extends World
     
     private void DisplayPowerUp (int position)
     {
-        
         for (int counter = 0; counter < 3; counter++) {     
                 ShopItem powerup = powerups.get((position + counter) % powerups.size());        
                 powerup.getImage().scale(292, 430);
@@ -91,22 +90,18 @@ public class Shop extends World
         this.powerups = new ArrayList<ShopItem>();
         this.buybuttons = new ArrayList<TextButton>();
         
-        this.powerups.add(new SpeedPotion(100));
-        this.powerups.add(new InvisibilityPotion(200));
-        this.powerups.add(new HealthPotion(300));
-        this.powerups.add(new SpeedPotionOld(400));
+        this.powerups.add(new ShopItem(100, 1));
+        this.powerups.add(new ShopItem(200, 2));
+        this.powerups.add(new ShopItem(300, 3));
+        this.powerups.add(new ShopItem(400, 4));
         
         for (ShopItem powerup : powerups) {
             TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 150, true, Color.BLACK, Color.BLUE, Color.WHITE, Color.WHITE, Color.BLACK, new Font ("Verdana",true ,false ,14));
             buybuttons.add(btn);
         }
         
-        
         this.shopItemIndex = 0;
         this.DisplayPowerUp(shopItemIndex);
-        
-        
-        
     }
     
     
@@ -131,7 +126,7 @@ public class Shop extends World
           
             this.ClearPowerUp (shopItemIndex);
             this.shopItemIndex = this.shopItemIndex + 1;
-            this.DisplayPowerUp(shopItemIndex);             
+            this.DisplayPowerUp(shopItemIndex);           
         } 
         
         for (int i = 0; i < buybuttons.size(); i++) {
