@@ -8,27 +8,47 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Archer extends Troop
 {
+    private GreenfootImage[] walkAnimations, attackAnimations;
+    private int walkCount, attackCount, cooldown;
+    
     public Archer(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
         super(health, attack, movementSpeed, attackSpeed, radius, isEnemy);
+        walkCount = 0;
+        attackCount = -1;
+        cooldown = (int)(this.attackSpeed * 4);
+        walkAnimations = new GreenfootImage[12];
+        attackAnimations = new GreenfootImage[12];
+        for(int i = 0; i < 12; i++){
+            walkAnimations[i] = new GreenfootImage("Troops/Archer/ArcherMove" + i + ".png");
+            attackAnimations[i] = new GreenfootImage("Troops/Archer/ArcherAttack" + i + ".png");
+        }
     }
-    /**
-     * Act - do whatever the Archer wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
+
+    public void attack()
     {
-        // Add your action code here.
+        if(this.target != null && cooldown == 0){
+            getWorld().addObject(new Projectile(this.attack, 10, this.target), getX(), getY());
+            super.attack();
+            cooldown = (int)(this.attackSpeed * 4);
+        }
+        else{
+            cooldown--;
+        }
     }
     
     public void animate(){
-        
+        walkCount++;
+        if(walkCount == 48) walkCount = 0;
+        setImage(walkAnimations[walkCount/4]);
     }
     
     public int getAttackCounter(){
-        return 0;
+        return attackCount;
     }
     
     public void attackAnimate(){
-        
+        attackCount++;
+        if(attackCount == 48) attackCount = 0;
+        setImage(attackAnimations[attackCount/4]);
     }
 }
