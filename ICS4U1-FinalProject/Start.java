@@ -21,6 +21,7 @@ public class Start extends World
     private Image myKing;
     private Image enemyKing;
     private UserInfo user;
+    private GreenfootSound music;
     
     /**
      * Constructor for objects of class MyWorld.
@@ -69,12 +70,48 @@ public class Start extends World
         
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
-            user.setScore(1); // Level
-            user.setInt(0, 0); // Gems
-            user.setInt(1, 1); // Difficulty
-            user.setInt(2, 0); // Volume
-            user.setInt(3, 1); // Music type
-            user.store();
+            String check = user.getString(0);
+            if (check.equals("") || check == null){
+                user.setScore(1); // Level
+                user.setInt(0, 0); // Gems
+                user.setInt(1, 1); // Difficulty
+                user.setInt(2, 0); // Volume
+                user.setInt(3, 0); // Music type
+                user.setString(0, "100 10 1 3 80 100 10 1 3 80");
+                user.store();
+            }
+        }
+    }
+    
+    public void started(){
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            if (user.getInt(3) == 0){
+                if (music != null){
+                    music.stop();
+                }
+            }
+            else if (user.getInt(3) == 1){
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong1.wav");
+                music.play();
+            }
+            else if (user.getInt(3) == 2){
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong2.wav");
+                music.play();
+            }
+            else if (user.getInt(3) == 3){
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong3.wav");
+                music.play();
+            }
         }
     }
     
