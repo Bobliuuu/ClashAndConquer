@@ -91,25 +91,11 @@ public class Start extends World
                     music.stop();
                 }
             }
-            else if (user.getInt(3) == 1){
+            else {
                 if (music != null){
                     music.stop();
                 }
-                music = new GreenfootSound("mainsong1.wav");
-                music.play();
-            }
-            else if (user.getInt(3) == 2){
-                if (music != null){
-                    music.stop();
-                }
-                music = new GreenfootSound("mainsong2.wav");
-                music.play();
-            }
-            else if (user.getInt(3) == 3){
-                if (music != null){
-                    music.stop();
-                }
-                music = new GreenfootSound("mainsong3.wav");
+                music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                 music.play();
             }
         }
@@ -128,14 +114,26 @@ public class Start extends World
         //If the user has clicked the start buttonm bring them to the level select menu
         if (Greenfoot.mouseClicked(startButton)) {
             LevelMenu levelMenu = new LevelMenu();
+            if (music != null){
+                music.stop();
+            }
+            levelMenu.started();
             Greenfoot.setWorld(levelMenu);
         }
         else if (Greenfoot.mouseClicked(settingsButton)){
             Settings settings = new Settings();
+            if (music != null){
+                music.stop();
+            }
+            settings.started();
             Greenfoot.setWorld(settings);
         }
         else if (Greenfoot.mouseClicked(shopButton)){
             Shop shop = new Shop();
+            if (music != null){
+                music.stop();
+            }
+            shop.started();
             Greenfoot.setWorld(shop);
         }
     }
