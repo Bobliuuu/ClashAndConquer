@@ -91,25 +91,11 @@ public class Settings extends World
                     music.stop();
                 }
             }
-            else if (user.getInt(3) == 1){
+            else {
                 if (music != null){
                     music.stop();
                 }
-                music = new GreenfootSound("mainsong1.wav");
-                music.play();
-            }
-            else if (user.getInt(3) == 2){
-                if (music != null){
-                    music.stop();
-                }
-                music = new GreenfootSound("mainsong2.wav");
-                music.play();
-            }
-            else if (user.getInt(3) == 3){
-                if (music != null){
-                    music.stop();
-                }
-                music = new GreenfootSound("mainsong3.wav");
+                music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                 music.play();
             }
         }
@@ -122,7 +108,14 @@ public class Settings extends World
     public void checkClick(){
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();
+            if (music != null){
+                music.stop();
+            }
+            start.started();
             Greenfoot.setWorld(start);
+            if (music != null){
+                music.stop();
+            }   
         }
         if (Greenfoot.mouseClicked(changeMusic)){
             if (UserInfo.isStorageAvailable()){
@@ -140,25 +133,11 @@ public class Settings extends World
                         music.stop();
                     }
                 }
-                else if (user.getInt(3) == 1){
+                else {
                     if (music != null){
                         music.stop();
                     }
-                    music = new GreenfootSound("mainsong1.wav");
-                    music.play();
-                }
-                else if (user.getInt(3) == 2){
-                    if (music != null){
-                        music.stop();
-                    }
-                    music = new GreenfootSound("mainsong2.wav");
-                    music.play();
-                }
-                else if (user.getInt(3) == 3){
-                    if (music != null){
-                        music.stop();
-                    }
-                    music = new GreenfootSound("mainsong3.wav");
+                    music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                     music.play();
                 }
             }

@@ -133,7 +133,8 @@ public class Slider extends Actor
     public void setValue(int value){
         if(value < 0){
             value = 0;
-        }if(value > maxValue){
+        }
+        if(value > maxValue){
             value = maxValue;
         }
         this.value = value;
