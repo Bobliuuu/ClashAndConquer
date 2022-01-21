@@ -22,6 +22,7 @@ public class Settings extends World
     private TextLabel sliderLabel;
     private TextLabel gemsLabel;
     private UserInfo user;
+    private GreenfootSound music;
     
     /**
      * Constructor for objects of class Settings.
@@ -82,6 +83,38 @@ public class Settings extends World
         addObject(gemsLabel, 840, 90);
     }
     
+    public void started(){
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            if (user.getInt(3) == 0){
+                if (music != null){
+                    music.stop();
+                }
+            }
+            else if (user.getInt(3) == 1){
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong1.wav");
+                music.play();
+            }
+            else if (user.getInt(3) == 2){
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong2.wav");
+                music.play();
+            }
+            else if (user.getInt(3) == 3){
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong3.wav");
+                music.play();
+            }
+        }
+    }
+    
     public void act(){
         checkClick();
     }
@@ -96,11 +129,38 @@ public class Settings extends World
                 user = UserInfo.getMyInfo();
                 int musicType = user.getInt(3);
                 musicType++;
-                if (musicType == 3){
-                    musicType = 1;
+                if (musicType > 3){
+                    musicType = 0;
                 }
                 user.setInt(3, musicType);
                 user.store();
+                // Play new music
+                if (user.getInt(3) == 0){
+                    if (music != null){
+                        music.stop();
+                    }
+                }
+                else if (user.getInt(3) == 1){
+                    if (music != null){
+                        music.stop();
+                    }
+                    music = new GreenfootSound("mainsong1.wav");
+                    music.play();
+                }
+                else if (user.getInt(3) == 2){
+                    if (music != null){
+                        music.stop();
+                    }
+                    music = new GreenfootSound("mainsong2.wav");
+                    music.play();
+                }
+                else if (user.getInt(3) == 3){
+                    if (music != null){
+                        music.stop();
+                    }
+                    music = new GreenfootSound("mainsong3.wav");
+                    music.play();
+                }
             }
         }
         if (Greenfoot.mouseClicked(easy)){

@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=Settings
-comment0.text=\n\ Write\ a\ description\ of\ class\ Settings\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Settings\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Settings()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Settings.\n\ \n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Settings.\r\n\ \r\n
 comment2.params=
-comment2.target=void\ act()
+comment2.target=void\ started()
 comment3.params=
-comment3.target=void\ checkClick()
-comment4.params=value
-comment4.target=void\ updateVolumeText(java.lang.String)
-numComments=5
+comment3.target=void\ act()
+comment4.params=
+comment4.target=void\ checkClick()
+comment5.params=value
+comment5.target=void\ updateVolumeText(java.lang.String)
+numComments=6
