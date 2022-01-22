@@ -21,6 +21,8 @@ public class Shop extends World
     private ArrayList<TextButton> buybuttons;
     private int shopItemIndex;
     private int tempGemsCount;
+    private GreenfootSound music;
+    private UserInfo user;
     
     private void DisplayPowerUp (int position)
     {
@@ -104,7 +106,23 @@ public class Shop extends World
         this.DisplayPowerUp(shopItemIndex);
     }
     
-    
+    public void started(){
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            if (user.getInt(3) == 0){
+                if (music != null){
+                    music.stop();
+                }
+            }
+            else {
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
+                music.play();
+            }
+        }
+    }
     
     public void act(){
         checkClick();
@@ -112,7 +130,11 @@ public class Shop extends World
     
     public void checkClick(){
         if (Greenfoot.mouseClicked(backButton)){
+            if (music != null){
+                music.stop();
+            }
             Start start = new Start();
+            start.started();
             Greenfoot.setWorld(start);
         }
         if (Greenfoot.mouseClicked(backItemButton)){
@@ -123,7 +145,6 @@ public class Shop extends World
             }
         }
         if (Greenfoot.mouseClicked(forwardItemButton)){
-          
             this.ClearPowerUp (shopItemIndex);
             this.shopItemIndex = this.shopItemIndex + 1;
             this.DisplayPowerUp(shopItemIndex);           

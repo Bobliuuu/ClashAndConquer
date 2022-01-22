@@ -13,7 +13,9 @@ public class LevelMenu extends World
     private Image map;
     private Circle oneCircle, twoCircle, threeCircle, fourCircle, fiveCircle, sixCircle;
     private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle, fiveRectangle;
-
+    private Image backButton;
+    private UserInfo user;
+    private GreenfootSound music;
     private SuperTextBox textBox;
     
     /**
@@ -60,11 +62,33 @@ public class LevelMenu extends World
         fiveRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
         addObject(fiveRectangle, 26, 245);
         
+        backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
+        backButton.getImage().scale(80, 50);
+        addObject(backButton, 80, 50);
+        
         showText("1", 200, 425);
         showText("2", 356, 356);
         showText("3", 276, 268);
         showText("4", 149, 255);
         showText("5", 26, 245);
+    }
+    
+    public void started(){
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            if (user.getInt(3) == 0){
+                if (music != null){
+                    music.stop();
+                }
+            }
+            else {
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
+                music.play();
+            }
+        }
     }
     
     public void act(){
@@ -73,27 +97,54 @@ public class LevelMenu extends World
     }
     
     public void checkClick(){
-        if (Greenfoot.mouseClicked(oneRectangle)) {
+        if (Greenfoot.mouseClicked(oneRectangle)){
+            if (music != null){
+                music.stop();
+            }
             Level level = new Level(1);
+            level.started();
             Greenfoot.setWorld(level);
         }
-        else if (Greenfoot.mouseClicked(twoRectangle)) {
+        else if (Greenfoot.mouseClicked(twoRectangle)){
+            if (music != null){
+                music.stop();
+            }
             Level level = new Level(2);
             level.setIfWeak(true);
+            level.started();
             Greenfoot.setWorld(level);
         }
-        else if (Greenfoot.mouseClicked(threeRectangle)) {
+        else if (Greenfoot.mouseClicked(threeRectangle)){
+            if (music != null){
+                music.stop();
+            }
             Level level = new Level(2);
+            level.started();
             Greenfoot.setWorld(level);
         }
-        else if (Greenfoot.mouseClicked(fourRectangle)) {
+        else if (Greenfoot.mouseClicked(fourRectangle)){
+            if (music != null){
+                music.stop();
+            }
             Level level = new Level(3);
             level.setIfWeak(true);
+            level.started();
             Greenfoot.setWorld(level);
         }
-        else if (Greenfoot.mouseClicked(fiveRectangle)) {
+        else if (Greenfoot.mouseClicked(fiveRectangle)){
+            if (music != null){
+                music.stop();
+            }
             End end = new End();
             Greenfoot.setWorld(end);
+        }
+        else if (Greenfoot.mouseClicked(backButton)){
+            if (music != null){
+                music.stop();
+            }
+            Start start = new Start();
+            start.started();
+            Greenfoot.setWorld(start);
         }
     }
     

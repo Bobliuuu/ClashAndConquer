@@ -34,6 +34,8 @@ public class Level extends World
     private int victoryCountdown;
     private int defeatCountdown;
     public static boolean removed = false;
+    private GreenfootSound music;
+    private UserInfo user;
     
     /**
      * Level world constructor
@@ -89,6 +91,24 @@ public class Level extends World
         moveUnplacedTroop();
         elixirBar.addElixir();
         //myCastle.removeCastle();
+    }
+    
+    public void started(){
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            if (user.getInt(3) == 0){
+                if (music != null){
+                    music.stop();
+                }
+            }
+            else {
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
+                music.play();
+            }
+        }
     }
     
     public void checkMousePosition(){
