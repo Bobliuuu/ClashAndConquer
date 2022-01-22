@@ -77,7 +77,7 @@ public class Start extends World
                 user.setInt(1, 1); // Difficulty
                 user.setInt(2, 0); // Volume
                 user.setInt(3, 0); // Music type
-                user.setString(0, "100 10 1 3 80 100 10 1 3 80");
+                user.setString(0, "120 12 1 3 80 100 10 1 3 80");
                 user.store();
             }
         }
