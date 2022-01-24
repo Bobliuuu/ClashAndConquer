@@ -102,5 +102,19 @@ public class ElixirBar extends Actor
         }
         return false;
     }
+    
+    /**
+     * Increase the elixir speed by the elixir towers
+     */    
+    public void increaseElixirSpeed(double amount){
+        elixirSpeed += amount;
+    }
+    
+    /**
+     * Decrease the elixir speed by the elixir towers being destroyed
+     */    
+    public void decreaseElixirSpeed(double amount){
+        elixirSpeed -= amount;
+    }
 }
 
