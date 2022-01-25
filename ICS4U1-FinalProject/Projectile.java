@@ -51,7 +51,7 @@ public class Projectile extends SuperSmoothMover
             }
         }
         else{
-            if(getX() == lastX && getY() == lastY) ((Level)getWorld()).removeObject(this);
+            if(findDistanceBetween(lastX, lastY) < speed) ((Level)getWorld()).removeObject(this);
         }
     }
     
@@ -62,5 +62,9 @@ public class Projectile extends SuperSmoothMover
             lastY = target.getY();
         }
         else turnTowards(lastX, lastY);
+    }
+    
+    private double findDistanceBetween(double x, double y){
+        return Math.sqrt(Math.pow(this.getX() - x, 2) + Math.pow(this.getY() - y, 2));
     }
 }
