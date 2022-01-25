@@ -11,12 +11,14 @@ public class LevelMenu extends World
 {
     // Instance variables
     private Image map;
-    private Circle oneCircle, twoCircle, threeCircle, fourCircle, fiveCircle, sixCircle;
+    //private ArrayList <Circle> circles;
     private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle, fiveRectangle;
+    private int[][] circleCoordinates = {{200, 450}, {356, 386}, {276, 296}, {26, 269}, {149, 280}};
     private Image backButton;
     private UserInfo user;
     private GreenfootSound music;
     private SuperTextBox textBox;
+    private int level;
     
     /**
      * Constructor for objects of class LevelMenu.
@@ -29,48 +31,51 @@ public class LevelMenu extends World
         map = new Image(new GreenfootImage("mapselect.png"));
         addObject(map, getWidth()/2, getHeight()/2);
         
-        oneCircle = new Circle(Color.BLUE, 30, true, 1);
-        addObject(oneCircle, 200, 450);
+        for (int i = 0; i < 5; i++){
+            Circle temp = new Circle(Color.BLUE, 30, true, 1);
+            addObject(temp, circleCoordinates[i][0], circleCoordinates[i][1]);
+        }
         
-        twoCircle = new Circle(Color.BLUE, 30, true, 1);
-        addObject(twoCircle, 356, 386);
-        
-        //threeCircle = new Circle(Color.BLUE, 30, true, 1);
-        //addObject(threeCircle, 502, 319);
-        
-        fourCircle = new Circle(Color.BLUE, 30, true, 1);
-        addObject(fourCircle, 276, 296);
-        
-        sixCircle = new Circle(Color.BLUE, 30, true, 1);
-        addObject(sixCircle, 26, 269);
-        
-        fiveCircle = new Circle(Color.BLUE, 30, true, 1);
-        addObject(fiveCircle, 149, 280);
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            level = user.getScore();
+            //level = 5;
+        }
+        else {
+            level = 1;
+        }
         
         oneRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
         addObject(oneRectangle, 200, 425);
-
-        twoRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        addObject(twoRectangle, 356, 356);
+        showText("1", 200, 425);
+            
+        if (level >= 2){
+            twoRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+            addObject(twoRectangle, 356, 356);
+            showText("2", 356, 356);
+        }
+            
+        if (level >= 3){
+            threeRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+            addObject(threeRectangle, 276, 268);
+            showText("3", 276, 268);
+        }
+            
+        if (level >= 4){
+            fourRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+            addObject(fourRectangle, 149, 255);
+            showText("4", 149, 255);
+        }
         
-        threeRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        addObject(threeRectangle, 276, 268);
-        
-        fourRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        addObject(fourRectangle, 149, 255);
-        
-        fiveRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        addObject(fiveRectangle, 26, 245);
-        
+        if (level >= 5){
+            fiveRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+            addObject(fiveRectangle, 26, 245);
+            showText("5", 26, 245);
+        }
+            
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
         addObject(backButton, 80, 50);
-        
-        showText("1", 200, 425);
-        showText("2", 356, 356);
-        showText("3", 276, 268);
-        showText("4", 149, 255);
-        showText("5", 26, 245);
     }
     
     public void started(){
