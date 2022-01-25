@@ -29,27 +29,35 @@ public class EnemyAI extends Actor
             originalTime = countdown;
             spawnChances[0] = 100;
             spawnChances[1] = 0;
+            attackIncrease = 1;
+            healthIncrease = 1;
         }
         else if (level == 2){
             countdown = 175 - Greenfoot.getRandomNumber(40);
             originalTime = countdown;
             spawnChances[0] = 100;
             spawnChances[1] = 0;
+            attackIncrease = 2;
+            healthIncrease = 3;
         }
         else if (level == 3){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 90;
             spawnChances[1] = 10;
+            attackIncrease = 4;
+            healthIncrease = 9;
         }
         else if (level == 4){
             countdown = 100 - Greenfoot.getRandomNumber(40);
             originalTime = countdown;
             spawnChances[0] = 75;
             spawnChances[1] = 25;
+            attackIncrease = 8;
+            healthIncrease = 27;
         }
-        attackIncrease = (int)(Math.pow(2, level-1));
-        healthIncrease = (int)Math.pow(3, level-1);
+        // attackIncrease = (int)(Math.pow(2, level-1));
+        // healthIncrease = (int)Math.pow(3, level-1);
         
         if(half){
             attackIncrease /= 2;

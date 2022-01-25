@@ -36,7 +36,7 @@ public abstract class Spell extends SuperSmoothMover
     }
     
     public void checkPosition(){
-        if(getX() == lastX && getY() == lastY){
+        if(findDistanceBetween(lastX, lastY) < speed){
             ArrayList<Actor> targets = (ArrayList<Actor>)getObjectsInRange(radius, Actor.class);
             
             for(int i = 0; i < targets.size(); i++){
@@ -55,5 +55,9 @@ public abstract class Spell extends SuperSmoothMover
             }
             ((Level)getWorld()).removeObject(this);
         }
+    }
+    
+    private double findDistanceBetween(double x, double y){
+        return Math.sqrt(Math.pow(this.getX() - x, 2) + Math.pow(this.getY() - y, 2));
     }
 }
