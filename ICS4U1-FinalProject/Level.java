@@ -15,6 +15,7 @@ public class Level extends World
 {
     // Hardcoded variables
     private final int[][] cardCoordinates = {{50, 760}, {150, 760}, {650, 760}, {753, 760}};
+    private final int[] archerAttack = {};
     
     // Instance variables
     private Image levelMap;

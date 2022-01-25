@@ -13,7 +13,10 @@ public class LevelMenu extends World
     private Image map;
     //private ArrayList <Circle> circles;
     private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle, fiveRectangle;
-    private int[][] circleCoordinates = {{200, 450}, {356, 386}, {276, 296}, {26, 269}, {149, 280}};
+    private int[][] circleCoordinates = {{200, 450}, {307, 414}, {403, 365}, {276, 296}, {26, 269}, {179, 290}, {308, 564}, {443, 586}, 
+                                        {601, 545}, {733, 556}, {829, 605}, {916, 566}, {925, 426}, {978, 315}, {904, 282}, {817, 253}, 
+                                        {905, 190}, {921, 114}, {812, 91}, {691, 94}, {626, 117}, {554, 157}, {478, 225}, {403, 285}, 
+                                        {507, 324}, {98, 219}};
     private Image backButton;
     private UserInfo user;
     private GreenfootSound music;
@@ -31,7 +34,7 @@ public class LevelMenu extends World
         map = new Image(new GreenfootImage("mapselect.png"));
         addObject(map, getWidth()/2, getHeight()/2);
         
-        for (int i = 0; i < 5; i++){
+        for (int i = 0; i < 26; i++){
             Circle temp = new Circle(Color.BLUE, 30, true, 1);
             addObject(temp, circleCoordinates[i][0], circleCoordinates[i][1]);
         }
@@ -110,7 +113,7 @@ public class LevelMenu extends World
             level.started();
             Greenfoot.setWorld(level);
         }
-        else if (Greenfoot.mouseClicked(twoRectangle)){
+        else if (level >= 2 && Greenfoot.mouseClicked(twoRectangle)){
             if (music != null){
                 music.stop();
             }
@@ -119,7 +122,7 @@ public class LevelMenu extends World
             level.started();
             Greenfoot.setWorld(level);
         }
-        else if (Greenfoot.mouseClicked(threeRectangle)){
+        else if (level >= 3 && Greenfoot.mouseClicked(threeRectangle)){
             if (music != null){
                 music.stop();
             }
@@ -127,7 +130,7 @@ public class LevelMenu extends World
             level.started();
             Greenfoot.setWorld(level);
         }
-        else if (Greenfoot.mouseClicked(fourRectangle)){
+        else if (level >= 4 && Greenfoot.mouseClicked(fourRectangle)){
             if (music != null){
                 music.stop();
             }
@@ -136,7 +139,7 @@ public class LevelMenu extends World
             level.started();
             Greenfoot.setWorld(level);
         }
-        else if (Greenfoot.mouseClicked(fiveRectangle)){
+        else if (level >= 5 && Greenfoot.mouseClicked(fiveRectangle)){
             if (music != null){
                 music.stop();
             }

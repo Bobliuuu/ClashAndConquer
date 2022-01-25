@@ -77,6 +77,8 @@ public class Start extends World
                 user.setInt(1, 1); // Difficulty
                 user.setInt(2, 0); // Volume
                 user.setInt(3, 0); // Music type
+                user.setInt(4, 0); // Castle health
+                user.setInt(5, 0); // Castle attack
                 user.store();
             }
         }
