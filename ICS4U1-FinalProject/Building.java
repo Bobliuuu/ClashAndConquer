@@ -25,4 +25,8 @@ public abstract class Building extends SuperSmoothMover
     
     // Abstract method to subtract health from building on attack
     public abstract void subtractHealth(int health);
+    
+    public boolean enemy(){
+        return isEnemy;
+    }
 }
