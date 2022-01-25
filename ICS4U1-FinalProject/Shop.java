@@ -50,7 +50,7 @@ public class Shop extends World
         removeObject(gemsLabel);
         Font font2 = new Font("Verdana", true, false, 20);
         gemsLabel = new TextLabel(String.valueOf(this.tempGemsCount), font2);
-        addObject(gemsLabel, 840, 90);
+        addObject(gemsLabel, 800, 90);
         // gemsLabel.setText(String.valueOf(this.tempGemsCount));
     }
     
@@ -63,19 +63,19 @@ public class Shop extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
         
-        this.tempGemsCount = 1000;
+        this.tempGemsCount = 10000;
         
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
         addObject(backButton, 80, 50);
         
         gems = new Image(new GreenfootImage("gem.png"));
-        gems.getImage().scale(100, 50);
+        gems.getImage().scale(140, 50);
         addObject(gems, 810, 50);
         
         Font font2 = new Font("Verdana", true, false, 20);
         gemsLabel = new TextLabel("0", font2);
-        addObject(gemsLabel, 840, 90);
+        addObject(gemsLabel, 800, 90);
         
         UpdateGemsCount();
         

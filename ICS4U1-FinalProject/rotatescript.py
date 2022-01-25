@@ -1,6 +1,6 @@
 from PIL import Image
 
-troopName = "Knight" # Change to troop name accordingly
+troopName = "Archer" # Change to troop name accordingly
 # Get move and attack paths
 movePath = "images/Troops/" + troopName + "/" + troopName + "Move"
 attackPath = "images/Troops/" + troopName + "/" + troopName + "Attack"
