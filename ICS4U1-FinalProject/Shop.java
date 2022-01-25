@@ -98,7 +98,7 @@ public class Shop extends World
         this.powerups.add(new ShopItem(400, 4));
         
         for (ShopItem powerup : powerups) {
-            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 150, true, Color.BLACK, Color.BLUE, Color.WHITE, Color.WHITE, Color.BLACK, new Font ("Verdana",true ,false ,14));
+            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 190, true, Color.BLACK, Color.BLUE, Color.BLUE, Color.WHITE, Color.BLACK, new Font ("Verdana",true ,false ,14));
             buybuttons.add(btn);
         }
         

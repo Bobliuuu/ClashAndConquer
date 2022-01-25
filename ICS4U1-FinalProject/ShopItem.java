@@ -21,16 +21,16 @@ public class ShopItem extends Actor
     public ShopItem(int cost, int type){
         this.cost = cost;
         if (type == 1){
-            image = new GreenfootImage("SpeedPotion.PNG");
+            image = new GreenfootImage("images/ShopItems/ElexirSpeed.PNG");
         }
         else if (type == 2){
-            image = new GreenfootImage("InvisibilityPotion.PNG");
+            image = new GreenfootImage("images/ShopItems/CastleHealth.PNG");
         }
         else if (type == 3){
-            image = new GreenfootImage("HealthPotion.PNG");
+            image = new GreenfootImage("images/ShopItems/KnightAttack.PNG");
         }
         else {
-            image = new GreenfootImage("SpeedPotionOld.PNG");
+            image = new GreenfootImage("images/ShopItems/KnightSpeed.PNG");
         }
         setImage(image);
     }
