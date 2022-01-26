@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * EnemyAI Class
@@ -24,6 +25,8 @@ public class EnemyAI extends Actor
     public EnemyAI(int level, boolean half){
         this.level = level;
         spawnChances = new int[2];
+        //ArrayList<Castle> possible = (ArrayList<Castle>)getWorld().getObjects(Castle.class);
+        
         if (level == 1){
             countdown = 200 - Greenfoot.getRandomNumber(30);
             originalTime = countdown;
@@ -55,6 +58,30 @@ public class EnemyAI extends Actor
             spawnChances[1] = 25;
             attackIncrease = 8;
             healthIncrease = 27;
+        }
+        else if (level == 5){
+            countdown = 80 - Greenfoot.getRandomNumber(20);
+            originalTime = countdown;
+            spawnChances[0] = 75;
+            spawnChances[1] = 25;
+            attackIncrease = 16;
+            healthIncrease = 81;
+        }
+        else if (level == 6){
+            countdown = 60 - Greenfoot.getRandomNumber(20);
+            originalTime = countdown;
+            spawnChances[0] = 75;
+            spawnChances[1] = 25;
+            attackIncrease = 32;
+            healthIncrease = 81;
+        }
+        else if (level == 7){
+            countdown = 40 - Greenfoot.getRandomNumber(10);
+            originalTime = countdown;
+            spawnChances[0] = 75;
+            spawnChances[1] = 25;
+            attackIncrease = 64;
+            healthIncrease = 162;
         }
         // attackIncrease = (int)(Math.pow(2, level-1));
         // healthIncrease = (int)Math.pow(3, level-1);
