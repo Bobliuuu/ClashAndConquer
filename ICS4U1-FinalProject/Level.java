@@ -69,7 +69,8 @@ public class Level extends World
         redZone = new RedZone();
         addObject(redZone, 400, 190);
         
-        String[] cardNames = {"Blank", "Knight", "Knight", "Blank"};
+        String[] cardNames = {"Fireball", "Knight", "Archer", "Elixirtower"};
+        
         cardDeck = new CardDeck(cardNames);
         for (int i = 0; i < 4; i++){
             addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
