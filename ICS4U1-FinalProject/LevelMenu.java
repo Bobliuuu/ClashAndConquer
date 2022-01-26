@@ -12,11 +12,13 @@ public class LevelMenu extends World
     // Instance variables
     private Image map;
     //private ArrayList <Circle> circles;
+    private ArrayList <Rectangle> rectangles; 
     private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle, fiveRectangle;
     private int[][] circleCoordinates = {{200, 450}, {307, 414}, {403, 365}, {276, 296}, {26, 269}, {179, 290}, {308, 564}, {443, 586}, 
-                                        {601, 545}, {733, 556}, {829, 605}, {916, 566}, {925, 426}, {978, 315}, {904, 282}, {817, 253}, 
+                                        {601, 545}, {733, 556}, {829, 605}, {916, 575}, {925, 426}, {970, 315}, {904, 282}, {817, 253}, 
                                         {905, 190}, {921, 114}, {812, 91}, {691, 94}, {626, 117}, {554, 157}, {478, 225}, {403, 285}, 
                                         {507, 324}, {98, 219}};
+    private int[][] rectangleCoordinates = {{200, 425}, {443, 560}, {733, 530}, {916, 550}, {970, 290}};
     private Image backButton;
     private UserInfo user;
     private GreenfootSound music;
@@ -42,32 +44,44 @@ public class LevelMenu extends World
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             level = user.getScore();
-            //level = 5;
+            level = 5;
         }
         else {
             level = 1;
         }
         
+        rectangles = new ArrayList <Rectangle> ();
+        
+        for (int i = 1; i <= 5; i++){
+            if (level >= i){
+                Rectangle temp = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+                rectangles.add(temp);
+                addObject(temp, rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+                showText(Integer.toString(i), rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+            }
+        }
+        
+        /*
         oneRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
         addObject(oneRectangle, 200, 425);
         showText("1", 200, 425);
             
         if (level >= 2){
             twoRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-            addObject(twoRectangle, 356, 356);
-            showText("2", 356, 356);
+            addObject(twoRectangle, 443, 560);
+            showText("2", 443, 560);
         }
             
         if (level >= 3){
             threeRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-            addObject(threeRectangle, 276, 268);
-            showText("3", 276, 268);
+            addObject(threeRectangle, 733, 530);
+            showText("3", 733, 530);
         }
             
         if (level >= 4){
             fourRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-            addObject(fourRectangle, 149, 255);
-            showText("4", 149, 255);
+            addObject(fourRectangle, 916, 550);
+            showText("4", 916, 550);
         }
         
         if (level >= 5){
@@ -75,6 +89,7 @@ public class LevelMenu extends World
             addObject(fiveRectangle, 26, 245);
             showText("5", 26, 245);
         }
+        */
             
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
@@ -100,11 +115,12 @@ public class LevelMenu extends World
     }
     
     public void act(){
-        //checkMousePosition();
+        checkMousePosition();
         checkClick();
     }
     
     public void checkClick(){
+        
         if (Greenfoot.mouseClicked(oneRectangle)){
             if (music != null){
                 music.stop();
