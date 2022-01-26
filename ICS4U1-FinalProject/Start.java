@@ -73,12 +73,15 @@ public class Start extends World
             String check = user.getString(0);
             if (check.equals("") || check == null){
                 user.setScore(1); // Level
-                user.setInt(0, 0); // Gems
+                user.setInt(0, 10000); // Gems
                 user.setInt(1, 1); // Difficulty
                 user.setInt(2, 0); // Volume
                 user.setInt(3, 0); // Music type
                 user.setInt(4, 0); // Castle health
                 user.setInt(5, 0); // Castle attack
+                user.setString(0, "0 0 0 0"); // Knight, archer
+                user.setString(1, "0 0"); // Towers
+                user.setString(2, "0 0"); // Spells
                 user.store();
             }
         }

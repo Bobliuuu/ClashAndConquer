@@ -20,7 +20,7 @@ public class Shop extends World
     private ArrayList<ShopItem> powerups;
     private ArrayList<TextButton> buybuttons;
     private int shopItemIndex;
-    private int tempGemsCount;
+    private int gemsCount;
     private GreenfootSound music;
     private UserInfo user;
     
@@ -46,12 +46,12 @@ public class Shop extends World
         }
     }
     
-    private void UpdateGemsCount() {
+    private void updateGemsCount() {
         removeObject(gemsLabel);
         Font font2 = new Font("Verdana", true, false, 20);
-        gemsLabel = new TextLabel(String.valueOf(this.tempGemsCount), font2);
+        gemsLabel = new TextLabel(String.valueOf(this.gemsCount), font2);
         addObject(gemsLabel, 800, 90);
-        // gemsLabel.setText(String.valueOf(this.tempGemsCount));
+        // gemsLabel.setText(String.valueOf(this.gemsCount));
     }
     
     /**
@@ -63,7 +63,14 @@ public class Shop extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
         
-        this.tempGemsCount = 10000;
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            int gems = user.getInt(0);
+            this.gemsCount = gems;
+        }
+        else {
+            this.gemsCount = 0;
+        }
         
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
@@ -77,7 +84,7 @@ public class Shop extends World
         gemsLabel = new TextLabel("0", font2);
         addObject(gemsLabel, 800, 90);
         
-        UpdateGemsCount();
+        updateGemsCount();
         
         // back and forth buttons for going through powerups.
         backItemButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
@@ -154,9 +161,15 @@ public class Shop extends World
             if (Greenfoot.mouseClicked(buybuttons.get(i))) {
                 // if someone clicked ith button, then ith powerup will be purchased.
                 ShopItem itm = powerups.get(i);
-                this.tempGemsCount = this.tempGemsCount - itm.getCost();
-                UpdateGemsCount();
+                this.gemsCount -= itm.getCost();
+                updateGemsCount();
                 // System.out.println(itm.getCost());
+                // Subtract gems from user info class
+                if (UserInfo.isStorageAvailable()){
+                    user = UserInfo.getMyInfo();
+                    user.setInt(0, this.gemsCount);
+                    user.store();
+                }
             }
         }
     }
