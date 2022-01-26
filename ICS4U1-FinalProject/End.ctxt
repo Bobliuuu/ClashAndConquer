@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=End
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ End\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ End\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=End()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ End.\r\n\ \r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ End.\n\ \n
 comment2.params=color\ width\ height\ density\ fill
 comment2.target=greenfoot.GreenfootImage\ drawStars(greenfoot.Color,\ int,\ int,\ int,\ boolean)
 numComments=3
