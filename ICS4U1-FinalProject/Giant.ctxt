@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Giant
+comment0.text=\n\ Write\ a\ description\ of\ class\ Giant\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=health\ attack\ movementSpeed\ attackSpeed\ radius\ isEnemy
+comment1.target=Giant(int,\ int,\ double,\ double,\ double,\ boolean)
+comment2.params=
+comment2.target=void\ findTarget()
+comment3.params=
+comment3.target=void\ animate()
+comment4.params=
+comment4.target=void\ attackAnimate()
+comment5.params=
+comment5.target=int\ getAttackCounter()
+comment6.params=a1\ a2
+comment6.target=double\ findDistanceBetween(greenfoot.Actor,\ greenfoot.Actor)
+comment7.params=x\ y
+comment7.target=double\ findDistanceBetween(double,\ double)
+numComments=8
