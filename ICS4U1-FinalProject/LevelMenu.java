@@ -14,11 +14,12 @@ public class LevelMenu extends World
     //private ArrayList <Circle> circles;
     private ArrayList <Rectangle> rectangles; 
     private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle, fiveRectangle;
-    private int[][] circleCoordinates = {{200, 450}, {307, 414}, {403, 365}, {276, 296}, {26, 269}, {179, 290}, {308, 564}, {443, 586}, 
+    private int[][] circleCoordinates = {{200, 450}, {307, 414}, {403, 365}, {276, 296}, {26, 269}, {205, 270}, {308, 564}, {443, 586}, 
                                         {601, 545}, {733, 556}, {829, 605}, {916, 575}, {925, 426}, {970, 315}, {904, 282}, {817, 253}, 
-                                        {905, 190}, {921, 114}, {812, 91}, {691, 94}, {626, 117}, {554, 157}, {478, 225}, {403, 285}, 
-                                        {507, 324}, {98, 219}};
-    private int[][] rectangleCoordinates = {{200, 425}, {443, 560}, {733, 530}, {916, 550}, {970, 290}};
+                                        {905, 190}, {921, 114}, {812, 91}, {691, 94}, {626, 117}, {554, 157}, {478, 225}, {413, 296}, 
+                                        {507, 324}, {122, 282}};
+    private int[][] rectangleCoordinates = {{200, 425}, {443, 560}, {733, 530}, {916, 550}, {970, 290}, {817, 226}, {905, 166}, {812, 67}, 
+                                            {691, 70}, {449, 159}, {413, 270}, {276, 270}, {122, 258}, {26, 244}};
     private Image backButton;
     private UserInfo user;
     private GreenfootSound music;
@@ -44,7 +45,7 @@ public class LevelMenu extends World
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             level = user.getScore();
-            level = 5;
+            level = 20;
         }
         else {
             level = 1;
@@ -52,7 +53,7 @@ public class LevelMenu extends World
         
         rectangles = new ArrayList <Rectangle> ();
         
-        for (int i = 1; i <= 5; i++){
+        for (int i = 1; i <= 14; i++){
             if (level >= i){
                 Rectangle temp = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
                 rectangles.add(temp);
@@ -60,36 +61,6 @@ public class LevelMenu extends World
                 showText(Integer.toString(i), rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
             }
         }
-        
-        /*
-        oneRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        addObject(oneRectangle, 200, 425);
-        showText("1", 200, 425);
-            
-        if (level >= 2){
-            twoRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-            addObject(twoRectangle, 443, 560);
-            showText("2", 443, 560);
-        }
-            
-        if (level >= 3){
-            threeRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-            addObject(threeRectangle, 733, 530);
-            showText("3", 733, 530);
-        }
-            
-        if (level >= 4){
-            fourRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-            addObject(fourRectangle, 916, 550);
-            showText("4", 916, 550);
-        }
-        
-        if (level >= 5){
-            fiveRectangle = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-            addObject(fiveRectangle, 26, 245);
-            showText("5", 26, 245);
-        }
-        */
             
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
@@ -115,54 +86,24 @@ public class LevelMenu extends World
     }
     
     public void act(){
-        checkMousePosition();
+        //checkMousePosition();
         checkClick();
     }
     
     public void checkClick(){
-        
-        if (Greenfoot.mouseClicked(oneRectangle)){
-            if (music != null){
-                music.stop();
+        for (int i = 1; i <= 14; i++){
+            if (level >= i){
+                if (Greenfoot.mouseClicked(rectangles.get(i-1))){
+                    if (music != null){
+                        music.stop();
+                    }
+                    Level level = new Level(i);
+                    level.started();
+                    Greenfoot.setWorld(level);
+                } 
             }
-            Level level = new Level(1);
-            level.started();
-            Greenfoot.setWorld(level);
         }
-        else if (level >= 2 && Greenfoot.mouseClicked(twoRectangle)){
-            if (music != null){
-                music.stop();
-            }
-            Level level = new Level(2);
-            level.setIfWeak(true);
-            level.started();
-            Greenfoot.setWorld(level);
-        }
-        else if (level >= 3 && Greenfoot.mouseClicked(threeRectangle)){
-            if (music != null){
-                music.stop();
-            }
-            Level level = new Level(2);
-            level.started();
-            Greenfoot.setWorld(level);
-        }
-        else if (level >= 4 && Greenfoot.mouseClicked(fourRectangle)){
-            if (music != null){
-                music.stop();
-            }
-            Level level = new Level(3);
-            level.setIfWeak(true);
-            level.started();
-            Greenfoot.setWorld(level);
-        }
-        else if (level >= 5 && Greenfoot.mouseClicked(fiveRectangle)){
-            if (music != null){
-                music.stop();
-            }
-            End end = new End();
-            Greenfoot.setWorld(end);
-        }
-        else if (Greenfoot.mouseClicked(backButton)){
+        if (Greenfoot.mouseClicked(backButton)){
             if (music != null){
                 music.stop();
             }
