@@ -88,4 +88,12 @@ public class Image extends Actor
         }
         return "";
     }
+    
+    /**
+     * Check if the current image is touching a castle
+     * @return boolean     If the image is touching the castle or not. 
+     */
+    public boolean checkTouchingCastle(){
+        return this.isTouching(Castle.class);
+    }
 }

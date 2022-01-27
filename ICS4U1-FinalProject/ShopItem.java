@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class ShopItem extends Actor
 {
     private int cost;
+    private int type;
     private GreenfootImage image;
      
     /**
@@ -44,12 +45,19 @@ public class ShopItem extends Actor
         // Add your action code here.
     }
 
-    protected int getCost() {
+    public int getCost() {
         return this.cost;
     }
     
-    protected void setCost(int cost) {
+    public void setCost(int cost) {
         this.cost = cost;
     }
 
+    public int getType(){
+        return this.type;
+    }
+
+    public void setType(){
+        this.type = type;
+    }
 }
