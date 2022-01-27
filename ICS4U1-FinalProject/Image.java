@@ -88,4 +88,8 @@ public class Image extends Actor
         }
         return "";
     }
+    
+    public boolean checkTouchingCastle(){
+        return this.isTouching(Castle.class);
+    }
 }

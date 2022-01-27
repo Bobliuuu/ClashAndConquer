@@ -25,4 +25,6 @@ comment7.text=\r\n\ Return\ if\ an\ Image\ object\ intersects\ a\ card.\ \r\n\ @
 comment8.params=
 comment8.target=java.lang.String\ getCardName()
 comment8.text=\r\n\ Returns\ the\ name\ of\ the\ card\ intersecting\ with\ the\ image\r\n\ @return\ String\ \ \ \ \ The\ name\ of\ the\ image.\ \r\n
-numComments=9
+comment9.params=
+comment9.target=boolean\ checkTouchingCastle()
+numComments=10

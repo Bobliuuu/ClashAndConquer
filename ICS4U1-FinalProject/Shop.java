@@ -3,7 +3,7 @@ import java.util.ArrayList;
 /**
  * Write a description of class Shop here.
  * 
- * @author (your name) 
+ * @author Ibrahim Rahman
  * @version (a version number or a date)
  */
 public class Shop extends World
@@ -24,25 +24,25 @@ public class Shop extends World
     private GreenfootSound music;
     private UserInfo user;
     
-    private void DisplayPowerUp (int position)
+    private void displayPowerUp (int position)
     {
         for (int counter = 0; counter < 3; counter++) {     
-                ShopItem powerup = powerups.get((position + counter) % powerups.size());        
-                powerup.getImage().scale(292, 430);
-                addObject(powerup, 150+(300*counter), 300);
-                              
-                TextButton btn = buybuttons.get((position + counter) % powerups.size());
-                addObject (btn, 150+(300*counter), 450);
+            ShopItem powerup = powerups.get((position + counter) % powerups.size());        
+            powerup.getImage().scale(292, 430);
+            addObject(powerup, 150+(300*counter), 300);
+                          
+            TextButton btn = buybuttons.get((position + counter) % powerups.size());
+            addObject (btn, 150+(300*counter), 450);
         }
     }
     
-    private void ClearPowerUp (int prevposition)
+    private void clearPowerUp (int prevposition)
     {       
         for (int counter = 0; counter < 3; counter++) {     
-                ShopItem powerup = powerups.get((prevposition + counter) % powerups.size());  
-                TextButton btn = buybuttons.get((prevposition + counter) % powerups.size()); 
-                removeObject(powerup);
-                removeObject(btn);
+            ShopItem powerup = powerups.get((prevposition + counter) % powerups.size());  
+            TextButton btn = buybuttons.get((prevposition + counter) % powerups.size()); 
+            removeObject(powerup);
+            removeObject(btn);
         }
     }
     
@@ -99,8 +99,8 @@ public class Shop extends World
         this.powerups = new ArrayList<ShopItem>();
         this.buybuttons = new ArrayList<TextButton>();
         
-        this.powerups.add(new ShopItem(100, 1));
-        this.powerups.add(new ShopItem(200, 2));
+        this.powerups.add(new ShopItem(100, 1)); 
+        this.powerups.add(new ShopItem(200, 2)); 
         this.powerups.add(new ShopItem(300, 3));
         this.powerups.add(new ShopItem(400, 4));
         
@@ -110,7 +110,7 @@ public class Shop extends World
         }
         
         this.shopItemIndex = 0;
-        this.DisplayPowerUp(shopItemIndex);
+        this.displayPowerUp(shopItemIndex);
     }
     
     public void started(){
@@ -146,27 +146,49 @@ public class Shop extends World
         }
         if (Greenfoot.mouseClicked(backItemButton)){
             if (shopItemIndex > 0) {
-                this.ClearPowerUp (shopItemIndex);
+                this.clearPowerUp (shopItemIndex);
                 this.shopItemIndex = this.shopItemIndex - 1;
-                this.DisplayPowerUp(shopItemIndex);
+                this.displayPowerUp(shopItemIndex);
             }
         }
         if (Greenfoot.mouseClicked(forwardItemButton)){
-            this.ClearPowerUp (shopItemIndex);
+            this.clearPowerUp (shopItemIndex);
             this.shopItemIndex = this.shopItemIndex + 1;
-            this.DisplayPowerUp(shopItemIndex);           
+            this.displayPowerUp(shopItemIndex);           
         } 
-        
+        /**
+         * Type 1 = Elixir Speed
+         * Type 2 = Castle Health
+         * Type 3 = Knight Health
+         * Type 4 = Knight Attack
+         */
         for (int i = 0; i < buybuttons.size(); i++) {
             if (Greenfoot.mouseClicked(buybuttons.get(i))) {
                 // if someone clicked ith button, then ith powerup will be purchased.
                 ShopItem itm = powerups.get(i);
                 this.gemsCount -= itm.getCost();
                 updateGemsCount();
-                // System.out.println(itm.getCost());
-                // Subtract gems from user info class
                 if (UserInfo.isStorageAvailable()){
                     user = UserInfo.getMyInfo();
+                    if (itm.getType() == 1){ // Elixir speed
+                        user.setInt(4, user.getInt(4) + 1);
+                    }
+                    else if (itm.getType() == 2){ // Castle health 
+                        user.setInt(5, user.getInt(5) + 1);
+                    }
+                    else if (itm.getType() == 3){ // Knight health
+                        String[] parsed = user.getString(0).split(" ");
+                        parsed[1] = Integer.toString(Integer.valueOf(parsed[1]));
+                        String s = String.join(" ", parsed);
+                        user.setString(0, s);
+                    }
+                    else { // Knight attack
+                        String[] parsed = user.getString(0).split(" ");
+                        parsed[0] = Integer.toString(Integer.valueOf(parsed[0]));
+                        String s = String.join(" ", parsed);
+                        user.setString(0, s);
+                    }
+                    // Subtract gems from user
                     user.setInt(0, this.gemsCount);
                     user.store();
                 }

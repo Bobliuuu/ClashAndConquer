@@ -3,7 +3,7 @@ comment0.target=ShopItem
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ ShopItems\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=cost\ type
 comment1.target=ShopItem(int,\ int)
-comment1.text=\r\n\ Default\ constructor\ of\ shop\ item\r\n\ Type\ 1\ \=\ Speed\ Potion\r\n\ Type\ 2\ \=\ InvisibilityPotion\r\n\ Type\ 3\ \=\ HealthPotion\r\n\ Type\ 4\ \=\ SpeedPotionOld\r\n
+comment1.text=\r\n\ Default\ constructor\ of\ shop\ item\r\n\ Type\ 1\ \=\ Elixir\ Speed\r\n\ Type\ 2\ \=\ Castle\ Health\r\n\ Type\ 3\ \=\ Knight\ Attack\r\n\ Type\ 4\ \=\ Knight\ Health\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ ShopItems\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
@@ -11,4 +11,8 @@ comment3.params=
 comment3.target=int\ getCost()
 comment4.params=cost
 comment4.target=void\ setCost(int)
-numComments=5
+comment5.params=
+comment5.target=int\ getType()
+comment6.params=
+comment6.target=void\ setType()
+numComments=7

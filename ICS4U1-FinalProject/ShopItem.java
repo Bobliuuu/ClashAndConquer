@@ -9,17 +9,19 @@ import java.util.ArrayList;
 public class ShopItem extends Actor
 {
     private int cost;
+    private int type;
     private GreenfootImage image;
      
     /**
      * Default constructor of shop item
-     * Type 1 = Speed Potion
-     * Type 2 = InvisibilityPotion
-     * Type 3 = HealthPotion
-     * Type 4 = SpeedPotionOld
+     * Type 1 = Elixir Speed
+     * Type 2 = Castle Health
+     * Type 3 = Knight Attack
+     * Type 4 = Knight Health
      */
     public ShopItem(int cost, int type){
         this.cost = cost;
+        this.type = type;
         if (type == 1){
             image = new GreenfootImage("images/ShopItems/ElexirSpeed.PNG");
         }
@@ -51,5 +53,12 @@ public class ShopItem extends Actor
     protected void setCost(int cost) {
         this.cost = cost;
     }
-
+    
+    protected int getType(){
+        return this.type;
+    }
+    
+    protected void setType(){
+        this.type = type;
+    }
 }

@@ -15,7 +15,9 @@ public class Level extends World
 {
     // Hardcoded variables
     private final int[][] cardCoordinates = {{50, 760}, {150, 760}, {650, 760}, {753, 760}};
+    private final int[] archerHealth = {};
     private final int[] archerAttack = {};
+    
     
     // Instance variables
     private Image levelMap;
@@ -37,6 +39,7 @@ public class Level extends World
     public static boolean removed = false;
     private GreenfootSound music;
     private UserInfo user;
+    private Timer timer;
     
     /**
      * Level world constructor
@@ -54,6 +57,7 @@ public class Level extends World
         addObject(levelMap, getWidth()/2, getHeight()/2);
         
         myCastle = new Castle(false);
+        myCastle.getImage().scale(80, 100);
         addObject(myCastle, 400, 680);
         
         enemyCastle = new Castle(true, 130, 130, 150);
@@ -125,7 +129,8 @@ public class Level extends World
                 setTroopSelected(unplacedTroop.getCardName());
             }
             if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 620){
+                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650 && 
+                !unplacedTroop.checkTouchingCastle()){
                 if (elixirBar.useElixir(3)){
                     if (troopSelected == "Knight"){
                         removeObject(unplacedTroop);
@@ -134,6 +139,9 @@ public class Level extends World
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
+                    }
+                    else if (troopSelected == "Archer"){
+                        
                     }
                 }
             }
