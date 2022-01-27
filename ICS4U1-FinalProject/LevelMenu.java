@@ -82,6 +82,9 @@ public class LevelMenu extends World
                 music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                 music.play();
             }
+            if (music != null){
+                music.setVolume(user.getInt(2));
+            }
         }
     }
     

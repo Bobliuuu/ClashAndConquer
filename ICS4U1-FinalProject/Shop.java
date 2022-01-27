@@ -10,7 +10,7 @@ public class Shop extends World
 {
     private Image backButton;
     private Image gems;
-    private TextLabel gemsLabel;
+    private SuperTextBox gemsLabel;
     private Image speedPotion;
     private Image invisibilityPotion;
     private Image healthPotion;
@@ -23,6 +23,7 @@ public class Shop extends World
     private int gemsCount;
     private GreenfootSound music;
     private UserInfo user;
+    private static final Color transparent = new Color(0, 0, 0, 0);
     
      private void displayPowerUp (int position)
     {
@@ -48,9 +49,10 @@ public class Shop extends World
     
     private void updateGemsCount() {
         removeObject(gemsLabel);
-        Font font2 = new Font("Verdana", true, false, 20);
-        gemsLabel = new TextLabel(String.valueOf(this.gemsCount), font2);
-        addObject(gemsLabel, 800, 90);
+        //Font font2 = new Font("Verdana", true, false, 20);
+        gemsLabel.getImage().clear();
+        gemsLabel.update(String.valueOf(this.gemsCount));
+        addObject(gemsLabel, 800, 53);
         // gemsLabel.setText(String.valueOf(this.gemsCount));
     }
     
@@ -81,8 +83,8 @@ public class Shop extends World
         addObject(gems, 810, 50);
         
         Font font2 = new Font("Verdana", true, false, 20);
-        gemsLabel = new TextLabel("0", font2);
-        addObject(gemsLabel, 800, 90);
+        gemsLabel = new SuperTextBox("0", transparent, Color.BLACK, font2, false, 18*6, 0, transparent);
+        addObject(gemsLabel, 800, 53);
         
         updateGemsCount();
         
@@ -127,6 +129,9 @@ public class Shop extends World
                 }
                 music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                 music.play();
+            }
+            if (music != null){
+                music.setVolume(user.getInt(2));
             }
         }
     }

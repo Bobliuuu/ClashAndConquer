@@ -20,8 +20,10 @@ public class Start extends World
     private Image background;
     private Image myKing;
     private Image enemyKing;
+    private SuperTextBox label;
     private UserInfo user;
     private GreenfootSound music;
+    private static final Color transparent = new Color(0, 0, 0, 0);
     
     /**
      * Constructor for objects of class MyWorld.
@@ -68,6 +70,7 @@ public class Start extends World
         startButton.getImage().scale(200, 100);
         addObject(startButton, 600, 500);
         
+        String str;
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             String check = user.getString(0);
@@ -75,7 +78,7 @@ public class Start extends World
                 user.setScore(1); // Level
                 user.setInt(0, 10000); // Gems
                 user.setInt(1, 1); // Difficulty
-                user.setInt(2, 0); // Volume
+                user.setInt(2, 50); // Volume
                 user.setInt(3, 0); // Music type
                 user.setInt(4, 0); // Elixir speed
                 user.setInt(5, 0); // Castle health
@@ -86,8 +89,18 @@ public class Start extends World
                 user.setString(1, "0 0 "); // Towers
                 user.setString(2, "0 0 "); // Spells
                 user.store();
+                if (music != null){
+                    music.setVolume(user.getInt(2));
+                }
             }
+            str = "Welcome " + user.getUserName() + "!";
         }
+        else {
+            str = "Plase login to gain full access to the levels.";
+        }
+        Font font = new Font("Verdana", 26);
+        label = new SuperTextBox(str, transparent, Color.BLACK, font, false, 18 * str.length(), 0, transparent);
+        addObject(label, getWidth()/2, 260);
     }
     
     public void started(){
@@ -104,6 +117,9 @@ public class Start extends World
                 }
                 music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                 music.play();
+            }
+            if (music != null){
+                music.setVolume(user.getInt(2));
             }
         }
     }

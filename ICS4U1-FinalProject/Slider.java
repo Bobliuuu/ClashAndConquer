@@ -36,7 +36,6 @@ public class Slider extends Actor
     private int value;
     
     private boolean hasTextLabel;
-    private TextLabel textLabel;
     
     /**
      * Create a new slider with the default size. It will be 200 pixels wide by
@@ -350,7 +349,7 @@ public class Slider extends Actor
      * Update the position of the foreground image, and the text of the
      * value label.
      */
-    private void updateImage(){
+    public void updateImage(){
         GreenfootImage image = new GreenfootImage(background);
         image.drawImage(foreground, valueToPos(value), 0);
         if (hasTextLabel){
