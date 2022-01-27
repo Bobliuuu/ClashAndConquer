@@ -44,7 +44,7 @@ public class EnemyAI extends Actor
             healthIncrease = 24;
         }
         else if (level == 4){
-            countdown = 100 - Greenfoot.getRandomNumber(40);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 75;
             spawnChances[1] = 25;
@@ -52,7 +52,7 @@ public class EnemyAI extends Actor
             healthIncrease = 36;
         }
         else if (level == 5){
-            countdown = 70 - Greenfoot.getRandomNumber(20);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 75;
             spawnChances[1] = 25;
@@ -60,7 +60,7 @@ public class EnemyAI extends Actor
             healthIncrease = 48;
         }
         else if (level == 6){
-            countdown = 60 - Greenfoot.getRandomNumber(20);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 75;
             spawnChances[1] = 25;
@@ -68,7 +68,7 @@ public class EnemyAI extends Actor
             healthIncrease = 60;
         }
         else if (level == 7){
-            countdown = 50 - Greenfoot.getRandomNumber(25);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 75;
             spawnChances[1] = 25;
@@ -76,7 +76,7 @@ public class EnemyAI extends Actor
             healthIncrease = 72;
         }
         else if (level == 8){
-            countdown = 50 - Greenfoot.getRandomNumber(25);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 70;
             spawnChances[1] = 30;
@@ -84,7 +84,7 @@ public class EnemyAI extends Actor
             healthIncrease = 84;
         }
         else if (level == 9){
-            countdown = 50 - Greenfoot.getRandomNumber(25);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 65;
             spawnChances[1] = 35;
@@ -92,7 +92,7 @@ public class EnemyAI extends Actor
             healthIncrease = 96;
         }
         else if (level == 10){
-            countdown = 50 - Greenfoot.getRandomNumber(25);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 60;
             spawnChances[1] = 40;
@@ -100,7 +100,7 @@ public class EnemyAI extends Actor
             healthIncrease = 108;
         }
         else if (level == 11){
-            countdown = 50 - Greenfoot.getRandomNumber(25);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 55;
             spawnChances[1] = 45;
@@ -108,7 +108,7 @@ public class EnemyAI extends Actor
             healthIncrease = 120;
         }
         else if (level == 12){
-            countdown = 50 - Greenfoot.getRandomNumber(25);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 50;
             spawnChances[1] = 50;
@@ -116,7 +116,7 @@ public class EnemyAI extends Actor
             healthIncrease = 132;
         }
         else if (level == 13){
-            countdown = 40 - Greenfoot.getRandomNumber(15);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 50;
             spawnChances[1] = 50;
@@ -124,7 +124,7 @@ public class EnemyAI extends Actor
             healthIncrease = 144;
         }
         else if (level == 14){
-            countdown = 40 - Greenfoot.getRandomNumber(15);
+            countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
             spawnChances[0] = 50;
             spawnChances[1] = 50;
