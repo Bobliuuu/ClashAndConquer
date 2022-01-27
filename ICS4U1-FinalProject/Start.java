@@ -160,5 +160,13 @@ public class Start extends World
             shop.started();
             Greenfoot.setWorld(shop);
         }
+        else if (Greenfoot.mouseClicked(statsButton)){
+            Stats stats = new Stats();
+            if (music != null){
+                music.stop();
+            }
+            stats.started();
+            Greenfoot.setWorld(stats);
+        }
     }
 }

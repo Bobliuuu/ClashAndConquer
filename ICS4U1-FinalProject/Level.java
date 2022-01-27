@@ -15,6 +15,10 @@ public class Level extends World
 {
     // Hardcoded variables
     private final int[][] cardCoordinates = {{50, 760}, {150, 760}, {650, 760}, {753, 760}};
+    private final int[] elixirSpeed = {};
+    private final int[] castleHealth = {};
+    private final int[] knightHealth = {};
+    private final int[] knightAttack = {};
     private final int[] archerHealth = {};
     private final int[] archerAttack = {};
     
@@ -136,7 +140,7 @@ public class Level extends World
                     if (troopSelected == "Knight"){
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Knight placedTroop = new Knight(120, 12, 1, 3, 80, false);
+                        Knight placedTroop = new Knight(110, 18, 1, 3, 80, false);
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
