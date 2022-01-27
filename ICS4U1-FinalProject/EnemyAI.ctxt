@@ -1,18 +1,18 @@
 #BlueJ class context
 comment0.target=EnemyAI
-comment0.text=\n\ EnemyAI\ Class\n\ <p>\n\ Class\ that\ spawns\ the\ enemies\ for\ each\ level\n\ \n\ @author\ Matthew\ Gong\n\ @version\ January\ 2022\n
+comment0.text=\r\n\ EnemyAI\ Class\r\n\ <p>\r\n\ Class\ that\ spawns\ the\ enemies\ for\ each\ level\r\n\ \r\n\ @author\ Matthew\ Gong\r\n\ @version\ January\ 2022\r\n
 comment1.params=level\ half
 comment1.target=EnemyAI(int,\ boolean)
-comment1.text=\n\ Basic\ constructor\ for\ an\ enemy\ AI,\ given\ a\ certain\ level\n\ @param\ level\ \ \ \ \ The\ level\ that\ the\ enemy\ AI\ is\ being\ creeated\ on.\ \n
+comment1.text=\r\n\ Basic\ constructor\ for\ an\ enemy\ AI,\ given\ a\ certain\ level\r\n\ @param\ level\ \ \ \ \ The\ level\ that\ the\ enemy\ AI\ is\ being\ creeated\ on.\ \r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\n\ Act\ -\ do\ whatever\ the\ EnemyAI\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ EnemyAI\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment3.params=x\ y
 comment3.target=void\ tryToSpawn(int,\ int)
-comment3.text=\n\ Trying\ to\ spawn\ an\ object\ at\ a\ location.\ \n
+comment3.text=\r\n\ Trying\ to\ spawn\ an\ object\ at\ a\ location.\ \r\n
 comment4.params=x\ y
 comment4.target=void\ spawnTroop(int,\ int)
 comment5.params=low\ high
 comment5.target=int\ getRandomNumberRange(int,\ int)
-comment5.text=\n\ Get\ a\ random\ number\ from\ low\ to\ high\ inclusive.\ \n
+comment5.text=\r\n\ Get\ a\ random\ number\ from\ low\ to\ high\ inclusive.\ \r\n
 numComments=6

@@ -47,7 +47,12 @@ public class Projectile extends SuperSmoothMover
             if(this.intersects(target)){
                 // Deals damage to target
                 ((Level)getWorld()).removeObject(this);
-                ((Troop)target).subtractHealth(10);
+                if (target instanceof Troop){
+                    ((Troop)target).subtractHealth(10);
+                }
+                else if (target instanceof Castle){
+                    ((Castle)target).subtractHealth(10);
+                }
             }
         }
         else{

@@ -33,8 +33,9 @@ public class Level extends World
     private boolean troopIsSelected, isWeak = false;
     private String troopSelected;
     private int levelValue;
-    private int victoryCountdown;
-    private int defeatCountdown;
+    private boolean isVictory;
+    private boolean isDefeat;
+    private boolean finished;
     public static boolean removed = false;
     private GreenfootSound music;
     private UserInfo user;
@@ -55,7 +56,7 @@ public class Level extends World
         levelMap = new Image(new GreenfootImage("background.png"));
         addObject(levelMap, getWidth()/2, getHeight()/2);
         
-        myCastle = new Castle(false);
+        myCastle = new Castle(false, 150, 150, 200, 100);
         myCastle.getImage().scale(80, 100);
         addObject(myCastle, 400, 680);
         
@@ -85,17 +86,18 @@ public class Level extends World
         troopIsSelected = false;
         troopSelected = "none";
         unplacedTroop = new Image();
+        finished = false;
+        
+        timer = new Timer();
+        
     }
     
     public void act(){
-        if (winOrLose()){
-            return;
-        }
         //checkMousePosition();
         checkMouseClick();
         moveUnplacedTroop();
         elixirBar.addElixir();
-        //myCastle.removeCastle();
+        winOrLose();
     }
     
     public void started(){
@@ -182,38 +184,50 @@ public class Level extends World
         }
     }
     
-    public boolean winOrLose(){
-        if (defeatCountdown != 0){
-            if (defeatCountdown == 1){
-                LevelMenu levelMenu = new LevelMenu();
-                Greenfoot.setWorld(levelMenu);
+    public void winOrLose(){
+        if (finished){
+            try{
+                Thread.sleep(2000);
             }
+            catch (InterruptedException ie){
+                ie.printStackTrace();
+            }
+            LevelMenu levelMenu = new LevelMenu();
+            levelMenu.started();
+            Greenfoot.setWorld(levelMenu);
+        }
+        if (isDefeat){
+            System.out.println("defeated");
             defeatScreen = new Image(new GreenfootImage("defeat.png"));
             defeatScreen.getImage().scale(800, 200);
             addObject(defeatScreen, 400, 300);
-            defeatCountdown--;
-            return true;
+            finished = true;
+            // Calculate gems with timer
         }
-        else if (victoryCountdown != 0){
-            if (victoryCountdown == 1){
-                LevelMenu levelMenu = new LevelMenu();
-                Greenfoot.setWorld(levelMenu); 
-            }
+        else if (isVictory){
+            System.out.println("won");
             victoryScreen = new Image(new GreenfootImage("victory.jpg"));
             victoryScreen.getImage().scale(800, 200);
             addObject(victoryScreen, 400, 300);
-            victoryCountdown--;
-            return true;
+            finished = true;
+            if (UserInfo.isStorageAvailable()){ 
+                String levels = user.getString(3);
+                if (true){ // First time win
+                    user.setInt(0, user.getInt(0) + 100 * levelValue);
+                }
+                else {
+                    
+                }
+            }
         }
-        return false;
     }
     
-    public void setVictoryCountdown(int value){
-        victoryCountdown = value;
+    public void setVictory(){
+        isVictory = true;
     }
     
-    public void setDefeatCountdown(int value){
-        defeatCountdown = value;
+    public void setDefeat(){
+        isDefeat = true;
     }
     
     public void setIfWeak(boolean weak){
