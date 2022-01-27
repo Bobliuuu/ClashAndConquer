@@ -140,7 +140,12 @@ public class Level extends World
                         setTroopSelected("Blank");
                     }
                     else if (troopSelected == "Archer"){
-
+                        removeObject(unplacedTroop);
+                        unplacedTroop = new Image();
+                        Archer placedTroop = new Archer(60, 6, 1, 6, 140, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        redZone.setToNone();
+                        setTroopSelected("Blank");
                     }
                 }
             }
@@ -163,7 +168,7 @@ public class Level extends World
         }
         troopIsSelected = true;
         troopSelected = cardName;
-        unplacedTroop = new Image(new GreenfootImage("Troops/Knight/" + cardName + "Move0.png"));
+        unplacedTroop = new Image(new GreenfootImage("Troops/" + cardName + "/" + cardName + "Move0.png"));
         unplacedTroop.setTransparency(100);
         addObject(unplacedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
     }
