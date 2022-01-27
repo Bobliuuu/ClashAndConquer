@@ -71,6 +71,33 @@ public class Castle extends Building
     }
     
     /**
+     * Similar to above, but with the ability to customize health
+     * 
+     * @param isEnemy    Whether the castle belongs to the enemy or not
+     * @param length     The desired width of the castle
+     * @param width      The desired height of the castle
+     * @param radius     Attack radius of the castle
+     * @param health     The amount of health the tower has
+     */
+    public Castle(boolean isEnemy, int width, int height, double radius, int health){
+        this.isEnemy = isEnemy;
+        this.attackRadius = radius;
+        this.health = health;
+        if (isEnemy){
+            setImage("enemytower.png");
+            image = new GreenfootImage("enemytower.png");
+        }
+        else {
+            setImage("mytower.png");
+            image = new GreenfootImage("mytower.png");
+        }
+        getImage().scale(width, height);
+        cooldown = 0;
+        this.isDead = false;
+        healthBar = new SuperStatBar(this.health, 50, this, 48, 4, 36, Color.GREEN, Color.RED, false);
+    }
+    
+    /**
      * Act - do whatever the Castle wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
@@ -147,10 +174,10 @@ public class Castle extends Building
                 Image destroyedCastle = new Image(new GreenfootImage("castledestroyed.png"));
                 ((Level)getWorld()).addObject(destroyedCastle, getX(), getY());
                 if (isEnemy){
-                    ((Level)getWorld()).setVictoryCountdown(100);
+                    ((Level)getWorld()).setVictory();
                 }
                 else {
-                    ((Level)getWorld()).setDefeatCountdown(100);
+                    ((Level)getWorld()).setDefeat();
                 }
                 getWorld().removeObject(this); 
             }

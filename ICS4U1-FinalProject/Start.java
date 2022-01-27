@@ -88,6 +88,7 @@ public class Start extends World
                 user.setString(0, "0 0 0 0 "); // Knight, archer (health, attack)
                 user.setString(1, "0 0 "); // Towers
                 user.setString(2, "0 0 "); // Spells
+                user.setString(3, "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"); // 16 levels
                 user.store();
                 if (music != null){
                     music.setVolume(user.getInt(2));
