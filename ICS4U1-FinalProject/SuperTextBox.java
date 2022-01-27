@@ -251,7 +251,7 @@ public class SuperTextBox extends Actor
      * @param textIn    The new String to add to the display
      * @param fromBottom    Should the line go at the bottom (scroll up), or false to insert it at the top (scroll down)
      */
-    public void updateLine (String textIn, boolean fromBottom){
+public void updateLine (String textIn, boolean fromBottom){
         // Bump values in the arrays in the appropriate direction:
         for (int i = 0; i < text.length - 1; i++){
             if (fromBottom){ // inserting to bottom, move text up (text[0] is displayed at the top)

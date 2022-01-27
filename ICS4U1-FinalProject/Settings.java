@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Settings here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu
+ * @version January 2022
  */
 public class Settings extends World
 {
@@ -19,10 +19,11 @@ public class Settings extends World
     private Image hard;
     private Image gems; 
     private Slider slider;
-    private TextLabel sliderLabel;
-    private TextLabel gemsLabel;
+    private SuperTextBox sliderLabel;
+    private SuperTextBox gemsLabel;
     private UserInfo user;
     private GreenfootSound music;
+    private static final Color transparent = new Color(0, 0, 0, 0);
     
     /**
      * Constructor for objects of class Settings.
@@ -71,16 +72,28 @@ public class Settings extends World
         addObject(slider, 650, 360);
         
         Font font = new Font("Courier New", true, false, 20);
-        sliderLabel = new TextLabel("0", font);
-        addObject(sliderLabel, 830, 400);
+        sliderLabel = new SuperTextBox("0", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
+        addObject(sliderLabel, 830, 360);
+        
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            sliderLabel.update(Integer.toString(user.getInt(2)));
+            slider.setValue(user.getInt(2));
+        }
         
         gems = new Image(new GreenfootImage("gem.png"));
-        gems.getImage().scale(100, 50);
+        gems.getImage().scale(140, 50);
         addObject(gems, 810, 50);
         
         Font font2 = new Font("Verdana", true, false, 20);
-        gemsLabel = new TextLabel("0", font2);
-        addObject(gemsLabel, 840, 90);
+        gemsLabel = new SuperTextBox("0", transparent, Color.BLACK, font2, false, 18*6, 0, transparent);
+        addObject(gemsLabel, 800, 53);
+        
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            gemsLabel.getImage().clear();
+            gemsLabel.update(Integer.toString(user.getInt(0)));
+        }
     }
     
     public void started(){
@@ -98,6 +111,10 @@ public class Settings extends World
                 music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                 music.play();
             }
+        }
+        // Set volume 
+        if (music != null){
+            music.setVolume(user.getInt(2));
         }
     }
     
@@ -167,7 +184,16 @@ public class Settings extends World
     
     public void updateVolumeText(String value){
         if (sliderLabel != null){
+            sliderLabel.getImage().clear();
             sliderLabel.update(value);
+            if (music != null){
+                music.setVolume(Integer.valueOf(value));
+            }
+            if (UserInfo.isStorageAvailable()){
+                user = UserInfo.getMyInfo();
+                user.setInt(2, Integer.valueOf(value));
+                user.store();
+            }
         }
     }
 }
