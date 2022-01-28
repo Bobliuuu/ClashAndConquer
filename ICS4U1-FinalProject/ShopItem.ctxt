@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=ShopItem
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ShopItems\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=cost\ type
-comment1.target=ShopItem(int,\ int)
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ShopItems\ here.\r\n\ \r\n\ @author\ Ibrahim\ Rahman\r\n\ @version\ January\ 2022\r\n
+comment1.params=cost\ type\ level
+comment1.target=ShopItem(int,\ int,\ int)
 comment1.text=\r\n\ Default\ constructor\ of\ shop\ item\r\n\ Type\ 1\ \=\ Speed\ Potion\r\n\ Type\ 2\ \=\ InvisibilityPotion\r\n\ Type\ 3\ \=\ HealthPotion\r\n\ Type\ 4\ \=\ SpeedPotionOld\r\n
 comment2.params=
 comment2.target=void\ act()
@@ -15,4 +15,8 @@ comment5.params=
 comment5.target=int\ getType()
 comment6.params=
 comment6.target=void\ setType()
-numComments=7
+comment7.params=
+comment7.target=int\ getLevel()
+comment8.params=level
+comment8.target=void\ setLevel(int)
+numComments=9

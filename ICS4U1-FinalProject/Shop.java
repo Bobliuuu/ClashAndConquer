@@ -19,6 +19,7 @@ public class Shop extends World
     private Image forwardItemButton;
     private ArrayList<ShopItem> powerups;
     private ArrayList<TextButton> buybuttons;
+    private ArrayList<SuperTextBox> levels;
     private int shopItemIndex;
     private int gemsCount;
     private GreenfootSound music;
@@ -33,7 +34,10 @@ public class Shop extends World
             addObject(powerup, 150+(300*counter), 300);
 
             TextButton btn = buybuttons.get((position + counter) % powerups.size());
-            addObject (btn, 150+(300*counter), 450);
+            addObject (btn, 150+(300*counter), 480);
+            
+            SuperTextBox lvl = levels.get((position + counter) % powerups.size());
+            addObject (lvl, 150+(300*counter), 380);
         }
     }
 
@@ -41,9 +45,11 @@ public class Shop extends World
     {       
         for (int counter = 0; counter < 3; counter++) {     
             ShopItem powerup = powerups.get((prevposition + counter) % powerups.size());  
-            TextButton btn = buybuttons.get((prevposition + counter) % powerups.size()); 
+            TextButton btn = buybuttons.get((prevposition + counter) % powerups.size());
+            SuperTextBox lvl = levels.get((prevposition + counter) % powerups.size());
             removeObject(powerup);
             removeObject(btn);
+            removeObject(lvl);
         }
     }
     
@@ -100,15 +106,20 @@ public class Shop extends World
         
         this.powerups = new ArrayList<ShopItem>();
         this.buybuttons = new ArrayList<TextButton>();
+        this.levels = new ArrayList<SuperTextBox>();
         
-        this.powerups.add(new ShopItem(100, 1));
-        this.powerups.add(new ShopItem(200, 2));
-        this.powerups.add(new ShopItem(300, 3));
-        this.powerups.add(new ShopItem(400, 4));
+        // ShopItem(int Cost, int Item, int Level)
+        this.powerups.add(new ShopItem(100, 1, 1));
+        this.powerups.add(new ShopItem(200, 2, 2));
+        this.powerups.add(new ShopItem(300, 3, 2));
+        this.powerups.add(new ShopItem(400, 4, 1));
         
         for (ShopItem powerup : powerups) {
             TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 190, true, Color.WHITE, Color.BLACK, Color.BLUE, Color.WHITE, Color.BLACK, new Font ("Verdana",true ,false ,14));
             buybuttons.add(btn);
+            
+            SuperTextBox lvl = new SuperTextBox("Level " + String.valueOf(powerup.getLevel()), transparent, Color.BLACK, font2, false, 18*6, 0, transparent);
+            levels.add(lvl);
         }
         
         this.shopItemIndex = 0;

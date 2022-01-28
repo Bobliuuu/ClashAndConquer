@@ -3,13 +3,14 @@ import java.util.ArrayList;
 /**
  * Write a description of class ShopItems here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Ibrahim Rahman
+ * @version January 2022
  */
 public class ShopItem extends Actor
 {
     private int cost;
     private int type;
+    private int level;
     private GreenfootImage image;
      
     /**
@@ -19,8 +20,9 @@ public class ShopItem extends Actor
      * Type 3 = HealthPotion
      * Type 4 = SpeedPotionOld
      */
-    public ShopItem(int cost, int type){
+    public ShopItem(int cost, int type, int level){
         this.cost = cost;
+        this.level = level;
         if (type == 1){
             image = new GreenfootImage("images/ShopItems/ElexirSpeed.PNG");
         }
@@ -59,5 +61,13 @@ public class ShopItem extends Actor
 
     public void setType(){
         this.type = type;
+    }
+    
+    protected int getLevel() {
+        return this.level;
+    }
+    
+    protected void setLevel(int level) {
+        this.level = level;
     }
 }
