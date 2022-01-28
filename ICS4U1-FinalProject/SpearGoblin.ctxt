@@ -1,8 +1,8 @@
 #BlueJ class context
-comment0.target=Archer
-comment0.text=\n\ Write\ a\ description\ of\ class\ Archer\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.target=SpearGoblin
+comment0.text=\n\ Write\ a\ description\ of\ class\ SpearGoblin\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=health\ attack\ movementSpeed\ attackSpeed\ radius\ isEnemy
-comment1.target=Archer(int,\ int,\ double,\ double,\ double,\ boolean)
+comment1.target=SpearGoblin(int,\ int,\ double,\ double,\ double,\ boolean)
 comment2.params=
 comment2.target=void\ attack()
 comment3.params=

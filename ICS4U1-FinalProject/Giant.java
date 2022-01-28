@@ -17,8 +17,12 @@ public class Giant extends Troop
         super(health, attack, movementSpeed, attackSpeed, radius, isEnemy);
         animationCount = 0;
         attackCount = -1;
-        animations = new GreenfootImage[12];
-        attackAnimation = new GreenfootImage[12];
+        animations = new GreenfootImage[19];
+        attackAnimation = new GreenfootImage[19];
+        for(int i = 0; i < 19; i++){
+            animations[i] = new GreenfootImage("Troops/Giant/GiantMove" + i + ".png");
+            attackAnimation[i] = new GreenfootImage("Troops/Giant/GiantAttack" + i + ".png");
+        }
     }
     
     public void findTarget(){
@@ -36,22 +40,22 @@ public class Giant extends Troop
     
     public void animate(){
         animationCount++;
-        if (animationCount == 48){
+        if (animationCount == 76){
             animationCount = 0;
         }
-        //setImage(animations[animationCount / 4]);
+        setImage(animations[animationCount / 4]);
     }
     
     public void attackAnimate(){
         attackCount++;
-        if (attackCount == 48){
+        if (attackCount == 76){
             attackCount = 0;
         }
-        //setImage(attack[attackCount / 4]);
+        setImage(attackAnimation[attackCount / 4]);
     }
     
     public int getAttackCounter(){
-        return 0;
+        return attackCount;
     }
     
     private double findDistanceBetween(Actor a1, Actor a2){
