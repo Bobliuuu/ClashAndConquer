@@ -1,10 +1,10 @@
 #BlueJ class context
-comment0.target=Knight
-comment0.text=\n\ Write\ a\ description\ of\ class\ Knight\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.target=Skeleton
+comment0.text=\n\ Write\ a\ description\ of\ class\ Skeleton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=isEnemy
-comment1.target=Knight(boolean)
+comment1.target=Skeleton(boolean)
 comment2.params=health\ attk\ movementSpeed\ attackSpeed\ radius\ isEnemy
-comment2.target=Knight(int,\ int,\ double,\ double,\ double,\ boolean)
+comment2.target=Skeleton(int,\ int,\ double,\ double,\ double,\ boolean)
 comment3.params=
 comment3.target=void\ animate()
 comment4.params=
