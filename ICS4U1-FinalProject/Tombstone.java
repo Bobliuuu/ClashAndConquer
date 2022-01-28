@@ -6,16 +6,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class GoblinHut extends Building
+public class Tombstone extends Building
 {
     private int cooldown, timer;
+    private SuperStatBar healthBar;
     
-    public GoblinHut(int health, boolean isEnemy){
+    public Tombstone(int health, boolean isEnemy){
         this.isEnemy = isEnemy;
         this.health = health;
         cooldown = 150;
         timer = cooldown;
-        setImage("castledestroyed.png");
+        setImage("tombstone.jpg");
+        getImage().scale(50, 75);
+        healthBar = new SuperStatBar(health, health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
     
     /**
@@ -24,10 +27,16 @@ public class GoblinHut extends Building
      */
     public void act()
     {
-        if(timer != 0) timer--;
+        if(timer != 0){
+            if(timer % 30 == 0){
+                subtractHealth(5);
+                healthBar.update(this.health);
+            }
+            timer--;
+        }
         else{
             timer = cooldown;
-            SpearGoblin goblin = new SpearGoblin(75, 10, 1, 10, 100, isEnemy);
+            Skeleton goblin = new Skeleton(100, 10, 1, 3, 50, isEnemy);
             ((Level)getWorld()).addObject(goblin, getX(), getY());
         }
     }
@@ -37,8 +46,8 @@ public class GoblinHut extends Building
     }
     
     public void subtractHealth(int value){
-        health -= value;
-        if (health <= 0){
+        this.health -= value;
+        if (this.health <= 0){
             ((Level)getWorld()).removeObject(this);
         }
     }
