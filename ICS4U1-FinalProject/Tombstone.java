@@ -21,6 +21,10 @@ public class Tombstone extends Building
         healthBar = new SuperStatBar(health, health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
     
+    protected void addedToWorld(World world){
+        getWorld().addObject(healthBar, getX(), getY()+50);
+    }
+    
     /**
      * Act - do whatever the GoblinHut wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -29,8 +33,7 @@ public class Tombstone extends Building
     {
         if(timer != 0){
             if(timer % 30 == 0){
-                subtractHealth(5);
-                healthBar.update(this.health);
+                subtractHealth(1);
             }
             timer--;
         }
@@ -39,6 +42,7 @@ public class Tombstone extends Building
             Skeleton goblin = new Skeleton(100, 10, 1, 3, 50, isEnemy);
             ((Level)getWorld()).addObject(goblin, getX(), getY());
         }
+        healthBar.update(this.health);
     }
     
     public void setCooldown(int cd){
