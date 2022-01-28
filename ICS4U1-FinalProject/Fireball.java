@@ -8,15 +8,30 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Fireball extends Spell
 {
+    private GreenfootImage[] animations, attackAnimations;
+    private int animateCount, attackCount;
+    
     public Fireball(int atk, double spd, int rds, boolean enemy, int x, int y){
         super(atk, spd, rds, enemy, x, y);
-        GreenfootImage circle = new GreenfootImage(25, 25);
-        circle.setColor(Color.RED);
-        circle.fillOval(0, 0, 25, 25);
-        setImage(circle);
+        animateCount = 0;
+        attackCount = -1;
+        animations = new GreenfootImage[12];
+        attackAnimations = new GreenfootImage[9];
+        for(int i = 0; i < 12; i++){
+            if(i < 9) attackAnimations[i] = new GreenfootImage("Spells/Fireball/FireballAttack" + i + ".png");
+            animations[i] = new GreenfootImage("Spells/Fireball/FireballMove" + i + ".png");
+        }
     }
  
     public void animate(){
+        animateCount++;
+        if(animateCount == 48) animateCount = 0;
+        setImage(animations[animateCount/4]);
+    }
     
+    public void attackAnimate(){
+        attackCount++;
+        if(attackCount == 36) attackCount = 0;
+        setImage(attackAnimations[attackCount/4]);
     }
 }

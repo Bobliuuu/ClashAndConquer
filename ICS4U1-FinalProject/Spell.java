@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public abstract class Spell extends SuperSmoothMover
 {
-    protected int attack, radius, lastX, lastY;
+    protected int attack, radius, lastX, lastY, countdown;
     protected double speed;
     protected boolean fromEnemy;
     
@@ -20,9 +20,11 @@ public abstract class Spell extends SuperSmoothMover
         this.fromEnemy = fromEnemy;
         this.lastX = x;
         this.lastY = y;
+        countdown = 0;
     }
     
     public abstract void animate();
+    public abstract void attackAnimate();
     
     /**
      * Act - do whatever the Spell wants to do. This method is called whenever
@@ -30,9 +32,17 @@ public abstract class Spell extends SuperSmoothMover
      */
     public void act()
     {
-        turnTowards(lastX, lastY);
-        move(speed);
-        checkPosition();
+        if(countdown == 0){
+            animate();
+            turnTowards(lastX, lastY);
+            move(speed);
+            checkPosition();
+        }
+        else{
+            attackAnimate();
+            countdown--;
+            if(countdown == 1) ((Level)getWorld()).removeObject(this);
+        }
     }
     
     public void checkPosition(){
@@ -53,7 +63,7 @@ public abstract class Spell extends SuperSmoothMover
                     }
                 }
             }
-            ((Level)getWorld()).removeObject(this);
+            countdown = 36;
         }
     }
     
