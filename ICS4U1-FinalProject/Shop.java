@@ -110,9 +110,12 @@ public class Shop extends World
         
         // ShopItem(int cost, String type, int level)
         this.powerups.add(new ShopItem(100, "CastleHealth", 1));
+        this.powerups.add(new ShopItem(300, "ElexirHealth", 2));
         this.powerups.add(new ShopItem(200, "ElexirSpeed", 2));
         this.powerups.add(new ShopItem(300, "PoisonAttack", 2));
+        this.powerups.add(new ShopItem(300, "PoisonDuration", 2));
         this.powerups.add(new ShopItem(400, "FireballAttack", 1));
+        this.powerups.add(new ShopItem(400, "FireballRadius", 1));
         this.powerups.add(new ShopItem(100, "ArrowAttack", 1));
         this.powerups.add(new ShopItem(200, "GiantAttack", 2));
         this.powerups.add(new ShopItem(300, "GiantHealth", 2));
@@ -120,7 +123,7 @@ public class Shop extends World
         this.powerups.add(new ShopItem(100, "KnightHealth", 1));
         this.powerups.add(new ShopItem(200, "ArcherAttack", 2));
         this.powerups.add(new ShopItem(300, "ArcherHealth", 2));
-        this.powerups.add(new ShopItem(400, "TombstoneAttack", 1));
+        this.powerups.add(new ShopItem(400, "TombstoneCooldown", 1));
         this.powerups.add(new ShopItem(400, "TombstoneHealth", 1));
 
         

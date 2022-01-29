@@ -29,11 +29,20 @@ public class ShopItem extends Actor
         else if (type.equals("ElexirSpeed")){
             image = new GreenfootImage("images/ShopItems/ElexirSpeed.PNG");
         }
+        else if (type.equals("ElexirHealth")){
+            image = new GreenfootImage("images/ShopItems/ElexirHealth.PNG");
+        }
         else if (type.equals("PoisonAttack")){
             image = new GreenfootImage("images/ShopItems/PoisonAttack.PNG");
         }
+        else if (type.equals("PoisonDuration")){
+            image = new GreenfootImage("images/ShopItems/PoisonDuration.PNG");
+        }
         else if (type.equals("FireballAttack")){
             image = new GreenfootImage("images/ShopItems/FireballAttack.PNG");
+        }
+        else if (type.equals("FireballRadius")){
+            image = new GreenfootImage("images/ShopItems/FireballRadius.PNG");
         }
         else if (type.equals("ArrowAttack")){
             image = new GreenfootImage("images/ShopItems/ArrowAttack.PNG");
@@ -56,8 +65,8 @@ public class ShopItem extends Actor
         else if (type.equals("ArcherHealth")){
             image = new GreenfootImage("images/ShopItems/ArcherHealth.PNG");
         }
-        else if (type.equals("TombstoneAttack")){
-            image = new GreenfootImage("images/ShopItems/TombstoneAttack.PNG");
+        else if (type.equals("TombstoneCooldown")){
+            image = new GreenfootImage("images/ShopItems/TombstoneCooldown.PNG");
         }
         else if (type.equals("TombstoneHealth")){
             image = new GreenfootImage("images/ShopItems/TombstoneHealth.PNG");
