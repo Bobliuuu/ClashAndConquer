@@ -297,6 +297,11 @@ public class Level extends World
             addObject(defeatScreen, 400, 300);
             finished = true;
             // Calculate gems with timer
+            if (UserInfo.isStorageAvailable()){ 
+                user = UserInfo.getMyInfo();
+                user.setInt(9, user.getInt(9) + timer.getTimeInSeconds());
+                user.setInt(0, user.getInt(0) + 2 * timer.getTimeInSeconds());
+            }
         }
         else if (isVictory){
             victoryScreen = new Image(new GreenfootImage("victory.jpg"));
@@ -304,12 +309,19 @@ public class Level extends World
             addObject(victoryScreen, 400, 300);
             finished = true;
             if (UserInfo.isStorageAvailable()){ 
+                user = UserInfo.getMyInfo();
                 String levels = user.getString(3);
-                if (true){ // First time win
+                String[] parsed = levels.split(" ");
+                if (parsed[levelValue - 1].equals("0")){ // First time win
                     user.setInt(0, user.getInt(0) + 100 * levelValue);
+                    parsed[levelValue - 1] = "1";
+                    String s = String.join(" ", parsed);
+                    user.setString(3, s);
+                    user.store();
                 }
                 else {
-                    
+                    user.setInt(0, user.getInt(0) + 25 * levelValue);
+                    user.store();
                 }
             }
         }
