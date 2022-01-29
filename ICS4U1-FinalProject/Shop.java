@@ -27,6 +27,7 @@ public class Shop extends World
     private UserInfo user;
     private static final Color transparent = new Color(0, 0, 0, 0);
     private static final Color orange = new Color(255, 134, 45);
+    private final int[] powerupMultiplier = {}; // Feature
     
      private void displayPowerUp (int position)
     {
@@ -115,24 +116,28 @@ public class Shop extends World
         this.levels = new ArrayList<SuperTextBox>();
         
         // ShopItem(int cost, String type, int level)
-        this.powerups.add(new ShopItem(100, "CastleHealth", 1));
+        // All powerup costs are for testing only
+        this.powerups.add(new ShopItem(100, "CastleHealth", 1));    
         this.powerups.add(new ShopItem(100, "KnightHealth", 1));
         this.powerups.add(new ShopItem(400, "KnightAttack", 1));
-        this.powerups.add(new ShopItem(300, "ArcherHealth", 2));
-        this.powerups.add(new ShopItem(200, "ArcherAttack", 2));
-        this.powerups.add(new ShopItem(300, "GiantHealth", 2));
-        this.powerups.add(new ShopItem(300, "GiantAttack", 2));
-        // Skeleton health and attack
-        this.powerups.add(new ShopItem(300, "ElixirHealth", 2));
-        this.powerups.add(new ShopItem(200, "ElixirSpeed", 2));
+        this.powerups.add(new ShopItem(300, "ArcherHealth", 1));
+        this.powerups.add(new ShopItem(200, "ArcherAttack", 1));
+        this.powerups.add(new ShopItem(300, "GiantHealth", 1));
+        this.powerups.add(new ShopItem(300, "GiantAttack", 1));
+        this.powerups.add(new ShopItem(300, "SkeletonHealth", 1));
+        this.powerups.add(new ShopItem(300, "SkeletonAttack", 1));
+        this.powerups.add(new ShopItem(300, "ElixirHealth", 1));
+        this.powerups.add(new ShopItem(200, "ElixirSpeed", 1));
         this.powerups.add(new ShopItem(400, "FireballAttack", 1));
         this.powerups.add(new ShopItem(400, "FireballRadius", 1));
-        this.powerups.add(new ShopItem(300, "PoisonAttack", 2));
-        this.powerups.add(new ShopItem(300, "PoisonDuration", 2));
+        this.powerups.add(new ShopItem(300, "PoisonAttack", 1));
+        this.powerups.add(new ShopItem(300, "PoisonDuration", 1));
         this.powerups.add(new ShopItem(400, "TombstoneCooldown", 1));
         this.powerups.add(new ShopItem(400, "TombstoneHealth", 1));
         
-        for (ShopItem powerup : powerups) {
+        for (ShopItem powerup : powerups){
+            powerup.setCost(powerup.getLevel() * 40);
+            
             TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 7, 170, true, Color.DARK_GRAY, Color.WHITE, orange, Color.WHITE, transparent, new Font ("Open Sans",true ,false ,15));
             buybuttons.add(btn);
             
@@ -190,16 +195,14 @@ public class Shop extends World
             this.shopItemIndex = this.shopItemIndex + 1;
             this.displayPowerUp(shopItemIndex);           
         } 
-        /**
-         * Type 1 = Elixir Speed
-         * Type 2 = Castle Health
-         * Type 3 = Knight Health
-         * Type 4 = Knight Attack
-         */
         for (int i = 0; i < buybuttons.size(); i++) {
             if (Greenfoot.mouseClicked(buybuttons.get(i))) {
                 // if someone clicked ith button, then ith powerup will be purchased.
-                ShopItem itm = powerups.get(i);
+                ShopItem itm = powerups.get(i); 
+                itm.setLevel(itm.getLevel() + 1); // Update powerup level
+                
+                this.clearPowerUpAt(i);
+                
                 this.gemsCount -= itm.getCost();
                 updateGemsCount();
                 // Subtract gems from user info class
@@ -228,6 +231,36 @@ public class Shop extends World
                     user.store();
                 }
             }
+        }
+    }
+    
+    public void clearPowerUpAt(int idx){
+        int i = 0;
+        for (ShopItem powerup : powerups){
+            if (i == idx){ 
+                TextButton btn = buybuttons.get(idx);
+                SuperTextBox lvl = levels.get(idx);
+                removeObject(btn);
+                removeObject(lvl);
+                buybuttons.remove(idx);
+                levels.remove(idx);
+                
+                powerup.setCost(powerup.getLevel() * 40);
+            
+                TextButton btnNew = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 7, 170, true, Color.DARK_GRAY, Color.WHITE, orange, Color.WHITE, transparent, new Font ("Open Sans",true ,false ,15));
+                buybuttons.add(idx, btnNew);
+                
+                Font font2 = new Font("Verdana", true, false, 20);
+                SuperTextBox lvlNew = new SuperTextBox("Level " + String.valueOf(powerup.getLevel()), transparent, Color.BLACK, font2, false, 18*6, 0, transparent);
+                levels.add(idx, lvlNew);
+                
+                addObject (btnNew, 150+(300*(idx - shopItemIndex)), 480);
+        
+                addObject (lvlNew, 150+(300*(idx - shopItemIndex)), 380);
+                
+                return;
+            }
+            i++;
         }
     }
 }

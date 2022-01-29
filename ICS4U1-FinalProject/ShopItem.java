@@ -61,6 +61,12 @@ public class ShopItem extends Actor
         else if (type.equals("ArcherHealth")){
             image = new GreenfootImage("images/ShopItems/ArcherHealth.PNG");
         }
+        else if (type.equals("SkeletonAttack")){
+            image = new GreenfootImage("images/ShopItems/SkeletonAttack.PNG");
+        }
+        else if (type.equals("SkeletonHealth")){
+            image = new GreenfootImage("images/ShopItems/SkeletonHealth.PNG");
+        }
         else if (type.equals("TombstoneCooldown")){
             image = new GreenfootImage("images/ShopItems/TombstoneAttack.PNG");
         }

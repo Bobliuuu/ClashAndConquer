@@ -226,7 +226,7 @@ public class Level extends World
                     elixirBar.useElixir(4);
                     removeObject(unplacedTroop);
                     unplacedTroop = new Image();
-                    Fireball placedTroop = new Fireball(60, 6, 80, false, 0, 0);
+                    Fireball placedTroop = new Fireball(60, 6, 80, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     redZone.setToNone();
                     setTroopSelected("Blank");
