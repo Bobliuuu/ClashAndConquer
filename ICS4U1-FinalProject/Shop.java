@@ -117,7 +117,8 @@ public class Shop extends World
         
         // ShopItem(int cost, String type, int level)
         // All powerup costs are for testing only
-        this.powerups.add(new ShopItem(100, "CastleHealth", 1));    
+        this.powerups.add(new ShopItem(100, "CastleHealth", user.getInt(5) + 1)); 
+        this.powerups.add(new ShopItem(100, "ElixirBarSpeed", user.getInt(4) + 1)); 
         this.powerups.add(new ShopItem(100, "KnightHealth", 1));
         this.powerups.add(new ShopItem(400, "KnightAttack", 1));
         this.powerups.add(new ShopItem(300, "ArcherHealth", 1));
@@ -199,28 +200,29 @@ public class Shop extends World
             if (Greenfoot.mouseClicked(buybuttons.get(i))) {
                 // if someone clicked ith button, then ith powerup will be purchased.
                 ShopItem itm = powerups.get(i); 
-                itm.setLevel(itm.getLevel() + 1); // Update powerup level
-                
-                this.clearPowerUpAt(i);
                 
                 this.gemsCount -= itm.getCost();
                 updateGemsCount();
+                
+                itm.setLevel(itm.getLevel() + 1); // Update powerup level
+                this.clearPowerUpAt(i);
+                
                 // Subtract gems from user info class
                 if (UserInfo.isStorageAvailable()){
                     user = UserInfo.getMyInfo();
-                    if (itm.getType() == 1){ // Elixir speed
+                    if (itm.getType().equals("ElixirBarSpeed")){ 
                         user.setInt(4, user.getInt(4) + 1);
                     }
-                    else if (itm.getType() == 2){ // Castle health 
+                    else if (itm.getType().equals("CastleHealth")){ 
                         user.setInt(5, user.getInt(5) + 1);
                     }
-                    else if (itm.getType() == 3){ // Knight health
+                    else if (itm.getType().equals("KnightHealth")){ // Knight health
                         String[] parsed = user.getString(0).split(" ");
                         parsed[1] = Integer.toString(Integer.valueOf(parsed[1]));
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
-                    else if (itm.getType() == 4){ // Knight attack
+                    else if (itm.getType().equals("KnightAttack")){
                         String[] parsed = user.getString(0).split(" ");
                         parsed[0] = Integer.toString(Integer.valueOf(parsed[0]));
                         String s = String.join(" ", parsed);
