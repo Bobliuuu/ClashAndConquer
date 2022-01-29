@@ -13,7 +13,7 @@ public class LevelMenu extends World
     private Image map;
     //private ArrayList <Circle> circles;
     private ArrayList <Rectangle> rectangles; 
-    private Rectangle oneRectangle, twoRectangle, threeRectangle, fourRectangle, fiveRectangle;
+    private Rectangle endButton;
     private int[][] circleCoordinates = {{200, 450}, {307, 414}, {403, 365}, {276, 296}, {26, 269}, {205, 270}, {308, 564}, {443, 586}, 
                                         {601, 545}, {733, 556}, {829, 605}, {916, 575}, {925, 426}, {970, 315}, {904, 282}, {817, 253}, 
                                         {905, 190}, {921, 114}, {812, 91}, {691, 94}, {626, 117}, {554, 157}, {478, 225}, {413, 296}, 
@@ -61,7 +61,11 @@ public class LevelMenu extends World
                 showText(Integer.toString(i), rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
             }
         }
-            
+        endButton = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+        rectangles.add(endButton);
+        addObject(endButton, rectangleCoordinates[14][0], rectangleCoordinates[14][1]);
+        showText(Integer.toString(15), rectangleCoordinates[14][0], rectangleCoordinates[14][1]);
+        
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
         addObject(backButton, 80, 50);
@@ -89,7 +93,7 @@ public class LevelMenu extends World
     }
     
     public void act(){
-        checkMousePosition();
+        //checkMousePosition();
         checkClick();
     }
     
@@ -113,6 +117,14 @@ public class LevelMenu extends World
             Start start = new Start();
             start.started();
             Greenfoot.setWorld(start);
+        }
+        else if (Greenfoot.mouseClicked(endButton)){
+            if (music != null){
+                music.stop();
+            }
+            End end = new End();
+            end.started();
+            Greenfoot.setWorld(end);
         }
     }
     

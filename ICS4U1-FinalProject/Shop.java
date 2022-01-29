@@ -199,7 +199,7 @@ public class Shop extends World
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
-                    else { // Knight attack
+                    else if (itm.getType() == 4){ // Knight attack
                         String[] parsed = user.getString(0).split(" ");
                         parsed[0] = Integer.toString(Integer.valueOf(parsed[0]));
                         String s = String.join(" ", parsed);

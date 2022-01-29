@@ -38,42 +38,26 @@ public class Settings extends World
         addObject(background, 200, 300);
         
         settingsText = new Image(new GreenfootImage("settingstext.png"));
-        addObject(settingsText, 440, 100);
-        
-        difficultyText = new Image(new GreenfootImage("difficultytext.png"));
-        difficultyText.getImage().scale(400, 130);
-        addObject(difficultyText, 250, 200);
+        addObject(settingsText, getWidth()/2, 150);
         
         volumeText = new Image(new GreenfootImage("volumetext.png"));
         volumeText.getImage().scale(350, 90);
-        addObject(volumeText, 630, 270);
+        addObject(volumeText, getWidth()/2, 270);
         
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
-        addObject(backButton, 80, 50);
-        
-        easy = new Image(new GreenfootImage("Buttons/easy.png"));
-        easy.getImage().scale(150, 75);
-        addObject(easy, 250, 300);
-        
-        medium = new Image(new GreenfootImage("Buttons/medium.png"));
-        medium.getImage().scale(220, 80);
-        addObject(medium, 250, 410);
-        
-        hard = new Image(new GreenfootImage("Buttons/hard.png"));
-        hard.getImage().scale(150, 75);
-        addObject(hard, 250, 520);
+        addObject(backButton, 60, 50);
         
         changeMusic = new Image(new GreenfootImage("Buttons/changemusic.png"));
         changeMusic.getImage().scale(220, 100);
-        addObject(changeMusic, 650, 480);
+        addObject(changeMusic, getWidth()/2, 480);
         
         slider = new Slider(300, 30, false);
-        addObject(slider, 650, 360);
+        addObject(slider, getWidth()/2, 360);
         
         Font font = new Font("Courier New", true, false, 20);
         sliderLabel = new SuperTextBox("0", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(sliderLabel, 830, 360);
+        addObject(sliderLabel, getWidth()/2 + 180, 360);
         
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
