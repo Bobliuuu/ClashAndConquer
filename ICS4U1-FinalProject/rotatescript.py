@@ -1,6 +1,6 @@
 from PIL import Image
 
-troopName = "Archer" # Change to troop name accordingly
+troopName = "Skeleton" # Change to troop name accordingly
 # Get move and attack paths
 movePath = "images/Troops/" + troopName + "/" + troopName + "Move"
 attackPath = "images/Troops/" + troopName + "/" + troopName + "Attack"
@@ -12,12 +12,12 @@ while True:
     except ValueError:
         print("Invalid angle.")
 
-for i in range(12):
+for i in range(12, 14):
     img = Image.open(movePath + str(i) + ".png")
     ret = img.rotate(angle)
     ret.save(movePath + str(i) + ".png")
 
-for i in range(12):
+for i in range(12, 14):
     img = Image.open(attackPath + str(i) + ".png")
     ret = img.rotate(angle)
     ret.save(attackPath + str(i) + ".png")
