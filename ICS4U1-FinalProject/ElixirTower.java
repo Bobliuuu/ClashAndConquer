@@ -8,8 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class ElixirTower extends Building
 {
+    private int actCount;
     private double elixirSpeed;
     private boolean increasedSpeed;
+    private SuperStatBar healthBar;
     
     public ElixirTower(double speed, boolean isEnemy){
         this.isEnemy = isEnemy;
@@ -18,6 +20,12 @@ public class ElixirTower extends Building
         setImage("elixircollectorlevel1.png");
         getImage().scale(75, 75);
         increasedSpeed = false;
+        actCount = 0;
+        healthBar = new SuperStatBar(health, health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
+    }
+    
+    protected void addedToWorld(World world){
+        getWorld().addObject(healthBar, getX(), getY()+20);
     }
     
     /**
@@ -30,6 +38,10 @@ public class ElixirTower extends Building
             getWorld().getObjects(ElixirBar.class).get(0).increaseElixirSpeed(elixirSpeed);
             increasedSpeed = true;
         }
+        if(actCount % 30 == 0) subtractHealth(1);
+        actCount++;
+        if(actCount > 3000) actCount = 0;
+        healthBar.update(this.health);
     }
     
     public void subtractHealth(int value){
