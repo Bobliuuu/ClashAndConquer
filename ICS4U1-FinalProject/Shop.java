@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Shop extends World
 {
+    private GreenfootImage background;
     private Image backButton;
     private Image gems;
     private SuperTextBox gemsLabel;
@@ -25,6 +26,7 @@ public class Shop extends World
     private GreenfootSound music;
     private UserInfo user;
     private static final Color transparent = new Color(0, 0, 0, 0);
+    private static final Color orange = new Color(255, 134, 45);
     
      private void displayPowerUp (int position)
     {
@@ -71,6 +73,10 @@ public class Shop extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
         
+        background = new GreenfootImage("Worlds/ShopBackground.jpg");
+        background.scale(getWidth(), getHeight());
+        setBackground(background);
+        
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             int gems = user.getInt(0);
@@ -108,14 +114,27 @@ public class Shop extends World
         this.buybuttons = new ArrayList<TextButton>();
         this.levels = new ArrayList<SuperTextBox>();
         
-        // ShopItem(int Cost, int Item, int Level)
-        this.powerups.add(new ShopItem(100, 1, 1));
-        this.powerups.add(new ShopItem(200, 2, 2));
-        this.powerups.add(new ShopItem(300, 3, 2));
-        this.powerups.add(new ShopItem(400, 4, 1));
+        // ShopItem(int cost, String type, int level)
+        this.powerups.add(new ShopItem(100, "CastleHealth", 1));
+        this.powerups.add(new ShopItem(300, "ElexirHealth", 2));
+        this.powerups.add(new ShopItem(200, "ElexirSpeed", 2));
+        this.powerups.add(new ShopItem(300, "PoisonAttack", 2));
+        this.powerups.add(new ShopItem(300, "PoisonDuration", 2));
+        this.powerups.add(new ShopItem(400, "FireballAttack", 1));
+        this.powerups.add(new ShopItem(400, "FireballRadius", 1));
+        this.powerups.add(new ShopItem(100, "ArrowAttack", 1));
+        this.powerups.add(new ShopItem(200, "GiantAttack", 2));
+        this.powerups.add(new ShopItem(300, "GiantHealth", 2));
+        this.powerups.add(new ShopItem(400, "KnightAttack", 1));
+        this.powerups.add(new ShopItem(100, "KnightHealth", 1));
+        this.powerups.add(new ShopItem(200, "ArcherAttack", 2));
+        this.powerups.add(new ShopItem(300, "ArcherHealth", 2));
+        this.powerups.add(new ShopItem(400, "TombstoneCooldown", 1));
+        this.powerups.add(new ShopItem(400, "TombstoneHealth", 1));
+
         
         for (ShopItem powerup : powerups) {
-            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 190, true, Color.WHITE, Color.BLACK, Color.BLUE, Color.WHITE, Color.BLACK, new Font ("Verdana",true ,false ,14));
+            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 7, 170, true, Color.DARK_GRAY, Color.WHITE, orange, Color.WHITE, transparent, new Font ("Open Sans",true ,false ,15));
             buybuttons.add(btn);
             
             SuperTextBox lvl = new SuperTextBox("Level " + String.valueOf(powerup.getLevel()), transparent, Color.BLACK, font2, false, 18*6, 0, transparent);
