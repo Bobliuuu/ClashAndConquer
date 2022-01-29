@@ -108,14 +108,24 @@ public class Shop extends World
         this.buybuttons = new ArrayList<TextButton>();
         this.levels = new ArrayList<SuperTextBox>();
         
-        // ShopItem(int Cost, int Item, int Level)
-        this.powerups.add(new ShopItem(100, 1, 1));
-        this.powerups.add(new ShopItem(200, 2, 2));
-        this.powerups.add(new ShopItem(300, 3, 2));
-        this.powerups.add(new ShopItem(400, 4, 1));
+        // ShopItem(int cost, String type, int level)
+        this.powerups.add(new ShopItem(100, "CastleHealth", 1));
+        this.powerups.add(new ShopItem(200, "ElexirSpeed", 2));
+        this.powerups.add(new ShopItem(300, "PoisonAttack", 2));
+        this.powerups.add(new ShopItem(400, "FireballAttack", 1));
+        this.powerups.add(new ShopItem(100, "ArrowAttack", 1));
+        this.powerups.add(new ShopItem(200, "GiantAttack", 2));
+        this.powerups.add(new ShopItem(300, "GiantHealth", 2));
+        this.powerups.add(new ShopItem(400, "KnightAttack", 1));
+        this.powerups.add(new ShopItem(100, "KnightHealth", 1));
+        this.powerups.add(new ShopItem(200, "ArcherAttack", 2));
+        this.powerups.add(new ShopItem(300, "ArcherHealth", 2));
+        this.powerups.add(new ShopItem(400, "TombstoneAttack", 1));
+        this.powerups.add(new ShopItem(400, "TombstoneHealth", 1));
+
         
         for (ShopItem powerup : powerups) {
-            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 190, true, Color.WHITE, Color.BLACK, Color.BLUE, Color.WHITE, Color.BLACK, new Font ("Verdana",true ,false ,14));
+            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 190, true, Color.WHITE, Color.WHITE, Color.BLUE, Color.WHITE, transparent, new Font ("Verdana",true ,false ,14));
             buybuttons.add(btn);
             
             SuperTextBox lvl = new SuperTextBox("Level " + String.valueOf(powerup.getLevel()), transparent, Color.BLACK, font2, false, 18*6, 0, transparent);

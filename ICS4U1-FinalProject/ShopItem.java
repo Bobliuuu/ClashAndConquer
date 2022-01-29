@@ -20,20 +20,47 @@ public class ShopItem extends Actor
      * Type 3 = HealthPotion
      * Type 4 = SpeedPotionOld
      */
-    public ShopItem(int cost, int type, int level){
+    public ShopItem(int cost, String type, int level){
         this.cost = cost;
         this.level = level;
-        if (type == 1){
-            image = new GreenfootImage("images/ShopItems/ElexirSpeed.PNG");
-        }
-        else if (type == 2){
+        if (type.equals("CastleHealth")){
             image = new GreenfootImage("images/ShopItems/CastleHealth.PNG");
         }
-        else if (type == 3){
+        else if (type.equals("ElexirSpeed")){
+            image = new GreenfootImage("images/ShopItems/ElexirSpeed.PNG");
+        }
+        else if (type.equals("PoisonAttack")){
+            image = new GreenfootImage("images/ShopItems/PoisonAttack.PNG");
+        }
+        else if (type.equals("FireballAttack")){
+            image = new GreenfootImage("images/ShopItems/FireballAttack.PNG");
+        }
+        else if (type.equals("ArrowAttack")){
+            image = new GreenfootImage("images/ShopItems/ArrowAttack.PNG");
+        }
+        else if (type.equals("GiantAttack")){
+            image = new GreenfootImage("images/ShopItems/GiantAttack.PNG");
+        }
+        else if (type.equals("GiantHealth")){
+            image = new GreenfootImage("images/ShopItems/GiantHealth.PNG");
+        }
+        else if (type.equals("KnightAttack")){
             image = new GreenfootImage("images/ShopItems/KnightAttack.PNG");
         }
-        else {
-            image = new GreenfootImage("images/ShopItems/KnightSpeed.PNG");
+        else if (type.equals("KnightHealth")){
+            image = new GreenfootImage("images/ShopItems/KnightHealth.PNG");
+        }
+        else if (type.equals("ArcherAttack")){
+            image = new GreenfootImage("images/ShopItems/ArcherAttack.PNG");
+        }
+        else if (type.equals("ArcherHealth")){
+            image = new GreenfootImage("images/ShopItems/ArcherHealth.PNG");
+        }
+        else if (type.equals("TombstoneAttack")){
+            image = new GreenfootImage("images/ShopItems/TombstoneAttack.PNG");
+        }
+        else if (type.equals("TombstoneHealth")){
+            image = new GreenfootImage("images/ShopItems/TombstoneHealth.PNG");
         }
         setImage(image);
     }
