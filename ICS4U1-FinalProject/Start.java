@@ -98,7 +98,7 @@ public class Start extends World
             str = "Welcome " + user.getUserName() + "!";
         }
         else {
-            str = "Plase login to gain full access to the levels.";
+            str = "Plase login to unlock the full game.";
         }
         Font font = new Font("Verdana", 26);
         label = new SuperTextBox(str, transparent, Color.BLACK, font, false, 18 * str.length(), 0, transparent);
@@ -168,6 +168,14 @@ public class Start extends World
             }
             stats.started();
             Greenfoot.setWorld(stats);
+        }
+        else if (Greenfoot.mouseClicked(instructionsButton)){
+            Instructions instructions = new Instructions();
+            if (music != null){
+                music.stop();
+            }
+            instructions.started();
+            Greenfoot.setWorld(instructions);
         }
     }
 }
