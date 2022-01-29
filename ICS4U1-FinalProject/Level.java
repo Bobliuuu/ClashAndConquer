@@ -186,7 +186,17 @@ public class Level extends World
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
                         Skeleton placedTroop = new Skeleton(40, 6, 1, 6, 140, false);
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        Skeleton placedTroop2 = new Skeleton(40, 6, 1, 6, 140, false);
+                        Skeleton placedTroop3 = new Skeleton(40, 6, 1, 6, 140, false);
+                        Skeleton placedTroop4 = new Skeleton(40, 6, 1, 6, 140, false);
+                        Skeleton placedTroop5 = new Skeleton(40, 6, 1, 6, 140, false);
+                        Skeleton placedTroop6 = new Skeleton(40, 6, 1, 6, 140, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY());
+                        addObject(placedTroop2, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY());
+                        addObject(placedTroop3, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY()+20);
+                        addObject(placedTroop4, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY()-20);
+                        addObject(placedTroop5, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY()+20);
+                        addObject(placedTroop6, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY()-20);
                         redZone.setToNone();
                         setTroopSelected("Blank");
                         removeObject(cardDeck.getCardAtIndex(cardIndex+1));
