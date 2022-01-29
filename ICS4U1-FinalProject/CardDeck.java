@@ -1,5 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Write a description of class CardDeck here.
@@ -12,12 +16,15 @@ public class CardDeck extends Actor
     // Instance variables
     private Card tempCard;
     private ArrayList <Card> cards; 
+    private Queue <Card> otherCards; 
+    private String[] allCards = {"Knight", "Archer", "Giant", "Skeleton", "Elixirtower", "Tombstone", "Fireball", "Poison"};
     
     /**
      * Basic constructor for CardDeck for testing.
      */
     public CardDeck(){
         cards = new ArrayList <Card> ();
+        otherCards = new LinkedList <Card> ();
         tempCard = new Card("Knight");
         cards.add(tempCard);
         for (int i = 0; i < 2; i++){
@@ -35,9 +42,16 @@ public class CardDeck extends Actor
      */
     public CardDeck(String[] cardNames){
         cards = new ArrayList <Card> ();
+        otherCards = new LinkedList <Card> ();
         for (String card : cardNames){
             tempCard = new Card(card);
             cards.add(tempCard);
+        }
+        List <String> cardList = Arrays.asList(cardNames);
+        for (String card : allCards){
+            if (!cardList.contains(card)){
+                otherCards.add(new Card(card));
+            }
         }
     }
     
@@ -47,5 +61,22 @@ public class CardDeck extends Actor
      */
     public Card getCardAtIndex(int idx){
         return cards.get(idx);
+    }
+    
+    public int getCardIndex(String name){
+        int idx = 0;
+        for (Card card : cards){
+            if (cards.get(idx).getCardName() == name){
+                return idx;
+            }
+            idx++;
+        }
+        return idx;
+    }
+    
+    public void switchCard(int idx){
+        otherCards.add(cards.get(idx));
+        cards.remove(idx); 
+        cards.add(idx + 1, otherCards.poll());
     }
 }
