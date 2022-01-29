@@ -18,8 +18,8 @@ public class LevelMenu extends World
                                         {601, 545}, {733, 556}, {829, 605}, {916, 575}, {925, 426}, {970, 315}, {904, 282}, {817, 253}, 
                                         {905, 190}, {921, 114}, {812, 91}, {691, 94}, {626, 117}, {554, 157}, {478, 225}, {413, 296}, 
                                         {507, 324}, {122, 282}};
-    private int[][] rectangleCoordinates = {{200, 425}, {443, 560}, {733, 530}, {916, 550}, {970, 290}, {817, 226}, {905, 166}, {812, 67}, 
-                                            {691, 70}, {449, 159}, {413, 270}, {276, 270}, {122, 258}, {26, 244}};
+    private int[][] rectangleCoordinates = {{508, 300}, {200, 425}, {443, 560}, {733, 530}, {916, 550}, {970, 290}, {817, 226}, {905, 166}, 
+                                            {812, 67}, {691, 70}, {449, 159}, {413, 250}, {276, 270}, {122, 258}, {26, 244}};
     private Image backButton;
     private UserInfo user;
     private GreenfootSound music;
@@ -89,7 +89,7 @@ public class LevelMenu extends World
     }
     
     public void act(){
-        //checkMousePosition();
+        checkMousePosition();
         checkClick();
     }
     

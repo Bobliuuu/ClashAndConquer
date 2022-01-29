@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Stats extends World
 {
     private Image backButton;
+    private GreenfootImage background;
     private SuperTextBox levelLabel;
     private SuperTextBox winLossLabel;
     private SuperTextBox gemsSpentLabel;
@@ -35,58 +36,61 @@ public class Stats extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1);
-
+        background = new GreenfootImage("MyStatsBackground.PNG");
+        background.scale(getWidth(), getHeight());
+        setBackground(background);
+        
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
-        addObject(backButton, 41, 25);
+        addObject(backButton, 65, 45);
         
         Font font = new Font ("Open Sans", true, false, 35);
         
         // Player Stats Labels
         levelLabel = new SuperTextBox("0", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(levelLabel, 392, 173);
+        addObject(levelLabel, 382, 153);
         
         winLossLabel = new SuperTextBox("0" + " : " + "0", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(winLossLabel, 370, 268);
+        addObject(winLossLabel, 363, 244);
         
         gemsSpentLabel = new SuperTextBox("1000", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(gemsSpentLabel, 363, 374);
+        addObject(gemsSpentLabel, 355, 344);
         
         timePlayedLabel = new SuperTextBox("00:00", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(timePlayedLabel, 359, 486);
+        addObject(timePlayedLabel, 352, 450);
         
         
         // Leaderboard
         
         firstPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 18*6, 0, transparent);
-        addObject(firstPlaceLabel, 548, 139);
+        addObject(firstPlaceLabel, 578, 149);
                 
         firstPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(firstPlaceLevelLabel, 776, 139);
+        addObject(firstPlaceLevelLabel, 796, 149);
         
         secondPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 18*6, 0, transparent);
-        addObject(secondPlaceLabel, 548, 234);
+        addObject(secondPlaceLabel, 578, 241);
                 
         secondPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(secondPlaceLevelLabel, 776, 234);
+        addObject(secondPlaceLevelLabel, 796, 241);
 
         thirdPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 18*6, 0, transparent);
-        addObject(thirdPlaceLabel, 548, 335);
+        addObject(thirdPlaceLabel, 578, 343);
                 
         thirdPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(thirdPlaceLevelLabel, 776, 335);
+        addObject(thirdPlaceLevelLabel, 796, 343);
         
         fourthPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 18*6, 0, transparent);
-        addObject(fourthPlaceLabel, 548, 444);
+        addObject(fourthPlaceLabel, 578, 450);
                 
         fourthPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(fourthPlaceLevelLabel, 776, 444);
+        addObject(fourthPlaceLevelLabel, 796, 450);
         
         fifthPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 18*6, 0, transparent);
-        addObject(fifthPlaceLabel, 548, 537);
+        addObject(fifthPlaceLabel, 578, 541);
                 
         fifthPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(fifthPlaceLevelLabel, 776, 537);
+        addObject(fifthPlaceLevelLabel, 796, 541);
 
     }
     public void act(){
