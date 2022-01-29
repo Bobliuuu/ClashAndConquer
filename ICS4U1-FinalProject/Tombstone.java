@@ -21,6 +21,16 @@ public class Tombstone extends Building
         healthBar = new SuperStatBar(health, health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
     
+    public Tombstone(int health, boolean isEnemy, int cooldown){
+        this.isEnemy = isEnemy;
+        this.health = health;
+        this.cooldown = cooldown;
+        timer = cooldown;
+        setImage("tombstone.jpg");
+        getImage().scale(50, 75);
+        healthBar = new SuperStatBar(health, health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
+    }
+    
     protected void addedToWorld(World world){
         getWorld().addObject(healthBar, getX(), getY()+50);
     }
