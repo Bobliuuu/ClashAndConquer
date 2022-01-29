@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Skeleton
-comment0.text=\n\ Write\ a\ description\ of\ class\ Skeleton\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Skeleton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=isEnemy
 comment1.target=Skeleton(boolean)
 comment2.params=health\ attk\ movementSpeed\ attackSpeed\ radius\ isEnemy

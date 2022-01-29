@@ -21,6 +21,10 @@ public class Level extends World
     private final int[] knightAttack = {};
     private final int[] archerHealth = {};
     private final int[] archerAttack = {};
+    private final int[] giantHealth = {};
+    private final int[] giantAttack = {};
+    private final int[] skeletonHealth = {};
+    private final int[] skeletonAttack = {};
     
     // Instance variables
     private Image levelMap;
@@ -37,6 +41,7 @@ public class Level extends World
     private boolean troopIsSelected, isWeak = false;
     private String troopSelected;
     private int levelValue;
+    private int cardIndex;
     private boolean isVictory;
     private boolean isDefeat;
     private boolean finished;
@@ -77,12 +82,8 @@ public class Level extends World
         redZone = new RedZone();
         addObject(redZone, 400, 190);
         
-        String[] cardNames = {"Fireball", "Knight", "Archer", "Elixirtower"};
-        
+        String[] cardNames = {"Fireball", "Knight", "Archer", "Skeleton"};
         cardDeck = new CardDeck(cardNames);
-        for (int i = 0; i < 4; i++){
-            addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
-        }
         
         enemyAI = new EnemyAI(levelValue, isWeak);
         addObject(enemyAI, 0, 0);
@@ -93,11 +94,11 @@ public class Level extends World
         finished = false;
         
         timer = new Timer();
-        
     }
     
     public void act(){
         //checkMousePosition();
+        displayCards();
         checkMouseClick();
         moveUnplacedTroop();
         elixirBar.addElixir();
@@ -128,31 +129,38 @@ public class Level extends World
         }
     }
     
+    public void displayCards(){
+        for (int i = 0; i < 4; i++){
+            addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
+        }
+    }
+    
     public void checkMouseClick(){
         if (Greenfoot.mouseClicked(unplacedTroop) && Greenfoot.getMouseInfo() != null){
             if (unplacedTroop.intersectsCard()){
-                setTroopSelected(unplacedTroop.getCardName());
+                String troopName = unplacedTroop.getCardName();
+                setTroopSelected(troopName);
+                cardIndex = cardDeck.getCardIndex(troopName);
             }
             if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
                 Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650 && 
                 !unplacedTroop.checkTouchingCastle()){
-                if (elixirBar.useElixir(3)){
-                    if (troopSelected == "Knight"){
-                        removeObject(unplacedTroop);
-                        unplacedTroop = new Image();
-                        Knight placedTroop = new Knight(110, 18, 1, 3, 80, false);
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                        redZone.setToNone();
-                        setTroopSelected("Blank");
-                    }
-                    else if (troopSelected == "Archer"){
-                        removeObject(unplacedTroop);
-                        unplacedTroop = new Image();
-                        Archer placedTroop = new Archer(60, 6, 1, 6, 140, false);
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                        redZone.setToNone();
-                        setTroopSelected("Blank");
-                    }
+                if (elixirBar.useElixir(3) && troopSelected == "Knight"){
+                    removeObject(unplacedTroop);
+                    unplacedTroop = new Image();
+                    Knight placedTroop = new Knight(110, 18, 1, 3, 80, false);
+                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    redZone.setToNone();
+                    setTroopSelected("Blank");
+                    cardDeck.switchCard(cardIndex);
+                }
+                else if (elixirBar.useElixir(3) && troopSelected == "Archer"){
+                    removeObject(unplacedTroop);
+                    unplacedTroop = new Image();
+                    Archer placedTroop = new Archer(60, 6, 1, 6, 140, false);
+                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    redZone.setToNone();
+                    setTroopSelected("Blank");
                 }
             }
         }
@@ -201,7 +209,6 @@ public class Level extends World
             Greenfoot.setWorld(levelMenu);
         }
         if (isDefeat){
-            System.out.println("defeated");
             defeatScreen = new Image(new GreenfootImage("defeat.png"));
             defeatScreen.getImage().scale(800, 200);
             addObject(defeatScreen, 400, 300);
@@ -209,7 +216,6 @@ public class Level extends World
             // Calculate gems with timer
         }
         else if (isVictory){
-            System.out.println("won");
             victoryScreen = new Image(new GreenfootImage("victory.jpg"));
             victoryScreen.getImage().scale(800, 200);
             addObject(victoryScreen, 400, 300);
