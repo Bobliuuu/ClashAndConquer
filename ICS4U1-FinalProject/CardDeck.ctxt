@@ -10,6 +10,7 @@ comment2.text=\r\n\ Similar\ to\ above,\ but\ with\ the\ ability\ to\ customize\
 comment3.params=idx
 comment3.target=Card\ getCardAtIndex(int)
 comment3.text=\r\n\ Get\ the\ card\ at\ a\ certain\ index\ of\ the\ card\ deck.\r\n\ @param\ idx\ \ \ \ \ \ The\ desired\ index\ of\ card\ deck.\r\n
+numComments=4
 comment4.params=name
 comment4.target=int\ getCardIndex(java.lang.String)
 comment5.params=idx
