@@ -142,14 +142,91 @@ public class Level extends World
                 setTroopSelected(troopName);
                 cardIndex = cardDeck.getCardIndex(troopName);
             }
-            if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650 && 
-                !unplacedTroop.checkTouchingCastle()){
-                if (elixirBar.hasElixir(3) && troopSelected.equals("Knight")){
-                    elixirBar.useElixir(3);
+            if (!unplacedTroop.checkTouchingCastle()){
+                if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
+                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650){
+                    if (elixirBar.hasElixir(3) && troopSelected.equals("Knight")){
+                        elixirBar.useElixir(3);
+                        removeObject(unplacedTroop);
+                        unplacedTroop = new Image();
+                        Knight placedTroop = new Knight(110, 18, 1, 3, 80, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        redZone.setToNone();
+                        setTroopSelected("Blank");
+                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        cardDeck.switchCard(cardIndex);
+                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                    }
+                    else if (elixirBar.hasElixir(3) && troopSelected.equals("Archer")){
+                        elixirBar.useElixir(3);
+                        removeObject(unplacedTroop);
+                        unplacedTroop = new Image();
+                        Archer placedTroop = new Archer(60, 6, 1, 6, 140, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        redZone.setToNone();
+                        setTroopSelected("Blank");
+                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        cardDeck.switchCard(cardIndex);
+                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                    }
+                    else if (elixirBar.hasElixir(5) && troopSelected.equals("Giant")){
+                        elixirBar.useElixir(5);
+                        removeObject(unplacedTroop);
+                        unplacedTroop = new Image();
+                        Giant placedTroop = new Giant(120, 6, 1, 6, 140, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        redZone.setToNone();
+                        setTroopSelected("Blank");
+                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        cardDeck.switchCard(cardIndex);
+                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                    }
+                    else if (elixirBar.hasElixir(3) && troopSelected.equals("Skeleton")){
+                        elixirBar.useElixir(3);
+                        removeObject(unplacedTroop);
+                        unplacedTroop = new Image();
+                        Skeleton placedTroop = new Skeleton(40, 6, 1, 6, 140, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        redZone.setToNone();
+                        setTroopSelected("Blank");
+                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        cardDeck.switchCard(cardIndex);
+                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                    }
+                }
+                // Tower region
+                if (Greenfoot.getMouseInfo().getX() >= 120 && Greenfoot.getMouseInfo().getX() <= 660 && 
+                Greenfoot.getMouseInfo().getY() >= 420 && Greenfoot.getMouseInfo().getY() <= 600){
+                    if (elixirBar.hasElixir(6) && troopSelected.equals("Elixirtower")){
+                        elixirBar.useElixir(6);
+                        removeObject(unplacedTroop);
+                        unplacedTroop = new Image();
+                        ElixirTower placedTroop = new ElixirTower(0.003, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        redZone.setToNone();
+                        setTroopSelected("Blank");
+                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        cardDeck.switchCard(cardIndex);
+                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                    }
+                    else if (elixirBar.hasElixir(6) && troopSelected.equals("Tombstone")){
+                        elixirBar.useElixir(6);
+                        removeObject(unplacedTroop);
+                        unplacedTroop = new Image();
+                        Tombstone placedTroop = new Tombstone(4, false);
+                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                        redZone.setToNone();
+                        setTroopSelected("Blank");
+                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        cardDeck.switchCard(cardIndex);
+                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                    }
+                }
+                if (elixirBar.hasElixir(4) && troopSelected.equals("Fireball")){
+                    elixirBar.useElixir(4);
                     removeObject(unplacedTroop);
                     unplacedTroop = new Image();
-                    Knight placedTroop = new Knight(110, 18, 1, 3, 80, false);
+                    Fireball placedTroop = new Fireball(60, 6, 80, false, 0, 0);
                     addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     redZone.setToNone();
                     setTroopSelected("Blank");
@@ -157,11 +234,11 @@ public class Level extends World
                     cardDeck.switchCard(cardIndex);
                     addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
                 }
-                else if (elixirBar.hasElixir(3) && troopSelected.equals("Archer")){
-                    elixirBar.useElixir(3);
+                else if (elixirBar.hasElixir(4) && troopSelected.equals("Poison")){
+                    elixirBar.useElixir(4);
                     removeObject(unplacedTroop);
                     unplacedTroop = new Image();
-                    Archer placedTroop = new Archer(60, 6, 1, 6, 140, false);
+                    Poison placedTroop = new Poison(60, 6, 80, false, 0, 0);
                     addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     redZone.setToNone();
                     setTroopSelected("Blank");
@@ -169,82 +246,6 @@ public class Level extends World
                     cardDeck.switchCard(cardIndex);
                     addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
                 }
-                else if (elixirBar.hasElixir(5) && troopSelected.equals("Giant")){
-                    elixirBar.useElixir(5);
-                    removeObject(unplacedTroop);
-                    unplacedTroop = new Image();
-                    Giant placedTroop = new Giant(120, 6, 1, 6, 140, false);
-                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    redZone.setToNone();
-                    setTroopSelected("Blank");
-                    removeObject(cardDeck.getCardAtIndex(cardIndex+1));
-                    cardDeck.switchCard(cardIndex);
-                    addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
-                }
-                else if (elixirBar.hasElixir(3) && troopSelected.equals("Skeleton")){
-                    elixirBar.useElixir(3);
-                    removeObject(unplacedTroop);
-                    unplacedTroop = new Image();
-                    Skeleton placedTroop = new Skeleton(40, 6, 1, 6, 140, false);
-                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    redZone.setToNone();
-                    setTroopSelected("Blank");
-                    removeObject(cardDeck.getCardAtIndex(cardIndex+1));
-                    cardDeck.switchCard(cardIndex);
-                    addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
-                }
-            }
-            else if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                    Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650 && 
-                    !unplacedTroop.checkTouchingCastle()){
-                if (elixirBar.hasElixir(6) && troopSelected.equals("ElixirTower")){
-                    elixirBar.useElixir(6);
-                    removeObject(unplacedTroop);
-                    unplacedTroop = new Image();
-                    ElixirTower placedTroop = new ElixirTower(0.003, false);
-                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    redZone.setToNone();
-                    setTroopSelected("Blank");
-                    removeObject(cardDeck.getCardAtIndex(cardIndex+1));
-                    cardDeck.switchCard(cardIndex);
-                    addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
-                }
-                else if (elixirBar.hasElixir(6) && troopSelected.equals("Tombstone")){
-                    elixirBar.useElixir(6);
-                    removeObject(unplacedTroop);
-                    unplacedTroop = new Image();
-                    Tombstone placedTroop = new Tombstone(4, false);
-                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    redZone.setToNone();
-                    setTroopSelected("Blank");
-                    removeObject(cardDeck.getCardAtIndex(cardIndex+1));
-                    cardDeck.switchCard(cardIndex);
-                    addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
-                }
-            }
-            if (elixirBar.hasElixir(4) && troopSelected.equals("Fireball")){
-                elixirBar.useElixir(4);
-                removeObject(unplacedTroop);
-                unplacedTroop = new Image();
-                Fireball placedTroop = new Fireball(60, 6, 80, false, 0, 0);
-                addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                redZone.setToNone();
-                setTroopSelected("Blank");
-                removeObject(cardDeck.getCardAtIndex(cardIndex+1));
-                cardDeck.switchCard(cardIndex);
-                addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
-            }
-            else if (elixirBar.hasElixir(4) && troopSelected.equals("Poison")){
-                elixirBar.useElixir(4);
-                removeObject(unplacedTroop);
-                unplacedTroop = new Image();
-                Poison placedTroop = new Poison(60, 6, 80, false, 0, 0);
-                addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                redZone.setToNone();
-                setTroopSelected("Blank");
-                removeObject(cardDeck.getCardAtIndex(cardIndex+1));
-                cardDeck.switchCard(cardIndex);
-                addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
             }
         }
     }
@@ -265,7 +266,23 @@ public class Level extends World
         }
         troopIsSelected = true;
         troopSelected = cardName;
-        unplacedTroop = new Image(new GreenfootImage("Troops/" + cardName + "/" + cardName + "Move0.png"));
+        if (cardName == "Fireball"){
+            unplacedTroop = new Image(new GreenfootImage("FireballAttack1.png"));
+        }
+        else if (cardName == "Poison"){
+            unplacedTroop = new Image(new GreenfootImage("PoisonAttack0.png"));
+        }
+        else if (cardName == "Elixirtower"){
+            unplacedTroop = new Image(new GreenfootImage("elixircollectorlevel1.png"));
+            unplacedTroop.getImage().scale(75, 75);
+        }
+        else if (cardName == "Tombstone"){
+            unplacedTroop = new Image(new GreenfootImage("tombstone.jpg"));
+            unplacedTroop.getImage().scale(50, 75);
+        }
+        else {
+            unplacedTroop = new Image(new GreenfootImage("Troops/" + cardName + "/" + cardName + "Move0.png"));
+        }
         unplacedTroop.setTransparency(100);
         addObject(unplacedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
     }
