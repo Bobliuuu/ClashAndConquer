@@ -1,17 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Level here.
- * 
- * Coordinates: 
- * Bridges: (127, 385), (673, 385), (398, 385)
- * End of road: (397, 170):
- * Road turns: (128, 590), (674, 590) [my side], (128, 170), (672, 170)
+ * Write a description of class Instructions here.
  * 
  * @author Jerry Zhu
  * @version January 2022
  */
-public class Level extends World
+public class Instructions extends World
 {
     // Hardcoded variables
     private final int[][] cardCoordinates = {{50, 760}, {150, 760}, {650, 760}, {753, 760}};
@@ -55,7 +50,7 @@ public class Level extends World
      * 
      * @param levelValue     The desired level to be initialized. 
      */
-    public Level(int levelValue)
+    public Instructions()
     {   
         // Create a new world with 800 x 836 cells with a cell size of 1x1 pixels.
         super(800, 836, 1); 
