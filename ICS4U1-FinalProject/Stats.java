@@ -38,7 +38,7 @@ public class Stats extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1);
         
-        background = new GreenfootImage("Stats.PNG");
+        background = new GreenfootImage("MyStatsBackground.PNG");
         background.scale(getWidth(), getHeight());
         setBackground(background);
         
@@ -68,34 +68,34 @@ public class Stats extends World
         // Leaderboard
         
         firstPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
-        addObject(firstPlaceLabel, 608, 149);
+        addObject(firstPlaceLabel, 626, 153);
         
         secondPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
-        addObject(secondPlaceLabel, 608, 241);
+        addObject(secondPlaceLabel, 626, 245);
         
         thirdPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
-        addObject(thirdPlaceLabel, 608, 343);
+        addObject(thirdPlaceLabel, 626, 345);
         
         fourthPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
-        addObject(fourthPlaceLabel, 608, 450);
+        addObject(fourthPlaceLabel, 626, 452);
         
         fifthPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
-        addObject(fifthPlaceLabel, 608, 541);
+        addObject(fifthPlaceLabel, 626, 543);
         
         firstPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
-        addObject(firstPlaceLevelLabel, 826, 149);
+        addObject(firstPlaceLevelLabel, 884, 153);
         
         secondPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
-        addObject(secondPlaceLevelLabel, 826, 241);
+        addObject(secondPlaceLevelLabel, 884, 245);
         
         thirdPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
-        addObject(thirdPlaceLevelLabel, 816, 343);
+        addObject(thirdPlaceLevelLabel, 884, 345);
                 
         fourthPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
-        addObject(fourthPlaceLevelLabel, 826, 450);
+        addObject(fourthPlaceLevelLabel, 884, 452);
                 
         fifthPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
-        addObject(fifthPlaceLevelLabel, 826, 541);
+        addObject(fifthPlaceLevelLabel, 884, 543);
     }
     public void act(){
         checkClick();
