@@ -31,7 +31,8 @@ public class Shop extends World
      private void displayPowerUp (int position)
     {
         for (int counter = 0; counter < 3; counter++) {     
-            ShopItem powerup = powerups.get((position + counter) % powerups.size());        
+            ShopItem powerup = powerups.get((position + counter) % powerups.size());   
+            System.out.println(powerup.getImage());
             powerup.getImage().scale(292, 430);
             addObject(powerup, 150+(300*counter), 300);
 
@@ -116,22 +117,21 @@ public class Shop extends World
         
         // ShopItem(int cost, String type, int level)
         this.powerups.add(new ShopItem(100, "CastleHealth", 1));
-        this.powerups.add(new ShopItem(300, "ElexirHealth", 2));
-        this.powerups.add(new ShopItem(200, "ElexirSpeed", 2));
-        this.powerups.add(new ShopItem(300, "PoisonAttack", 2));
-        this.powerups.add(new ShopItem(300, "PoisonDuration", 2));
+        this.powerups.add(new ShopItem(100, "KnightHealth", 1));
+        this.powerups.add(new ShopItem(400, "KnightAttack", 1));
+        this.powerups.add(new ShopItem(300, "ArcherHealth", 2));
+        this.powerups.add(new ShopItem(200, "ArcherAttack", 2));
+        this.powerups.add(new ShopItem(300, "GiantHealth", 2));
+        this.powerups.add(new ShopItem(300, "GiantAttack", 2));
+        // Skeleton health and attack
+        this.powerups.add(new ShopItem(300, "ElixirHealth", 2));
+        this.powerups.add(new ShopItem(200, "ElixirSpeed", 2));
         this.powerups.add(new ShopItem(400, "FireballAttack", 1));
         this.powerups.add(new ShopItem(400, "FireballRadius", 1));
-        this.powerups.add(new ShopItem(100, "ArrowAttack", 1));
-        this.powerups.add(new ShopItem(200, "GiantAttack", 2));
-        this.powerups.add(new ShopItem(300, "GiantHealth", 2));
-        this.powerups.add(new ShopItem(400, "KnightAttack", 1));
-        this.powerups.add(new ShopItem(100, "KnightHealth", 1));
-        this.powerups.add(new ShopItem(200, "ArcherAttack", 2));
-        this.powerups.add(new ShopItem(300, "ArcherHealth", 2));
+        this.powerups.add(new ShopItem(300, "PoisonAttack", 2));
+        this.powerups.add(new ShopItem(300, "PoisonDuration", 2));
         this.powerups.add(new ShopItem(400, "TombstoneCooldown", 1));
         this.powerups.add(new ShopItem(400, "TombstoneHealth", 1));
-
         
         for (ShopItem powerup : powerups) {
             TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 7, 170, true, Color.DARK_GRAY, Color.WHITE, orange, Color.WHITE, transparent, new Font ("Open Sans",true ,false ,15));
