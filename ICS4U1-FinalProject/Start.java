@@ -85,10 +85,10 @@ public class Start extends World
                 user.setInt(6, 0); // Castle projectile attack
                 user.setInt(7, 0); // Wins
                 user.setInt(8, 0); // Losses
-                user.setString(0, "0 0 0 0 "); // Knight, archer (health, attack)
-                user.setString(1, "0 0 "); // Towers
-                user.setString(2, "0 0 "); // Spells
-                user.setString(3, "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0"); // 16 levels
+                user.setString(0, "0 0 0 0 0 0 0 0 "); // Knight, archer, giant, skeleton (health, attack)
+                user.setString(1, "0 0 0 0 "); // Towers (elixir, tombstone)
+                user.setString(2, "0 0 0 0 "); // Spells (fireball, poison)
+                user.setString(3, "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "); // 15 levels
                 user.store();
                 if (music != null){
                     music.setVolume(user.getInt(2));
