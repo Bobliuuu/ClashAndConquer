@@ -90,13 +90,23 @@ public class ElixirBar extends Actor
     }
     
     /**
+     * Checks if elixir bar has the specified amount of elixir. 
+     * @param amount        The amount of elixir used.
+     * @return boolean      Whether the elixir has been subtracted from the elixir bar. 
+     */
+    public boolean hasElixir(int amount)
+    {
+        return elixir >= amount;
+    }
+    
+    /**
      * Subtract elixir when a troop is deployed. 
      * @param amount        The amount of elixir used.
      * @return boolean      Whether the elixir has been subtracted from the elixir bar. 
      */
     public boolean useElixir(int amount)
     {
-        if(elixir >= amount){
+        if (elixir >= amount){
             elixir -= amount;
             return true;
         }
