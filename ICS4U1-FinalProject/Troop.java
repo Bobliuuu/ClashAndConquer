@@ -106,15 +106,25 @@ public abstract class Troop extends SuperSmoothMover
     
     public void findTarget(){
         target = null;
-        ArrayList <Troop> troops = (ArrayList <Troop>) getWorld().getObjects(Troop.class);
-        for (Troop troop : troops){
-            if (troop.enemy() != isEnemy){
-                if (findDistanceBetween(troop, this) <= radius){
-                    target = troop;
+        double closestDistance = radius;
+        ArrayList <Actor> possibleTargets = (ArrayList <Actor>) getWorld().getObjects(Actor.class);
+        for (Actor possible : possibleTargets){
+            if(possible instanceof Troop){
+                if (findDistanceBetween(possible, this) < closestDistance && ((Troop)possible).enemy() != isEnemy){
+                    target = (Troop)possible;
+                    closestDistance = findDistanceBetween(possible, this);
+                    break;
+                }
+            }
+            else if(possible instanceof Building){
+                if (findDistanceBetween(possible, this) < closestDistance && ((Building)possible).enemy() != isEnemy){
+                    target = (Building)possible;
+                    closestDistance = findDistanceBetween(possible, this);
                     break;
                 }
             }
         }
+        
         if (((Level)getWorld()).getMyCastle().getWorld() != null && getWorld() != null){
             if (isEnemy && findDistanceBetween(this, ((Level)getWorld()).getMyCastle()) <= 100){
                 target = ((Level)getWorld()).getMyCastle();
@@ -161,9 +171,9 @@ public abstract class Troop extends SuperSmoothMover
             if (target instanceof Troop){
                 ((Troop)target).subtractHealth(attack);
             }
-            else if (target instanceof Castle){
+            else if (target instanceof Building){
                 if (!Level.removed){
-                    ((Castle)target).subtractHealth(attack);
+                    ((Building)target).subtractHealth(attack);
                 }
             }
         }
