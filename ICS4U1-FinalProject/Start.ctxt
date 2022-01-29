@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Start
-comment0.text=\r\n\ Start\ class\ \r\n\ <p>\r\n\ Starting\ World\ that\ is\ displayed\ on\ run.\ Displays\ buttons\ to\ play\ the\ game,\ and\ edit\ settings.\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
+comment0.text=\n\ Start\ class\ \n\ <p>\n\ Starting\ World\ that\ is\ displayed\ on\ run.\ Displays\ buttons\ to\ play\ the\ game,\ and\ edit\ settings.\ \n\ \n\ @author\ Jerry\ Zhu\n\ @version\ January\ 2022\n
 comment1.params=
 comment1.target=Start()
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ MyWorld.\r\n\ \r\n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ MyWorld.\n\ \n
 comment2.params=
 comment2.target=void\ started()
 comment3.params=
