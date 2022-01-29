@@ -16,7 +16,7 @@ public class EnemyAI extends Actor
      */
     public EnemyAI(int level, boolean half){
         this.level = level;
-        spawnChances = new int[2];
+        spawnChances = new int[5];
         //ArrayList<Castle> possible = (ArrayList<Castle>)getWorld().getObjects(Castle.class);
         
         if (level == 1){
@@ -24,6 +24,9 @@ public class EnemyAI extends Actor
             originalTime = countdown;
             spawnChances[0] = 100;
             spawnChances[1] = 0;
+            spawnChances[2] = 0;
+            spawnChances[3] = 0;
+            spawnChances[4] = 0;
             attackIncrease = 6;
             healthIncrease = 6;
         }
@@ -32,6 +35,9 @@ public class EnemyAI extends Actor
             originalTime = countdown;
             spawnChances[0] = 100;
             spawnChances[1] = 0;
+            spawnChances[2] = 0;
+            spawnChances[3] = 0;
+            spawnChances[4] = 0;
             attackIncrease = 12;
             healthIncrease = 12;
         }
@@ -40,6 +46,9 @@ public class EnemyAI extends Actor
             originalTime = countdown;
             spawnChances[0] = 90;
             spawnChances[1] = 10;
+            spawnChances[2] = 0;
+            spawnChances[3] = 0;
+            spawnChances[4] = 0;
             attackIncrease = 24;
             healthIncrease = 24;
         }
@@ -48,94 +57,130 @@ public class EnemyAI extends Actor
             originalTime = countdown;
             spawnChances[0] = 75;
             spawnChances[1] = 25;
+            spawnChances[2] = 0;
+            spawnChances[3] = 0;
+            spawnChances[4] = 0;
             attackIncrease = 36;
             healthIncrease = 36;
         }
         else if (level == 5){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 75;
+            spawnChances[0] = 60;
             spawnChances[1] = 25;
+            spawnChances[2] = 15;
+            spawnChances[3] = 0;
+            spawnChances[4] = 0;
             attackIncrease = 48;
             healthIncrease = 48;
         }
         else if (level == 6){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 75;
+            spawnChances[0] = 55;
             spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 0;
+            spawnChances[4] = 0;
             attackIncrease = 60;
             healthIncrease = 60;
         }
         else if (level == 7){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 75;
+            spawnChances[0] = 45;
             spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 10;
+            spawnChances[4] = 0;
             attackIncrease = 72;
             healthIncrease = 72;
         }
         else if (level == 8){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 70;
-            spawnChances[1] = 30;
+            spawnChances[0] = 45;
+            spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 10;
+            spawnChances[4] = 0;
             attackIncrease = 84;
             healthIncrease = 84;
         }
         else if (level == 9){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 65;
-            spawnChances[1] = 35;
+            spawnChances[0] = 45;
+            spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 10;
+            spawnChances[4] = 0;
             attackIncrease = 96;
             healthIncrease = 96;
         }
         else if (level == 10){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 60;
-            spawnChances[1] = 40;
+            spawnChances[0] = 45;
+            spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 10;
+            spawnChances[4] = 0;
             attackIncrease = 108;
             healthIncrease = 108;
         }
         else if (level == 11){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 55;
-            spawnChances[1] = 45;
+            spawnChances[0] = 35;
+            spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 10;
+            spawnChances[4] = 10;
             attackIncrease = 120;
             healthIncrease = 120;
         }
         else if (level == 12){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 50;
-            spawnChances[1] = 50;
+            spawnChances[0] = 30;
+            spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 15;
+            spawnChances[4] = 10;
             attackIncrease = 132;
             healthIncrease = 132;
         }
         else if (level == 13){
             countdown = 125 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 50;
-            spawnChances[1] = 50;
+            spawnChances[0] = 30;
+            spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 15;
+            spawnChances[4] = 10;
             attackIncrease = 144;
             healthIncrease = 144;
         }
         else if (level == 14){
             countdown = 115 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 50;
-            spawnChances[1] = 50;
+            spawnChances[0] = 30;
+            spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 15;
+            spawnChances[4] = 10;
             attackIncrease = 156;
             healthIncrease = 156;
         }
         else if (level == 15){
             countdown = 115 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 50;
-            spawnChances[1] = 50;
+            spawnChances[0] = 25;
+            spawnChances[1] = 25;
+            spawnChances[2] = 20;
+            spawnChances[3] = 15;
+            spawnChances[4] = 15;
             attackIncrease = 168;
             healthIncrease = 168;
         }
@@ -177,7 +222,7 @@ public class EnemyAI extends Actor
     private void spawnTroop(int x, int y){
         int chance = 0, rand = Greenfoot.getRandomNumber(100)+1;
         
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < 5; i++){
             if(rand > chance && rand <= chance+spawnChances[i]){
                 if(i == 0){
                     Knight knight = new Knight(100 + healthIncrease, 10 + attackIncrease, 1, 3, 60, true);
@@ -186,6 +231,18 @@ public class EnemyAI extends Actor
                 else if(i == 1){
                     Archer archer = new Archer(100 + healthIncrease, 10 + attackIncrease, 1, 5, 120, true);
                     getWorld().addObject(archer, x + Greenfoot.getRandomNumber(540), y);
+                }
+                else if(i == 2){
+                    Skeleton skeleton = new Skeleton(100 + healthIncrease, 10 + attackIncrease, 1, 6, 140, true);
+                    getWorld().addObject(skeleton, x + Greenfoot.getRandomNumber(540), y);
+                }
+                else if(i == 3){
+                    Giant giant = new Giant(100 + healthIncrease, 10 + attackIncrease, 1, 6, 140, true);
+                    getWorld().addObject(giant, x + Greenfoot.getRandomNumber(540), y);
+                }
+                else if(i == 4){
+                    Tombstone tombstone = new Tombstone(200, true, 100);
+                    getWorld().addObject(tombstone, x + Greenfoot.getRandomNumber(540), y);
                 }
             }
             else chance += spawnChances[i];
