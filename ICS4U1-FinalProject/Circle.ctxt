@@ -1,10 +1,10 @@
 #BlueJ class context
 comment0.target=Circle
-comment0.text=\n\ Circle\ Class\n\ <p>\n\ Used\ to\ add\ a\ marker\ for\ each\ new\ level.\ \n\ \n\ @author\ Daniel\ Qian\n\ @version\ January\ 2022\n
+comment0.text=\r\n\ Circle\ Class\r\n\ <p>\r\n\ Used\ to\ add\ a\ marker\ for\ each\ new\ level.\ \r\n\ \r\n\ @author\ Daniel\ Qian\r\n\ @version\ January\ 2022\r\n
 comment1.params=color\ radius\ clickable\ level
 comment1.target=Circle(greenfoot.Color,\ int,\ boolean,\ int)
-comment1.text=\n\ Default\ constructor\ of\ class\ circle\n
+comment1.text=\r\n\ Default\ constructor\ of\ class\ circle\r\n
 comment2.params=
 comment2.target=void\ update()
-comment2.text=\n\ Circle\ does\ not\ need\ highlighting\n
+comment2.text=\r\n\ Circle\ does\ not\ need\ highlighting\r\n
 numComments=3

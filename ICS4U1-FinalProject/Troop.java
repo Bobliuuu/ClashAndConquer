@@ -93,7 +93,7 @@ public abstract class Troop extends SuperSmoothMover
         healthBar.update(this.health);
         Troop overlap = (Troop)getOneIntersectingObject(Troop.class);
         if(overlap != null){
-            if(findDistanceBetween(this, overlap) < 15 && overlap.enemy() == isEnemy){
+            if(findDistanceBetween(this, overlap) < 10 && overlap.enemy() == isEnemy){
                 if(overlap.getX() < getX()){
                     setLocation(getX()+1, getY());
                 }

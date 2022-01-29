@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class ShopItem extends Actor
 {
     private int cost;
-    private int type;
     private int level;
+    private String type;
     private GreenfootImage image;
      
     /**
@@ -19,8 +19,12 @@ public class ShopItem extends Actor
         public ShopItem(int cost, String type, int level){
         this.cost = cost;
         this.level = level;
+        this.type = type;
         if (type.equals("CastleHealth")){
             image = new GreenfootImage("images/ShopItems/CastleHealth.PNG");
+        }
+        else if (type.equals("ElixirBarSpeed")){
+            image = new GreenfootImage("images/ShopItems/ElixirBarSpeed.PNG");
         }
         else if (type.equals("ElixirHealth")){
             image = new GreenfootImage("images/ShopItems/ElixirHealth.PNG");
@@ -61,6 +65,12 @@ public class ShopItem extends Actor
         else if (type.equals("ArcherHealth")){
             image = new GreenfootImage("images/ShopItems/ArcherHealth.PNG");
         }
+        else if (type.equals("SkeletonAttack")){
+            image = new GreenfootImage("images/ShopItems/SkeletonAttack.PNG");
+        }
+        else if (type.equals("SkeletonHealth")){
+            image = new GreenfootImage("images/ShopItems/SkeletonHealth.PNG");
+        }
         else if (type.equals("TombstoneCooldown")){
             image = new GreenfootImage("images/ShopItems/TombstoneAttack.PNG");
         }
@@ -87,11 +97,11 @@ public class ShopItem extends Actor
         this.cost = cost;
     }
 
-    public int getType(){
+    public String getType(){
         return this.type;
     }
 
-    public void setType(){
+    public void setType(String type){
         this.type = type;
     }
     
