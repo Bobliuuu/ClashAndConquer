@@ -32,7 +32,6 @@ public class Shop extends World
     {
         for (int counter = 0; counter < 3; counter++) {     
             ShopItem powerup = powerups.get((position + counter) % powerups.size());   
-            System.out.println(powerup.getImage());
             powerup.getImage().scale(292, 430);
             addObject(powerup, 150+(300*counter), 300);
 
