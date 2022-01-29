@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Shop extends World
 {
+    private GreenfootImage background;
     private Image backButton;
     private Image gems;
     private SuperTextBox gemsLabel;
@@ -25,6 +26,7 @@ public class Shop extends World
     private GreenfootSound music;
     private UserInfo user;
     private static final Color transparent = new Color(0, 0, 0, 0);
+    private static final Color orange = new Color(255, 134, 45);
     
      private void displayPowerUp (int position)
     {
@@ -70,6 +72,10 @@ public class Shop extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
+        
+        background = new GreenfootImage("images/Worlds/ShopBackground.jpg");
+        background.scale(getWidth(), getHeight());
+        setBackground(background);
         
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -128,7 +134,7 @@ public class Shop extends World
 
         
         for (ShopItem powerup : powerups) {
-            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 5, 190, true, Color.WHITE, Color.WHITE, Color.BLUE, Color.WHITE, transparent, new Font ("Verdana",true ,false ,14));
+            TextButton btn = new TextButton("Buy for " + String.valueOf(powerup.getCost()) + " Gems", 7, 170, true, Color.DARK_GRAY, Color.WHITE, orange, Color.WHITE, transparent, new Font ("Open Sans",true ,false ,15));
             buybuttons.add(btn);
             
             SuperTextBox lvl = new SuperTextBox("Level " + String.valueOf(powerup.getLevel()), transparent, Color.BLACK, font2, false, 18*6, 0, transparent);
