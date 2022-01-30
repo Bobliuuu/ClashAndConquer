@@ -128,12 +128,7 @@ public class Start extends World
     }
     
     public void act(){
-        checkHover();
         checkClick();
-    }
-    
-    public void checkHover(){
-        
     }
     
     public void checkClick(){

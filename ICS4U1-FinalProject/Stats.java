@@ -10,6 +10,7 @@ public class Stats extends World
 {
     private Image backButton;
     private GreenfootImage background;
+    private GreenfootSound music;
     private UserInfo user;
     private SuperTextBox levelLabel;
     private SuperTextBox winLossLabel;
@@ -97,9 +98,32 @@ public class Stats extends World
         fifthPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
         addObject(fifthPlaceLevelLabel, 884, 543);
     }
+    
+    public void started(){
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            if (user.getInt(3) == 0){
+                if (music != null){
+                    music.stop();
+                }
+            }
+            else {
+                if (music != null){
+                    music.stop();
+                }
+                music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
+                music.play();
+            }
+            if (music != null){
+                music.setVolume(user.getInt(2));
+            }
+        }
+    }
+    
     public void act(){
         checkClick();
     }
+    
     public void checkClick(){
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();

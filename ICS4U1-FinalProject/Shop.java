@@ -244,97 +244,97 @@ public class Shop extends World
                     }
                     else if (itm.getType().equals("KnightHealth")){
                         String[] parsed = user.getString(0).split(" ");
-                        parsed[0] = Integer.toString(Integer.valueOf(parsed[0]));
+                        parsed[0] = Integer.toString(Integer.valueOf(parsed[0]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
                     else if (itm.getType().equals("KnightAttack")){
                         String[] parsed = user.getString(0).split(" ");
-                        parsed[1] = Integer.toString(Integer.valueOf(parsed[1]));
+                        parsed[1] = Integer.toString(Integer.valueOf(parsed[1]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
                     else if (itm.getType().equals("ArcherHealth")){
                         String[] parsed = user.getString(0).split(" ");
-                        parsed[2] = Integer.toString(Integer.valueOf(parsed[2]));
+                        parsed[2] = Integer.toString(Integer.valueOf(parsed[2]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
                     else if (itm.getType().equals("ArcherAttack")){
                         String[] parsed = user.getString(0).split(" ");
-                        parsed[3] = Integer.toString(Integer.valueOf(parsed[3]));
+                        parsed[3] = Integer.toString(Integer.valueOf(parsed[3]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
                     else if (itm.getType().equals("GiantHealth")){
                         String[] parsed = user.getString(0).split(" ");
-                        parsed[4] = Integer.toString(Integer.valueOf(parsed[4]));
+                        parsed[4] = Integer.toString(Integer.valueOf(parsed[4]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
                     else if (itm.getType().equals("GiantAttack")){
                         String[] parsed = user.getString(0).split(" ");
-                        parsed[5] = Integer.toString(Integer.valueOf(parsed[5]));
+                        parsed[5] = Integer.toString(Integer.valueOf(parsed[5]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
                     else if (itm.getType().equals("SkeletonHealth")){
                         String[] parsed = user.getString(0).split(" ");
-                        parsed[6] = Integer.toString(Integer.valueOf(parsed[6]));
+                        parsed[6] = Integer.toString(Integer.valueOf(parsed[6]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
                     else if (itm.getType().equals("SkeletonAttack")){
                         String[] parsed = user.getString(0).split(" ");
-                        parsed[7] = Integer.toString(Integer.valueOf(parsed[7]));
+                        parsed[7] = Integer.toString(Integer.valueOf(parsed[7]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(0, s);
                     }
                     else if (itm.getType().equals("ElixirHealth")){
                         String[] parsed = user.getString(1).split(" ");
-                        parsed[0] = Integer.toString(Integer.valueOf(parsed[0]));
+                        parsed[0] = Integer.toString(Integer.valueOf(parsed[0]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(1, s);
                     }
                     else if (itm.getType().equals("ElixirAttack")){
                         String[] parsed = user.getString(1).split(" ");
-                        parsed[1] = Integer.toString(Integer.valueOf(parsed[1]));
+                        parsed[1] = Integer.toString(Integer.valueOf(parsed[1]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(1, s);
                     }
                     else if (itm.getType().equals("TombstoneHealth")){
                         String[] parsed = user.getString(1).split(" ");
-                        parsed[2] = Integer.toString(Integer.valueOf(parsed[2]));
+                        parsed[2] = Integer.toString(Integer.valueOf(parsed[2]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(1, s);
                     }
                     else if (itm.getType().equals("TombstoneCooldown")){
                         String[] parsed = user.getString(1).split(" ");
-                        parsed[3] = Integer.toString(Integer.valueOf(parsed[3]));
+                        parsed[3] = Integer.toString(Integer.valueOf(parsed[3]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(1, s);
                     }
                     else if (itm.getType().equals("FireballSpeed")){
                         String[] parsed = user.getString(2).split(" ");
-                        parsed[0] = Integer.toString(Integer.valueOf(parsed[0]));
+                        parsed[0] = Integer.toString(Integer.valueOf(parsed[0]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(2, s);
                     }
                     else if (itm.getType().equals("FireballAttack")){
                         String[] parsed = user.getString(2).split(" ");
-                        parsed[1] = Integer.toString(Integer.valueOf(parsed[1]));
+                        parsed[1] = Integer.toString(Integer.valueOf(parsed[1]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(2, s);
                     }
                     else if (itm.getType().equals("PoisonRadius")){
                         String[] parsed = user.getString(2).split(" ");
-                        parsed[2] = Integer.toString(Integer.valueOf(parsed[2]));
+                        parsed[2] = Integer.toString(Integer.valueOf(parsed[2]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(2, s);
                     }
                     else if (itm.getType().equals("PoisonAttack")){
                         String[] parsed = user.getString(2).split(" ");
-                        parsed[3] = Integer.toString(Integer.valueOf(parsed[3]));
+                        parsed[3] = Integer.toString(Integer.valueOf(parsed[3]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(2, s);
                     }
@@ -366,9 +366,25 @@ public class Shop extends World
                 SuperTextBox lvlNew = new SuperTextBox("Level " + String.valueOf(powerup.getLevel()), transparent, Color.BLACK, font2, false, 18*6, 0, transparent);
                 levels.add(idx, lvlNew);
                 
-                addObject (btnNew, 150+(300*(idx - shopItemIndex)), 480);
-        
-                addObject (lvlNew, 150+(300*(idx - shopItemIndex)), 380);
+                if (idx == 0){
+                    if (shopItemIndex % powerups.size() == 0){
+                        addObject(btnNew, 150, 480);
+                        addObject(lvlNew, 150, 380);
+                    }
+                    else if (shopItemIndex % powerups.size() == powerups.size() - 1){
+                        addObject(btnNew, 450, 480);
+                        addObject(lvlNew, 450, 380);
+                    }
+                    else {
+                        System.out.println(shopItemIndex);
+                        addObject(btnNew, 750, 480);
+                        addObject(lvlNew, 750, 380);
+                    }
+                }
+                else {
+                    addObject (btnNew, 150+(300*(idx - (shopItemIndex % powerups.size()))), 480);
+                    addObject (lvlNew, 150+(300*(idx - (shopItemIndex % powerups.size()))), 380);
+                }
                 
                 return;
             }
