@@ -77,6 +77,6 @@ public class CardDeck extends Actor
     public void switchCard(int idx){
         otherCards.add(cards.get(idx));
         cards.remove(idx); 
-        cards.add(idx + 1, otherCards.poll());
+        cards.add(idx, otherCards.poll());
     }
 }
