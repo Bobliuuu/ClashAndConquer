@@ -76,7 +76,7 @@ public class Level extends World
         cardDeck = new CardDeck(cardNames);
         displayCards();
         
-        enemyAI = new EnemyAI(levelValue, isWeak);
+        enemyAI = new EnemyAI(levelValue, true);
         addObject(enemyAI, 0, 0);
         
         troopIsSelected = false;
@@ -209,20 +209,20 @@ public class Level extends World
                         Skeleton placedTroop6;
                         if (UserInfo.isStorageAvailable()){
                             String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
+                            placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
                         }
                         else {
-                            placedTroop = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop2 = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop3 = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop4 = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop5 = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop6 = new Skeleton(25, 8, 1, 6, 140, false);
+                            placedTroop = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop2 = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop3 = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop4 = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop5 = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop6 = new Skeleton(25, 8, 1, 6, 70, false);
                         }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY());
                         addObject(placedTroop2, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY());
@@ -306,10 +306,10 @@ public class Level extends World
                 Poison placedTroop;
                 if (UserInfo.isStorageAvailable()){
                     String[] parsed = user.getString(2).split(" ");
-                    placedTroop = new Poison(60 + 14 * Integer.valueOf(parsed[2]), 8 + Integer.valueOf(parsed[3]), 80, false);
+                    placedTroop = new Poison(25 + 14 * Integer.valueOf(parsed[2]), 8 + Integer.valueOf(parsed[3]), 80, false);
                 }
                 else {
-                    placedTroop = new Poison(60, 8, 80, false);
+                    placedTroop = new Poison(25, 8, 80, false);
                 }
                 addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                 redZone.setToNone();
@@ -423,7 +423,7 @@ public class Level extends World
                     user.store();
                 }
                 user.setInt(7, user.getInt(7) + 1);
-                user.setScore(user.getScore() + 1);
+                if(user.getScore() == levelValue) user.setScore(user.getScore() + 1);
                 user.store();
             }
             isVictory = false; 

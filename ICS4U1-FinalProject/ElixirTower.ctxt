@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=ElixirTower
-comment0.text=\r\n\ A\ building\ that\ increases\ the\ speed\ that\ Elixir\ is\ gained\ by\ the\ player\r\n\ \r\n\ @author\ Matthew\ Gong\r\n\ @version\ January\ 2022\r\n
+comment0.text=\n\ A\ building\ that\ increases\ the\ speed\ that\ Elixir\ is\ gained\ by\ the\ player\n\ \n\ @author\ Matthew\ Gong\n\ @version\ January\ 2022\n
 comment1.params=speed\ isEnemy
 comment1.target=ElixirTower(double,\ boolean)
-comment1.text=\r\n\ The\ most\ basic\ constructor\ for\ the\ ElixirTower\ class\r\n\ \r\n\ @param\ speed\ \ \ \ \ \ How\ much\ does\ the\ ElixirTower\ increase\ the\ speed\ of\ Elixir\ gain\r\n\ @param\ isEnemy\ \ \ \ Whether\ or\ not\ the\ ElixirTower\ is\ an\ enemy\r\n
+comment1.text=\n\ The\ most\ basic\ constructor\ for\ the\ ElixirTower\ class\n\ \n\ @param\ speed\ \ \ \ \ \ How\ much\ does\ the\ ElixirTower\ increase\ the\ speed\ of\ Elixir\ gain\n\ @param\ isEnemy\ \ \ \ Whether\ or\ not\ the\ ElixirTower\ is\ an\ enemy\n
 comment2.params=speed\ isEnemy\ health
 comment2.target=ElixirTower(double,\ boolean,\ int)
-comment2.text=\r\n\ Adding\ the\ ability\ to\ adjust\ health\r\n\ \r\n\ @param\ speed\ \ \ \ \ \ How\ much\ does\ the\ ElixirTower\ increase\ the\ speed\ of\ Elixir\ gain\r\n\ @param\ isEnemy\ \ \ \ Whether\ or\ not\ the\ ElixirTower\ is\ an\ enemy\r\n\ @param\ health\ \ \ \ \ The\ amount\ of\ health\ the\ ElixirTower\ has\r\n
+comment2.text=\n\ Adding\ the\ ability\ to\ adjust\ health\n\ \n\ @param\ speed\ \ \ \ \ \ How\ much\ does\ the\ ElixirTower\ increase\ the\ speed\ of\ Elixir\ gain\n\ @param\ isEnemy\ \ \ \ Whether\ or\ not\ the\ ElixirTower\ is\ an\ enemy\n\ @param\ health\ \ \ \ \ The\ amount\ of\ health\ the\ ElixirTower\ has\n
 comment3.params=world
 comment3.target=void\ addedToWorld(greenfoot.World)
-comment3.text=\r\n\ Upon\ being\ added\ to\ the\ World,\ the\ health\ bar\ is\ added\r\n
+comment3.text=\n\ Upon\ being\ added\ to\ the\ World,\ the\ health\ bar\ is\ added\n
 comment4.params=
 comment4.target=void\ act()
-comment4.text=\r\n\ Act\ -\ do\ whatever\ the\ ElixirTower\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment4.text=\n\ Act\ -\ do\ whatever\ the\ ElixirTower\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment5.params=value
 comment5.target=void\ subtractHealth(int)
-comment5.text=\r\n\ Removes\ health\ from\ the\ Tombstone\ and\ if\ the\ health\ reaches\ zero\ then\ it\ removes\ itself\r\n
+comment5.text=\n\ Removes\ health\ from\ the\ Tombstone\ and\ if\ the\ health\ reaches\ zero\ then\ it\ removes\ itself\n
 numComments=6
