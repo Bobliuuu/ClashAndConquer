@@ -1,9 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class Shop here.
+ * Shop Class
+ * <p>
+ * Shop menu to buy upgrades to the castle, troops, towers, and spells using the UserInfo class. 
  * 
- * @author Ibrahim Rahman
+ * @author Ibrahim Rahman, Jerry Zhu
  * @version January 2022
  */
 public class Shop extends World
@@ -29,7 +31,7 @@ public class Shop extends World
     private static final Color orange = new Color(255, 134, 45);
     private final int[] powerupMultiplier = {}; // Feature
     
-     private void displayPowerUp (int position)
+    private void displayPowerUp (int position)
     {
         for (int counter = 0; counter < 3; counter++) {     
             ShopItem powerup = powerups.get((position + counter) % powerups.size());   
@@ -176,6 +178,9 @@ public class Shop extends World
         this.displayPowerUp(shopItemIndex);
     }
     
+    /**
+     * When World is created, start the music and set the volume. 
+     */ 
     public void started(){
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -197,10 +202,16 @@ public class Shop extends World
         }
     }
     
+    /**
+     * Act method to be run each iteration
+     */
     public void act(){
         checkClick();
     }
     
+    /**
+     * Check for any buttons clicked and load the corresponding levels if necessary. 
+     */
     public void checkClick(){
         if (Greenfoot.mouseClicked(backButton)){
             if (music != null){
@@ -346,10 +357,20 @@ public class Shop extends World
         }
     }
     
+    /**
+     * Check if the player has enough gems to buy the current item. 
+     * 
+     * @param itm     The shop item that the player intends to buy.
+     */
     public boolean hasEnoughGems(ShopItem itm){
         return gemsCount - itm.getCost() >= 0;
     }
     
+    /**
+     * Clear the powerup at a certain index. 
+     * 
+     * @param idx      The index of the powerup. 
+     */
     public void clearPowerUpAt(int idx){
         int i = 0;
         for (ShopItem powerup : powerups){

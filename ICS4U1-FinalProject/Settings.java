@@ -1,13 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Settings here.
+ * Settings Class
+ * <p>
+ * Settings screen to allow any modifications to the volume, or reset progress. 
  * 
  * @author Jerry Zhu
  * @version January 2022
  */
 public class Settings extends World
 {
+    // Instance variables
     private Image background;
     private Image backButton;
     private Image settingsText;
@@ -24,7 +27,6 @@ public class Settings extends World
     
     /**
      * Constructor for objects of class Settings.
-     * 
      */
     public Settings()
     {    
@@ -81,6 +83,9 @@ public class Settings extends World
         }
     }
     
+    /**
+     * When World is created, start the music and set the volume. 
+     */
     public void started(){
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -102,10 +107,16 @@ public class Settings extends World
         }
     }
     
+    /**
+     * Act method to be run every iteration. 
+     */
     public void act(){
         checkClick();
     }
     
+    /**
+     * Check for any buttons being clicked, and load the corresponding World if necessary. 
+     */
     public void checkClick(){
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();
@@ -188,6 +199,9 @@ public class Settings extends World
         }
     }
     
+    /**
+     * Update the text on the slider object. 
+     */
     public void updateVolumeText(String value){
         if (sliderLabel != null){
             sliderLabel.getImage().clear();

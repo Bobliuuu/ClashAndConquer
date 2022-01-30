@@ -12,6 +12,7 @@ public class Instructions extends World
     private GreenfootImage instructions;
     private GreenfootSound music;
     private UserInfo user;
+    
     /**
      * Constructor for objects of class Instructions.
      * 
@@ -30,6 +31,9 @@ public class Instructions extends World
         addObject(backButton, 65, 45);
     }
     
+    /**
+     * When World is created, start the music and set the volume. 
+     */
     public void started(){
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -51,10 +55,16 @@ public class Instructions extends World
         }
     }
     
+    /**
+     * Act method to be run each iteration.
+     */
     public void act(){
         checkClick();
     }
     
+    /**
+     * Check if any buttons are clicked. 
+     */
     public void checkClick(){
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();
