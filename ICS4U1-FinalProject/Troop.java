@@ -85,6 +85,9 @@ public abstract class Troop extends SuperSmoothMover
     }
     
     public void act(){
+        if (((Level)getWorld()).finished){
+            return;
+        }
         animate();
         findTarget();
         moveTowardsTarget();

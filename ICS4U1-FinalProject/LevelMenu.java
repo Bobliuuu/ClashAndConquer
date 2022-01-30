@@ -25,6 +25,7 @@ public class LevelMenu extends World
     private GreenfootSound music;
     private SuperTextBox textBox;
     private int level;
+    private boolean hasEndButton;
     
     /**
      * Constructor for objects of class LevelMenu.
@@ -45,7 +46,6 @@ public class LevelMenu extends World
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             level = user.getScore();
-            level = 20;
         }
         else {
             level = 1;
@@ -61,11 +61,17 @@ public class LevelMenu extends World
                 showText(Integer.toString(i), rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
             }
         }
-        endButton = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-        rectangles.add(endButton);
-        addObject(endButton, rectangleCoordinates[14][0], rectangleCoordinates[14][1]);
-        showText(Integer.toString(15), rectangleCoordinates[14][0], rectangleCoordinates[14][1]);
-        
+        if (level >= 15){
+            endButton = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+            rectangles.add(endButton);
+            addObject(endButton, rectangleCoordinates[14][0], rectangleCoordinates[14][1]);
+            showText(Integer.toString(15), rectangleCoordinates[14][0], rectangleCoordinates[14][1]);
+            hasEndButton = true;
+        }
+        else {
+            hasEndButton = false;
+        }
+             
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
         addObject(backButton, 80, 50);
@@ -98,9 +104,9 @@ public class LevelMenu extends World
     }
     
     public void checkClick(){
-        for (int i = 1; i <= 13; i++){
+        for (int i = 1; i <= 14; i++){
             if (level >= i){
-                if (Greenfoot.mouseClicked(rectangles.get(i-1))){
+                if (rectangles.get(i-1).getWorld() != null && Greenfoot.mouseClicked(rectangles.get(i-1))){
                     if (music != null){
                         music.stop();
                     }
@@ -118,13 +124,15 @@ public class LevelMenu extends World
             start.started();
             Greenfoot.setWorld(start);
         }
-        else if (Greenfoot.mouseClicked(endButton)){
-            if (music != null){
-                music.stop();
+        else if (hasEndButton){
+            if (Greenfoot.mouseClicked(endButton)){
+                if (music != null){
+                    music.stop();
+                }
+                End end = new End();
+                end.started();
+                Greenfoot.setWorld(end);
             }
-            End end = new End();
-            end.started();
-            Greenfoot.setWorld(end);
         }
     }
     

@@ -34,11 +34,11 @@ public class Level extends World
     private int cardIndex;
     private boolean isVictory;
     private boolean isDefeat;
-    private boolean finished;
     public static boolean removed = false;
     private GreenfootSound music;
     private UserInfo user;
     private Timer timer;
+    public static boolean finished;
     
     /**
      * Level world constructor
@@ -380,6 +380,7 @@ public class Level extends World
             catch (InterruptedException ie){
                 ie.printStackTrace();
             }
+            finished = false;
             LevelMenu levelMenu = new LevelMenu();
             levelMenu.started();
             Greenfoot.setWorld(levelMenu);
@@ -424,7 +425,7 @@ public class Level extends World
                 user.setInt(7, user.getInt(7) + 1);
                 user.store();
             }
-            isVictory = false;
+            isVictory = false; 
         }
     }
     

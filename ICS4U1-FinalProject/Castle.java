@@ -103,7 +103,10 @@ public class Castle extends Building
      */
     public void act()
     {
-        if (!Level.removed){
+        if (((Level)getWorld()).finished){
+            return;
+        }
+        if (!isDead){
             checkForEnemy();
             if(cooldown != 0) {
                 cooldown--;
