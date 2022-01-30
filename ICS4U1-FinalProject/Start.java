@@ -27,7 +27,6 @@ public class Start extends World
     
     /**
      * Constructor for objects of class MyWorld.
-     * 
      */
     public Start()
     {    
@@ -106,6 +105,9 @@ public class Start extends World
         addObject(label, getWidth()/2, 260);
     }
     
+    /**
+     * When World is created, start the music and set the volume. 
+     */
     public void started(){
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -127,12 +129,17 @@ public class Start extends World
         }
     }
     
+    /**
+     * Act method to be run each iteration. 
+     */
     public void act(){
         checkClick();
     }
     
+    /**
+     * Check if any buttons are clicked and load the corresponding Worlds if necessary.
+     */
     public void checkClick(){
-        //If the user has clicked the start buttonm bring them to the level select menu
         if (Greenfoot.mouseClicked(startButton)) {
             LevelMenu levelMenu = new LevelMenu();
             if (music != null){

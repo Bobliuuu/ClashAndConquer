@@ -2,10 +2,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
 /**
- * Write a description of class LevelMenu here.
+ * Level menu class for the map that the player can select levels from. 
+ * Implements 2D arrays to store coordinates for the level markers. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu
+ * @version January 2022
  */
 public class LevelMenu extends World
 {
@@ -28,8 +29,7 @@ public class LevelMenu extends World
     private boolean hasEndButton;
     
     /**
-     * Constructor for objects of class LevelMenu.
-     * 
+     * Constructor for objects of class LevelMenu. 
      */
     public LevelMenu()
     {    
@@ -77,6 +77,9 @@ public class LevelMenu extends World
         addObject(backButton, 80, 50);
     }
     
+    /**
+     * When World is created, start the music and set the volume. 
+     */
     public void started(){
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -98,11 +101,17 @@ public class LevelMenu extends World
         }
     }
     
+    /**
+     * Act method to be run every iteration. 
+     */
     public void act(){
         //checkMousePosition();
         checkClick();
     }
     
+    /**
+     * Check if any of the levels have been clicked, and load the corresponding level if necessary. 
+     */
     public void checkClick(){
         for (int i = 1; i <= 14; i++){
             if (level >= i){
@@ -136,6 +145,9 @@ public class LevelMenu extends World
         }
     }
     
+    /**
+     * Debug method to check the mouse position of the player on click. 
+     */
     public void checkMousePosition(){
         if (Greenfoot.mouseClicked(map)){
             System.out.println(Greenfoot.getMouseInfo().getX() + " " + Greenfoot.getMouseInfo().getY());

@@ -6,10 +6,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Write a description of class CardDeck here.
+ * Card Class
+ * <p>
+ * A deck of cards that contains multiple cards that can be clicked and cycled. 
+ * Uses a Queue and ArrayList to keep track of which cards have been clicked. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu
+ * @version January 2022
  */
 public class CardDeck extends Actor
 {
@@ -57,12 +60,18 @@ public class CardDeck extends Actor
     
     /**
      * Get the card at a certain index of the card deck.
+     * 
      * @param idx      The desired index of card deck.
      */
     public Card getCardAtIndex(int idx){
         return cards.get(idx);
     }
     
+    /**
+     * Get the index of a desired card. 
+     * 
+     * @parm name       The name of the desired card. 
+     */
     public int getCardIndex(String name){
         int idx = 0;
         for (Card card : cards){
@@ -74,6 +83,11 @@ public class CardDeck extends Actor
         return idx;
     }
     
+    /**
+     * Switch a card with another in the card deck. 
+     * 
+     * @param idx     The index to switch the card. 
+     */
     public void switchCard(int idx){
         otherCards.add(cards.get(idx));
         cards.remove(idx); 

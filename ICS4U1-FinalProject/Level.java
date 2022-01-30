@@ -1,9 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Level here.
+ * Level Class
+ * <p>
+ * The main level in which each game takes place. Spawns the enemies using the Enemy AI, the level, and castles. 
+ * Implements a timer to keep track of level time, and a 2D array of coordinates. 
  * 
- * Coordinates: 
+ * Important Coordinates: 
  * Bridges: (127, 385), (673, 385), (398, 385)
  * End of road: (397, 170):
  * Road turns: (128, 590), (674, 590) [my side], (128, 170), (672, 170)
@@ -76,7 +79,7 @@ public class Level extends World
         cardDeck = new CardDeck(cardNames);
         displayCards();
         
-        enemyAI = new EnemyAI(levelValue, isWeak);
+        enemyAI = new EnemyAI(levelValue, true);
         addObject(enemyAI, 0, 0);
         
         troopIsSelected = false;
@@ -88,12 +91,18 @@ public class Level extends World
         timer.start();
     }
     
+    /**
+     * A method to display all the cards in the game. 
+     */
     public void displayCards(){
         for (int i = 0; i < 4; i++){
             addObject(cardDeck.getCardAtIndex(i), cardCoordinates[i][0], cardCoordinates[i][1]);
         }
     }
-        
+    
+    /**
+     * Act method to be run every act. 
+     */
     public void act(){
         //checkMousePosition();
         checkMouseClick();
@@ -102,6 +111,9 @@ public class Level extends World
         winOrLose();
     }
     
+    /**
+     * When World is created, start the music and set the volume. 
+     */
     public void started(){
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -123,12 +135,19 @@ public class Level extends World
         }
     }
     
+    /**
+     * Debug method to check the mouse position of the user on click. 
+     */
     public void checkMousePosition(){
         if (Greenfoot.mouseClicked(levelMap)){
             System.out.println(Greenfoot.getMouseInfo().getX() + " " + Greenfoot.getMouseInfo().getY());
         }
     }
     
+    /**
+     * Check if any buttons are clicked, and load the corresponding object.
+     * This method is used to spawn troops, towers, and spells. 
+     */
     public void checkMouseClick(){
         if (Greenfoot.mouseClicked(unplacedTroop) && Greenfoot.getMouseInfo() != null){
             if (unplacedTroop.intersectsCard()){
@@ -209,20 +228,20 @@ public class Level extends World
                         Skeleton placedTroop6;
                         if (UserInfo.isStorageAvailable()){
                             String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
-                            placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
+                            placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
+                            placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 70, false);
                         }
                         else {
-                            placedTroop = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop2 = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop3 = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop4 = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop5 = new Skeleton(25, 8, 1, 6, 140, false);
-                            placedTroop6 = new Skeleton(25, 8, 1, 6, 140, false);
+                            placedTroop = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop2 = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop3 = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop4 = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop5 = new Skeleton(25, 8, 1, 6, 70, false);
+                            placedTroop6 = new Skeleton(25, 8, 1, 6, 70, false);
                         }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY());
                         addObject(placedTroop2, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY());
@@ -238,8 +257,8 @@ public class Level extends World
                     }
                 }
                 // Tower region
-                if (Greenfoot.getMouseInfo().getX() >= 120 && Greenfoot.getMouseInfo().getX() <= 660 && 
-                Greenfoot.getMouseInfo().getY() >= 420 && Greenfoot.getMouseInfo().getY() <= 600){
+                if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
+                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650){
                     if (elixirBar.hasElixir(6) && troopSelected.equals("Elixirtower")){
                         elixirBar.useElixir(6);
                         removeObject(unplacedTroop);
@@ -266,10 +285,10 @@ public class Level extends World
                         Tombstone placedTroop;
                         if (UserInfo.isStorageAvailable()){
                             String[] parsed = user.getString(1).split(" ");
-                            placedTroop = new Tombstone(200 + 14 * Integer.valueOf(parsed[2]), false, 150 + 14 * Integer.valueOf(parsed[3]));
+                            placedTroop = new Tombstone(170 + 14 * Integer.valueOf(parsed[2]), false, 150 + 14 * Integer.valueOf(parsed[3]));
                         }
                         else {
-                            placedTroop = new Tombstone(200, false, 150);
+                            placedTroop = new Tombstone(170, false, 150);
                         }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
@@ -306,10 +325,10 @@ public class Level extends World
                 Poison placedTroop;
                 if (UserInfo.isStorageAvailable()){
                     String[] parsed = user.getString(2).split(" ");
-                    placedTroop = new Poison(60 + 14 * Integer.valueOf(parsed[2]), 8 + Integer.valueOf(parsed[3]), 80, false);
+                    placedTroop = new Poison(25 + 14 * Integer.valueOf(parsed[2]), 8 + Integer.valueOf(parsed[3]), 80, false);
                 }
                 else {
-                    placedTroop = new Poison(60, 8, 80, false);
+                    placedTroop = new Poison(25, 8, 80, false);
                 }
                 addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                 redZone.setToNone();
@@ -321,11 +340,17 @@ public class Level extends World
         }
     }
     
+    /**
+     * Set the index of the desired card in the level. 
+     */
     public void setCardIndex(){
         String troopName = unplacedTroop.getCardName();
         cardIndex = cardDeck.getCardIndex(troopName);
     }
     
+    /**
+     * Move a "ghost" or unplaced troop to a different position as the mouse moves. 
+     */
     public void moveUnplacedTroop(){
         if (!unplacedTroop.getEmpty()){
             if (Greenfoot.getMouseInfo() != null){
@@ -334,6 +359,11 @@ public class Level extends World
         }
     }
     
+    /**
+     * Set the troop selected by the player when a card is clicked. 
+     * 
+     * @param cardName      The name of the troop card that was selected/clicked. 
+     */
     public void setTroopSelected(String cardName){
         if (cardName == "Blank"){
             troopIsSelected = false;
@@ -363,6 +393,9 @@ public class Level extends World
         addObject(unplacedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
     }
     
+    /**
+     * Change the redzone of the level to indicate where the object can be placed. 
+     */
     public void changeRedZone(boolean mouseClicked){
         if (mouseClicked){
             redZone.setToRedZone();
@@ -372,6 +405,9 @@ public class Level extends World
         }
     }
     
+    /**
+     * Check if the player has won or lost, and load the level menu if necessary. 
+     */
     public void winOrLose(){
         if (finished){
             try{
@@ -423,29 +459,46 @@ public class Level extends World
                     user.store();
                 }
                 user.setInt(7, user.getInt(7) + 1);
-                user.setScore(user.getScore() + 1);
+                if(user.getScore() == levelValue) user.setScore(user.getScore() + 1);
                 user.store();
             }
             isVictory = false; 
         }
     }
     
+    /**
+     * Set the victory variable if the player has won. 
+     */
     public void setVictory(){
         isVictory = true;
     }
     
+    /**
+     * Set the defeat variable if the player has lost.
+     */
     public void setDefeat(){
         isDefeat = true;
     }
     
+    /**
+     * Set the enemyAI to toggle it's values and make it weaker. 
+     * 
+     * @param weak     Whether or not the enemyAI should be made weak. 
+     */
     public void setIfWeak(boolean weak){
         this.isWeak = weak;
     }
     
+    /**
+     * Gets the player's castle object.
+     */
     public Castle getMyCastle(){
         return myCastle;
     }
     
+    /**
+     * Gets the enemy's castle object. 
+     */
     public Castle getEnemyCastle(){
         return enemyCastle;
     }

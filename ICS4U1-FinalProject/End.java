@@ -16,7 +16,7 @@ public class End extends World
     private Image credits;
     
     /**
-     * Constructor for the End world.
+     * Constructor for objects of class End.
      */
     public End()
     {    

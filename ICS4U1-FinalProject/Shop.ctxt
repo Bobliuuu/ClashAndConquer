@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Shop
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Shop\ here.\r\n\ \r\n\ @author\ Ibrahim\ Rahman\r\n\ @version\ January\ 2022\r\n
+comment0.text=\r\n\ Shop\ Class\r\n\ <p>\r\n\ Shop\ menu\ to\ buy\ upgrades\ to\ the\ castle,\ troops,\ towers,\ and\ spells\ using\ the\ UserInfo\ class.\ \r\n\ \r\n\ @author\ Ibrahim\ Rahman,\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
 comment1.params=position
 comment1.target=void\ displayPowerUp(int)
 comment2.params=prevposition
@@ -12,12 +12,17 @@ comment4.target=Shop()
 comment4.text=\r\n\ Constructor\ for\ objects\ of\ class\ Shop.\r\n\ \r\n
 comment5.params=
 comment5.target=void\ started()
+comment5.text=\r\n\ When\ World\ is\ created,\ start\ the\ music\ and\ set\ the\ volume.\ \r\n
 comment6.params=
 comment6.target=void\ act()
+comment6.text=\r\n\ Act\ method\ to\ be\ run\ each\ iteration\r\n
 comment7.params=
 comment7.target=void\ checkClick()
+comment7.text=\r\n\ Check\ for\ any\ buttons\ clicked\ and\ load\ the\ corresponding\ levels\ if\ necessary.\ \r\n
 comment8.params=itm
 comment8.target=boolean\ hasEnoughGems(ShopItem)
+comment8.text=\r\n\ Check\ if\ the\ player\ has\ enough\ gems\ to\ buy\ the\ current\ item.\ \r\n\ \r\n\ @param\ itm\ \ \ \ \ The\ shop\ item\ that\ the\ player\ intends\ to\ buy.\r\n
 comment9.params=idx
 comment9.target=void\ clearPowerUpAt(int)
+comment9.text=\r\n\ Clear\ the\ powerup\ at\ a\ certain\ index.\ \r\n\ \r\n\ @param\ idx\ \ \ \ \ \ The\ index\ of\ the\ powerup.\ \r\n
 numComments=10
