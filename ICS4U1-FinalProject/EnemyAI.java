@@ -195,10 +195,10 @@ public class EnemyAI extends Actor
         
         // decreases the atack and health increase while increasing the time between summonings for easy mode
         if(half){
-            attackIncrease /= 4;
-            healthIncrease /= 4;
-            countdown += 75;
-            originalTime += 75;
+            attackIncrease /= 2;
+            healthIncrease /= 2;
+            countdown += 30;
+            originalTime += 30;
         }
         
         setImage((GreenfootImage)null);

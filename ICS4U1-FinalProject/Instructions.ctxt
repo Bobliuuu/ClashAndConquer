@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Instructions
-comment0.text=\n\ Iinstructions\ Class\n\ \n\ @author\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Iinstructions\ Class\r\n\ \r\n\ @author\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Instructions()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Instructions.\n\ \n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Instructions.\r\n\ \r\n
 comment2.params=
 comment2.target=void\ started()
 comment3.params=

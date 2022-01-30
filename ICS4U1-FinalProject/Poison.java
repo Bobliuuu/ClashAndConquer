@@ -38,8 +38,8 @@ public class Poison extends Spell
         // checks if the poison is still going
         if(duration != 0){
             animate();
-            // every 12 acts, it deals damage
-            if(duration % 12 == 0) attack();
+            // every 4 acts, it deals damage
+            if(duration % 4 == 0) attack();
             duration--;
         }
         else{

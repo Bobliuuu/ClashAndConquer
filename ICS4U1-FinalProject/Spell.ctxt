@@ -1,20 +1,20 @@
 #BlueJ class context
 comment0.target=Spell
-comment0.text=\n\ The\ abstract\ superclass\ for\ all\ spells.\ Contains\ functions\ for\ attacking\ all\ targets\ within\ a\ radius\n\ \n\ @author\ Matthew\ Gong\n\ @version\ January\ 2022\n
+comment0.text=\r\n\ The\ abstract\ superclass\ for\ all\ spells.\ Contains\ functions\ for\ attacking\ all\ targets\ within\ a\ radius\r\n\ \r\n\ @author\ Matthew\ Gong\r\n\ @version\ January\ 2022\r\n
 comment1.params=attack\ speed\ radius\ fromEnemy\ x\ y
 comment1.target=Spell(int,\ double,\ int,\ boolean,\ int,\ int)
-comment1.text=\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ attack,\ speed,\ attack\ radius,\ alignment,\ and\ target\ location\n\ \n\ @param\ attack\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ damage\ the\ Spell\ deals\n\ @param\ speed\ \ \ \ \ \ \ \ \ \ \ \ \ How\ fast\ the\ Spell\ moves\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Spell\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Spell\ belongs\ to\ the\ enemy\n\ @param\ x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ x-coordinate\ of\ the\ target\ location\n\ @param\ y\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ y-coordinate\ of\ the\ target\ location\n
+comment1.text=\r\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ attack,\ speed,\ attack\ radius,\ alignment,\ and\ target\ location\r\n\ \r\n\ @param\ attack\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ damage\ the\ Spell\ deals\r\n\ @param\ speed\ \ \ \ \ \ \ \ \ \ \ \ \ How\ fast\ the\ Spell\ moves\r\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Spell\r\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Spell\ belongs\ to\ the\ enemy\r\n\ @param\ x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ x-coordinate\ of\ the\ target\ location\r\n\ @param\ y\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ y-coordinate\ of\ the\ target\ location\r\n
 comment2.params=
 comment2.target=void\ animate()
 comment3.params=
 comment3.target=void\ attackAnimate()
 comment4.params=
 comment4.target=void\ act()
-comment4.text=\n\ Act\ -\ do\ whatever\ the\ Spell\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment4.text=\r\n\ Act\ -\ do\ whatever\ the\ Spell\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment5.params=
 comment5.target=void\ checkPosition()
-comment5.text=\n\ Checks\ where\ the\ Spell\ is\ currently\ and\ if\ it\ is\ in\ the\ correct\ position,\ it\ deals\ damage\ to\ everything\ within\ the\ radius\n
+comment5.text=\r\n\ Checks\ where\ the\ Spell\ is\ currently\ and\ if\ it\ is\ in\ the\ correct\ position,\ it\ deals\ damage\ to\ everything\ within\ the\ radius\r\n
 comment6.params=x\ y
 comment6.target=double\ findDistanceBetween(double,\ double)
-comment6.text=\n\ Method\ for\ finding\ the\ distance\ between\ the\ Spell\ and\ a\ position\ on\ the\ map\n
+comment6.text=\r\n\ Method\ for\ finding\ the\ distance\ between\ the\ Spell\ and\ a\ position\ on\ the\ map\r\n
 numComments=7
