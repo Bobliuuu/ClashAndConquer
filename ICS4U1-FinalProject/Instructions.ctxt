@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Instructions
-comment0.text=\n\ Write\ a\ description\ of\ class\ Instructions\ here.\n\ \n\ @author\ Jerry\ Zhu\n\ @version\ January\ 2022\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Instructions\ here.\r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
 comment1.params=
 comment1.target=Instructions()
-comment1.text=\n\ Level\ world\ constructor\n\ \n\ @param\ levelValue\ \ \ \ \ The\ desired\ level\ to\ be\ initialized.\ \n
+comment1.text=\r\n\ Level\ world\ constructor\r\n\ \r\n\ @param\ levelValue\ \ \ \ \ The\ desired\ level\ to\ be\ initialized.\ \r\n
 comment10.params=
 comment10.target=void\ winOrLose()
 comment11.params=
