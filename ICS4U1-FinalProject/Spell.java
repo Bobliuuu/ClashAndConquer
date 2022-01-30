@@ -44,6 +44,9 @@ public abstract class Spell extends SuperSmoothMover
      */
     public void act()
     {
+        if (((Level)getWorld()).finished){
+            return;
+        }
         // if the attack countdown has not started
         if(countdown == 0){
             // move towards the target location
