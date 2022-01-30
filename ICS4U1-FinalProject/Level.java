@@ -403,7 +403,7 @@ public class Level extends World
             isDefeat = false;
         }
         else if (isVictory){
-            victoryScreen = new Image(new GreenfootImage("victory.jpg"));
+            victoryScreen = new Image(new GreenfootImage("victory.png"));
             victoryScreen.getImage().scale(800, 200);
             addObject(victoryScreen, 400, 300);
             finished = true;
