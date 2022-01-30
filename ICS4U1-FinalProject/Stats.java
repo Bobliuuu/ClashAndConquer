@@ -1,4 +1,6 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.List;
+import greenfoot.UserInfo;
 
 /**
  * Write a description of class Stats here.
@@ -65,37 +67,89 @@ public class Stats extends World
             addObject(timePlayedLabel, 352, 450);
 
             // Leaderboard
-
+            
+            List users = UserInfo.getTop(5);
+            String name1;
+            String name2;
+            String name3;
+            String name4;
+            String name5;
+            int score1;
+            int score2;
+            int score3;
+            int score4;
+            int score5;
+            try {
+                name1 = ((UserInfo)users.get(0)).getUserName();
+                score1 = ((UserInfo)users.get(0)).getScore();
+            }
+            catch (Exception e) {
+                name1 = "Anonymous";
+                score1 = 1;
+            }
+            try {
+                name2 = ((UserInfo)users.get(1)).getUserName();
+                score2 = ((UserInfo)users.get(1)).getScore();
+            }
+            catch (Exception e) {
+                name2 = "Anonymous";
+                score2 = 1;
+            }
+            try {
+                name3 = ((UserInfo)users.get(2)).getUserName();
+                score3 = ((UserInfo)users.get(2)).getScore();
+            }
+            catch (Exception e) {
+                name3 = "Anonymous";
+                score3 = 1;
+            }
+            try {
+                name4 = ((UserInfo)users.get(3)).getUserName();
+                score4 = ((UserInfo)users.get(3)).getScore();
+            }
+            catch (Exception e) {
+                name4 = "Anonymous";
+                score4 = 1;
+            }
+            try {
+                name5 = ((UserInfo)users.get(4)).getUserName();
+                score5 = ((UserInfo)users.get(4)).getScore();
+            }
+            catch (Exception e) {
+                name5 = "Anonymous";
+                score5 = 1;
+            }
+            
             font = new Font ("Courier New", true, false, 30);
 
-            firstPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
+            firstPlaceLabel = new SuperTextBox(name1, transparent, Color.BLUE, font, false, 20*10, 0, transparent);
             addObject(firstPlaceLabel, 626, 153);
 
-            secondPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
+            secondPlaceLabel = new SuperTextBox(name2, transparent, Color.BLUE, font, false, 20*10, 0, transparent);
             addObject(secondPlaceLabel, 626, 245);
 
-            thirdPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
+            thirdPlaceLabel = new SuperTextBox(name3, transparent, Color.BLUE, font, false, 20*10, 0, transparent);
             addObject(thirdPlaceLabel, 626, 343);
 
-            fourthPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
+            fourthPlaceLabel = new SuperTextBox(name4, transparent, Color.BLUE, font, false, 20*10, 0, transparent);
             addObject(fourthPlaceLabel, 626, 450);
 
-            fifthPlaceLabel = new SuperTextBox("TestUsername123", transparent, Color.BLUE, font, false, 20*10, 0, transparent);
+            fifthPlaceLabel = new SuperTextBox(name5, transparent, Color.BLUE, font, false, 20*10, 0, transparent);
             addObject(fifthPlaceLabel, 626, 541);
 
-            firstPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
+            firstPlaceLevelLabel = new SuperTextBox("Lvl " + Integer.toString(score1), transparent, Color.BLACK, font, false, 20*10, 0, transparent);
             addObject(firstPlaceLevelLabel, 840, 149);
 
-            secondPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
+            secondPlaceLevelLabel = new SuperTextBox("Lvl " + Integer.toString(score2), transparent, Color.BLACK, font, false, 20*10, 0, transparent);
             addObject(secondPlaceLevelLabel, 840, 241);
 
-            thirdPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
+            thirdPlaceLevelLabel = new SuperTextBox("Lvl " + Integer.toString(score3), transparent, Color.BLACK, font, false, 20*10, 0, transparent);
             addObject(thirdPlaceLevelLabel, 840, 343);
 
-            fourthPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
+            fourthPlaceLevelLabel = new SuperTextBox("Lvl " + Integer.toString(score4), transparent, Color.BLACK, font, false, 20*10, 0, transparent);
             addObject(fourthPlaceLevelLabel, 840, 450);
 
-            fifthPlaceLevelLabel = new SuperTextBox("Lvl " + "5", transparent, Color.BLACK, font, false, 20*10, 0, transparent);
+            fifthPlaceLevelLabel = new SuperTextBox("Lvl " + Integer.toString(score5), transparent, Color.BLACK, font, false, 20*10, 0, transparent);
             addObject(fifthPlaceLevelLabel, 840, 541);
         }
         else {
