@@ -142,7 +142,14 @@ public class Level extends World
                         elixirBar.useElixir(3);
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Knight placedTroop = new Knight(110, 18, 1, 3, 80, false);
+                        Knight placedTroop;
+                        if (UserInfo.isStorageAvailable()){
+                            String[] parsed = user.getString(0).split(" ");
+                            placedTroop = new Knight(110 + 14 * Integer.valueOf(parsed[0]), 15 + 14 * Integer.valueOf(parsed[1]), 1, 3, 80, false);
+                        }
+                        else {
+                            placedTroop = new Knight(110, 15, 1, 3, 80, false);
+                        }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
@@ -154,7 +161,14 @@ public class Level extends World
                         elixirBar.useElixir(3);
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Archer placedTroop = new Archer(60, 6, 1, 6, 140, false);
+                        Archer placedTroop;
+                        if (UserInfo.isStorageAvailable()){
+                            String[] parsed = user.getString(0).split(" ");
+                            placedTroop = new Archer(80 + 14 * Integer.valueOf(parsed[2]), 10 + 14 * Integer.valueOf(parsed[3]), 1, 6, 140, false);
+                        }
+                        else {
+                            placedTroop = new Archer(80, 10, 1, 6, 140, false);
+                        }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
@@ -166,7 +180,14 @@ public class Level extends World
                         elixirBar.useElixir(5);
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Giant placedTroop = new Giant(120, 6, 1, 6, 140, false);
+                        Giant placedTroop;
+                        if (UserInfo.isStorageAvailable()){
+                            String[] parsed = user.getString(0).split(" ");
+                            placedTroop = new Giant(250 + 14 * Integer.valueOf(parsed[4]), 20 + 14 * Integer.valueOf(parsed[5]), 1, 6, 140, false);
+                        }
+                        else {
+                            placedTroop = new Giant(250, 20, 1, 6, 140, false);
+                        }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
@@ -174,16 +195,33 @@ public class Level extends World
                         cardDeck.switchCard(cardIndex);
                         addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
                     }
-                    else if (elixirBar.hasElixir(3) && troopSelected.equals("Skeleton")){
-                        elixirBar.useElixir(3);
+                    else if (elixirBar.hasElixir(5) && troopSelected.equals("Skeleton")){
+                        elixirBar.useElixir(5);
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Skeleton placedTroop = new Skeleton(40, 6, 1, 6, 140, false);
-                        Skeleton placedTroop2 = new Skeleton(40, 6, 1, 6, 140, false);
-                        Skeleton placedTroop3 = new Skeleton(40, 6, 1, 6, 140, false);
-                        Skeleton placedTroop4 = new Skeleton(40, 6, 1, 6, 140, false);
-                        Skeleton placedTroop5 = new Skeleton(40, 6, 1, 6, 140, false);
-                        Skeleton placedTroop6 = new Skeleton(40, 6, 1, 6, 140, false);
+                        Skeleton placedTroop;
+                        Skeleton placedTroop2;
+                        Skeleton placedTroop3;
+                        Skeleton placedTroop4;
+                        Skeleton placedTroop5;
+                        Skeleton placedTroop6;
+                        if (UserInfo.isStorageAvailable()){
+                            String[] parsed = user.getString(0).split(" ");
+                            placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
+                            placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
+                            placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
+                            placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
+                            placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
+                            placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 140, false);
+                        }
+                        else {
+                            placedTroop = new Skeleton(25, 8, 1, 6, 140, false);
+                            placedTroop2 = new Skeleton(25, 8, 1, 6, 140, false);
+                            placedTroop3 = new Skeleton(25, 8, 1, 6, 140, false);
+                            placedTroop4 = new Skeleton(25, 8, 1, 6, 140, false);
+                            placedTroop5 = new Skeleton(25, 8, 1, 6, 140, false);
+                            placedTroop6 = new Skeleton(25, 8, 1, 6, 140, false);
+                        }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY());
                         addObject(placedTroop2, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY());
                         addObject(placedTroop3, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY()+20);
@@ -204,7 +242,14 @@ public class Level extends World
                         elixirBar.useElixir(6);
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        ElixirTower placedTroop = new ElixirTower(0.003, false);
+                        ElixirTower placedTroop;
+                        if (UserInfo.isStorageAvailable()){
+                            String[] parsed = user.getString(1).split(" ");
+                            placedTroop = new ElixirTower(0.004 + 0.002 * Integer.valueOf(parsed[1]), false, 175 + Integer.valueOf(parsed[0]));
+                        }
+                        else {
+                            placedTroop = new ElixirTower(0.004, false, 175);
+                        }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
@@ -216,7 +261,14 @@ public class Level extends World
                         elixirBar.useElixir(6);
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Tombstone placedTroop = new Tombstone(200, false);
+                        Tombstone placedTroop;
+                        if (UserInfo.isStorageAvailable()){
+                            String[] parsed = user.getString(1).split(" ");
+                            placedTroop = new Tombstone(200 + 14 * Integer.valueOf(parsed[2]), false, 150 + 14 * Integer.valueOf(parsed[3]));
+                        }
+                        else {
+                            placedTroop = new Tombstone(200, false, 150);
+                        }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
@@ -229,7 +281,14 @@ public class Level extends World
                     elixirBar.useElixir(4);
                     removeObject(unplacedTroop);
                     unplacedTroop = new Image();
-                    Fireball placedTroop = new Fireball(60, 6, 80, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    Fireball placedTroop;
+                    if (UserInfo.isStorageAvailable()){
+                        String[] parsed = user.getString(2).split(" ");
+                        placedTroop = new Fireball(80 + 14 * Integer.valueOf(parsed[0]), 6, 80 + 8 * Integer.valueOf(parsed[1]), false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    }
+                    else {
+                        placedTroop = new Fireball(80, 6, 80, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    }
                     addObject(placedTroop, 400, 680);
                     redZone.setToNone();
                     setTroopSelected("Blank");
@@ -241,7 +300,14 @@ public class Level extends World
                     elixirBar.useElixir(4);
                     removeObject(unplacedTroop);
                     unplacedTroop = new Image();
-                    Poison placedTroop = new Poison(60, 6, 80, false, 0, 0);
+                    Poison placedTroop;
+                    if (UserInfo.isStorageAvailable()){
+                        String[] parsed = user.getString(2).split(" ");
+                        placedTroop = new Poison(60 + 14 * Integer.valueOf(parsed[2]), 8 + Integer.valueOf(parsed[3]), 80, false);
+                    }
+                    else {
+                        placedTroop = new Poison(60, 8, 80, false);
+                    }
                     addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     redZone.setToNone();
                     setTroopSelected("Blank");

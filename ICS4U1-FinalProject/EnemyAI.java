@@ -250,15 +250,21 @@ public class EnemyAI extends Actor
                     getWorld().addObject(knight, x + Greenfoot.getRandomNumber(540), y);
                 }
                 else if(i == 1){
-                    Archer archer = new Archer(100 + healthIncrease, 10 + attackIncrease, 1, 5, 120, true);
+                    Archer archer = new Archer(70 + healthIncrease, 8 + attackIncrease, 1, 5, 120, true);
                     getWorld().addObject(archer, x + Greenfoot.getRandomNumber(540), y);
                 }
                 else if(i == 2){
-                    Skeleton skeleton = new Skeleton(100 + healthIncrease, 10 + attackIncrease, 1, 6, 140, true);
-                    getWorld().addObject(skeleton, x + Greenfoot.getRandomNumber(540), y);
+                    Skeleton skeleton = new Skeleton(20 + healthIncrease, 5 + attackIncrease, 1, 6, 140, true);
+                    int pos = x + Greenfoot.getRandomNumber(540);
+                    getWorld().addObject(skeleton, pos+20, y);
+                    getWorld().addObject(skeleton, pos-20, y);
+                    getWorld().addObject(skeleton, pos+20, y+20);
+                    getWorld().addObject(skeleton, pos+20, y-20);
+                    getWorld().addObject(skeleton, pos-20, y+20);
+                    getWorld().addObject(skeleton, pos-20, y-20);
                 }
                 else if(i == 3){
-                    Giant giant = new Giant(100 + healthIncrease, 10 + attackIncrease, 1, 6, 140, true);
+                    Giant giant = new Giant(240 + healthIncrease, 18 + attackIncrease, 1, 6, 140, true);
                     getWorld().addObject(giant, x + Greenfoot.getRandomNumber(540), y);
                 }
                 else if(i == 4){
