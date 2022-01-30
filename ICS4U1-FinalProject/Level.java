@@ -135,7 +135,7 @@ public class Level extends World
                 setTroopSelected(troopName);
                 cardIndex = cardDeck.getCardIndex(troopName);
             }
-            if (!unplacedTroop.checkTouchingCastle()){
+            if (!unplacedTroop.getEmpty() && !unplacedTroop.checkTouchingCastle()){
                 if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
                 Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650){
                     if (elixirBar.hasElixir(3) && troopSelected.equals("Knight")){
@@ -153,9 +153,9 @@ public class Level extends World
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        removeObject(cardDeck.getCardAtIndex(cardIndex));
                         cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                     }
                     else if (elixirBar.hasElixir(3) && troopSelected.equals("Archer")){
                         elixirBar.useElixir(3);
@@ -172,9 +172,9 @@ public class Level extends World
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        removeObject(cardDeck.getCardAtIndex(cardIndex));
                         cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                     }
                     else if (elixirBar.hasElixir(5) && troopSelected.equals("Giant")){
                         elixirBar.useElixir(5);
@@ -191,9 +191,9 @@ public class Level extends World
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        removeObject(cardDeck.getCardAtIndex(cardIndex));
                         cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                     }
                     else if (elixirBar.hasElixir(5) && troopSelected.equals("Skeleton")){
                         elixirBar.useElixir(5);
@@ -230,9 +230,9 @@ public class Level extends World
                         addObject(placedTroop6, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY()-20);
                         redZone.setToNone();
                         setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        removeObject(cardDeck.getCardAtIndex(cardIndex));
                         cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                     }
                 }
                 // Tower region
@@ -253,9 +253,9 @@ public class Level extends World
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        removeObject(cardDeck.getCardAtIndex(cardIndex));
                         cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                     }
                     else if (elixirBar.hasElixir(6) && troopSelected.equals("Tombstone")){
                         elixirBar.useElixir(6);
@@ -272,9 +272,9 @@ public class Level extends World
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                        removeObject(cardDeck.getCardAtIndex(cardIndex));
                         cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                     }
                 }
                 if (elixirBar.hasElixir(4) && troopSelected.equals("Fireball")){
@@ -292,9 +292,9 @@ public class Level extends World
                     addObject(placedTroop, 400, 680);
                     redZone.setToNone();
                     setTroopSelected("Blank");
-                    removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                    removeObject(cardDeck.getCardAtIndex(cardIndex));
                     cardDeck.switchCard(cardIndex);
-                    addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                    addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                 }
                 else if (elixirBar.hasElixir(4) && troopSelected.equals("Poison")){
                     elixirBar.useElixir(4);
@@ -311,12 +311,17 @@ public class Level extends World
                     addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     redZone.setToNone();
                     setTroopSelected("Blank");
-                    removeObject(cardDeck.getCardAtIndex(cardIndex+1));
+                    removeObject(cardDeck.getCardAtIndex(cardIndex));
                     cardDeck.switchCard(cardIndex);
-                    addObject(cardDeck.getCardAtIndex(cardIndex+1), cardCoordinates[cardIndex+1][0], cardCoordinates[cardIndex+1][1]);
+                    addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                 }
             }
         }
+    }
+    
+    public void setCardIndex(){
+        String troopName = unplacedTroop.getCardName();
+        cardIndex = cardDeck.getCardIndex(troopName);
     }
     
     public void moveUnplacedTroop(){

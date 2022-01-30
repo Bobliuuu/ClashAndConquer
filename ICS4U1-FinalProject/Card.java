@@ -40,9 +40,10 @@ public class Card extends Actor
      */
     public void checkClick(){
         Level level = (Level)getWorld();
-        if (Greenfoot.mouseClicked(this) && cardName != "blank"){
+        if (Greenfoot.mouseClicked(this) && cardName != "Blank"){
             level.changeRedZone(true);
             level.setTroopSelected(cardName);
+            level.setCardIndex();
         }
     }
     
