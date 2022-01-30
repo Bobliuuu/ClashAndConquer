@@ -11,7 +11,7 @@ public class Tombstone extends Building
     private int cooldown, timer;    // tracking the cooldown and the current number of acts until it ends
     private SuperStatBar healthBar; // the health bar
     
-    /***
+    /**
      * The most basic constructor for the Tombstone class
      * 
      * @param health     The amount of health the Tombstone has

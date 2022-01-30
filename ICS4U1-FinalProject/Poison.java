@@ -15,17 +15,15 @@ public class Poison extends Spell
     private int animateCount, duration = 204;
     
     /***
-     * The most complicated constructor, able to customize attack, speed, attack radius, alignment, and target location
+     * The most complicated constructor, able to customize attack, speed, attack radius, and alignment
      * 
      * @param attack            The amount of damage the Fireball deals
      * @param speed             How fast the Fireball moves
      * @param radius            Attack radius of the Fireball
      * @param isEnemy           Whether the Fireball belongs to the enemy
-     * @param x                 The x-coordinate of the target location
-     * @param y                 The y-coordinate of the target location
      */
-    public Poison(int atk, double spd, int rds, boolean enemy, int x, int y){
-        super(atk, spd, rds, enemy, x, y);
+    public Poison(int atk, double spd, int rds, boolean enemy){
+        super(atk, spd, rds, enemy, 0, 0);
         animateCount = -1;
         animations = new GreenfootImage[51];
         for(int i = 0; i < 51; i++) animations[i] = new GreenfootImage("Spells/Poison/PoisonAttack" + i + ".png");

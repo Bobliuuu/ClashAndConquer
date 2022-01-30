@@ -16,16 +16,34 @@ public class ElixirTower extends Building
     // the health bar
     private SuperStatBar healthBar;
     
-    /***
+    /**
      * The most basic constructor for the ElixirTower class
      * 
      * @param speed      How much does the ElixirTower increase the speed of Elixir gain
-     * @param health     The amount of health the ElixirTower has
+     * @param isEnemy    Whether or not the ElixirTower is an enemy
      */
     public ElixirTower(double speed, boolean isEnemy){
         this.isEnemy = isEnemy;
         elixirSpeed = speed;
         this.health = 175;
+        setImage("elixircollectorlevel1.png");
+        getImage().scale(75, 75);
+        increasedSpeed = false;
+        actCount = 0;
+        healthBar = new SuperStatBar(health, health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
+    }
+    
+    /**
+     * Adding the ability to adjust health
+     * 
+     * @param speed      How much does the ElixirTower increase the speed of Elixir gain
+     * @param isEnemy    Whether or not the ElixirTower is an enemy
+     * @param health     The amount of health the ElixirTower has
+     */
+    public ElixirTower(double speed, boolean isEnemy, int health){
+        this.isEnemy = isEnemy;
+        elixirSpeed = speed;
+        this.health = health;
         setImage("elixircollectorlevel1.png");
         getImage().scale(75, 75);
         increasedSpeed = false;

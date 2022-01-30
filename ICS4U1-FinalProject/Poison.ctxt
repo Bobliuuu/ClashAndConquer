@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Poison
 comment0.text=\r\n\ A\ spell\ that\ deals\ damage\ over\ time\ to\ a\ set\ area\r\n\ \r\n\ @author\ Matthew\ Gong\r\n\ @version\ January\ 2022\r\n
-comment1.params=atk\ spd\ rds\ enemy\ x\ y
-comment1.target=Poison(int,\ double,\ int,\ boolean,\ int,\ int)
-comment1.text=\r\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ attack,\ speed,\ attack\ radius,\ alignment,\ and\ target\ location\r\n\ \r\n\ @param\ attack\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ damage\ the\ Fireball\ deals\r\n\ @param\ speed\ \ \ \ \ \ \ \ \ \ \ \ \ How\ fast\ the\ Fireball\ moves\r\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Fireball\r\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Fireball\ belongs\ to\ the\ enemy\r\n\ @param\ x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ x-coordinate\ of\ the\ target\ location\r\n\ @param\ y\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ y-coordinate\ of\ the\ target\ location\r\n
+comment1.params=atk\ spd\ rds\ enemy
+comment1.target=Poison(int,\ double,\ int,\ boolean)
+comment1.text=\r\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ attack,\ speed,\ attack\ radius,\ and\ alignment\r\n\ \r\n\ @param\ attack\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ damage\ the\ Fireball\ deals\r\n\ @param\ speed\ \ \ \ \ \ \ \ \ \ \ \ \ How\ fast\ the\ Fireball\ moves\r\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Fireball\r\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Fireball\ belongs\ to\ the\ enemy\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Poison\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
