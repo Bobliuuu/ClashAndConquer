@@ -63,7 +63,7 @@ public class Level extends World
         
         this.levelValue = levelValue;
         
-        levelMap = new Image(new GreenfootImage("background.png"));
+        levelMap = new Image(new GreenfootImage("Worlds/background.png"));
         addObject(levelMap, getWidth()/2, getHeight()/2);
         
         myCastle = new Castle(false, 150, 150, 200, 100);
