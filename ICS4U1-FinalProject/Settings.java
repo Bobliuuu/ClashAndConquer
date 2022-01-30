@@ -148,7 +148,7 @@ public class Settings extends World
             if (UserInfo.isStorageAvailable()){
                 user = UserInfo.getMyInfo();
                 user.setScore(1); // Level
-                user.setInt(0, 10000); // Gems
+                user.setInt(0, 0); // Gems
                 user.setInt(1, 1); // Difficulty
                 user.setInt(2, 50); // Volume
                 user.setInt(3, 0); // Music type
