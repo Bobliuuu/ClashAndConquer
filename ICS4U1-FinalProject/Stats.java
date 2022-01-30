@@ -38,7 +38,7 @@ public class Stats extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1);
         
-        background = new GreenfootImage("MyStatsBackground.PNG");
+        background = new GreenfootImage("Worlds/MyStatsBackground.PNG");
         background.scale(getWidth(), getHeight());
         setBackground(background);
         

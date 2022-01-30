@@ -72,7 +72,7 @@ public class ShopItem extends Actor
             image = new GreenfootImage("images/ShopItems/SkeletonHealth.PNG");
         }
         else if (type.equals("TombstoneCooldown")){
-            image = new GreenfootImage("images/ShopItems/TombstoneAttack.PNG");
+            image = new GreenfootImage("images/ShopItems/TombstoneCooldown.PNG");
         }
         else if (type.equals("TombstoneHealth")){
             image = new GreenfootImage("images/ShopItems/TombstoneHealth.PNG");
