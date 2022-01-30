@@ -15,17 +15,6 @@ public class Level extends World
 {
     // Hardcoded variables
     private final int[][] cardCoordinates = {{50, 760}, {150, 760}, {650, 760}, {753, 760}};
-    private final int[] castleHealth = {};
-    private final int[] elixirSpeed = {};
-    private final int[] knightHealth = {};
-    private final int[] knightAttack = {};
-    private final int[] archerHealth = {};
-    private final int[] archerAttack = {};
-    private final int[] giantHealth = {};
-    private final int[] giantAttack = {};
-    private final int[] skeletonHealth = {};
-    private final int[] skeletonAttack = {};
-    
     
     // Instance variables
     private Image levelMap;
@@ -126,6 +115,9 @@ public class Level extends World
                 }
                 music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                 music.play();
+            }
+            if (music != null){
+                music.setVolume(user.getInt(2));
             }
         }
     }

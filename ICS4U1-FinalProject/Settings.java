@@ -96,10 +96,9 @@ public class Settings extends World
                 music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                 music.play();
             }
-        }
-        // Set volume 
-        if (music != null){
-            music.setVolume(user.getInt(2));
+            if (music != null){
+                music.setVolume(user.getInt(2));
+            }
         }
     }
     
