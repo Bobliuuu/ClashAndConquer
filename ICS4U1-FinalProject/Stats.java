@@ -3,13 +3,14 @@ import java.util.List;
 import greenfoot.UserInfo;
 
 /**
- * Write a description of class Stats here.
+ * Stats page to display player info and leaderboard. 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu
+ * @version January 2022
  */
 public class Stats extends World
 {
+    // Instance variables
     private Image backButton;
     private GreenfootImage background;
     private GreenfootSound music;
@@ -32,9 +33,9 @@ public class Stats extends World
     private SuperTextBox fifthPlaceLevelLabel;
     
     private static final Color transparent = new Color(0, 0, 0, 0);
+    
     /**
      * Constructor for objects of class Stats.
-     * 
      */
     public Stats()
     {    
@@ -202,6 +203,9 @@ public class Stats extends World
         }
     }
     
+    /**
+     * When World is created, start the music and set the volume. 
+     */
     public void started(){
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -223,10 +227,16 @@ public class Stats extends World
         }
     }
     
+    /**
+     * Act method to be run each iteration. 
+     */
     public void act(){
         checkClick();
     }
     
+    /**
+     * Check for any buttons that are clicked and load the corresponding Worlds if necessary. 
+     */
     public void checkClick(){
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();

@@ -51,6 +51,7 @@ public class Card extends Actor
     
     /**
      * Change the image of the card.
+     * 
      * @param cardName     The new name of the card object. 
      */
     public void changeImage(String imageName){
@@ -59,6 +60,7 @@ public class Card extends Actor
     
     /**
      * Returns the name of the card. 
+     * 
      * @return String      The name of the desired card. 
      */
     public String getCardName(){
