@@ -34,7 +34,7 @@ public class LevelMenu extends World
     {    
         // Create a new world with 1000 x 800 cells with a cell size of 1x1 pixels.
         super(1000, 650, 1);
-        map = new Image(new GreenfootImage("mapselect.png"));
+        map = new Image(new GreenfootImage("Worlds/mapselect.png"));
         addObject(map, getWidth()/2, getHeight()/2);
         
         for (int i = 0; i < 26; i++){

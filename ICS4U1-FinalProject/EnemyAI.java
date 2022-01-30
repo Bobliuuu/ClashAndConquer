@@ -1,6 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 
+/**
+ * The class that controls how the enemy acts during the levels and how it changes depending on the level
+ * 
+ * @author Matthew Gong, Daniel Qian
+ * @version January 2022
+ */
 public class EnemyAI extends Actor
 {
     // Instance variables
@@ -12,13 +18,15 @@ public class EnemyAI extends Actor
     
     /**
      * Basic constructor for an enemy AI, given a certain level
-     * @param level     The level that the enemy AI is being creeated on. 
+     * 
+     * @param level     The level that the enemy AI is being creeated on
+     * @param half      Whether the enemyAI is on easy mode 
      */
     public EnemyAI(int level, boolean half){
         this.level = level;
         spawnChances = new int[5];
-        //ArrayList<Castle> possible = (ArrayList<Castle>)getWorld().getObjects(Castle.class);
         
+        // setting the countdown between summoning a troop, increases to health and attack, and spawn chances for each troop depending on level
         if (level == 1){
             countdown = 200 - Greenfoot.getRandomNumber(30);
             originalTime = countdown;
@@ -184,9 +192,8 @@ public class EnemyAI extends Actor
             attackIncrease = 168;
             healthIncrease = 168;
         }
-        // attackIncrease = (int)(Math.pow(2, level-1));
-        // healthIncrease = (int)Math.pow(3, level-1);
         
+        // decreases the atack and health increase while increasing the time between summonings for easy mode
         if(half){
             attackIncrease /= 2;
             healthIncrease /= 2;
@@ -208,6 +215,9 @@ public class EnemyAI extends Actor
     
     /**
      * Trying to spawn an object at a location. 
+     * 
+     * @param x     Its x-coordinate upon summoning
+     * @param y     Its y-coordinate upon summoning
      */
     private void tryToSpawn(int x, int y){
         if(countdown == 0){
@@ -219,11 +229,22 @@ public class EnemyAI extends Actor
         }
     }
     
+    /**
+     * Chooses which troop to spawn and adds it to the World
+     * 
+     * @param x     Its x-coordinate upon summoning
+     * @param y     Its y-coordinate upon summoning
+     */
     private void spawnTroop(int x, int y){
+        // gets a random number between 1 and 100
         int chance = 0, rand = Greenfoot.getRandomNumber(100)+1;
         
         for(int i = 0; i < 5; i++){
+            // checking if the random number is between the right numbers
+            // say if knight's chance is 60% while Archer is 40% then is the random first between 1 and 60.
+            // if not then is it between 61 and 100
             if(rand > chance && rand <= chance+spawnChances[i]){
+                // spawning different troops depending on i
                 if(i == 0){
                     Knight knight = new Knight(100 + healthIncrease, 10 + attackIncrease, 1, 3, 60, true);
                     getWorld().addObject(knight, x + Greenfoot.getRandomNumber(540), y);
@@ -251,6 +272,9 @@ public class EnemyAI extends Actor
     
     /**
      * Get a random number from low to high inclusive. 
+     * 
+     * @param low   The lower boundary
+     * @param high  The upper boundary
      */
     public int getRandomNumberRange(int low, int high){
        int rand = Greenfoot.getRandomNumber(high - low + 1);

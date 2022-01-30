@@ -1,15 +1,15 @@
 #BlueJ class context
 comment0.target=CardDeck
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ CardDeck\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ Write\ a\ description\ of\ class\ CardDeck\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
 comment1.params=
 comment1.target=CardDeck()
-comment1.text=\r\n\ Basic\ constructor\ for\ CardDeck\ for\ testing.\r\n
+comment1.text=\n\ Basic\ constructor\ for\ CardDeck\ for\ testing.\n
 comment2.params=cardNames
 comment2.target=CardDeck(java.lang.String[])
-comment2.text=\r\n\ Similar\ to\ above,\ but\ with\ the\ ability\ to\ customize\ hard\ names.\ \r\n\ \r\n\ @param\ cardNames\ \ \ \ \ The\ names\ of\ the\ CardDeck\ cards.\ \r\n
+comment2.text=\n\ Similar\ to\ above,\ but\ with\ the\ ability\ to\ customize\ hard\ names.\ \n\ \n\ @param\ cardNames\ \ \ \ \ The\ names\ of\ the\ CardDeck\ cards.\ \n
 comment3.params=idx
 comment3.target=Card\ getCardAtIndex(int)
-comment3.text=\r\n\ Get\ the\ card\ at\ a\ certain\ index\ of\ the\ card\ deck.\r\n\ @param\ idx\ \ \ \ \ \ The\ desired\ index\ of\ card\ deck.\r\n
+comment3.text=\n\ Get\ the\ card\ at\ a\ certain\ index\ of\ the\ card\ deck.\n\ @param\ idx\ \ \ \ \ \ The\ desired\ index\ of\ card\ deck.\n
 comment4.params=name
 comment4.target=int\ getCardIndex(java.lang.String)
 comment5.params=idx

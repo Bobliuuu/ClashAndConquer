@@ -1,14 +1,19 @@
 #BlueJ class context
 comment0.target=Archer
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Archer\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ The\ Archer\ Troop.\ A\ ranged\ fighter\ that\ shoots\ arrows\ from\ a\ distance.\n\ \n\ @author\ Matthew\ Gong\ \n\ @version\ January\ 2022\n
 comment1.params=health\ attack\ movementSpeed\ attackSpeed\ radius\ isEnemy
 comment1.target=Archer(int,\ int,\ double,\ double,\ double,\ boolean)
+comment1.text=\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ health,\ attack,\ movement\ speed,\ attack\ speed,\ attack\ radius,\ and\ alignment\n\ \n\ @param\ health\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ health\ the\ Archer\ has\n\ @param\ attk\ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ attack\ points\ the\ Archer\ has\n\ @param\ movementSpeed\ \ \ \ \ How\ fast\ the\ Archer\ moves\n\ @param\ attackSpeed\ \ \ \ \ \ \ How\ fast\ the\ Archer\ attacks\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Archer\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Archer\ belongs\ to\ the\ enemy\n
 comment2.params=
 comment2.target=void\ attack()
+comment2.text=\n\ Summons\ a\ projectile\ to\ attack\ the\ nearest\ target\ then\ restarts\ the\ cooldown\ for\ the\ next\ attack\n
 comment3.params=
 comment3.target=void\ animate()
+comment3.text=\n\ Animates\ the\ movement\ of\ Archer\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\n
 comment4.params=
-comment4.target=int\ getAttackCounter()
+comment4.target=void\ attackAnimate()
+comment4.text=\n\ Animates\ the\ Archer's\ attack\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\n
 comment5.params=
-comment5.target=void\ attackAnimate()
+comment5.target=int\ getAttackCounter()
+comment5.text=\n\ Returns\ the\ current\ act\ count\ for\ the\ attack\ animation\n
 numComments=6
