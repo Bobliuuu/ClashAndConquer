@@ -85,6 +85,7 @@ public class Level extends World
         finished = false;
         
         timer = new Timer();
+        timer.start();
     }
     
     public void displayCards(){
@@ -132,6 +133,7 @@ public class Level extends World
         if (Greenfoot.mouseClicked(unplacedTroop) && Greenfoot.getMouseInfo() != null){
             if (unplacedTroop.intersectsCard()){
                 String troopName = unplacedTroop.getCardName();
+                removeObject(unplacedTroop);
                 setTroopSelected(troopName);
                 cardIndex = cardDeck.getCardIndex(troopName);
             }
@@ -277,44 +279,44 @@ public class Level extends World
                         addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                     }
                 }
-                if (elixirBar.hasElixir(4) && troopSelected.equals("Fireball")){
-                    elixirBar.useElixir(4);
-                    removeObject(unplacedTroop);
-                    unplacedTroop = new Image();
-                    Fireball placedTroop;
-                    if (UserInfo.isStorageAvailable()){
-                        String[] parsed = user.getString(2).split(" ");
-                        placedTroop = new Fireball(80 + 14 * Integer.valueOf(parsed[0]), 6, 80 + 8 * Integer.valueOf(parsed[1]), false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    }
-                    else {
-                        placedTroop = new Fireball(80, 6, 80, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    }
-                    addObject(placedTroop, 400, 680);
-                    redZone.setToNone();
-                    setTroopSelected("Blank");
-                    removeObject(cardDeck.getCardAtIndex(cardIndex));
-                    cardDeck.switchCard(cardIndex);
-                    addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
+            }
+            if (elixirBar.hasElixir(4) && troopSelected.equals("Fireball")){
+                elixirBar.useElixir(4);
+                removeObject(unplacedTroop);
+                unplacedTroop = new Image();
+                Fireball placedTroop;
+                if (UserInfo.isStorageAvailable()){
+                    String[] parsed = user.getString(2).split(" ");
+                    placedTroop = new Fireball(80 + 14 * Integer.valueOf(parsed[0]), 6, 80 + 8 * Integer.valueOf(parsed[1]), false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                 }
-                else if (elixirBar.hasElixir(4) && troopSelected.equals("Poison")){
-                    elixirBar.useElixir(4);
-                    removeObject(unplacedTroop);
-                    unplacedTroop = new Image();
-                    Poison placedTroop;
-                    if (UserInfo.isStorageAvailable()){
-                        String[] parsed = user.getString(2).split(" ");
-                        placedTroop = new Poison(60 + 14 * Integer.valueOf(parsed[2]), 8 + Integer.valueOf(parsed[3]), 80, false);
-                    }
-                    else {
-                        placedTroop = new Poison(60, 8, 80, false);
-                    }
-                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    redZone.setToNone();
-                    setTroopSelected("Blank");
-                    removeObject(cardDeck.getCardAtIndex(cardIndex));
-                    cardDeck.switchCard(cardIndex);
-                    addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
+                else {
+                    placedTroop = new Fireball(80, 6, 80, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                 }
+                addObject(placedTroop, 400, 680);
+                redZone.setToNone();
+                setTroopSelected("Blank");
+                removeObject(cardDeck.getCardAtIndex(cardIndex));
+                cardDeck.switchCard(cardIndex);
+                addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
+            }
+            else if (elixirBar.hasElixir(4) && troopSelected.equals("Poison")){
+                elixirBar.useElixir(4);
+                removeObject(unplacedTroop);
+                unplacedTroop = new Image();
+                Poison placedTroop;
+                if (UserInfo.isStorageAvailable()){
+                    String[] parsed = user.getString(2).split(" ");
+                    placedTroop = new Poison(60 + 14 * Integer.valueOf(parsed[2]), 8 + Integer.valueOf(parsed[3]), 80, false);
+                }
+                else {
+                    placedTroop = new Poison(60, 8, 80, false);
+                }
+                addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                redZone.setToNone();
+                setTroopSelected("Blank");
+                removeObject(cardDeck.getCardAtIndex(cardIndex));
+                cardDeck.switchCard(cardIndex);
+                addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
             }
         }
     }
@@ -390,10 +392,14 @@ public class Level extends World
             // Calculate gems with timer
             if (UserInfo.isStorageAvailable()){ 
                 user = UserInfo.getMyInfo();
+                timer.end();
                 user.setInt(9, user.getInt(9) + timer.getTimeInSeconds());
                 user.setInt(0, user.getInt(0) + 2 * timer.getTimeInSeconds());
+                user.store();
             }
             user.setInt(8, user.getInt(8) + 1);
+            user.store();
+            isDefeat = false;
         }
         else if (isVictory){
             victoryScreen = new Image(new GreenfootImage("victory.jpg"));
@@ -416,7 +422,9 @@ public class Level extends World
                     user.store();
                 }
                 user.setInt(7, user.getInt(7) + 1);
+                user.store();
             }
+            isVictory = false;
         }
     }
     

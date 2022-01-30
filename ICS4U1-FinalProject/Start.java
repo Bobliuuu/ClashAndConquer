@@ -77,7 +77,7 @@ public class Start extends World
             String check = user.getString(0);
             if (check.equals("") || check == null){
                 user.setScore(1); // Level
-                user.setInt(0, 10000); // Gems
+                user.setInt(0, 0); // Gems
                 user.setInt(1, 1); // Difficulty
                 user.setInt(2, 50); // Volume
                 user.setInt(3, 0); // Music type
