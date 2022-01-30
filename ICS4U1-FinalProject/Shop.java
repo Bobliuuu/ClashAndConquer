@@ -223,7 +223,7 @@ public class Shop extends World
             this.displayPowerUp(shopItemIndex);           
         } 
         for (int i = 0; i < buybuttons.size(); i++) {
-            if (Greenfoot.mouseClicked(buybuttons.get(i))) {
+            if (Greenfoot.mouseClicked(buybuttons.get(i)) && hasEnoughGems(powerups.get(i))) {
                 // if someone clicked ith button, then ith powerup will be purchased.
                 ShopItem itm = powerups.get(i); 
                 
@@ -344,6 +344,10 @@ public class Shop extends World
                 }
             }
         }
+    }
+    
+    public boolean hasEnoughGems(ShopItem itm){
+        return gemsCount - itm.getCost() >= 0;
     }
     
     public void clearPowerUpAt(int idx){
