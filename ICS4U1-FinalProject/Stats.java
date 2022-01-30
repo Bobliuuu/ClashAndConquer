@@ -230,6 +230,9 @@ public class Stats extends World
     public void checkClick(){
         if (Greenfoot.mouseClicked(backButton)){
             Start start = new Start();
+            if (music != null){
+                music.stop();
+            }
             start.started();
             Greenfoot.setWorld(start);
         }

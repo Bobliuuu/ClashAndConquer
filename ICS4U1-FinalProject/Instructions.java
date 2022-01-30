@@ -1,9 +1,9 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Instructions here.
+ * Iinstructions Class
  * 
- * @author (your name) 
+ * @author 
  * @version (a version number or a date)
  */
 public class Instructions extends World

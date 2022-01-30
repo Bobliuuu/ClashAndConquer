@@ -1,24 +1,25 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class End here.
+ * End Class 
+ * <p>
+ * End screen to display credits and acknowledgements.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Jerry Zhu
+ * @version January 2022
  */
 public class End extends World
 {
+    // Instance variables
     private GreenfootImage background;
     private GreenfootImage stars;
     private Image credits;
     
     /**
-     * Constructor for objects of class End.
-     * 
+     * Constructor for the End world.
      */
     public End()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
         background = new GreenfootImage(600, 400);
         background.setColor(Color.BLACK);
@@ -30,6 +31,15 @@ public class End extends World
         addObject(credits, getWidth() / 2, getHeight() / 2);
     }
     
+    /**
+     * Draw a starry background to the end scene.
+     * 
+     * @param color                The color of the background.
+     * @param width                The width of the background.
+     * @param height               The height of the background. 
+     * @param density              The density of the stars on the background. 
+     * @return GreenfootImage      The desired background image of the World.
+     */
     private static GreenfootImage drawStars(Color color, int width, int height, int density, boolean fill){
         GreenfootImage temp = new GreenfootImage(width, height);
         temp.setColor(color);
