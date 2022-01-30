@@ -285,10 +285,10 @@ public class Level extends World
                         Tombstone placedTroop;
                         if (UserInfo.isStorageAvailable()){
                             String[] parsed = user.getString(1).split(" ");
-                            placedTroop = new Tombstone(200 + 14 * Integer.valueOf(parsed[2]), false, 150 + 14 * Integer.valueOf(parsed[3]));
+                            placedTroop = new Tombstone(170 + 14 * Integer.valueOf(parsed[2]), false, 150 + 14 * Integer.valueOf(parsed[3]));
                         }
                         else {
-                            placedTroop = new Tombstone(200, false, 150);
+                            placedTroop = new Tombstone(170, false, 150);
                         }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();

@@ -269,7 +269,7 @@ public class EnemyAI extends Actor
                     getWorld().addObject(giant, x + Greenfoot.getRandomNumber(540), y);
                 }
                 else if(i == 4){
-                    Tombstone tombstone = new Tombstone(200, true, 100);
+                    Tombstone tombstone = new Tombstone(170, true, 120);
                     getWorld().addObject(tombstone, x + Greenfoot.getRandomNumber(540), y);
                 }
             }
