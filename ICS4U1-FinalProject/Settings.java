@@ -11,12 +11,9 @@ public class Settings extends World
     private Image background;
     private Image backButton;
     private Image settingsText;
-    private Image difficultyText;
     private Image volumeText;
     private Image changeMusic;
-    private Image easy;
-    private Image medium;
-    private Image hard;
+    private Image resetButton;
     private Image gems; 
     private Slider slider;
     private SuperTextBox sliderLabel;
@@ -34,30 +31,34 @@ public class Settings extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
         
-        background = new Image(new GreenfootImage("settingsbackground.png"));
+        background = new Image(new GreenfootImage("Worlds/settingsbackground.png"));
         addObject(background, 200, 300);
         
         settingsText = new Image(new GreenfootImage("settingstext.png"));
-        addObject(settingsText, getWidth()/2, 150);
+        addObject(settingsText, getWidth()/2, 80);
         
         volumeText = new Image(new GreenfootImage("volumetext.png"));
         volumeText.getImage().scale(350, 90);
-        addObject(volumeText, getWidth()/2, 270);
+        addObject(volumeText, getWidth()/2, 290);
         
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
         addObject(backButton, 60, 50);
         
+        resetButton = new Image(new GreenfootImage("Buttons/resetbutton.png"));
+        resetButton.getImage().scale(150, 60);
+        addObject(resetButton, getWidth()/2, 180);
+        
         changeMusic = new Image(new GreenfootImage("Buttons/changemusic.png"));
         changeMusic.getImage().scale(220, 100);
-        addObject(changeMusic, getWidth()/2, 480);
+        addObject(changeMusic, getWidth()/2, 490);
         
         slider = new Slider(300, 30, false);
-        addObject(slider, getWidth()/2, 360);
+        addObject(slider, getWidth()/2, 380);
         
         Font font = new Font("Courier New", true, false, 20);
         sliderLabel = new SuperTextBox("0", transparent, Color.BLACK, font, false, 18*6, 0, transparent);
-        addObject(sliderLabel, getWidth()/2 + 180, 360);
+        addObject(sliderLabel, getWidth()/2 + 180, 380);
         
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
@@ -118,7 +119,7 @@ public class Settings extends World
                 music.stop();
             }   
         }
-        if (Greenfoot.mouseClicked(changeMusic)){
+        else if (Greenfoot.mouseClicked(changeMusic)){
             if (UserInfo.isStorageAvailable()){
                 user = UserInfo.getMyInfo();
                 int musicType = user.getInt(3);
@@ -140,28 +141,50 @@ public class Settings extends World
                     }
                     music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
                     music.play();
+                    music.setVolume(user.getInt(2));
                 }
             }
         }
-        if (Greenfoot.mouseClicked(easy)){
+        else if (Greenfoot.mouseClicked(resetButton)){
             if (UserInfo.isStorageAvailable()){
                 user = UserInfo.getMyInfo();
-                user.setInt(1, 1);
+                user.setScore(1); // Level
+                user.setInt(0, 10000); // Gems
+                user.setInt(1, 1); // Difficulty
+                user.setInt(2, 50); // Volume
+                user.setInt(3, 0); // Music type
+                user.setInt(4, 0); // Elixir speed
+                user.setInt(5, 0); // Castle health
+                user.setInt(6, 0); // Castle projectile attack
+                user.setInt(7, 0); // Wins
+                user.setInt(8, 0); // Losses
+                user.setInt(9, 0); // Time elapsed (seconds)
+                user.setString(0, "0 0 0 0 0 0 0 0 "); // Knight, archer, giant, skeleton (health, attack)
+                user.setString(1, "0 0 0 0 "); // Towers (elixir, tombstone)
+                user.setString(2, "0 0 0 0 "); // Spells (fireball, poison)
+                user.setString(3, "0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "); // 15 levels
                 user.store();
-            }
-        }
-        if (Greenfoot.mouseClicked(medium)){
-            if (UserInfo.isStorageAvailable()){
-                user = UserInfo.getMyInfo();
-                user.setInt(1, 2);
-                user.store();
-            }
-        }
-        if (Greenfoot.mouseClicked(hard)){
-            if (UserInfo.isStorageAvailable()){
-                user = UserInfo.getMyInfo();
-                user.setInt(1, 3);
-                user.store();
+                if (user.getInt(3) == 0){
+                    if (music != null){
+                        music.stop();
+                    }
+                }
+                else {
+                    if (music != null){
+                        music.stop();
+                    }
+                    music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
+                    music.play();
+                }
+                gemsLabel.getImage().clear();
+                gemsLabel.update(Integer.toString(user.getInt(0)));
+                sliderLabel.getImage().clear();
+                sliderLabel.update(Integer.toString(user.getInt(2)));
+                slider.setValue(user.getInt(2));
+                slider.updateImage();
+                if (music != null){
+                    music.setVolume(user.getInt(2));
+                }
             }
         }
     }

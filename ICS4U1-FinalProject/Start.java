@@ -34,7 +34,7 @@ public class Start extends World
         // Create a new world with 900 x 600 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
         
-        background = new Image(new GreenfootImage("startbackground.png"));
+        background = new Image(new GreenfootImage("Worlds/startbackground.png"));
         addObject(background, getWidth() / 2, getHeight() / 2);
         
         myKing = new Image(new GreenfootImage("myking.png"));

@@ -124,22 +124,22 @@ public class Shop extends World
             String[] parsed2 = user.getString(2).split(" ");
             this.powerups.add(new ShopItem(100, "CastleHealth", user.getInt(5) + 1)); 
             this.powerups.add(new ShopItem(100, "ElixirBarSpeed", user.getInt(4) + 1)); 
-            this.powerups.add(new ShopItem(100, "KnightHealth", Integer.valueOf(parsed0[0])));
-            this.powerups.add(new ShopItem(400, "KnightAttack", Integer.valueOf(parsed0[1])));
-            this.powerups.add(new ShopItem(300, "ArcherHealth", Integer.valueOf(parsed0[2])));
-            this.powerups.add(new ShopItem(200, "ArcherAttack", Integer.valueOf(parsed0[3])));
-            this.powerups.add(new ShopItem(300, "GiantHealth", Integer.valueOf(parsed0[4])));
-            this.powerups.add(new ShopItem(300, "GiantAttack", Integer.valueOf(parsed0[5])));
-            this.powerups.add(new ShopItem(300, "SkeletonHealth", Integer.valueOf(parsed0[6])));
-            this.powerups.add(new ShopItem(300, "SkeletonAttack", Integer.valueOf(parsed0[7])));
-            this.powerups.add(new ShopItem(300, "ElixirHealth", Integer.valueOf(parsed1[0])));
-            this.powerups.add(new ShopItem(200, "ElixirSpeed", Integer.valueOf(parsed1[1])));
-            this.powerups.add(new ShopItem(400, "FireballAttack", Integer.valueOf(parsed1[2])));
-            this.powerups.add(new ShopItem(400, "FireballRadius", Integer.valueOf(parsed1[3])));
-            this.powerups.add(new ShopItem(300, "PoisonAttack", Integer.valueOf(parsed2[0])));
-            this.powerups.add(new ShopItem(300, "PoisonDuration", Integer.valueOf(parsed2[1])));
-            this.powerups.add(new ShopItem(400, "TombstoneCooldown", Integer.valueOf(parsed2[2])));
-            this.powerups.add(new ShopItem(400, "TombstoneHealth", Integer.valueOf(parsed2[3])));
+            this.powerups.add(new ShopItem(100, "KnightHealth", Integer.valueOf(parsed0[0]) + 1));
+            this.powerups.add(new ShopItem(400, "KnightAttack", Integer.valueOf(parsed0[1]) + 1));
+            this.powerups.add(new ShopItem(300, "ArcherHealth", Integer.valueOf(parsed0[2]) + 1));
+            this.powerups.add(new ShopItem(200, "ArcherAttack", Integer.valueOf(parsed0[3]) + 1));
+            this.powerups.add(new ShopItem(300, "GiantHealth", Integer.valueOf(parsed0[4]) + 1));
+            this.powerups.add(new ShopItem(300, "GiantAttack", Integer.valueOf(parsed0[5]) + 1));
+            this.powerups.add(new ShopItem(300, "SkeletonHealth", Integer.valueOf(parsed0[6]) + 1));
+            this.powerups.add(new ShopItem(300, "SkeletonAttack", Integer.valueOf(parsed0[7]) + 1));
+            this.powerups.add(new ShopItem(300, "ElixirHealth", Integer.valueOf(parsed1[0]) + 1));
+            this.powerups.add(new ShopItem(200, "ElixirSpeed", Integer.valueOf(parsed1[1]) + 1));
+            this.powerups.add(new ShopItem(400, "FireballAttack", Integer.valueOf(parsed1[2]) + 1));
+            this.powerups.add(new ShopItem(400, "FireballRadius", Integer.valueOf(parsed1[3]) + 1));
+            this.powerups.add(new ShopItem(300, "PoisonAttack", Integer.valueOf(parsed2[0]) + 1));
+            this.powerups.add(new ShopItem(300, "PoisonDuration", Integer.valueOf(parsed2[1]) + 1));
+            this.powerups.add(new ShopItem(400, "TombstoneCooldown", Integer.valueOf(parsed2[2]) + 1));
+            this.powerups.add(new ShopItem(400, "TombstoneHealth", Integer.valueOf(parsed2[3]) + 1));
         }
         else {
             this.powerups.add(new ShopItem(100, "CastleHealth", 1)); 
@@ -308,7 +308,7 @@ public class Shop extends World
                         String s = String.join(" ", parsed);
                         user.setString(1, s);
                     }
-                    else if (itm.getType().equals("SkeletonCooldown")){
+                    else if (itm.getType().equals("TombstoneCooldown")){
                         String[] parsed = user.getString(1).split(" ");
                         parsed[3] = Integer.toString(Integer.valueOf(parsed[3]));
                         String s = String.join(" ", parsed);
