@@ -71,6 +71,7 @@ public class Start extends World
         addObject(startButton, 600, 500);
         
         String str;
+        
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             String check = user.getString(0);
