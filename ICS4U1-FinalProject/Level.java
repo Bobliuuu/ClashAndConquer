@@ -423,6 +423,7 @@ public class Level extends World
                     user.store();
                 }
                 user.setInt(7, user.getInt(7) + 1);
+                user.setScore(user.getScore() + 1);
                 user.store();
             }
             isVictory = false; 
