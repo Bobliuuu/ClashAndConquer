@@ -1,14 +1,19 @@
 #BlueJ class context
 comment0.target=Knight
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Knight\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ The\ Knight\ Troop.\ It's\ the\ most\ basic\ troop\ that\ attacks\ with\ a\ sword.\n\ \n\ @author\ Matthew\ Gong,\ Jerry\ Zhu\n\ @version\ January\ 2022\n
 comment1.params=isEnemy
 comment1.target=Knight(boolean)
+comment1.text=\n\ The\ most\ basic\ constructor\ for\ the\ Knight\ class\n\ \n\ @param\ isEnemy\ \ \ \ Whether\ the\ Knight\ belongs\ to\ the\ enemy\n
 comment2.params=health\ attk\ movementSpeed\ attackSpeed\ radius\ isEnemy
 comment2.target=Knight(int,\ int,\ double,\ double,\ double,\ boolean)
+comment2.text=\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ health,\ attack,\ movement\ speed,\ attack\ speed,\ attack\ radius,\ and\ alignment\n\ \n\ @param\ health\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ health\ the\ Knight\ has\n\ @param\ attk\ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ attack\ points\ the\ Knight\ has\n\ @param\ movementSpeed\ \ \ \ \ How\ fast\ the\ Knight\ moves\n\ @param\ attackSpeed\ \ \ \ \ \ \ How\ fast\ the\ Knight\ attacks\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Knight\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Knight\ belongs\ to\ the\ enemy\n
 comment3.params=
 comment3.target=void\ animate()
+comment3.text=\n\ Animates\ the\ movement\ of\ Knight\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\n
 comment4.params=
 comment4.target=void\ attackAnimate()
+comment4.text=\n\ Animates\ the\ Knight's\ attack\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\n
 comment5.params=
 comment5.target=int\ getAttackCounter()
+comment5.text=\n\ Returns\ the\ current\ act\ count\ for\ the\ attack\ animation\n
 numComments=6

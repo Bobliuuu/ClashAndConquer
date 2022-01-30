@@ -1,17 +1,19 @@
 #BlueJ class context
 comment0.target=Tombstone
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ GoblinHut\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ A\ building\ that\ spawns\ a\ number\ of\ Skeletons\ over\ time\ until\ it\ is\ destroyed\n\ \n\ @author\ Matthew\ Gong\n\ @version\ January\ 2022\n
 comment1.params=health\ isEnemy
 comment1.target=Tombstone(int,\ boolean)
+comment1.text=\n\ The\ most\ basic\ constructor\ for\ the\ Tombstone\ class\n\ \n\ @param\ health\ \ \ \ \ The\ amount\ of\ health\ the\ Tombstone\ has\n\ @param\ isEnemy\ \ \ \ Whether\ the\ Tombstone\ and\ its\ Skeleton\ belongs\ to\ the\ enemy\n
 comment2.params=health\ isEnemy\ cooldown
 comment2.target=Tombstone(int,\ boolean,\ int)
+comment2.text=\n\ Similar\ to\ above\ but\ the\ cooldown\ between\ Skeleton\ summonings\ is\ customizable\n\ \n\ @param\ health\ \ \ \ \ The\ amount\ of\ health\ the\ Tombstone\ has\n\ @param\ isEnemy\ \ \ \ Whether\ the\ Tombstone\ belongs\ to\ the\ enemy\n\ @param\ cooldown\ \ \ How\ many\ acts\ between\ each\ Skeleton\ summoning\n
 comment3.params=world
 comment3.target=void\ addedToWorld(greenfoot.World)
+comment3.text=\n\ Upon\ being\ added\ to\ the\ World,\ the\ health\ bar\ is\ added\n
 comment4.params=
 comment4.target=void\ act()
-comment4.text=\r\n\ Act\ -\ do\ whatever\ the\ GoblinHut\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-comment5.params=cd
-comment5.target=void\ setCooldown(int)
-comment6.params=value
-comment6.target=void\ subtractHealth(int)
-numComments=7
+comment4.text=\n\ Act\ -\ do\ whatever\ the\ Tombstone\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment5.params=value
+comment5.target=void\ subtractHealth(int)
+comment5.text=\n\ Removes\ health\ from\ the\ Tombstone\ and\ if\ the\ health\ reaches\ zero\ then\ it\ removes\ itself\n
+numComments=6

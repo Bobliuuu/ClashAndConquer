@@ -63,7 +63,7 @@ public class Level extends World
         
         this.levelValue = levelValue;
         
-        levelMap = new Image(new GreenfootImage("background.png"));
+        levelMap = new Image(new GreenfootImage("Worlds/background.png"));
         addObject(levelMap, getWidth()/2, getHeight()/2);
         
         myCastle = new Castle(false, 150, 150, 200, 100);
@@ -224,7 +224,7 @@ public class Level extends World
                         elixirBar.useElixir(6);
                         removeObject(unplacedTroop);
                         unplacedTroop = new Image();
-                        Tombstone placedTroop = new Tombstone(4, false);
+                        Tombstone placedTroop = new Tombstone(200, false);
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
                         setTroopSelected("Blank");
@@ -238,7 +238,7 @@ public class Level extends World
                     removeObject(unplacedTroop);
                     unplacedTroop = new Image();
                     Fireball placedTroop = new Fireball(60, 6, 80, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    addObject(placedTroop, 400, 680);
                     redZone.setToNone();
                     setTroopSelected("Blank");
                     removeObject(cardDeck.getCardAtIndex(cardIndex+1));
@@ -278,10 +278,10 @@ public class Level extends World
         troopIsSelected = true;
         troopSelected = cardName;
         if (cardName == "Fireball"){
-            unplacedTroop = new Image(new GreenfootImage("FireballAttack1.png"));
+            unplacedTroop = new Image(new GreenfootImage("Spells/Fireball/FireballAttack0.png"));
         }
         else if (cardName == "Poison"){
-            unplacedTroop = new Image(new GreenfootImage("PoisonAttack0.png"));
+            unplacedTroop = new Image(new GreenfootImage("Spells/Poison/PoisonAttack0.png"));
         }
         else if (cardName == "Elixirtower"){
             unplacedTroop = new Image(new GreenfootImage("elixircollectorlevel1.png"));

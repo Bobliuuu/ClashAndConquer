@@ -1,10 +1,13 @@
 #BlueJ class context
 comment0.target=Fireball
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Fireball\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\n\ A\ spells\ that\ sends\ a\ ball\ that\ deals\ massive\ damage\ to\ anything\ within\ it\ radius\n\ \n\ @author\ Matthew\ Gong\n\ @version\ January\ 2022\n
 comment1.params=atk\ spd\ rds\ enemy\ x\ y
 comment1.target=Fireball(int,\ double,\ int,\ boolean,\ int,\ int)
+comment1.text=\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ attack,\ speed,\ attack\ radius,\ alignment,\ and\ target\ location\n\ \n\ @param\ attack\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ damage\ the\ Fireball\ deals\n\ @param\ speed\ \ \ \ \ \ \ \ \ \ \ \ \ How\ fast\ the\ Fireball\ moves\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Fireball\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Fireball\ belongs\ to\ the\ enemy\n\ @param\ x\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ x-coordinate\ of\ the\ target\ location\n\ @param\ y\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ y-coordinate\ of\ the\ target\ location\n
 comment2.params=
 comment2.target=void\ animate()
+comment2.text=\n\ Animates\ the\ movement\ of\ Fireball\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\n
 comment3.params=
 comment3.target=void\ attackAnimate()
+comment3.text=\n\ Animates\ the\ Fireball's\ attack\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\n
 numComments=4

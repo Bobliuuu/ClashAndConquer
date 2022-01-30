@@ -84,8 +84,7 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
-    public void act()
-    {
+    public void act(){
         animate();
         findTarget();
         moveTowardsTarget();
@@ -232,18 +231,6 @@ public abstract class Troop extends SuperSmoothMover
     
     public void getHit(int dmg, String status){
         health -= dmg;
-        
-        // apply different effects depending on status
-        switch(status){
-            default:
-                // nothing
-            case "Slow":
-                movementSpeed /= 2;
-                attackSpeed /= 2;
-                statusLength = 100;
-            case "Frozen":
-                // stopped temporarily
-        }
         
         // check if health has dropped to zero
         if(health <= 0){

@@ -192,6 +192,11 @@ public class Castle extends Building
         return isDead;
     }
     
+    /**
+     * Changes the health of the Castle
+     * 
+     * @param health    The new health of the Castle
+     */
     public void setHealth(int health){
         this.health = health;
     }
