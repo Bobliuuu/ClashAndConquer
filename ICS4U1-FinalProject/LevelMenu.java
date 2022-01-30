@@ -17,9 +17,9 @@ public class LevelMenu extends World
     private int[][] circleCoordinates = {{200, 450}, {307, 414}, {403, 365}, {276, 296}, {26, 269}, {205, 270}, {308, 564}, {443, 586}, 
                                         {601, 545}, {733, 556}, {829, 605}, {916, 575}, {925, 426}, {970, 315}, {904, 282}, {817, 253}, 
                                         {905, 190}, {921, 114}, {812, 91}, {691, 94}, {626, 117}, {554, 157}, {478, 225}, {413, 296}, 
-                                        {507, 324}, {122, 282}};
+                                        {507, 324}, {122, 282}, {449, 168}};
     private int[][] rectangleCoordinates = {{508, 300}, {200, 425}, {443, 560}, {733, 530}, {916, 550}, {970, 290}, {817, 226}, {905, 166}, 
-                                            {812, 67}, {691, 70}, {449, 159}, {413, 250}, {276, 270}, {122, 258}, {26, 244}};
+                                            {812, 67}, {691, 70}, {449, 143}, {413, 270}, {276, 270}, {122, 258}, {26, 244}};
     private Image backButton;
     private UserInfo user;
     private GreenfootSound music;
@@ -37,7 +37,7 @@ public class LevelMenu extends World
         map = new Image(new GreenfootImage("Worlds/mapselect.png"));
         addObject(map, getWidth()/2, getHeight()/2);
         
-        for (int i = 0; i < 26; i++){
+        for (int i = 0; i < 27; i++){
             Circle temp = new Circle(Color.BLUE, 30, true, 1);
             addObject(temp, circleCoordinates[i][0], circleCoordinates[i][1]);
         }
