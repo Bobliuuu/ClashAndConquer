@@ -78,7 +78,7 @@ public class ElixirTower extends Building
     }
     
     /**
-     * Removes health from the Tombstone and if the health reaches zero then it removes itself
+     * Removes health from the Elixir tower and if the health reaches zero then it removes itself
      */
     public void subtractHealth(int value){
         health -= value;
