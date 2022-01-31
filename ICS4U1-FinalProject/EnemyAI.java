@@ -144,8 +144,8 @@ public class EnemyAI extends Actor
             spawnChances[0] = 35;
             spawnChances[1] = 25;
             spawnChances[2] = 20;
-            spawnChances[3] = 15;
-            spawnChances[4] = 5;
+            spawnChances[3] = 17;
+            spawnChances[4] = 3;
             attackIncrease = 120;
             healthIncrease = 120;
         }
@@ -155,8 +155,8 @@ public class EnemyAI extends Actor
             spawnChances[0] = 35;
             spawnChances[1] = 25;
             spawnChances[2] = 20;
-            spawnChances[3] = 13;
-            spawnChances[4] = 7;
+            spawnChances[3] = 15;
+            spawnChances[4] = 5;
             attackIncrease = 132;
             healthIncrease = 132;
         }
@@ -166,8 +166,8 @@ public class EnemyAI extends Actor
             spawnChances[0] = 30;
             spawnChances[1] = 25;
             spawnChances[2] = 20;
-            spawnChances[3] = 15;
-            spawnChances[4] = 10;
+            spawnChances[3] = 18;
+            spawnChances[4] = 7;
             attackIncrease = 144;
             healthIncrease = 144;
         }
