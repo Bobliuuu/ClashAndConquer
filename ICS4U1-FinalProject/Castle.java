@@ -148,7 +148,7 @@ public class Castle extends Building
      */
     private void attack(){
         if(currentTarget != null){
-            getWorld().addObject(new Projectile(10, 8, currentTarget), getX(), getY());
+            getWorld().addObject(new Projectile(30, 8, currentTarget), getX(), getY());
             cooldown = 40;
         }
     }
@@ -170,8 +170,10 @@ public class Castle extends Building
      * @param value     The health to be subtracted. 
      */
     public void subtractHealth(int value){
+        System.out.println("backup");
         if (!isDead){
             health -= value;
+            System.out.println(health);
             if (health <= 0){
                 isDead = true;
                 Image destroyedCastle = new Image(new GreenfootImage("castledestroyed.png"));

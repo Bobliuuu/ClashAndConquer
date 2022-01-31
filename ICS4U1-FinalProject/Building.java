@@ -3,7 +3,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Building Class
  * <p>
- * Abstract superclass for buildings to be placed in the 
+ * Abstract superclass for buildings to be placed in the level. 
  * 
  * @author Jerry Zhu
  * @version January 2022
@@ -26,6 +26,11 @@ public abstract class Building extends SuperSmoothMover
     // Abstract method to subtract health from building on attack
     public abstract void subtractHealth(int health);
     
+    /**
+     * Checks if the building is an enemy.
+     * 
+     * @return boolean   If the building is an enemy or not. 
+     */
     public boolean enemy(){
         return isEnemy;
     }

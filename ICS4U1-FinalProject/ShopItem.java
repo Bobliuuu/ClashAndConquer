@@ -1,13 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.ArrayList;
 /**
- * Write a description of class ShopItems here.
+ * ShopItem Class
+ * <p>
+ * 
  * 
  * @author Ibrahim Rahman
  * @version January 2022
  */
 public class ShopItem extends Actor
 {
+    // Instance variables
     private int cost;
     private int level;
     private String type;
@@ -89,27 +92,57 @@ public class ShopItem extends Actor
         // Add your action code here.
     }
 
+    /**
+     * Get the cost of the shop item. 
+     * 
+     * @return int     The cost of the desired shop item. 
+     */
     public int getCost() {
         return this.cost;
     }
     
+    /**
+     * Set the cost of the shop item
+     * 
+     * @param cost     The cost of the item. 
+     */
     public void setCost(int cost) {
         this.cost = cost;
     }
 
+    /**
+     * Get the type of the shop item.
+     * 
+     * @return String  The type of the shop item. 
+     */
     public String getType(){
         return this.type;
     }
 
+    /**
+     * Set the type of shop item. 
+     * 
+     * @param type   The desired type of the shop item. 
+     */
     public void setType(String type){
         this.type = type;
     }
     
-    protected int getLevel() {
+    /**
+     * Get the level of the shop item
+     * 
+     * @return int  The desired level of the shop item. 
+     */
+    public int getLevel() {
         return this.level;
     }
     
-    protected void setLevel(int level) {
+    /**
+     * Set the level of the shop item. 
+     * 
+     * @return int  The desired level of the shop item. 
+     */
+    public void setLevel(int level) {
         this.level = level;
     }
 }

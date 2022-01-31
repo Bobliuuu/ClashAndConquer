@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=EnemyAI
-comment0.text=\r\n\ The\ class\ that\ controls\ how\ the\ enemy\ acts\ during\ the\ levels\ and\ how\ it\ changes\ depending\ on\ the\ level\r\n\ \r\n\ @author\ Matthew\ Gong,\ Daniel\ Qian\r\n\ @version\ January\ 2022\r\n
+comment0.text=\r\n\ The\ class\ that\ controls\ how\ the\ enemy\ acts\ during\ the\ levels\ and\ how\ it\ changes\ depending\ on\ the\ level\r\n\ \r\n\ @author\ Matthew\ Gong,\ Daniel\ Qian.\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
 comment1.params=level\ half
 comment1.target=EnemyAI(int,\ boolean)
 comment1.text=\r\n\ Basic\ constructor\ for\ an\ enemy\ AI,\ given\ a\ certain\ level\r\n\ \r\n\ @param\ level\ \ \ \ \ The\ level\ that\ the\ enemy\ AI\ is\ being\ creeated\ on\r\n\ @param\ half\ \ \ \ \ \ Whether\ the\ enemyAI\ is\ on\ easy\ mode\ \r\n
