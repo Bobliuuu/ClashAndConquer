@@ -72,8 +72,9 @@ public class Tombstone extends Building
             Skeleton skel;
             if (UserInfo.isStorageAvailable()){
                 user = UserInfo.getMyInfo();
-                String[] parsed = user.getString(1).split(" ");
-                skel = new Skeleton(25 + 14 * Integer.valueOf(parsed[2]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, isEnemy);
+                String[] parsed0 = user.getString(0).split(" ");
+                String[] parsed1 = user.getString(1).split(" ");
+                skel = new Skeleton(25 + 14 * Integer.valueOf(parsed1[2]), 8 + 14 * Integer.valueOf(parsed0[7]), 1, 6, isEnemy);
             }
             else {
                 skel = new Skeleton(25, 8, 1, 6, isEnemy);
