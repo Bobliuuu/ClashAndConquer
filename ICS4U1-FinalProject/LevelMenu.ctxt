@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=LevelMenu
-comment0.text=\n\ Level\ menu\ class\ for\ the\ map\ that\ the\ player\ can\ select\ levels\ from.\ \n\ Implements\ 2D\ arrays\ to\ store\ coordinates\ for\ the\ level\ markers.\ \n\ \n\ @author\ Jerry\ Zhu\n\ @version\ January\ 2022\n
+comment0.text=\r\n\ Level\ menu\ class\ for\ the\ map\ that\ the\ player\ can\ select\ levels\ from.\ \r\n\ Implements\ 2D\ arrays\ to\ store\ coordinates\ for\ the\ level\ markers.\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
 comment1.params=
 comment1.target=LevelMenu()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ LevelMenu.\ \n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ LevelMenu.\ \r\n
 comment2.params=
 comment2.target=void\ started()
-comment2.text=\n\ When\ World\ is\ created,\ start\ the\ music\ and\ set\ the\ volume.\ \n
+comment2.text=\r\n\ When\ World\ is\ created,\ start\ the\ music\ and\ set\ the\ volume.\ \r\n
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\n\ Act\ method\ to\ be\ run\ every\ iteration.\ \n
+comment3.text=\r\n\ Act\ method\ to\ be\ run\ every\ iteration.\ \r\n
 comment4.params=
 comment4.target=void\ checkClick()
-comment4.text=\n\ Check\ if\ any\ of\ the\ levels\ have\ been\ clicked,\ and\ load\ the\ corresponding\ level\ if\ necessary.\ \n
+comment4.text=\r\n\ Check\ if\ any\ of\ the\ levels\ have\ been\ clicked,\ and\ load\ the\ corresponding\ level\ if\ necessary.\ \r\n
 comment5.params=
 comment5.target=void\ checkMousePosition()
-comment5.text=\n\ Debug\ method\ to\ check\ the\ mouse\ position\ of\ the\ player\ on\ click.\ \n
+comment5.text=\r\n\ Debug\ method\ to\ check\ the\ mouse\ position\ of\ the\ player\ on\ click.\ \r\n
 numComments=6
