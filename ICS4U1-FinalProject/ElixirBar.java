@@ -45,6 +45,7 @@ public class ElixirBar extends Actor
     /**
      * Similar to above, but with the ability to customize starting elixir.
      * @param elixirSpeed     The speed of elixir increase. 
+     * @param elixir          Amount of elixir. 
      */
     public ElixirBar(double elixirSpeed, double elixir)
     {
@@ -115,6 +116,7 @@ public class ElixirBar extends Actor
     
     /**
      * Increase the elixir speed by the elixir towers
+     * @param amount        The amount of elixir used.
      */    
     public void increaseElixirSpeed(double amount){
         elixirSpeed += amount;
@@ -122,6 +124,7 @@ public class ElixirBar extends Actor
     
     /**
      * Decrease the elixir speed by the elixir towers being destroyed
+     * @param amount        The amount of elixir used.
      */    
     public void decreaseElixirSpeed(double amount){
         elixirSpeed -= amount;
