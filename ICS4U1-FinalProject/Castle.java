@@ -170,10 +170,8 @@ public class Castle extends Building
      * @param value     The health to be subtracted. 
      */
     public void subtractHealth(int value){
-        System.out.println("backup");
         if (!isDead){
             health -= value;
-            System.out.println(health);
             if (health <= 0){
                 isDead = true;
                 Image destroyedCastle = new Image(new GreenfootImage("castledestroyed.png"));
@@ -204,5 +202,14 @@ public class Castle extends Building
      */
     public void setHealth(int health){
         this.health = health;
+    }
+    
+    /**
+     * Gets the health of the Castle
+     * 
+     * @return int     The health of the desired troop. 
+     */
+    public int getHealth(){
+        return health;
     }
 }

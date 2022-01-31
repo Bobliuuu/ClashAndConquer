@@ -19,7 +19,7 @@ public class Skeleton extends Troop
      * @param isEnemy    Whether the Skeleton belongs to the enemy
      */
     public Skeleton(boolean isEnemy){
-        super(100, 10, 1, 3, 50, isEnemy);
+        super(100, 10, 1, 3, 50, 20, isEnemy);
         // setting the inital values for the counters
         animationCount = 0;
         attackCount = -1;
@@ -42,8 +42,8 @@ public class Skeleton extends Troop
      * @param radius            Attack radius of the Skeleton
      * @param isEnemy           Whether the Skeleton belongs to the enemy
      */
-    public Skeleton(int health, int attk, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
-        super(health, attk, movementSpeed, attackSpeed, radius, isEnemy);
+    public Skeleton(int health, int attk, double movementSpeed, double attackSpeed, boolean isEnemy){
+        super(health, attk, movementSpeed, attackSpeed, 80, 40, isEnemy);
         // setting the inital values for the counters
         animationCount = 0;
         attackCount = -1;

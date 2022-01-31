@@ -245,6 +245,7 @@ dependency9.from=LevelMenu
 dependency9.to=Rectangle
 dependency9.type=UsesDependency
 editor.fx.0.height=1176
+editor.fx.0.height=1056
 editor.fx.0.width=1936
 editor.fx.0.x=-8
 editor.fx.0.y=-8

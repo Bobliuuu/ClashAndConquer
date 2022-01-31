@@ -61,19 +61,19 @@ public class Level extends World
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             myCastle = new Castle(false, 150, 150, 200);
-            myCastle.setHealth(400 + user.getInt(5) * 50);
+            myCastle.setHealth(200 + user.getInt(5) * 40);
             myCastle.getImage().scale(80, 100);
             addObject(myCastle, 400, 680);
         }
         else {
             myCastle = new Castle(false, 150, 150, 200);
-            myCastle.setHealth(400);
+            myCastle.setHealth(200);
             myCastle.getImage().scale(80, 100);
             addObject(myCastle, 400, 680);
         }
         
         enemyCastle = new Castle(true, 130, 130, 120);
-        enemyCastle.setHealth(300 + (40*(levelValue-1) + Greenfoot.getRandomNumber(50)));
+        enemyCastle.setHealth(180 + (30*(levelValue-1) + Greenfoot.getRandomNumber(50)));
         addObject(enemyCastle, 400, 100);
         
         elixir = new Image(new GreenfootImage("elixirbar.png"));
@@ -168,7 +168,7 @@ public class Level extends World
             }
             if (!unplacedTroop.getEmpty() && !unplacedTroop.checkTouchingCastle()){
                 if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650){
+                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 700){
                     if (elixirBar.hasElixir(3) && troopSelected.equals("Knight")){
                         elixirBar.useElixir(3);
                         removeObject(unplacedTroop);
@@ -176,10 +176,10 @@ public class Level extends World
                         Knight placedTroop;
                         if (UserInfo.isStorageAvailable()){
                             String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Knight(110 + 14 * Integer.valueOf(parsed[0]), 15 + 14 * Integer.valueOf(parsed[1]), 1, 3, 150, false);
+                            placedTroop = new Knight(110 + 14 * Integer.valueOf(parsed[0]), 15 + 14 * Integer.valueOf(parsed[1]), 1, 3, false);
                         }
                         else {
-                            placedTroop = new Knight(110, 15, 1, 3, 150, false);
+                            placedTroop = new Knight(110, 15, 1, 3, false);
                         }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
@@ -195,10 +195,10 @@ public class Level extends World
                         Archer placedTroop;
                         if (UserInfo.isStorageAvailable()){
                             String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Archer(80 + 14 * Integer.valueOf(parsed[2]), 10 + 14 * Integer.valueOf(parsed[3]), 1, 6, 200, false);
+                            placedTroop = new Archer(80 + 14 * Integer.valueOf(parsed[2]), 10 + 14 * Integer.valueOf(parsed[3]), 1, 6, false);
                         }
                         else {
-                            placedTroop = new Archer(80, 10, 1, 6, 200, false);
+                            placedTroop = new Archer(80, 10, 1, 6, false);
                         }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
@@ -214,10 +214,10 @@ public class Level extends World
                         Giant placedTroop;
                         if (UserInfo.isStorageAvailable()){
                             String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Giant(250 + 14 * Integer.valueOf(parsed[4]), 20 + 14 * Integer.valueOf(parsed[5]), 1, 6, 200, false);
+                            placedTroop = new Giant(250 + 14 * Integer.valueOf(parsed[4]), 20 + 14 * Integer.valueOf(parsed[5]), 1, 6, false);
                         }
                         else {
-                            placedTroop = new Giant(250, 20, 1, 6, 200, false);
+                            placedTroop = new Giant(250, 20, 1, 6, false);
                         }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                         redZone.setToNone();
@@ -238,20 +238,20 @@ public class Level extends World
                         Skeleton placedTroop6;
                         if (UserInfo.isStorageAvailable()){
                             String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 120, false);
-                            placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 120, false);
-                            placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 120, false);
-                            placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 120, false);
-                            placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 120, false);
-                            placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, 120, false);
+                            placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                            placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                            placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                            placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                            placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                            placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
                         }
                         else {
-                            placedTroop = new Skeleton(25, 8, 1, 6, 120, false);
-                            placedTroop2 = new Skeleton(25, 8, 1, 6, 120, false);
-                            placedTroop3 = new Skeleton(25, 8, 1, 6, 120, false);
-                            placedTroop4 = new Skeleton(25, 8, 1, 6, 120, false);
-                            placedTroop5 = new Skeleton(25, 8, 1, 6, 120, false);
-                            placedTroop6 = new Skeleton(25, 8, 1, 6, 120, false);
+                            placedTroop = new Skeleton(25, 8, 1, 6, false);
+                            placedTroop2 = new Skeleton(25, 8, 1, 6, false);
+                            placedTroop3 = new Skeleton(25, 8, 1, 6, false);
+                            placedTroop4 = new Skeleton(25, 8, 1, 6, false);
+                            placedTroop5 = new Skeleton(25, 8, 1, 6, false);
+                            placedTroop6 = new Skeleton(25, 8, 1, 6, false);
                         }
                         addObject(placedTroop, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY());
                         addObject(placedTroop2, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY());
@@ -268,7 +268,7 @@ public class Level extends World
                 }
                 // Tower region
                 if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 650){
+                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 680){
                     if (elixirBar.hasElixir(6) && troopSelected.equals("Elixirtower")){
                         elixirBar.useElixir(6);
                         removeObject(unplacedTroop);
@@ -335,7 +335,7 @@ public class Level extends World
                 Poison placedTroop;
                 if (UserInfo.isStorageAvailable()){
                     String[] parsed = user.getString(2).split(" ");
-                    placedTroop = new Poison(25 + 14 * Integer.valueOf(parsed[2]), 8 + Integer.valueOf(parsed[3]), 80, false);
+                    placedTroop = new Poison(20 + 10 * Integer.valueOf(parsed[2]), Integer.valueOf(parsed[3]), 80, false);
                 }
                 else {
                     placedTroop = new Poison(25, 8, 80, false);

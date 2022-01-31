@@ -18,6 +18,7 @@ public abstract class Troop extends SuperSmoothMover
     protected int statusLength;
     protected int actNumber;
     protected double radius;
+    protected double radius2;
     protected double movementSpeed;
     protected double attackSpeed;
     protected boolean isEnemy;
@@ -37,12 +38,13 @@ public abstract class Troop extends SuperSmoothMover
      * @param movementSpeed  The movement speed of the troop. 
      * @param attackSpeed    The attack speed of the troop. 
      */
-    public Troop(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
+    public Troop(int health, int attack, double movementSpeed, double attackSpeed, double radius, double radius2, boolean isEnemy){
         this.health = health;
         this.attack = attack;
         this.movementSpeed = movementSpeed;
         this.attackSpeed = attackSpeed;
         this.radius = radius;
+        this.radius2 = radius2;
         this.isEnemy = isEnemy;
         this.isAttacking = false;
         this.statusLength = 0;
@@ -167,9 +169,15 @@ public abstract class Troop extends SuperSmoothMover
      * Move the troop towards the target. 
      */
     public void moveTowardsTarget(){
+        //System.out.println(target);
         if (target != null){ //target exists
             turnTowards(target.getX(), target.getY());
-            attack();
+            if (findDistanceBetween(this, target) < radius2){
+                attack();
+            }
+            else {
+                move(movementSpeed);
+            }
         }
         else {
             if (!path.isEmpty()){

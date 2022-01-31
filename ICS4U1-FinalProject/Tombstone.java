@@ -8,8 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Tombstone extends Building
 {
+    // Instance variables
     private int cooldown, timer;    // tracking the cooldown and the current number of acts until it ends
     private SuperStatBar healthBar; // the health bar
+    private UserInfo user;
     
     /**
      * The most basic constructor for the Tombstone class
@@ -67,8 +69,17 @@ public class Tombstone extends Building
         else{
             // summoning a skeleton and resetting the cooldown
             timer = cooldown;
-            Skeleton goblin = new Skeleton(100, 10, 1, 3, 50, isEnemy);
-            ((Level)getWorld()).addObject(goblin, getX(), getY());
+            Skeleton skel;
+            if (UserInfo.isStorageAvailable()){
+                user = UserInfo.getMyInfo();
+                String[] parsed0 = user.getString(0).split(" ");
+                String[] parsed1 = user.getString(1).split(" ");
+                skel = new Skeleton(25 + 14 * Integer.valueOf(parsed1[2]), 8 + 14 * Integer.valueOf(parsed0[7]), 1, 6, isEnemy);
+            }
+            else {
+                skel = new Skeleton(25, 8, 1, 6, isEnemy);
+            }
+            ((Level)getWorld()).addObject(skel, getX(), getY());
         }
         healthBar.update(this.health);
     }
