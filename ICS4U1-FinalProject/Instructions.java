@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Iinstructions Class
+ * Instructions Class
  * 
  * @author Ibrahim Rahman, Jerry Zhu
  * @version January 2022
