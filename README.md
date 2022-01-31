@@ -5,7 +5,7 @@ Clash and Conquer is a battle arena game with 14 levels which progressively get 
 List of Features:
 - 14 complete levels which scale in difficulty
 - 9 playable cards
-- shop menu with 20 different upgrades to match card level
+- shop menu with 18 unique upgrades to match card level
 - player stats tracking (including level, win/loss ratio, gems spent, time played)
 - leaderboard of top players
 - changeable music
