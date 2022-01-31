@@ -10,6 +10,7 @@ import java.util.ArrayList;
  */
 public class Shop extends World
 {
+    // Instance Variables
     private GreenfootImage background;
     private Image backButton;
     private Image gems;
@@ -20,8 +21,14 @@ public class Shop extends World
     private Image purchaseButton;
     private Image backItemButton;
     private Image forwardItemButton;
+    
+    // ArrayList to hold shop item images
     private ArrayList<ShopItem> powerups;
+
+    // ArrayList to hold shop item buy buttons
     private ArrayList<TextButton> buybuttons;
+    
+    // ArrayList to hold the level of every item
     private ArrayList<SuperTextBox> levels;
     private int shopItemIndex;
     private int gemsCount;
@@ -31,23 +38,45 @@ public class Shop extends World
     private static final Color orange = new Color(255, 134, 45);
     private final int[] powerupMultiplier = {}; // Feature
     
+    /**
+     * Uses the position of the item to display it on the background (for use when moving through pages of items). 
+     * 
+     * @param position Position of the item in the ArrayList. 
+     */
     private void displayPowerUp (int position)
     {
-        for (int counter = 0; counter < 3; counter++) {     
+        for (int counter = 0; counter < 3; counter++) {  
+            // Determines the correct shop item to get. 
             ShopItem powerup = powerups.get((position + counter) % powerups.size());   
+            
+            // Gets the image of the shop item, and scales it. 
             powerup.getImage().scale(292, 430);
+            
+            // Adds the image object to the screen and spaced correctly. 
             addObject(powerup, 150+(300*counter), 300);
 
+            // Gets the corresponding buy button from its ArrayList. 
             TextButton btn = buybuttons.get((position + counter) % powerups.size());
+            
+            // Adds buy button object to world. 
             addObject (btn, 150+(300*counter), 480);
             
+            // Creates a new text box to display the item's level from its Array List.
             SuperTextBox lvl = levels.get((position + counter) % powerups.size());
+            
+            // Adds object to world. 
             addObject (lvl, 150+(300*counter), 380);
         }
     }
 
+    /**
+     * Clears the powerups from the world when the world is scrolling. 
+     * 
+     * @param prevposition Previous position of item in the ArrayList. 
+     */
     private void clearPowerUp (int prevposition)
     {       
+        // For every item currently on the screen, remove that item from the world. 
         for (int counter = 0; counter < 3; counter++) {     
             ShopItem powerup = powerups.get((prevposition + counter) % powerups.size());  
             TextButton btn = buybuttons.get((prevposition + counter) % powerups.size());
@@ -58,6 +87,11 @@ public class Shop extends World
         }
     }
     
+    /**
+     * Updates the gem count in the top left corner. 
+     * 
+     * 
+     */
     private void updateGemsCount() {
         removeObject(gemsLabel);
         //Font font2 = new Font("Verdana", true, false, 20);
@@ -76,10 +110,12 @@ public class Shop extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(900, 600, 1); 
         
+        // Adds background.
         background = new GreenfootImage("Worlds/ShopBackground.jpg");
         background.scale(getWidth(), getHeight());
         setBackground(background);
         
+        // Check if there is storage for the UserInfo Class. 
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             int gems = user.getInt(0);
@@ -89,6 +125,7 @@ public class Shop extends World
             this.gemsCount = 0;
         }
         
+        // Back button to return to start page. 
         backButton = new Image(new GreenfootImage("Buttons/backbutton.png"));
         backButton.getImage().scale(80, 50);
         addObject(backButton, 80, 50);
@@ -113,12 +150,12 @@ public class Shop extends World
         forwardItemButton.getImage().rotate(180);
         addObject(forwardItemButton, 500, 560);
         
+        // New ArrayList containing shop item images, buy buttons, and item level text. 
         this.powerups = new ArrayList<ShopItem>();
         this.buybuttons = new ArrayList<TextButton>();
         this.levels = new ArrayList<SuperTextBox>();
         
         // ShopItem(int cost, String type, int level)
-        // All powerup costs are for testing only
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             String[] parsed0 = user.getString(0).split(" ");
@@ -164,6 +201,7 @@ public class Shop extends World
             this.powerups.add(new ShopItem(400, "TombstoneHealth", 1));
         }
         
+        // Creates new buy buttons and item level text for each powerup in the ArrayList Powerups. 
         for (ShopItem powerup : powerups){
             powerup.setCost(powerup.getLevel() * 40);
             

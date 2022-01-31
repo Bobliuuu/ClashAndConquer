@@ -82,20 +82,11 @@ public class ShopItem extends Actor
         }
         setImage(image);
     }
-    
-    /**
-     * Act - do whatever the ShopItems wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act()
-    {
-        // Add your action code here.
-    }
 
     /**
      * Get the cost of the shop item. 
      * 
-     * @return int     The cost of the desired shop item. 
+     * @return int The cost of the desired shop item. 
      */
     public int getCost() {
         return this.cost;
@@ -104,7 +95,7 @@ public class ShopItem extends Actor
     /**
      * Set the cost of the shop item
      * 
-     * @param cost     The cost of the item. 
+     * @param cost The cost of the item. 
      */
     public void setCost(int cost) {
         this.cost = cost;
@@ -113,7 +104,7 @@ public class ShopItem extends Actor
     /**
      * Get the type of the shop item.
      * 
-     * @return String  The type of the shop item. 
+     * @return String The type of the shop item. 
      */
     public String getType(){
         return this.type;
@@ -122,7 +113,7 @@ public class ShopItem extends Actor
     /**
      * Set the type of shop item. 
      * 
-     * @param type   The desired type of the shop item. 
+     * @param type The desired type of the shop item. 
      */
     public void setType(String type){
         this.type = type;

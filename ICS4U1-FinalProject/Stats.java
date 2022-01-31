@@ -5,7 +5,7 @@ import greenfoot.UserInfo;
 /**
  * Stats page to display player info and leaderboard. 
  * 
- * @author Jerry Zhu
+ * @author Jerry Zhu, Ibrahim Rahman
  * @version January 2022
  */
 public class Stats extends World
