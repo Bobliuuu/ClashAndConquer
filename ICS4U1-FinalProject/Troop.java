@@ -264,28 +264,39 @@ public abstract class Troop extends SuperSmoothMover
         this.attack = attack;
     }
     
-    
-    
+    /**
+     * Set the health of the troop. 
+     * 
+     * @param health    The desired health of the troop. 
+     */
     public void setHealth(int health){
         this.health = health;
     }
     
+    /**
+     * Check if the current troop is an enemy. 
+     * 
+     * @return boolean   If the troop is an enemy. 
+     */
     public boolean enemy(){
         return isEnemy;
     }
     
-    public boolean setAttacking(boolean isAttacking){
-        return isAttacking;
-    }
-    
+    /**
+     * Set the enemy variable of the troop. 
+     * 
+     * @param isEnemy   Whether or not the troop should be an enemy. 
+     */
     public void setEnemy(boolean isEnemy){
         this.isEnemy = isEnemy;
     }
     
+    /**
+     * Find the next target enemy to target and attack. 
+     */
     private void findNextTarget(){
         ArrayList<Actor> possible = (ArrayList<Actor>)getWorld().getObjects(Actor.class);
         double closest = 900;
-        
         for(Actor a : possible){
             if(findDistanceBetween(this, a) < closest){
                 closest = findDistanceBetween(this, a);
@@ -294,23 +305,45 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
+    /**
+     * Called when the troop is hit by a projectile 
+     * 
+     * @param dmg       The damage taken to the troop. 
+     * @param status    The status of the projectile. 
+     */
     public void getHit(int dmg, String status){
         health -= dmg;
-        
         // check if health has dropped to zero
         if(health <= 0){
             getWorld().removeObject(this);
         }
     }
     
+    /**
+     * Find the distance between two actors. 
+     * 
+     * @param a1     The first actor. 
+     * @param a2     The second actor. 
+     */
     private double findDistanceBetween(Actor a1, Actor a2){
         return Math.sqrt(Math.pow(a1.getX() - a2.getX(), 2) + Math.pow(a1.getY() - a2.getY(), 2));
     }
     
+    /**
+     * Find distance between another actor with a certain x and y coordinate. 
+     * 
+     * @param x      The x coordinate of the actor
+     * @param y      The y coordinate of the actor
+     */
     private double findDistanceBetween(double x, double y){
         return Math.sqrt(Math.pow(this.getX() - x, 2) + Math.pow(this.getY() - y, 2));
     }
     
+    /**
+     * Get the width of the troop image. 
+     * 
+     * @return int    The width of the desired troop's image. 
+     */
     public int getWidth(){
         return getImage().getWidth();
     }
