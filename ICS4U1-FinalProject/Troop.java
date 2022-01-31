@@ -170,7 +170,7 @@ public abstract class Troop extends SuperSmoothMover
      */
     public void moveTowardsTarget(){
         //System.out.println(target);
-        if (target != null){ //target exists
+        if (target != null && target.getWorld() != null){ //target exists
             turnTowards(target.getX(), target.getY());
             if (findDistanceBetween(this, target) < radius2){
                 attack();
