@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.util.ArrayList;
 
 /**
  * The Giant Troop. It's a slow and powerful troop that only attacks Buildings
@@ -41,13 +42,23 @@ public class Giant extends Troop
      */
     public void findTarget(){
         target = null;
+        double closestDistance = radius;
+        ArrayList <Building> possibleTargets = (ArrayList <Building>) getWorld().getObjects(Building.class);
+        for (Building possible : possibleTargets){    
+            if (findDistanceBetween(possible, this) < closestDistance && ((Building)possible).enemy() != isEnemy){
+                target = (Building)possible;
+                closestDistance = findDistanceBetween(possible, this);
+                break;
+            }
+        }
+        
         if (((Level)getWorld()).getMyCastle().getWorld() != null && getWorld() != null){
-            if (isEnemy && findDistanceBetween(this, ((Level)getWorld()).getMyCastle()) <= 100){
+            if (isEnemy && findDistanceBetween(this, ((Level)getWorld()).getMyCastle()) <= closestDistance){
                 target = ((Level)getWorld()).getMyCastle();
             }
         }
         if (((Level)getWorld()).getEnemyCastle().getWorld() != null && getWorld() != null){
-            if (!isEnemy && findDistanceBetween(this, ((Level)getWorld()).getEnemyCastle()) <= 100){
+            if (!isEnemy && findDistanceBetween(this, ((Level)getWorld()).getEnemyCastle()) <= closestDistance){
                 target = ((Level)getWorld()).getEnemyCastle();
             }
         }
