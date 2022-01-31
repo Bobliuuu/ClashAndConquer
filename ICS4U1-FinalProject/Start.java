@@ -3,7 +3,26 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Start class 
  * <p>
- * Starting World that is displayed on run. Displays buttons to play the game, and edit settings. 
+ * Starting World that is displayed on run. Displays buttons to play the game. 
+ * 
+ * <h1>Description</h1>
+ * Clash and Conquer is a battle arena game with 14 levels which progressively get harder. 
+ * After each level, there are upgrades in the shop which buff your troops, spells, and towers. 
+ * Finish all 14 levels and conquer the map!
+ * 
+ * <h1>Features</h1>
+ * <ol>
+ *      <li>14 complete levels which scale in difficulty.</li>
+ *      <li>9 playable cards.</li>
+ *      <li>Shop menu with 18 unique upgrades to match card level, stored in an ArrayList.</li>
+ *      <li>Player stats tracking (including level, win/loss ratio, gems spent, time played) stored on Greenfoot's UserInfo class.</li>
+ *      <li>Leaderboard of top players with the UserInfo class (available on the Greenfoot Gallery). </li>
+ *      <li>Queue used to rotate through cards in-game and for troops to target enemy players. </li>
+ *      <li>3 different music tracks.</li>
+ *      <li>Changable volume using a slider. </li>
+ *      <li>Instructions page.</li>
+ *      <li>Reset progress option.</li>
+ * </ol>
  * 
  * @author Jerry Zhu
  * @version January 2022
