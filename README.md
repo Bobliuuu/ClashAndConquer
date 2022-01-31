@@ -1,8 +1,13 @@
 # FinalProject
 
-Clash and Conquer is a battle arena game with 14 levels which progressively get harder. After each level, there are upgrades in the shop which buff your troops, spells, and towers. The goal of the game is to finish all 14 levels and conquer the whole map.
 
-List of Features:
+## Description
+Clash and Conquer is a battle arena game with 14 levels which progressively get harder. After each level, there are upgrades in the shop which buff your troops, spells, and towers. Finish all 14 levels and conquer the map! 
+
+## Instructions: 
+![Instructions](/ICS4U1-FinalProject/images/Worlds/instructions.png)
+
+## Features:
 - 14 complete levels which scale in difficulty.
 - 9 playable cards.
 - Shop menu with 18 unique upgrades to match card level, stored in an ArrayList. 
@@ -14,6 +19,7 @@ List of Features:
 - Instructions page.
 - Reset progress option.
 
+## Documents
 You can find the [Class Diagram](/Documents/ClassDiagram.pdf) and the [Flowchart](/Documents/Flowchart.pdf) in the repository. 
 
 How to access the API:
@@ -21,3 +27,13 @@ How to access the API:
 2. Access any class file by double clicking on their icon
 3. Press Control-J or Command-J on the keyboard
 4. The Javadocs/API is there for you to scroll through
+
+## How To Run
+1. Download [Greenfoot](https://www.greenfoot.org/download)
+2. Download [ClashAndConquer.gfar](/ClashAndConquer.gfar) and open it
+3. Click *Run* to play the game! 
+
+**OR**
+
+DOn't want to download Greenfoot? <br>
+View the scenario [here](https://www.greenfoot.org/scenarios/29157)!
