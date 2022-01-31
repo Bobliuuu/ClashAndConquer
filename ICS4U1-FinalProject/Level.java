@@ -60,20 +60,17 @@ public class Level extends World
         
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
-            myCastle = new Castle(false, 150, 150, 200);
-            myCastle.setHealth(200 + user.getInt(5) * 40);
+            myCastle = new Castle(false, 150, 150, 200, 200 + user.getInt(5) * 40);
             myCastle.getImage().scale(80, 100);
             addObject(myCastle, 400, 680);
         }
         else {
-            myCastle = new Castle(false, 150, 150, 200);
-            myCastle.setHealth(200);
+            myCastle = new Castle(false, 150, 150, 200, 200);
             myCastle.getImage().scale(80, 100);
             addObject(myCastle, 400, 680);
         }
         
-        enemyCastle = new Castle(true, 130, 130, 120);
-        enemyCastle.setHealth(180 + (30*(levelValue-1) + Greenfoot.getRandomNumber(50)));
+        enemyCastle = new Castle(true, 130, 130, 200, 180 + (30*(levelValue-1) + Greenfoot.getRandomNumber(50)));
         addObject(enemyCastle, 400, 100);
         
         elixir = new Image(new GreenfootImage("elixirbar.png"));

@@ -173,12 +173,13 @@ public class Shop extends World
             this.powerups.add(new ShopItem(300, "SkeletonAttack", Integer.valueOf(parsed0[7]) + 1));
             this.powerups.add(new ShopItem(300, "ElixirHealth", Integer.valueOf(parsed1[0]) + 1));
             this.powerups.add(new ShopItem(200, "ElixirSpeed", Integer.valueOf(parsed1[1]) + 1));
-            this.powerups.add(new ShopItem(400, "FireballAttack", Integer.valueOf(parsed1[2]) + 1));
-            this.powerups.add(new ShopItem(400, "FireballRadius", Integer.valueOf(parsed1[3]) + 1));
-            this.powerups.add(new ShopItem(300, "PoisonAttack", Integer.valueOf(parsed2[0]) + 1));
-            this.powerups.add(new ShopItem(300, "PoisonDuration", Integer.valueOf(parsed2[1]) + 1));
-            this.powerups.add(new ShopItem(400, "TombstoneCooldown", Integer.valueOf(parsed2[2]) + 1));
-            this.powerups.add(new ShopItem(400, "TombstoneHealth", Integer.valueOf(parsed2[3]) + 1));
+            this.powerups.add(new ShopItem(400, "TombstoneHealth", Integer.valueOf(parsed1[2]) + 1));
+            this.powerups.add(new ShopItem(400, "TombstoneCooldown", Integer.valueOf(parsed1[3]) + 1));
+            this.powerups.add(new ShopItem(400, "FireballAttack", Integer.valueOf(parsed2[0]) + 1));
+            this.powerups.add(new ShopItem(400, "FireballRadius", Integer.valueOf(parsed2[1]) + 1));
+            this.powerups.add(new ShopItem(300, "PoisonAttack", Integer.valueOf(parsed2[2]) + 1));
+            this.powerups.add(new ShopItem(300, "PoisonDuration", Integer.valueOf(parsed2[3]) + 1));
+            
         }
         else {
             this.powerups.add(new ShopItem(100, "CastleHealth", 1)); 
@@ -345,7 +346,7 @@ public class Shop extends World
                         String s = String.join(" ", parsed);
                         user.setString(1, s);
                     }
-                    else if (itm.getType().equals("ElixirAttack")){
+                    else if (itm.getType().equals("ElixirSpeed")){
                         String[] parsed = user.getString(1).split(" ");
                         parsed[1] = Integer.toString(Integer.valueOf(parsed[1]) + 1);
                         String s = String.join(" ", parsed);
@@ -363,25 +364,25 @@ public class Shop extends World
                         String s = String.join(" ", parsed);
                         user.setString(1, s);
                     }
-                    else if (itm.getType().equals("FireballSpeed")){
+                    else if (itm.getType().equals("FireballAttack")){
                         String[] parsed = user.getString(2).split(" ");
                         parsed[0] = Integer.toString(Integer.valueOf(parsed[0]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(2, s);
                     }
-                    else if (itm.getType().equals("FireballAttack")){
+                    else if (itm.getType().equals("FireballRadius")){
                         String[] parsed = user.getString(2).split(" ");
                         parsed[1] = Integer.toString(Integer.valueOf(parsed[1]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(2, s);
                     }
-                    else if (itm.getType().equals("PoisonRadius")){
+                    else if (itm.getType().equals("PoisonAttack")){
                         String[] parsed = user.getString(2).split(" ");
                         parsed[2] = Integer.toString(Integer.valueOf(parsed[2]) + 1);
                         String s = String.join(" ", parsed);
                         user.setString(2, s);
                     }
-                    else if (itm.getType().equals("PoisonAttack")){
+                    else if (itm.getType().equals("PoisonDuration")){
                         String[] parsed = user.getString(2).split(" ");
                         parsed[3] = Integer.toString(Integer.valueOf(parsed[3]) + 1);
                         String s = String.join(" ", parsed);

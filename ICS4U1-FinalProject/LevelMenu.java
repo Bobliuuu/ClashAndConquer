@@ -27,6 +27,8 @@ public class LevelMenu extends World
     private SuperTextBox textBox;
     private int level;
     private boolean hasEndButton;
+    public final Color lightBlue = new Color(122, 167, 255);
+    public final Color lightGreen = new Color(144, 238, 144);
     
     /**
      * Constructor for objects of class LevelMenu. 
@@ -39,14 +41,13 @@ public class LevelMenu extends World
         addObject(map, getWidth()/2, getHeight()/2);
         
         for (int i = 0; i < 27; i++){
-            Circle temp = new Circle(Color.BLUE, 30, true, 1);
+            Circle temp = new Circle(lightBlue, 30, true, 1);
             addObject(temp, circleCoordinates[i][0], circleCoordinates[i][1]);
         }
         
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             level = user.getScore();
-            level = 20;
         }
         else {
             level = 1;
@@ -54,12 +55,31 @@ public class LevelMenu extends World
         
         rectangles = new ArrayList <Rectangle> ();
         
-        for (int i = 1; i <= 14; i++){
-            if (level >= i){
-                Rectangle temp = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
-                rectangles.add(temp);
-                addObject(temp, rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
-                showText(Integer.toString(i), rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+        // Green for current level, light green for others
+        if (UserInfo.isStorageAvailable()){
+            for (int i = 1; i <= 14; i++){
+                if (level > i){
+                    Rectangle temp = new Rectangle(lightGreen, 40, 40, 3, true, 45);
+                    rectangles.add(temp);
+                    addObject(temp, rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+                    showText(Integer.toString(i), rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+                }
+                else if (level == i){
+                    Rectangle temp = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+                    rectangles.add(temp);
+                    addObject(temp, rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+                    showText(Integer.toString(i), rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+                }
+            }
+        }
+        else {
+            for (int i = 1; i <= 14; i++){
+                if (level >= i){
+                    Rectangle temp = new Rectangle(Color.GREEN, 40, 40, 3, true, 45);
+                    rectangles.add(temp);
+                    addObject(temp, rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+                    showText(Integer.toString(i), rectangleCoordinates[i-1][0], rectangleCoordinates[i-1][1]);
+                }
             }
         }
         if (level >= 15){
