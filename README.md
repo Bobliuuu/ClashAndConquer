@@ -33,7 +33,6 @@ How to access the API:
 2. Download [ClashAndConquer.gfar](/ClashAndConquer.gfar) and open it
 3. Click *Run* to play the game! 
 
-**OR**
-
-DOn't want to download Greenfoot? <br>
+## Alternative Run
+Don't want to download Greenfoot? No problem! <br>
 View the scenario [here](https://www.greenfoot.org/scenarios/29157)!
