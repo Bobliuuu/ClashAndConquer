@@ -20,7 +20,7 @@ public class CardDeck extends Actor
     private Card tempCard;
     private ArrayList <Card> cards; 
     private Queue <Card> otherCards; 
-    private String[] allCards = {"Knight", "Archer", "Giant", "Skeleton", "Elixirtower", "Tombstone", "Fireball", "Poison"};
+    private String[] allCards = {"Knight", "Archer", "Giant", "Skeleton", "Poison", "Elixirtower", "Tombstone", "Fireball"};
     
     /**
      * Basic constructor for CardDeck for testing.
