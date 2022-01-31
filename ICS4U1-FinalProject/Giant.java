@@ -13,8 +13,8 @@ public class Giant extends Troop
     private int animationCount;
     private int attackCount;
     
-    public Giant(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
-        super(health, attack, movementSpeed, attackSpeed, radius, isEnemy);
+    public Giant(int health, int attack, double movementSpeed, double attackSpeed, boolean isEnemy){
+        super(health, attack, movementSpeed, attackSpeed, 200, 150, isEnemy);
         animationCount = 0;
         attackCount = -1;
         animations = new GreenfootImage[19];

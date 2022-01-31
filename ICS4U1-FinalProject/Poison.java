@@ -13,6 +13,7 @@ public class Poison extends Spell
     private GreenfootImage[] animations;
     // integers for tracking the current act/frame count and how long Poison lasts
     private int animateCount, duration = 204;
+    private int spd;
     
     /***
      * The most complicated constructor, able to customize attack, speed, attack radius, and alignment
@@ -24,6 +25,7 @@ public class Poison extends Spell
      */
     public Poison(int atk, double spd, int rds, boolean enemy){
         super(atk, spd, rds, enemy, 0, 0);
+        this.spd = (int)spd;
         animateCount = -1;
         animations = new GreenfootImage[51];
         for(int i = 0; i < 51; i++) animations[i] = new GreenfootImage("Spells/Poison/PoisonAttack" + i + ".png");
@@ -38,8 +40,8 @@ public class Poison extends Spell
         // checks if the poison is still going
         if(duration != 0){
             animate();
-            // every 12 acts, it deals damage
-            if(duration % 12 == 0) attack();
+            // every 28 acts, it deals damage
+            if(duration % (25 - spd) == 0) attack();
             duration--;
         }
         else{

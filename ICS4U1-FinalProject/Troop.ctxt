@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Troop
 comment0.text=\r\n\ Troop\ superclass\ for\ all\ troops.\r\n\ Contains\ variables\ and\ methods\ to\ control\ their\ movements\ in\ the\ level.\ \r\n\ \r\n\ @author\ Matthew\ Gong,\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
-comment1.params=health\ attack\ movementSpeed\ attackSpeed\ radius\ isEnemy
-comment1.target=Troop(int,\ int,\ double,\ double,\ double,\ boolean)
+comment1.params=health\ attack\ movementSpeed\ attackSpeed\ radius\ radius2\ isEnemy
+comment1.target=Troop(int,\ int,\ double,\ double,\ double,\ double,\ boolean)
 comment1.text=\r\n\ The\ most\ complicated\ constructor\ of\ Troop,\ with\ the\ ability\ to\ control\ health,\ attack,\ movement\ speed,\ attack\ speed,\ and\ radius.\ \r\n\ \r\n\ @param\ health\ \ \ \ \ \ \ \ \ The\ health\ of\ the\ troop.\r\n\ @param\ attack\ \ \ \ \ \ \ \ \ The\ strength\ of\ attack\ of\ the\ troop.\ \r\n\ @param\ movementSpeed\ \ The\ movement\ speed\ of\ the\ troop.\ \r\n\ @param\ attackSpeed\ \ \ \ The\ attack\ speed\ of\ the\ troop.\ \r\n
 comment10.params=
 comment10.target=void\ animate()

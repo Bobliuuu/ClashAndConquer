@@ -21,7 +21,7 @@ public class Knight extends Troop
      * @param isEnemy    Whether the Knight belongs to the enemy
      */
     public Knight(boolean isEnemy){
-        super(100, 10, 1, 3, 50, isEnemy);
+        super(100, 10, 1, 3, 50, 20, isEnemy);
         // setting the inital values for the counters
         animationCount = 0;
         attackCount = -1;
@@ -43,11 +43,10 @@ public class Knight extends Troop
      * @param attk              The amount of attack points the Knight has
      * @param movementSpeed     How fast the Knight moves
      * @param attackSpeed       How fast the Knight attacks
-     * @param radius            Attack radius of the Knight
      * @param isEnemy           Whether the Knight belongs to the enemy
      */
-    public Knight(int health, int attk, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
-        super(health, attk, movementSpeed, attackSpeed, radius, isEnemy);
+    public Knight(int health, int attk, double movementSpeed, double attackSpeed, boolean isEnemy){
+        super(health, attk, movementSpeed, attackSpeed, 100, 60, isEnemy);
         // setting the inital values for the counters
         animationCount = 0;
         attackCount = -1;
