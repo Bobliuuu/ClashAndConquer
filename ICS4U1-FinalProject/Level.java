@@ -313,10 +313,10 @@ public class Level extends World
                 Fireball placedTroop;
                 if (UserInfo.isStorageAvailable()){
                     String[] parsed = user.getString(2).split(" ");
-                    placedTroop = new Fireball(80 + 14 * Integer.valueOf(parsed[0]), 6, 80 + 8 * Integer.valueOf(parsed[1]), false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    placedTroop = new Fireball(80 + 14 * Integer.valueOf(parsed[0]), 6, 100 + 8 * Integer.valueOf(parsed[1]), false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                 }
                 else {
-                    placedTroop = new Fireball(80, 6, 80, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    placedTroop = new Fireball(80, 6, 100, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                 }
                 addObject(placedTroop, 400, 680);
                 redZone.setToNone();
@@ -335,7 +335,7 @@ public class Level extends World
                     placedTroop = new Poison(20 + 10 * Integer.valueOf(parsed[2]), Integer.valueOf(parsed[3]), 80, false);
                 }
                 else {
-                    placedTroop = new Poison(25, 8, 80, false);
+                    placedTroop = new Poison(25, 8, 0, false);
                 }
                 addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                 redZone.setToNone();
@@ -390,11 +390,11 @@ public class Level extends World
             unplacedTroop.getImage().scale(75, 75);
         }
         else if (cardName == "Tombstone"){
-            unplacedTroop = new Image(new GreenfootImage("tombstone.jpg"));
+            unplacedTroop = new Image(new GreenfootImage("tombstone.png"));
             unplacedTroop.getImage().scale(50, 75);
         }
         else {
-            unplacedTroop = new Image(new GreenfootImage("Troops/" + cardName + "/" + cardName + "Move0.png"));
+            unplacedTroop = new Image(new GreenfootImage("Troops/" + cardName + "/" + cardName + "Ghost.png"));
         }
         unplacedTroop.setTransparency(100);
         addObject(unplacedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());

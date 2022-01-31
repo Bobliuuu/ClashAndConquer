@@ -24,7 +24,7 @@ public class Tombstone extends Building
         this.health = health;
         cooldown = 150;
         timer = cooldown;
-        setImage("tombstone.jpg");
+        setImage("tombstone.png");
         getImage().scale(50, 75);
         healthBar = new SuperStatBar(health, health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
@@ -41,7 +41,7 @@ public class Tombstone extends Building
         this.health = health;
         this.cooldown = cooldown;
         timer = cooldown;
-        setImage("tombstone.jpg");
+        setImage("tombstone.png");
         getImage().scale(50, 75);
         healthBar = new SuperStatBar(health, health, this, 48, 4, 36, Color.GREEN, Color.RED, false);
     }
