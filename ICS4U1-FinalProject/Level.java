@@ -163,186 +163,188 @@ public class Level extends World
                 setTroopSelected(troopName);
                 cardIndex = cardDeck.getCardIndex(troopName);
             }
-            if (!unplacedTroop.getEmpty() && !unplacedTroop.checkTouchingCastle()){
-                if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 700){
-                    if (elixirBar.hasElixir(3) && troopSelected.equals("Knight")){
-                        elixirBar.useElixir(3);
-                        removeObject(unplacedTroop);
-                        unplacedTroop = new Image();
-                        Knight placedTroop;
-                        if (UserInfo.isStorageAvailable()){
-                            String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Knight(110 + 14 * Integer.valueOf(parsed[0]), 15 + 14 * Integer.valueOf(parsed[1]), 1, 3, false);
+            if (!unplacedTroop.getEmpty() && !unplacedTroop.intersectsCard()){
+                if (!unplacedTroop.checkTouchingCastle()){
+                    if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
+                    Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 700){
+                        if (elixirBar.hasElixir(3) && troopSelected.equals("Knight")){
+                            elixirBar.useElixir(3);
+                            removeObject(unplacedTroop);
+                            unplacedTroop = new Image();
+                            Knight placedTroop;
+                            if (UserInfo.isStorageAvailable()){
+                                String[] parsed = user.getString(0).split(" ");
+                                placedTroop = new Knight(110 + 14 * Integer.valueOf(parsed[0]), 15 + 14 * Integer.valueOf(parsed[1]), 1, 3, false);
+                            }
+                            else {
+                                placedTroop = new Knight(110, 15, 1, 3, false);
+                            }
+                            addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                            redZone.setToNone();
+                            setTroopSelected("Blank");
+                            removeObject(cardDeck.getCardAtIndex(cardIndex));
+                            cardDeck.switchCard(cardIndex);
+                            addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                         }
-                        else {
-                            placedTroop = new Knight(110, 15, 1, 3, false);
+                        else if (elixirBar.hasElixir(3) && troopSelected.equals("Archer")){
+                            elixirBar.useElixir(3);
+                            removeObject(unplacedTroop);
+                            unplacedTroop = new Image();
+                            Archer placedTroop;
+                            if (UserInfo.isStorageAvailable()){
+                                String[] parsed = user.getString(0).split(" ");
+                                placedTroop = new Archer(80 + 14 * Integer.valueOf(parsed[2]), 10 + 14 * Integer.valueOf(parsed[3]), 1, 6, false);
+                            }
+                            else {
+                                placedTroop = new Archer(80, 10, 1, 6, false);
+                            }
+                            addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                            redZone.setToNone();
+                            setTroopSelected("Blank");
+                            removeObject(cardDeck.getCardAtIndex(cardIndex));
+                            cardDeck.switchCard(cardIndex);
+                            addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                         }
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                        redZone.setToNone();
-                        setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex));
-                        cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
+                        else if (elixirBar.hasElixir(5) && troopSelected.equals("Giant")){
+                            elixirBar.useElixir(5);
+                            removeObject(unplacedTroop);
+                            unplacedTroop = new Image();
+                            Giant placedTroop;
+                            if (UserInfo.isStorageAvailable()){
+                                String[] parsed = user.getString(0).split(" ");
+                                placedTroop = new Giant(250 + 14 * Integer.valueOf(parsed[4]), 20 + 14 * Integer.valueOf(parsed[5]), 1, 6, false);
+                            }
+                            else {
+                                placedTroop = new Giant(250, 20, 1, 6, false);
+                            }
+                            addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                            redZone.setToNone();
+                            setTroopSelected("Blank");
+                            removeObject(cardDeck.getCardAtIndex(cardIndex));
+                            cardDeck.switchCard(cardIndex);
+                            addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
+                        }
+                        else if (elixirBar.hasElixir(5) && troopSelected.equals("Skeleton")){
+                            elixirBar.useElixir(5);
+                            removeObject(unplacedTroop);
+                            unplacedTroop = new Image();
+                            Skeleton placedTroop;
+                            Skeleton placedTroop2;
+                            Skeleton placedTroop3;
+                            Skeleton placedTroop4;
+                            Skeleton placedTroop5;
+                            Skeleton placedTroop6;
+                            if (UserInfo.isStorageAvailable()){
+                                String[] parsed = user.getString(0).split(" ");
+                                placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                                placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                                placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                                placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                                placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                                placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
+                            }
+                            else {
+                                placedTroop = new Skeleton(25, 8, 1, 6, false);
+                                placedTroop2 = new Skeleton(25, 8, 1, 6, false);
+                                placedTroop3 = new Skeleton(25, 8, 1, 6, false);
+                                placedTroop4 = new Skeleton(25, 8, 1, 6, false);
+                                placedTroop5 = new Skeleton(25, 8, 1, 6, false);
+                                placedTroop6 = new Skeleton(25, 8, 1, 6, false);
+                            }
+                            addObject(placedTroop, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY());
+                            addObject(placedTroop2, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY());
+                            addObject(placedTroop3, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY()+20);
+                            addObject(placedTroop4, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY()-20);
+                            addObject(placedTroop5, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY()+20);
+                            addObject(placedTroop6, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY()-20);
+                            redZone.setToNone();
+                            setTroopSelected("Blank");
+                            removeObject(cardDeck.getCardAtIndex(cardIndex));
+                            cardDeck.switchCard(cardIndex);
+                            addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
+                        }
                     }
-                    else if (elixirBar.hasElixir(3) && troopSelected.equals("Archer")){
-                        elixirBar.useElixir(3);
-                        removeObject(unplacedTroop);
-                        unplacedTroop = new Image();
-                        Archer placedTroop;
-                        if (UserInfo.isStorageAvailable()){
-                            String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Archer(80 + 14 * Integer.valueOf(parsed[2]), 10 + 14 * Integer.valueOf(parsed[3]), 1, 6, false);
+                    // Tower region
+                    if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
+                    Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 680){
+                        if (elixirBar.hasElixir(6) && troopSelected.equals("Elixirtower")){
+                            elixirBar.useElixir(6);
+                            removeObject(unplacedTroop);
+                            unplacedTroop = new Image();
+                            ElixirTower placedTroop;
+                            if (UserInfo.isStorageAvailable()){
+                                String[] parsed = user.getString(1).split(" ");
+                                placedTroop = new ElixirTower(0.004 + 0.002 * Integer.valueOf(parsed[1]), false, 175 + Integer.valueOf(parsed[0]));
+                            }
+                            else {
+                                placedTroop = new ElixirTower(0.004, false, 175);
+                            }
+                            addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                            redZone.setToNone();
+                            setTroopSelected("Blank");
+                            removeObject(cardDeck.getCardAtIndex(cardIndex));
+                            cardDeck.switchCard(cardIndex);
+                            addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                         }
-                        else {
-                            placedTroop = new Archer(80, 10, 1, 6, false);
+                        else if (elixirBar.hasElixir(6) && troopSelected.equals("Tombstone")){
+                            elixirBar.useElixir(6);
+                            removeObject(unplacedTroop);
+                            unplacedTroop = new Image();
+                            Tombstone placedTroop;
+                            if (UserInfo.isStorageAvailable()){
+                                String[] parsed = user.getString(1).split(" ");
+                                placedTroop = new Tombstone(200 + 14 * Integer.valueOf(parsed[2]), false, 150 + 14 * Integer.valueOf(parsed[3]));
+                            }
+                            else {
+                                placedTroop = new Tombstone(200, false, 150);
+                            }
+                            addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                            redZone.setToNone();
+                            setTroopSelected("Blank");
+                            removeObject(cardDeck.getCardAtIndex(cardIndex));
+                            cardDeck.switchCard(cardIndex);
+                            addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                         }
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                        redZone.setToNone();
-                        setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex));
-                        cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
-                    }
-                    else if (elixirBar.hasElixir(5) && troopSelected.equals("Giant")){
-                        elixirBar.useElixir(5);
-                        removeObject(unplacedTroop);
-                        unplacedTroop = new Image();
-                        Giant placedTroop;
-                        if (UserInfo.isStorageAvailable()){
-                            String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Giant(250 + 14 * Integer.valueOf(parsed[4]), 20 + 14 * Integer.valueOf(parsed[5]), 1, 6, false);
-                        }
-                        else {
-                            placedTroop = new Giant(250, 20, 1, 6, false);
-                        }
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                        redZone.setToNone();
-                        setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex));
-                        cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
-                    }
-                    else if (elixirBar.hasElixir(5) && troopSelected.equals("Skeleton")){
-                        elixirBar.useElixir(5);
-                        removeObject(unplacedTroop);
-                        unplacedTroop = new Image();
-                        Skeleton placedTroop;
-                        Skeleton placedTroop2;
-                        Skeleton placedTroop3;
-                        Skeleton placedTroop4;
-                        Skeleton placedTroop5;
-                        Skeleton placedTroop6;
-                        if (UserInfo.isStorageAvailable()){
-                            String[] parsed = user.getString(0).split(" ");
-                            placedTroop = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
-                            placedTroop2 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
-                            placedTroop3 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
-                            placedTroop4 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
-                            placedTroop5 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
-                            placedTroop6 = new Skeleton(25 + 14 * Integer.valueOf(parsed[6]), 8 + 14 * Integer.valueOf(parsed[7]), 1, 6, false);
-                        }
-                        else {
-                            placedTroop = new Skeleton(25, 8, 1, 6, false);
-                            placedTroop2 = new Skeleton(25, 8, 1, 6, false);
-                            placedTroop3 = new Skeleton(25, 8, 1, 6, false);
-                            placedTroop4 = new Skeleton(25, 8, 1, 6, false);
-                            placedTroop5 = new Skeleton(25, 8, 1, 6, false);
-                            placedTroop6 = new Skeleton(25, 8, 1, 6, false);
-                        }
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY());
-                        addObject(placedTroop2, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY());
-                        addObject(placedTroop3, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY()+20);
-                        addObject(placedTroop4, Greenfoot.getMouseInfo().getX()+20, Greenfoot.getMouseInfo().getY()-20);
-                        addObject(placedTroop5, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY()+20);
-                        addObject(placedTroop6, Greenfoot.getMouseInfo().getX()-20, Greenfoot.getMouseInfo().getY()-20);
-                        redZone.setToNone();
-                        setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex));
-                        cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                     }
                 }
-                // Tower region
-                if (Greenfoot.getMouseInfo().getX() >= 70 && Greenfoot.getMouseInfo().getX() <= 720 && 
-                Greenfoot.getMouseInfo().getY() >= 380 && Greenfoot.getMouseInfo().getY() <= 680){
-                    if (elixirBar.hasElixir(6) && troopSelected.equals("Elixirtower")){
-                        elixirBar.useElixir(6);
-                        removeObject(unplacedTroop);
-                        unplacedTroop = new Image();
-                        ElixirTower placedTroop;
-                        if (UserInfo.isStorageAvailable()){
-                            String[] parsed = user.getString(1).split(" ");
-                            placedTroop = new ElixirTower(0.004 + 0.002 * Integer.valueOf(parsed[1]), false, 175 + Integer.valueOf(parsed[0]));
-                        }
-                        else {
-                            placedTroop = new ElixirTower(0.004, false, 175);
-                        }
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                        redZone.setToNone();
-                        setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex));
-                        cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
+                if (elixirBar.hasElixir(4) && troopSelected.equals("Fireball")){
+                    elixirBar.useElixir(4);
+                    removeObject(unplacedTroop);
+                    unplacedTroop = new Image();
+                    Fireball placedTroop;
+                    if (UserInfo.isStorageAvailable()){
+                        String[] parsed = user.getString(2).split(" ");
+                        placedTroop = new Fireball(80 + 14 * Integer.valueOf(parsed[0]), 6, 100 + 8 * Integer.valueOf(parsed[1]), false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     }
-                    else if (elixirBar.hasElixir(6) && troopSelected.equals("Tombstone")){
-                        elixirBar.useElixir(6);
-                        removeObject(unplacedTroop);
-                        unplacedTroop = new Image();
-                        Tombstone placedTroop;
-                        if (UserInfo.isStorageAvailable()){
-                            String[] parsed = user.getString(1).split(" ");
-                            placedTroop = new Tombstone(200 + 14 * Integer.valueOf(parsed[2]), false, 150 + 14 * Integer.valueOf(parsed[3]));
-                        }
-                        else {
-                            placedTroop = new Tombstone(200, false, 150);
-                        }
-                        addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                        redZone.setToNone();
-                        setTroopSelected("Blank");
-                        removeObject(cardDeck.getCardAtIndex(cardIndex));
-                        cardDeck.switchCard(cardIndex);
-                        addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
+                    else {
+                        placedTroop = new Fireball(80, 6, 100, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
                     }
+                    addObject(placedTroop, 400, 680);
+                    redZone.setToNone();
+                    setTroopSelected("Blank");
+                    removeObject(cardDeck.getCardAtIndex(cardIndex));
+                    cardDeck.switchCard(cardIndex);
+                    addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                 }
-            }
-            if (elixirBar.hasElixir(4) && troopSelected.equals("Fireball")){
-                elixirBar.useElixir(4);
-                removeObject(unplacedTroop);
-                unplacedTroop = new Image();
-                Fireball placedTroop;
-                if (UserInfo.isStorageAvailable()){
-                    String[] parsed = user.getString(2).split(" ");
-                    placedTroop = new Fireball(80 + 14 * Integer.valueOf(parsed[0]), 6, 100 + 8 * Integer.valueOf(parsed[1]), false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                else if (elixirBar.hasElixir(4) && troopSelected.equals("Poison")){
+                    elixirBar.useElixir(4);
+                    removeObject(unplacedTroop);
+                    unplacedTroop = new Image();
+                    Poison placedTroop;
+                    if (UserInfo.isStorageAvailable()){
+                        String[] parsed = user.getString(2).split(" ");
+                        placedTroop = new Poison(20 + 10 * Integer.valueOf(parsed[2]), Integer.valueOf(parsed[3]), 80, false);
+                    }
+                    else {
+                        placedTroop = new Poison(25, 8, 0, false);
+                    }
+                    addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
+                    redZone.setToNone();
+                    setTroopSelected("Blank");
+                    removeObject(cardDeck.getCardAtIndex(cardIndex));
+                    cardDeck.switchCard(cardIndex);
+                    addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
                 }
-                else {
-                    placedTroop = new Fireball(80, 6, 100, false, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                }
-                addObject(placedTroop, 400, 680);
-                redZone.setToNone();
-                setTroopSelected("Blank");
-                removeObject(cardDeck.getCardAtIndex(cardIndex));
-                cardDeck.switchCard(cardIndex);
-                addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
-            }
-            else if (elixirBar.hasElixir(4) && troopSelected.equals("Poison")){
-                elixirBar.useElixir(4);
-                removeObject(unplacedTroop);
-                unplacedTroop = new Image();
-                Poison placedTroop;
-                if (UserInfo.isStorageAvailable()){
-                    String[] parsed = user.getString(2).split(" ");
-                    placedTroop = new Poison(20 + 10 * Integer.valueOf(parsed[2]), Integer.valueOf(parsed[3]), 80, false);
-                }
-                else {
-                    placedTroop = new Poison(25, 8, 0, false);
-                }
-                addObject(placedTroop, Greenfoot.getMouseInfo().getX(), Greenfoot.getMouseInfo().getY());
-                redZone.setToNone();
-                setTroopSelected("Blank");
-                removeObject(cardDeck.getCardAtIndex(cardIndex));
-                cardDeck.switchCard(cardIndex);
-                addObject(cardDeck.getCardAtIndex(cardIndex), cardCoordinates[cardIndex][0], cardCoordinates[cardIndex][1]);
             }
         }
     }

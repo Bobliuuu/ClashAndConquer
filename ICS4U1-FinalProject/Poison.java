@@ -41,7 +41,7 @@ public class Poison extends Spell
         if(duration != 0){
             animate();
             // every 28 acts, it deals damage
-            if(duration % (25 - spd) == 0) attack();
+            if(duration % (28 - spd) == 0) attack();
             duration--;
         }
         else{
