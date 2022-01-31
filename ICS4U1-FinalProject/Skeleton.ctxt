@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=Skeleton
-comment0.text=\n\ The\ Skeleton\ Troop.\ It's\ weaker\ than\ the\ average\ Knight\ but\ appear\ in\ more\ numbers\ to\ make\ up\ the\ difference.\n\ \n\ @author\ Matthew\ Gong\n\ @version\ January\ 2022\n
+comment0.text=\r\n\ The\ Skeleton\ Troop.\ It's\ weaker\ than\ the\ average\ Knight\ but\ appear\ in\ more\ numbers\ to\ make\ up\ the\ difference.\r\n\ \r\n\ @author\ Matthew\ Gong\r\n\ @version\ January\ 2022\r\n
 comment1.params=isEnemy
 comment1.target=Skeleton(boolean)
-comment1.text=\n\ The\ most\ basic\ constructor\ for\ the\ Skeleton\ class\n\ \n\ @param\ isEnemy\ \ \ \ Whether\ the\ Skeleton\ belongs\ to\ the\ enemy\n
+comment1.text=\r\n\ The\ most\ basic\ constructor\ for\ the\ Skeleton\ class\r\n\ \r\n\ @param\ isEnemy\ \ \ \ Whether\ the\ Skeleton\ belongs\ to\ the\ enemy\r\n
 comment2.params=health\ attk\ movementSpeed\ attackSpeed\ isEnemy
 comment2.target=Skeleton(int,\ int,\ double,\ double,\ boolean)
-comment2.text=\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ health,\ attack,\ movement\ speed,\ attack\ speed,\ attack\ radius,\ and\ alignment\n\ \n\ @param\ health\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ health\ the\ Skeleton\ has\n\ @param\ attk\ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ attack\ points\ the\ Skeleton\ has\n\ @param\ movementSpeed\ \ \ \ \ How\ fast\ the\ Skeleton\ moves\n\ @param\ attackSpeed\ \ \ \ \ \ \ How\ fast\ the\ Skeleton\ attacks\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Skeleton\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Skeleton\ belongs\ to\ the\ enemy\n
+comment2.text=\r\n\ The\ most\ complicated\ constructor,\ able\ to\ customize\ health,\ attack,\ movement\ speed,\ attack\ speed,\ attack\ radius,\ and\ alignment\r\n\ \r\n\ @param\ health\ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ health\ the\ Skeleton\ has\r\n\ @param\ attk\ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ amount\ of\ attack\ points\ the\ Skeleton\ has\r\n\ @param\ movementSpeed\ \ \ \ \ How\ fast\ the\ Skeleton\ moves\r\n\ @param\ attackSpeed\ \ \ \ \ \ \ How\ fast\ the\ Skeleton\ attacks\r\n\ @param\ radius\ \ \ \ \ \ \ \ \ \ \ \ Attack\ radius\ of\ the\ Skeleton\r\n\ @param\ isEnemy\ \ \ \ \ \ \ \ \ \ \ Whether\ the\ Skeleton\ belongs\ to\ the\ enemy\r\n
 comment3.params=
 comment3.target=void\ animate()
-comment3.text=\n\ Animates\ the\ movement\ of\ Skeleton\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\n
+comment3.text=\r\n\ Animates\ the\ movement\ of\ Skeleton\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\r\n
 comment4.params=
 comment4.target=void\ attackAnimate()
-comment4.text=\n\ Animates\ the\ Skeleton's\ attack\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\n
+comment4.text=\r\n\ Animates\ the\ Skeleton's\ attack\ by\ switching\ to\ the\ next\ image\ every\ 4\ acts\r\n
 comment5.params=
 comment5.target=int\ getAttackCounter()
-comment5.text=\n\ Returns\ the\ current\ act\ count\ for\ the\ attack\ animation\n
+comment5.text=\r\n\ Returns\ the\ current\ act\ count\ for\ the\ attack\ animation\r\n
 numComments=6

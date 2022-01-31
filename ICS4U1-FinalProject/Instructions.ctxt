@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=Instructions
-comment0.text=\n\ Iinstructions\ Class\n\ \n\ @author\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Instructions\ Class\r\n\ \r\n\ @author\ Ibrahim\ Rahman,\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
 comment1.params=
 comment1.target=Instructions()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Instructions.\n\ \n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Instructions.\r\n\ \r\n
 comment2.params=
 comment2.target=void\ started()
-comment2.text=\n\ When\ World\ is\ created,\ start\ the\ music\ and\ set\ the\ volume.\ \n
+comment2.text=\r\n\ When\ World\ is\ created,\ start\ the\ music\ and\ set\ the\ volume.\ \r\n
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\n\ Act\ method\ to\ be\ run\ each\ iteration.\n
+comment3.text=\r\n\ Act\ method\ to\ be\ run\ each\ iteration.\r\n
 comment4.params=
 comment4.target=void\ checkClick()
-comment4.text=\n\ Check\ if\ any\ buttons\ are\ clicked.\ \n
+comment4.text=\r\n\ Check\ if\ any\ buttons\ are\ clicked.\ \r\n
 numComments=5

@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=Settings
-comment0.text=\n\ Settings\ Class\n\ <p>\n\ Settings\ screen\ to\ allow\ any\ modifications\ to\ the\ volume,\ or\ reset\ progress.\ \n\ \n\ @author\ Jerry\ Zhu\n\ @version\ January\ 2022\n
+comment0.text=\r\n\ Settings\ Class\r\n\ <p>\r\n\ Settings\ screen\ to\ allow\ any\ modifications\ to\ the\ volume,\ or\ reset\ progress.\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
 comment1.params=
 comment1.target=Settings()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Settings.\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Settings.\r\n
 comment2.params=
 comment2.target=void\ started()
-comment2.text=\n\ When\ World\ is\ created,\ start\ the\ music\ and\ set\ the\ volume.\ \n
+comment2.text=\r\n\ When\ World\ is\ created,\ start\ the\ music\ and\ set\ the\ volume.\ \r\n
 comment3.params=
 comment3.target=void\ act()
-comment3.text=\n\ Act\ method\ to\ be\ run\ every\ iteration.\ \n
+comment3.text=\r\n\ Act\ method\ to\ be\ run\ every\ iteration.\ \r\n
 comment4.params=
 comment4.target=void\ checkClick()
-comment4.text=\n\ Check\ for\ any\ buttons\ being\ clicked,\ and\ load\ the\ corresponding\ World\ if\ necessary.\ \n
+comment4.text=\r\n\ Check\ for\ any\ buttons\ being\ clicked,\ and\ load\ the\ corresponding\ World\ if\ necessary.\ \r\n
 comment5.params=value
 comment5.target=void\ updateVolumeText(java.lang.String)
-comment5.text=\n\ Update\ the\ text\ on\ the\ slider\ object.\ \n
+comment5.text=\r\n\ Update\ the\ text\ on\ the\ slider\ object.\ \r\n
 numComments=6
