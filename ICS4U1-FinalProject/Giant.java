@@ -26,6 +26,7 @@ public class Giant extends Troop
     }
     
     public void findTarget(){
+        target = null;
         if (((Level)getWorld()).getMyCastle().getWorld() != null && getWorld() != null){
             if (isEnemy && findDistanceBetween(this, ((Level)getWorld()).getMyCastle()) <= 100){
                 target = ((Level)getWorld()).getMyCastle();
