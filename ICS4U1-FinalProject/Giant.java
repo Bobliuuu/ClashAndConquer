@@ -1,18 +1,29 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Giant here.
+ * The Giant Troop. It's a slow and powerful troop that only attacks Buildings
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Matthew Gong 
+ * @version January 2022
  */
 public class Giant extends Troop
 {
+    // the arrays to contain the images for the walking and attack animations
     private GreenfootImage[] animations;
     private GreenfootImage[] attackAnimation;
+    // integers for tracking the current act/frame count
     private int animationCount;
     private int attackCount;
     
+    /***
+     * The most complicated constructor, able to customize health, attack, movement speed, attack speed, attack radius, and alignment
+     * 
+     * @param health            The amount of health the Giant has
+     * @param attk              The amount of attack points the Giant has
+     * @param movementSpeed     How fast the Giant moves
+     * @param attackSpeed       How fast the Giant attacks
+     * @param isEnemy           Whether the Giant belongs to the enemy
+     */
     public Giant(int health, int attack, double movementSpeed, double attackSpeed, boolean isEnemy){
         super(health, attack, movementSpeed, attackSpeed, 200, 150, isEnemy);
         animationCount = 0;
@@ -25,6 +36,9 @@ public class Giant extends Troop
         }
     }
     
+    /**
+     * Finds the nearest enemy target. 
+     */
     public void findTarget(){
         target = null;
         if (((Level)getWorld()).getMyCastle().getWorld() != null && getWorld() != null){
@@ -39,31 +53,46 @@ public class Giant extends Troop
         }
     }
     
+    /***
+     * Animates the movement of Giant by switching to the next image every 4 acts
+     */
     public void animate(){
         animationCount++;
+        // if the count reaches the end, reset it back to 0
         if (animationCount == 76){
             animationCount = 0;
         }
+        // change the images every 4 acts
         setImage(animations[animationCount / 4]);
     }
     
+    /***
+     * Animates the Giant's attack by switching to the next image every 4 acts
+     */
     public void attackAnimate(){
         attackCount++;
+        // if the count reaches the end, reset it back to 0
         if (attackCount == 76){
             attackCount = 0;
         }
+        // change the images every 4 acts
         setImage(attackAnimation[attackCount / 4]);
     }
     
+    /***
+     * Returns the current act count for the attack animation
+     */
     public int getAttackCounter(){
         return attackCount;
     }
     
+    /**
+     * Find the distance between two actors. 
+     * 
+     * @param a1     The first actor. 
+     * @param a2     The second actor. 
+     */
     private double findDistanceBetween(Actor a1, Actor a2){
         return Math.sqrt(Math.pow(a1.getX() - a2.getX(), 2) + Math.pow(a1.getY() - a2.getY(), 2));
-    }
-    
-    private double findDistanceBetween(double x, double y){
-        return Math.sqrt(Math.pow(this.getX() - x, 2) + Math.pow(this.getY() - y, 2));
     }
 }

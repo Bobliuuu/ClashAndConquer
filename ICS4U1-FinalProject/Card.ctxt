@@ -1,19 +1,19 @@
 #BlueJ class context
 comment0.target=Card
-comment0.text=\r\n\ Card\ Class\r\n\ <p>\r\n\ Class\ that\ contains\ a\ card\ that\ can\ be\ clicked\ to\ spawn\ a\ troop\ or\ building.\ \r\n\ Can\ be\ bundled\ in\ a\ CardDeck.\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
+comment0.text=\n\ Card\ Class\n\ <p>\n\ Class\ that\ contains\ a\ card\ that\ can\ be\ clicked\ to\ spawn\ a\ troop\ or\ building.\ \n\ Can\ be\ bundled\ in\ a\ CardDeck.\ \n\ \n\ @author\ Jerry\ Zhu\n\ @version\ January\ 2022\n
 comment1.params=cardName
 comment1.target=Card(java.lang.String)
-comment1.text=\r\n\ Default\ constructor\ of\ card.\ \r\n\ \r\n\ @param\ cardName\ \ \ \ \ The\ name\ of\ the\ card\ object.\ \r\n
+comment1.text=\n\ Default\ constructor\ of\ card.\ \n\ \n\ @param\ cardName\ \ \ \ \ The\ name\ of\ the\ card\ object.\ \n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Card\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Card\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment3.params=
 comment3.target=void\ checkClick()
-comment3.text=\r\n\ Check\ if\ the\ card\ has\ been\ clicked.\ \r\n
+comment3.text=\n\ Check\ if\ the\ card\ has\ been\ clicked.\ \n
 comment4.params=imageName
 comment4.target=void\ changeImage(java.lang.String)
-comment4.text=\r\n\ Change\ the\ image\ of\ the\ card.\r\n\ \r\n\ @param\ cardName\ \ \ \ \ The\ new\ name\ of\ the\ card\ object.\ \r\n
+comment4.text=\n\ Change\ the\ image\ of\ the\ card.\n\ \n\ @param\ cardName\ \ \ \ \ The\ new\ name\ of\ the\ card\ object.\ \n
 comment5.params=
 comment5.target=java.lang.String\ getCardName()
-comment5.text=\r\n\ Returns\ the\ name\ of\ the\ card.\ \r\n\ \r\n\ @return\ String\ \ \ \ \ \ The\ name\ of\ the\ desired\ card.\ \r\n
+comment5.text=\n\ Returns\ the\ name\ of\ the\ card.\ \n\ \n\ @return\ String\ \ \ \ \ \ The\ name\ of\ the\ desired\ card.\ \n
 numComments=6

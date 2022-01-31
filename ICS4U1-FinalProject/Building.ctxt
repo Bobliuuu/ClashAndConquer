@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Building
-comment0.text=\r\n\ Building\ Class\r\n\ <p>\r\n\ Abstract\ superclass\ for\ buildings\ to\ be\ placed\ in\ the\ level.\ \r\n\ \r\n\ @author\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
+comment0.text=\n\ Building\ Class\n\ <p>\n\ Abstract\ superclass\ for\ buildings\ to\ be\ placed\ in\ the\ level.\ \n\ \n\ @author\ Jerry\ Zhu\n\ @version\ January\ 2022\n
 comment1.params=
 comment1.target=void\ act()
-comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Building\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment1.text=\n\ Act\ -\ do\ whatever\ the\ Building\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment2.params=health
 comment2.target=void\ subtractHealth(int)
 comment3.params=
 comment3.target=boolean\ enemy()
-comment3.text=\r\n\ Checks\ if\ the\ building\ is\ an\ enemy.\r\n\ \r\n\ @return\ boolean\ \ \ If\ the\ building\ is\ an\ enemy\ or\ not.\ \r\n
+comment3.text=\n\ Checks\ if\ the\ building\ is\ an\ enemy.\n\ \n\ @return\ boolean\ \ \ If\ the\ building\ is\ an\ enemy\ or\ not.\ \n
 numComments=4
