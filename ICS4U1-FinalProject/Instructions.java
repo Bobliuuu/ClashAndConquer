@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Iinstructions Class
  * 
- * @author 
- * @version (a version number or a date)
+ * @author Ibrahim Rahman, Jerry Zhu
+ * @version January 2022
  */
 public class Instructions extends World
 {

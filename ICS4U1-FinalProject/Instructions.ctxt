@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Instructions
-comment0.text=\r\n\ Iinstructions\ Class\r\n\ \r\n\ @author\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Iinstructions\ Class\r\n\ \r\n\ @author\ Ibrahim\ Rahman,\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
 comment1.params=
 comment1.target=Instructions()
 comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Instructions.\r\n\ \r\n
