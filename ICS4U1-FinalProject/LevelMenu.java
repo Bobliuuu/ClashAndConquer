@@ -48,6 +48,7 @@ public class LevelMenu extends World
         if (UserInfo.isStorageAvailable()){
             user = UserInfo.getMyInfo();
             level = user.getScore();
+            level = 20;
         }
         else {
             level = 1;
