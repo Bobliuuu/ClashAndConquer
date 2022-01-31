@@ -144,19 +144,19 @@ public class EnemyAI extends Actor
             spawnChances[0] = 35;
             spawnChances[1] = 25;
             spawnChances[2] = 20;
-            spawnChances[3] = 10;
-            spawnChances[4] = 10;
+            spawnChances[3] = 15;
+            spawnChances[4] = 5;
             attackIncrease = 120;
             healthIncrease = 120;
         }
         else if (level == 12){
             countdown = 175 - Greenfoot.getRandomNumber(50);
             originalTime = countdown;
-            spawnChances[0] = 30;
+            spawnChances[0] = 35;
             spawnChances[1] = 25;
             spawnChances[2] = 20;
-            spawnChances[3] = 15;
-            spawnChances[4] = 10;
+            spawnChances[3] = 13;
+            spawnChances[4] = 7;
             attackIncrease = 132;
             healthIncrease = 132;
         }
@@ -181,17 +181,6 @@ public class EnemyAI extends Actor
             spawnChances[4] = 2;
             attackIncrease = 156;
             healthIncrease = 156;
-        }
-        else if (level == 15){
-            countdown = 165 - Greenfoot.getRandomNumber(50);
-            originalTime = countdown;
-            spawnChances[0] = 26;
-            spawnChances[1] = 25;
-            spawnChances[2] = 30;
-            spawnChances[3] = 15;
-            spawnChances[4] = 4;
-            attackIncrease = 168;
-            healthIncrease = 168;
         }
         
         // decreases the atack and health increase while increasing the time between summonings for easy mode
