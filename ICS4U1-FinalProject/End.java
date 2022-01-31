@@ -38,6 +38,7 @@ public class End extends World
      * @param width                The width of the background.
      * @param height               The height of the background. 
      * @param density              The density of the stars on the background. 
+     * @param fill                 Fill the background. 
      * @return GreenfootImage      The desired background image of the World.
      */
     private static GreenfootImage drawStars(Color color, int width, int height, int density, boolean fill){
