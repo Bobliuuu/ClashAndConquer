@@ -14,6 +14,8 @@ public class End extends World
     private GreenfootImage background;
     private GreenfootImage stars;
     private Image credits;
+    private GreenfootSound music;
+    private UserInfo user;
     
     /**
      * Constructor for objects of class End.
@@ -29,6 +31,23 @@ public class End extends World
         setBackground(stars);
         credits = new Image(new GreenfootImage("creditstext.png"));
         addObject(credits, getWidth() / 2, getHeight() / 2);
+    }
+    
+    /**
+     * When World is created, start the music and set the volume. 
+     */
+    public void started(){
+        if (UserInfo.isStorageAvailable()){
+            user = UserInfo.getMyInfo();
+            if (music != null){
+                music.stop();
+            }
+            music = new GreenfootSound("endsong.mp3");
+            music.playLoop();
+            if (music != null){
+                music.setVolume(user.getInt(2));
+            }
+        }
     }
     
     /**

@@ -134,7 +134,7 @@ public class Level extends World
                     music.stop();
                 }
                 music = new GreenfootSound("mainsong" + user.getInt(3) + ".mp3");
-                music.play();
+                music.playLoop();
             }
             if (music != null){
                 music.setVolume(user.getInt(2));
