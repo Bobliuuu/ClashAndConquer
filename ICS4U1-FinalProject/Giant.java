@@ -26,7 +26,7 @@ public class Giant extends Troop
      * @param isEnemy           Whether the Giant belongs to the enemy
      */
     public Giant(int health, int attack, double movementSpeed, double attackSpeed, boolean isEnemy){
-        super(health, attack, movementSpeed, attackSpeed, 200, 150, isEnemy);
+        super(health, attack, movementSpeed, attackSpeed, 120, 80, isEnemy);
         animationCount = 0;
         attackCount = -1;
         animations = new GreenfootImage[19];
