@@ -4,7 +4,7 @@ import java.util.ArrayList;
 /**
  * The class that controls how the enemy acts during the levels and how it changes depending on the level
  * 
- * @author Matthew Gong, Daniel Qian
+ * @author Matthew Gong, Daniel Qian. Jerry Zhu
  * @version January 2022
  */
 public class EnemyAI extends Actor
@@ -247,15 +247,15 @@ public class EnemyAI extends Actor
             if(rand > chance && rand <= chance+spawnChances[i]){
                 // spawning different troops depending on i
                 if(i == 0){
-                    Knight knight = new Knight(100 + healthIncrease, 10 + attackIncrease, 1, 3, 60, true);
+                    Knight knight = new Knight(100 + healthIncrease, 10 + attackIncrease, 1, 3, 150, true);
                     getWorld().addObject(knight, x + Greenfoot.getRandomNumber(540), y);
                 }
                 else if(i == 1){
-                    Archer archer = new Archer(70 + healthIncrease, 8 + attackIncrease, 1, 5, 120, true);
+                    Archer archer = new Archer(70 + healthIncrease, 8 + attackIncrease, 1, 5, 200, true);
                     getWorld().addObject(archer, x + Greenfoot.getRandomNumber(540), y);
                 }
                 else if(i == 2){
-                    Skeleton skeleton = new Skeleton(20 + healthIncrease, 5 + attackIncrease, 1, 6, 140, true);
+                    Skeleton skeleton = new Skeleton(20 + healthIncrease, 5 + attackIncrease, 1, 6, 120, true);
                     int pos = x + Greenfoot.getRandomNumber(540);
                     getWorld().addObject(skeleton, pos+20, y);
                     getWorld().addObject(skeleton, pos-20, y);
@@ -265,11 +265,11 @@ public class EnemyAI extends Actor
                     getWorld().addObject(skeleton, pos-20, y-20);
                 }
                 else if(i == 3){
-                    Giant giant = new Giant(240 + healthIncrease, 18 + attackIncrease, 1, 6, 140, true);
+                    Giant giant = new Giant(240 + healthIncrease, 18 + attackIncrease, 1, 6, 200, true);
                     getWorld().addObject(giant, x + Greenfoot.getRandomNumber(540), y);
                 }
                 else if(i == 4){
-                    Tombstone tombstone = new Tombstone(170, true, 120);
+                    Tombstone tombstone = new Tombstone(200, true, 100);
                     getWorld().addObject(tombstone, x + Greenfoot.getRandomNumber(540), y);
                 }
             }

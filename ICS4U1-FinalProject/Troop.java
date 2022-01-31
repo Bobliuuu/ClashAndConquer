@@ -4,13 +4,15 @@ import java.util.Queue;
 import java.util.LinkedList;
 
 /**
- * Write a description of class Troop here.
+ * Troop superclass for all troops.
+ * Contains variables and methods to control their movements in the level. 
  * 
  * @author Matthew Gong, Jerry Zhu
- * @version (a version number or a date)
+ * @version January 2022
  */
 public abstract class Troop extends SuperSmoothMover
 {
+    // Instance variables
     protected int health;
     protected int attack;
     protected int statusLength;
@@ -27,6 +29,14 @@ public abstract class Troop extends SuperSmoothMover
     protected final int[][] enemyPath = {{130, 585}, {670, 585}, {400, 680}};
     protected final int[][] myPath = {{130, 170}, {670, 170}, {400, 100}};
     
+    /**
+     * The most complicated constructor of Troop, with the ability to control health, attack, movement speed, attack speed, and radius. 
+     * 
+     * @param health         The health of the troop.
+     * @param attack         The strength of attack of the troop. 
+     * @param movementSpeed  The movement speed of the troop. 
+     * @param attackSpeed    The attack speed of the troop. 
+     */
     public Troop(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
         this.health = health;
         this.attack = attack;
@@ -40,11 +50,19 @@ public abstract class Troop extends SuperSmoothMover
         actNumber = 0;
     }
     
+    /**
+     * Check if the troop has been added to the world. 
+     * 
+     * @param world     The world the troop has been added to. 
+     */
     protected void addedToWorld(World world){
         getPath();
         getWorld().addObject(healthBar, getX(), getY()+50);
     }
     
+    /**
+     * Gets the path of the troop. 
+     */
     public void getPath(){
         path = new LinkedList <Coordinate> ();
         // Find closest bridge
@@ -84,6 +102,9 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
+    /**
+     * Act method to be run each iteration. 
+     */
     public void act(){
         if (((Level)getWorld()).finished){
             return;
@@ -106,6 +127,9 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
+    /**
+     * Finds the nearest enemy target. 
+     */
     public void findTarget(){
         target = null;
         double closestDistance = radius;
@@ -139,6 +163,9 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
+    /**
+     * Move the troop towards the target. 
+     */
     public void moveTowardsTarget(){
         if (target != null){ //target exists
             turnTowards(target.getX(), target.getY());
@@ -158,6 +185,9 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
+    /**
+     * Check the status of the troop. 
+     */
     public void checkStatus(){
         if(statusLength != 0) {
             statusLength--;
@@ -167,6 +197,9 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
+    /**
+     * Allow the troop to attack the enemy. 
+     */
     public void attack(){
         attackAnimate();
         if (getAttackCounter() == 40){
@@ -181,6 +214,9 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
+    /**
+     * Subtract health from the troop once it is hit. 
+     */
     public void subtractHealth(int value){
         health -= value;
         if (health <= 0){
@@ -188,21 +224,39 @@ public abstract class Troop extends SuperSmoothMover
         }
     }
     
+    // Abstract methods to animate the troop's movements and attack
     public abstract void animate();
     public abstract void attackAnimate();
     public abstract int getAttackCounter();
     
+    /**
+     * Set the movement speed of the troop. 
+     * 
+     * @param speed     The speed of the troop. 
+     */
     public void setMovementSpeed(double speed){
         this.movementSpeed = speed;
     }
     
+    /**
+     * Set the movement speed of the troop. 
+     * 
+     * @param speed     The speed of the troop. 
+     */
     public void setAttackSpeed(double speed){
         this.attackSpeed = speed;
     }
     
+    /**
+     * Set the attack strength of the troop. 
+     * 
+     * @param attack    The attack strength of the troop. 
+     */
     public void setAttack(int attack){
         this.attack = attack;
     }
+    
+    
     
     public void setHealth(int health){
         this.health = health;
