@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Giant
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Giant\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=health\ attack\ movementSpeed\ attackSpeed\ radius\ isEnemy
-comment1.target=Giant(int,\ int,\ double,\ double,\ double,\ boolean)
+comment1.params=health\ attack\ movementSpeed\ attackSpeed\ isEnemy
+comment1.target=Giant(int,\ int,\ double,\ double,\ boolean)
 comment2.params=
 comment2.target=void\ findTarget()
 comment3.params=

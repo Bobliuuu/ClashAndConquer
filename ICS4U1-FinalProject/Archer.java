@@ -20,11 +20,10 @@ public class Archer extends Troop
      * @param attk              The amount of attack points the Archer has
      * @param movementSpeed     How fast the Archer moves
      * @param attackSpeed       How fast the Archer attacks
-     * @param radius            Attack radius of the Archer
      * @param isEnemy           Whether the Archer belongs to the enemy
      */
-    public Archer(int health, int attack, double movementSpeed, double attackSpeed, double radius, boolean isEnemy){
-        super(health, attack, movementSpeed, attackSpeed, radius, isEnemy);
+    public Archer(int health, int attack, double movementSpeed, double attackSpeed, boolean isEnemy){
+        super(health, attack, movementSpeed, attackSpeed, 150, 90, isEnemy);
         // setting the inital values for the counters and cooldown
         walkCount = 0;
         attackCount = -1;
