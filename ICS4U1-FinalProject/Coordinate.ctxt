@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Coordinate
-comment0.text=\r\n\ A\ simple\ way\ to\ manage\ x,y\ pairs\ with\ precision.\r\n\ \r\n\ Can\ be\ get\ or\ set\ as\ both\ double\ or\ int.\r\n\ \r\n\ (Graphics2D's\ Point2D\ class\ is\ similar,\ but\ not\ supported\r\n\ on\ the\ Greenfoot\ Gallery)\r\n\ \r\n\ @author\ Jordan\ Cohen\r\n
+comment0.text=\n\ A\ simple\ way\ to\ manage\ x,y\ pairs\ with\ precision.\n\ \n\ Can\ be\ get\ or\ set\ as\ both\ double\ or\ int.\n\ \n\ (Graphics2D's\ Point2D\ class\ is\ similar,\ but\ not\ supported\n\ on\ the\ Greenfoot\ Gallery)\n\ \n\ @author\ Jordan\ Cohen\n
 comment1.params=x\ y
 comment1.target=Coordinate(int,\ int)
 comment10.params=

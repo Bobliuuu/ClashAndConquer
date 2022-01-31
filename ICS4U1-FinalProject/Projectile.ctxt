@@ -1,17 +1,19 @@
 #BlueJ class context
 comment0.target=Projectile
-comment0.text=\r\n\ Projectile\ class\ to\ \r\n\ \r\n\ @author\ Matthew\ Gong,\ Jerry\ Zhu\r\n\ @version\ January\ 2022\r\n
+comment0.text=\n\ Projectile\ class\ to\ \n\ \n\ @author\ Matthew\ Gong,\ Jerry\ Zhu\n\ @version\ January\ 2022\n
 comment1.params=damage\ speed\ target
 comment1.target=Projectile(int,\ double,\ greenfoot.Actor)
-comment1.text=\r\n\ Constructor\ of\ the\ Projectile\ class\r\n\ \r\n\ @param\ damage\ \ \ \ The\ damage\ that\ the\ projectile\ will\ deal.\ \r\n\ @param\ speed\ \ \ \ \ The\ speed\ of\ the\ projectile.\ \r\n\ @param\ target\ \ \ \ The\ target\ of\ the\ projectile.\ \r\n
+comment1.text=\n\ Constructor\ of\ the\ Projectile\ class\n\ \n\ @param\ damage\ \ \ \ The\ damage\ that\ the\ projectile\ will\ deal.\ \n\ @param\ speed\ \ \ \ \ The\ speed\ of\ the\ projectile.\ \n\ @param\ target\ \ \ \ The\ target\ of\ the\ projectile.\ \n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Act\ -\ do\ whatever\ the\ Projectile\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Projectile\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment3.params=
 comment3.target=void\ checkForHit()
-comment3.text=\r\n\ Check\ if\ the\ target\ has\ been\ hit.\ \r\n
+comment3.text=\n\ Check\ if\ the\ target\ has\ been\ hit.\ \n
 comment4.params=
 comment4.target=void\ turnTowardsTarget()
+comment4.text=\n\ Turns\ the\ Projectile\ towards\ the\ target\ if\ it\ is\ still\ in\ the\ World\ otherwise\ turn\ towards\ their\ last\ position\n
 comment5.params=x\ y
 comment5.target=double\ findDistanceBetween(double,\ double)
+comment5.text=\n\ Find\ distance\ between\ another\ actor\ with\ a\ certain\ x\ and\ y\ coordinate.\ \n\ \n\ @param\ x\ \ \ \ \ \ The\ x\ coordinate\ of\ the\ actor\n\ @param\ y\ \ \ \ \ \ The\ y\ coordinate\ of\ the\ actor\n
 numComments=6

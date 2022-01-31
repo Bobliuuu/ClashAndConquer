@@ -60,6 +60,9 @@ public class Projectile extends SuperSmoothMover
         }
     }
     
+    /**
+     * Turns the Projectile towards the target if it is still in the World otherwise turn towards their last position
+     */
     private void turnTowardsTarget(){
         if(target.getWorld() != null){
             turnTowards(target.getX(), target.getY());
@@ -69,6 +72,12 @@ public class Projectile extends SuperSmoothMover
         else turnTowards(lastX, lastY);
     }
     
+    /**
+     * Find distance between another actor with a certain x and y coordinate. 
+     * 
+     * @param x      The x coordinate of the actor
+     * @param y      The y coordinate of the actor
+     */
     private double findDistanceBetween(double x, double y){
         return Math.sqrt(Math.pow(this.getX() - x, 2) + Math.pow(this.getY() - y, 2));
     }
