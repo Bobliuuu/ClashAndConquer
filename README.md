@@ -13,3 +13,11 @@ List of Features:
 - Changable volume using a slider. 
 - Instructions page.
 - Reset progress option.
+
+You can find the [Class Diagram](/Documents/ClassDiagram.pdf) and the [Flowchart](/Documents/Flowchart.pdf) in the repository. 
+
+How to access the API:
+1. Open the game file in Greenfoot
+2. Access any class file by double clicking on their icon
+3. Press Control-J or Command-J on the keyboard
+4. The Javadocs/API is there for you to scroll through
