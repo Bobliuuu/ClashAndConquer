@@ -4,6 +4,9 @@
 ## Description
 Clash and Conquer is a battle arena game with 14 levels which progressively get harder. After each level, there are upgrades in the shop which buff your troops, spells, and towers. Finish all 14 levels and conquer the map! 
 
+## Authors 
+Jerry Zhu, Matthew Gong, Ibrahim Rahman, Daniel Qian
+
 ## Instructions: 
 ![Instructions](/ICS4U1-FinalProject/images/Worlds/instructions.png)
 
