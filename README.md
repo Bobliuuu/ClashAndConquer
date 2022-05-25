@@ -17,6 +17,7 @@ Jerry Zhu, Matthew Gong, Ibrahim Rahman, Daniel Qian
 - Player stats tracking (including level, win/loss ratio, gems spent, time played) stored on Greenfoot's UserInfo class. 
 - Leaderboard of top players with the UserInfo class (available on the Greenfoot Gallery). 
 - Queue used to rotate through cards in-game and for troops to target enemy players. 
+- Enemy AI with increased difficulty for each level. 
 - 3 different music tracks.
 - Changable volume using a slider. 
 - Instructions page.
